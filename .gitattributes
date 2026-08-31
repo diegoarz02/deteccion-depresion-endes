@@ -1,0 +1,28 @@
+# Normalización de finales de línea.
+#
+# Git en Windows convierte LF a CRLF al hacer checkout. Para casi todo da igual,
+# pero para un script de shell no: `sh` lee la primera línea entera, incluido el
+# retorno de carro, e intenta ejecutar «/bin/sh\r», que no existe. El hook
+# fallaría con «bad interpreter» en cualquier clon nuevo, y como un hook que
+# falla no bloquea nada, la protección desaparecería sin avisar.
+* text=auto
+
+*.sh    text eol=lf
+*.R     text eol=lf
+Makefile text eol=lf
+.githooks/* text eol=lf
+
+# Binarios: que Git no intente normalizarlos nunca.
+*.png   binary
+*.pdf   binary
+*.xlsx  binary
+*.parquet binary
+*.joblib binary
+*.shp   binary
+*.shx   binary
+*.dbf   binary
+*.sav   binary
+
+# Los notebooks se comparan mal en diff; se marcan para que GitHub no los
+# cuente como código del proyecto en las estadísticas del lenguaje.
+*.ipynb linguist-documentation
