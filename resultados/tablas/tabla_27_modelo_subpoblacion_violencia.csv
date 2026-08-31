@@ -1,0 +1,19 @@
+﻿termino,etiqueta,coeficiente,ee,or,ic_inf,ic_sup,z,p,gl_diseno,significativo,or_formato,etiqueta_legible
+es_mujer,es_mujer,1.169,0.141,3.22,2.445,4.242,8.321,0.0,2978,True,3.22 (2.44 – 4.24),Sexo femenino
+grupo_etario_15-19,grupo_etario: 15-19 (ref. 30-39),0.594,0.391,1.812,0.841,3.903,1.519,0.129,2978,False,1.81 (0.84 – 3.90),Edad 15-19 (ref. 30-39)
+grupo_etario_20-29,grupo_etario: 20-29 (ref. 30-39),0.198,0.156,1.218,0.898,1.654,1.268,0.205,2978,False,1.22 (0.90 – 1.65),Edad 20-29 (ref. 30-39)
+grupo_etario_40-49,grupo_etario: 40-49 (ref. 30-39),0.178,0.175,1.195,0.848,1.684,1.018,0.309,2978,False,1.19 (0.85 – 1.68),Edad 40-49 (ref. 30-39)
+grupo_etario_50-59,grupo_etario: 50-59 (ref. 30-39),0.489,0.189,1.631,1.126,2.364,2.587,0.01,2978,True,1.63 (1.13 – 2.36),Edad 50-59 (ref. 30-39)
+grupo_etario_60+,grupo_etario: 60+ (ref. 30-39),0.507,0.18,1.66,1.167,2.361,2.818,0.005,2978,True,1.66 (1.17 – 2.36),Edad 60+ (ref. 30-39)
+educacion_grupo_Primaria o menos,educacion_grupo: Primaria o menos (ref. Superior),0.509,0.162,1.663,1.211,2.285,3.142,0.002,2978,True,1.66 (1.21 – 2.28),Primaria o menos (ref. Superior)
+educacion_grupo_Secundaria,educacion_grupo: Secundaria (ref. Superior),0.245,0.146,1.277,0.959,1.702,1.672,0.095,2978,False,1.28 (0.96 – 1.70),Secundaria (ref. Superior)
+es_rural,es_rural,-0.084,0.111,0.92,0.74,1.143,-0.757,0.449,2978,False,0.92 (0.74 – 1.14),Área rural
+region_natural_Selva,region_natural: Selva (ref. Costa),-0.29,0.124,0.748,0.587,0.954,-2.346,0.019,2978,True,0.75 (0.59 – 0.95),Selva (ref. Costa)
+region_natural_Sierra,region_natural: Sierra (ref. Costa),0.021,0.115,1.021,0.815,1.279,0.184,0.854,2978,False,1.02 (0.82 – 1.28),Sierra (ref. Costa)
+consumo_frecuente,consumo_frecuente,-0.011,0.213,0.989,0.652,1.5,-0.053,0.958,2978,False,0.99 (0.65 – 1.50),Consumo frecuente de alcohol
+alcohol_problematico,alcohol_problematico,1.515,0.446,4.55,1.897,10.911,3.397,0.001,2978,True,4.55 (1.90 – 10.91),Consumo problemático de alcohol
+fuma_12m,fuma_12m,0.335,0.193,1.398,0.957,2.041,1.735,0.083,2978,False,1.40 (0.96 – 2.04),Fumó en 12 meses
+hta_dx,hta_dx,0.381,0.182,1.463,1.024,2.089,2.094,0.036,2978,True,1.46 (1.02 – 2.09),Hipertensión diagnosticada
+diabetes_dx,diabetes_dx,0.444,0.236,1.559,0.982,2.476,1.884,0.06,2978,False,1.56 (0.98 – 2.48),Diabetes diagnosticada
+obesidad,obesidad,0.181,0.122,1.199,0.944,1.523,1.486,0.137,2978,False,1.20 (0.94 – 1.52),Obesidad (IMC ≥ 30)
+violencia_fisica,violencia_fisica,1.352,0.175,3.864,2.743,5.443,7.737,0.0,2978,True,3.86 (2.74 – 5.44),Violencia física de pareja

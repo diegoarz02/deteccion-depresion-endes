@@ -1,0 +1,18 @@
+﻿termino,etiqueta,or_casos_completos,cc_ic_inf,cc_ic_sup,or_imputado,imp_ic_inf,imp_ic_sup,cambio_pct,fraccion_informacion_perdida,conclusion_cambia
+consumo_frecuente,Consumo frecuente de alcohol,0.835,0.598,1.165,0.826,0.594,1.15,1.011,0.0,False
+alcohol_problematico,Consumo problemático de alcohol,6.088,3.42,10.836,5.979,3.369,10.612,1.808,0.0,False
+fuma_12m,Fumó en 12 meses,1.394,1.055,1.842,1.355,1.03,1.783,2.86,0.0,False
+hta_dx,Hipertensión diagnosticada,1.455,1.16,1.825,1.365,1.082,1.724,6.581,0.0,False
+diabetes_dx,Diabetes diagnosticada,1.33,0.955,1.851,1.486,1.075,2.055,-10.51,0.0,True
+es_mujer,Sexo femenino,2.953,2.41,3.618,2.861,2.328,3.518,3.184,0.0,False
+es_rural,Área rural,0.842,0.719,0.987,0.849,0.724,0.995,-0.778,0.0,False
+obesidad,Obesidad (IMC ≥ 30),1.091,0.919,1.295,1.089,0.917,1.295,0.145,0.037,False
+grupo_etario_20-29,grupo_etario_20-29,0.791,0.594,1.052,0.801,0.603,1.064,-1.303,0.0,False
+grupo_etario_30-39,grupo_etario_30-39,0.475,0.36,0.627,0.478,0.363,0.629,-0.576,0.001,False
+grupo_etario_40-49,grupo_etario_40-49,0.59,0.433,0.804,0.601,0.442,0.818,-1.86,0.001,False
+grupo_etario_50-59,grupo_etario_50-59,0.776,0.558,1.079,0.781,0.564,1.082,-0.63,0.001,False
+grupo_etario_60+,grupo_etario_60+,0.836,0.615,1.135,0.901,0.669,1.213,-7.193,0.001,False
+educacion_grupo_Secundaria,educacion_grupo_Secundaria,0.837,0.684,1.025,0.817,0.662,1.007,2.531,0.0,False
+educacion_grupo_Superior,educacion_grupo_Superior,0.651,0.507,0.836,0.627,0.488,0.806,3.827,0.0,False
+region_natural_Sierra,region_natural_Sierra,1.201,1.014,1.421,1.201,1.016,1.419,0.022,0.0,False
+region_natural_Selva,region_natural_Selva,0.715,0.586,0.873,0.716,0.587,0.872,-0.027,0.0,False

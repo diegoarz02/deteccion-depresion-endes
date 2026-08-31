@@ -1,0 +1,10 @@
+﻿exposicion,variable,bloque,n,n_expuestos,prev_expuestos,prev_no_expuestos,diferencia_riesgo,or,or_ic_inf,or_ic_sup,rp,rp_ic_inf,rp_ic_sup,sobreestimacion_or_pct,p,celda_minima,advertencia,p_fdr,p_bonferroni,or_formato,rp_formato
+Violencia física de pareja,violencia_fisica,Social,19733,794,16.247,5.053,11.194,3.645,2.986,4.45,3.215,2.714,3.809,13.365,0.0,129,,0.0,0.0,3.64 (2.99 – 4.45),3.22 (2.71 – 3.81)
+Sexo femenino,es_mujer,Sociodemográfica,30226,17880,8.792,3.637,5.155,2.554,2.294,2.844,2.417,2.182,2.678,5.652,0.0,449,,0.0,0.0,2.55 (2.29 – 2.84),2.42 (2.18 – 2.68)
+Hipertensión diagnosticada,hta_dx,Clínica,30206,2623,13.0,6.062,6.939,2.316,2.046,2.622,2.145,1.923,2.393,7.976,0.0,341,,0.0,0.0,2.32 (2.05 – 2.62),2.14 (1.92 – 2.39)
+Diabetes diagnosticada,diabetes_dx,Clínica,30202,1159,13.374,6.404,6.969,2.256,1.893,2.689,2.088,1.792,2.433,8.045,0.0,155,,0.0,0.0,2.26 (1.89 – 2.69),2.09 (1.79 – 2.43)
+Consumo problemático de alcohol,alcohol_problematico,Conductual,30208,304,13.158,6.618,6.54,2.138,1.528,2.991,1.988,1.485,2.662,7.531,0.0,40,,0.0,0.0,2.14 (1.53 – 2.99),1.99 (1.48 – 2.66)
+Área rural,es_rural,Sociodemográfica,30226,11277,7.192,6.386,0.806,1.136,1.036,1.246,1.126,1.034,1.227,0.869,0.007,811,,0.008,0.064,1.14 (1.04 – 1.25),1.13 (1.03 – 1.23)
+Obesidad (IMC ≥ 30),obesidad,Clínica,29728,8226,7.099,6.525,0.574,1.095,0.991,1.21,1.088,0.991,1.194,0.618,0.08,584,,0.08,0.724,1.09 (0.99 – 1.21),1.09 (0.99 – 1.19)
+Consumo frecuente de alcohol,consumo_frecuente,Conductual,30208,3171,5.235,6.854,-1.619,0.751,0.638,0.884,0.764,0.654,0.891,-1.708,0.001,166,,0.001,0.006,0.75 (0.64 – 0.88),0.76 (0.65 – 0.89)
+Fumó en los últimos 12 meses,fuma_12m,Conductual,30219,4504,5.129,6.957,-1.828,0.723,0.628,0.832,0.737,0.645,0.842,-1.927,0.0,231,,0.0,0.0,0.72 (0.63 – 0.83),0.74 (0.65 – 0.84)

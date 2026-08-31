@@ -1,0 +1,13 @@
+﻿variable,gl,gvif,gvif_comparable,diagnostico
+es_rural,1,1.415,1.189,Aceptable
+es_mujer,1,1.314,1.146,Aceptable
+fuma_12m,1,1.23,1.109,Aceptable
+consumo_frecuente,1,1.19,1.091,Aceptable
+educacion_grupo,2,1.374,1.083,Aceptable
+region_natural,2,1.296,1.067,Aceptable
+hta_dx,1,1.131,1.064,Aceptable
+alcohol_problematico,1,1.104,1.051,Aceptable
+grupo_etario,5,1.438,1.037,Aceptable
+diabetes_dx,1,1.073,1.036,Aceptable
+obesidad,1,1.07,1.034,Aceptable
+violencia_fisica,1,1.014,1.007,Aceptable

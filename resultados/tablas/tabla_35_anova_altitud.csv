@@ -1,0 +1,2 @@
+﻿variable,factor,n,k_grupos,F,p_anova,F_welch,p_welch,H_kruskal,p_kruskal,eta2,omega2,epsilon2,levene_p,levene_cumple,shapiro_p,asimetria,curtosis,normalidad_cumple,prueba_valida,magnitud_efecto,veredicto
+phq9_score,altitud_categoria,30226,5,76.895,0.0,63.294,0.0,311.754,0.0,0.01,0.01,0.01,0.0,False,0.0,2.392,7.043,False,Kruskal-Wallis,pequeño,"Supuestos: homocedasticidad NO, normalidad NO. Se reporta Kruskal-Wallis. Tamaño de efecto η² = 0.0101 (pequeño)."

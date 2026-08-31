@@ -1,0 +1,20 @@
+﻿variable,etiqueta,shap_medio_abs,importancia_relativa
+es_mujer,es_mujer,0.092,37.199
+edad,edad,0.032,12.931
+region_natural__Selva,region_natural: Selva (ref. Costa),0.019,7.668
+educacion_grupo__Primaria o menos,educacion_grupo: Primaria o menos (ref. Superior),0.016,6.385
+hta_dx,hta_dx,0.014,5.789
+imc,imc,0.013,5.369
+grupo_etario__60+,grupo_etario: 60+ (ref. 30-39),0.011,4.254
+es_rural,es_rural,0.01,4.069
+region_natural__Sierra,region_natural: Sierra (ref. Costa),0.008,3.31
+educacion_grupo__Secundaria,educacion_grupo: Secundaria (ref. Superior),0.006,2.438
+grupo_etario__15-19,grupo_etario: 15-19 (ref. 30-39),0.006,2.259
+diabetes_dx,diabetes_dx,0.005,2.02
+grupo_etario__50-59,grupo_etario: 50-59 (ref. 30-39),0.003,1.341
+fuma_12m,fuma_12m,0.003,1.269
+alcohol_problematico,alcohol_problematico,0.002,0.955
+obesidad,obesidad,0.002,0.885
+grupo_etario__40-49,grupo_etario: 40-49 (ref. 30-39),0.002,0.698
+grupo_etario__20-29,grupo_etario: 20-29 (ref. 30-39),0.001,0.602
+consumo_frecuente,consumo_frecuente,0.001,0.559

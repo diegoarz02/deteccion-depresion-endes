@@ -1,0 +1,13 @@
+\begin{table}[htbp]
+\caption{Comparación de formas funcionales para la altitud}
+\label{tab:tabla_37_forma_funcional_altitud}
+\begin{tabular}{llrrrrl}
+\toprule
+forma & descripcion & aic & gl & log\_verosimilitud & delta\_aic & veredicto \\
+\midrule
+Lineal & Altitud como continua & 14757.782000 & 1 & -7376.891000 & 15.610000 & Peor que el mejor por 15.6 puntos de AIC \\
+Cuadrática & Se permite curvatura & 14742.824000 & 2 & -7368.412000 & 0.652000 & Peor que el mejor por 0.7 puntos de AIC \\
+Spline cúbico & Nudos en [141, 574, 2942] m & 14742.172000 & 4 & -7366.086000 & 0.000000 & Mejor ajuste por AIC \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,4 @@
+﻿forma,descripcion,aic,gl,log_verosimilitud,delta_aic,veredicto
+Lineal,Altitud como continua,14757.782,1,-7376.891,15.61,Peor que el mejor por 15.6 puntos de AIC
+Cuadrática,Se permite curvatura,14742.824,2,-7368.412,0.652,Peor que el mejor por 0.7 puntos de AIC
+Spline cúbico,"Nudos en [141, 574, 2942] m",14742.172,4,-7366.086,0.0,Mejor ajuste por AIC

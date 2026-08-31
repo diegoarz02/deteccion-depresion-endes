@@ -1,0 +1,292 @@
+\begin{longtable}{lllrrrrrrrl}
+\caption{Auditoría de calidad de los datos ENDES 2025} \label{tab:tabla_01_calidad_datos} \\
+\toprule
+variable & descripcion & tipo & n\_validos & pct\_faltantes & n\_unicos & minimo & maximo & media & pct\_categoria\_modal & bandera \\
+\midrule
+\endfirsthead
+\caption[]{Auditoría de calidad de los datos ENDES 2025} \\
+\toprule
+variable & descripcion & tipo & n\_validos & pct\_faltantes & n\_unicos & minimo & maximo & media & pct\_categoria\_modal & bandera \\
+\midrule
+\endhead
+\midrule
+\multicolumn{11}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+ID1 & Año & float64 & 33569 & 0.000000 & 1 & 2025.000000 & 2025.000000 & 2025.000000 & 100.000000 & Varianza casi nula (>98\% en una categoría) \\
+HHID & Identificacion Cuestionario del Hogar & object & 33569 & 0.000000 & 33569 & NaN & NaN & NaN & NaN &  \\
+QHCLUSTER & Conglomerado & float64 & 33569 & 0.000000 & 3252 & 4344.000000 & 7601.000000 & 5974.849000 & 0.050000 &  \\
+QHNUMBER & Vivienda seleccionada & float64 & 33569 & 0.000000 & 272 & 1.000000 & 390.000000 & 64.271000 & 1.110000 &  \\
+QHHOME & Hogar seleccionado & float64 & 33569 & 0.000000 & 5 & 1.000000 & 5.000000 & 1.018000 & 98.480000 & Varianza casi nula (>98\% en una categoría) \\
+QSNUMERO & Número de la persona seleccionada & float64 & 33569 & 0.000000 & 13 & 1.000000 & 14.000000 & 1.856000 & 48.890000 &  \\
+QSINTM & Mes de visita final & float64 & 33569 & 0.000000 & 12 & 1.000000 & 12.000000 & 6.827000 & 10.160000 &  \\
+QSINTY & Año de visita final & float64 & 33569 & 0.000000 & 2 & 2025.000000 & 2026.000000 & 2025.051000 & 94.870000 &  \\
+QSTOTVISIT & Número total de visitas & float64 & 33569 & 0.000000 & 9 & 1.000000 & 9.000000 & 1.591000 & 64.750000 &  \\
+QSRESULT & Codigo resultado final & float64 & 33569 & 0.000000 & 6 & 1.000000 & 9.000000 & 1.373000 & 88.330000 &  \\
+QSNINOS & Total Niños/Niñas de 0 a 11 años & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QSRESINF & Resultado informante & float64 & 33569 & 0.000000 & 6 & 1.000000 & 9.000000 & 1.208000 & 90.040000 &  \\
+QS20C & Codigo persona seleccionada & float64 & 30435 & 9.340000 & 13 & 1.000000 & 14.000000 & 1.827000 & 49.770000 &  \\
+QSSEXO & Sexo de la persona seleccionada & float64 & 30435 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.590000 & 59.000000 &  \\
+QSMEF & Informante en MEF & float64 & 30435 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.561000 & 56.120000 &  \\
+QSDIA & Día de nacimiento & float64 & 30435 & 9.340000 & 31 & 1.000000 & 31.000000 & 15.561000 & 3.890000 &  \\
+QS22M & Mes de nacimiento & float64 & 30435 & 9.340000 & 12 & 1.000000 & 12.000000 & 6.373000 & 9.140000 &  \\
+QS22A & Año de nacimiento & float64 & 30435 & 9.340000 & 86 & 1920.000000 & 2011.000000 & 1984.314000 & 3.090000 &  \\
+QS23 & Años cumplidos & float64 & 30435 & 9.340000 & 83 & 15.000000 & 97.000000 & 40.448000 & 3.160000 &  \\
+QS24 & Asistió a la escuela & float64 & 30435 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.038000 & 96.230000 &  \\
+QS25N & Nivel que aprobó & float64 & 29287 & 12.760000 & 6 & 0.000000 & 5.000000 & 2.237000 & 47.210000 &  \\
+QS25AG & Grado o año & float64 & 29279 & 12.780000 & 2 & 1.000000 & 2.000000 & 1.134000 & 86.640000 &  \\
+QS25A & Año de estudios & float64 & 25366 & 24.440000 & 7 & 0.000000 & 6.000000 & 3.770000 & 48.630000 &  \\
+QS25G & Grado de estudios & float64 & 3913 & 88.340000 & 6 & 1.000000 & 6.000000 & 4.649000 & 50.860000 & Faltantes > 30\% \\
+QS25AA & ¿Cuál es el idioma o lengua materna que aprendió hablar en su niñez & float64 & 30435 & 9.340000 & 12 & 1.000000 & 12.000000 & 7.806000 & 74.030000 &  \\
+QS25BB & Por sus antepasados y de acuerdo a sus costumbres ¿Usted se siente o se consider & float64 & 30435 & 9.340000 & 9 & 1.000000 & 98.000000 & 9.511000 & 40.970000 &  \\
+QS25C1 & Alguna dificultad para ver, aún usando anteojos & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.994000 & 99.420000 & Varianza casi nula (>98\% en una categoría) \\
+QS25C2 & Alguna dificultad para oír, aún usando audífonos & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.997000 & 99.650000 & Varianza casi nula (>98\% en una categoría) \\
+QS25C3 & Alguna dificultad para hablar o comunicarse, aún usando la lengua de señas u otr & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.999000 & 99.890000 & Varianza casi nula (>98\% en una categoría) \\
+QS25C4 & Alguna dificultad para mover o caminar para usar brazos y/o piernas & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.995000 & 99.520000 & Varianza casi nula (>98\% en una categoría) \\
+QS25C5 & Alguna dificultad para entender o aprender (concentrarse y recordarse) & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.998000 & 99.790000 & Varianza casi nula (>98\% en una categoría) \\
+QS25C6 & Alguna dificultad para relacionarse con los demás, por sus pensamientos, sentimi & float64 & 30434 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.998000 & 99.790000 & Varianza casi nula (>98\% en una categoría) \\
+QS26 & Tiene seguro de salud & float64 & 30435 & 9.340000 & 2 & 1.000000 & 2.000000 & 1.066000 & 93.380000 &  \\
+QS27 & Institucion a que corresponde el seguro que tiene & object & 33569 & 0.000000 & 13 & NaN & NaN & NaN & NaN &  \\
+QS28 & Conoce o ha oído hablar de la tuberculosis o TBC & float64 & 13355 & 60.220000 & 2 & 1.000000 & 2.000000 & 1.080000 & 91.970000 & Faltantes > 30\% \\
+QS29A & Ha oído hablar de la infección por VIH & float64 & 13355 & 60.220000 & 2 & 1.000000 & 2.000000 & 1.100000 & 90.030000 & Faltantes > 30\% \\
+QS29B & Ha oído hablar de la enfermedad llamada SIDA & float64 & 13355 & 60.220000 & 2 & 1.000000 & 2.000000 & 1.019000 & 98.050000 & Faltantes > 30\% \\
+QS100 & Algun profesional le ha medido la Presión Arterial & float64 & 30432 & 9.340000 & 3 & 1.000000 & 8.000000 & 1.493000 & 50.970000 &  \\
+QS101 & Donde le midieron la Presión Arterial & float64 & 15510 & 53.800000 & 14 & 10.000000 & 98.000000 & 15.028000 & 40.990000 & Faltantes > 30\% \\
+QS102 & Le diagnosticaron Hipertensión Arterial o Presión Alta & float64 & 30432 & 9.340000 & 3 & 1.000000 & 8.000000 & 1.917000 & 91.270000 &  \\
+QS103U & Unidad de tiempo que le diagnosticaron hipertensión arterial o presión alta & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS103C & Años/meses que diagnosticaron hipertensión arterial o presión arterial alta & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS104 & Compraron medicamentos para controlar su Presión Alta & float64 & 2638 & 92.140000 & 2 & 1.000000 & 2.000000 & 1.375000 & 62.470000 & Faltantes > 30\% \\
+QS105 & Compro con/sin receta médica & float64 & 1648 & 95.090000 & 3 & 1.000000 & 8.000000 & 1.145000 & 89.140000 & Faltantes > 30\% \\
+QS106 & Tomo medicamentos tal cual indico le indico el médico & float64 & 1648 & 95.090000 & 3 & 1.000000 & 8.000000 & 1.177000 & 83.070000 & Faltantes > 30\% \\
+QS107 & Le midieron el azúcar o glucosa en la sangre & float64 & 30432 & 9.340000 & 3 & 1.000000 & 8.000000 & 1.711000 & 70.070000 &  \\
+QS108 & Donde le midieron el azúcar o glucosa en la sangre, última vez & float64 & 9062 & 73.000000 & 14 & 10.000000 & 98.000000 & 15.472000 & 30.740000 & Faltantes > 30\% \\
+QS109 & Le diagnosticaron diabetes o azúcar alta & float64 & 30432 & 9.340000 & 3 & 1.000000 & 8.000000 & 1.967000 & 96.080000 &  \\
+QS110U & Unidad de tiempo en que le diagnosticaron Diabetes o azúcar alta & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS110C & Años/meses diagnosticaron Diabetes o azúcar alta & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS111 & Ha comprado medicamentos para controlar la diabetes o azúcar alta & float64 & 1169 & 96.520000 & 3 & 1.000000 & 8.000000 & 1.333000 & 67.240000 & Faltantes > 30\% \\
+QS112 & Compro con/sin receta médica & float64 & 786 & 97.660000 & 3 & 1.000000 & 8.000000 & 1.095000 & 92.750000 & Faltantes > 30\% \\
+QS113 & Tomó los medicamentos tal cual le indicó el médico & float64 & 786 & 97.660000 & 3 & 1.000000 & 8.000000 & 1.158000 & 84.990000 & Faltantes > 30\% \\
+QS200 & En los  últimos 12 meses ha fumado cigarrillos & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 1.852000 & 85.020000 &  \\
+QS201 & En los últimos 30 días ha fumado cigarrillos & float64 & 4550 & 86.450000 & 3 & 1.000000 & 8.000000 & 1.440000 & 56.350000 & Faltantes > 30\% \\
+QS202 & Fuma diariamente & float64 & 2564 & 92.360000 & 2 & 1.000000 & 2.000000 & 1.883000 & 88.300000 & Faltantes > 30\% \\
+QS203U & Edad que empezó a fumar diariamente - Unidad & float64 & 300 & 99.110000 & 2 & 1.000000 & 8.000000 & 1.093000 & 98.670000 & Faltantes > 30\% \\
+QS203C & Edad que empezó a fumar diariamente & float64 & 296 & 99.120000 & 48 & 12.000000 & 75.000000 & 29.091000 & 12.160000 & Faltantes > 30\% \\
+QS204U & Hace que años empezó a fumar diariamente - Unidad & float64 & 4 & 99.990000 & 1 & 8.000000 & 8.000000 & 8.000000 & 100.000000 & Faltantes > 30\% \\
+QS204C & Cantidad años & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS205U & Cuántos cigarrillos fuma a diario - Unidad & float64 & 300 & 99.110000 & 2 & 1.000000 & 8.000000 & 1.047000 & 99.330000 & Faltantes > 30\% \\
+QS205C & Cantidad de cigarrillos & float64 & 298 & 99.110000 & 13 & 1.000000 & 20.000000 & 4.718000 & 20.810000 & Faltantes > 30\% \\
+QS206 & Ha consumido alguna vez bebidas alcohólicas & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 1.085000 & 91.560000 &  \\
+QS207U & Unidad Edad primera vez que tomo bebidas alcohólicas & float64 & 27852 & 17.030000 & 2 & 1.000000 & 8.000000 & 1.088000 & 98.740000 & Varianza casi nula (>98\% en una categoría) \\
+QS207C & Cantidad  Edad primera vez que tomo bebidas alcohólicas & float64 & 27501 & 18.080000 & 56 & 5.000000 & 77.000000 & 19.122000 & 20.080000 &  \\
+QS208 & En los últimos 12 meses ha consumido alguna bebida alcohólica & float64 & 27852 & 17.030000 & 3 & 1.000000 & 8.000000 & 1.284000 & 71.660000 &  \\
+QS209 & En los últimos 12 meses, tomó bebidas alcohólicas 12 o más días & float64 & 19959 & 40.540000 & 3 & 1.000000 & 8.000000 & 1.843000 & 83.920000 & Faltantes > 30\% \\
+QS210 & En los últimos 30 días ha consumido bebidas alcohólicas & float64 & 19959 & 40.540000 & 3 & 1.000000 & 8.000000 & 1.514000 & 51.310000 & Faltantes > 30\% \\
+QS211U & Unidad Veces que tomo & float64 & 9716 & 71.060000 & 2 & 1.000000 & 8.000000 & 1.004000 & 99.950000 & Faltantes > 30\% \\
+QS211C & Cantidad Veces que tomo & float64 & 9711 & 71.070000 & 23 & 1.000000 & 30.000000 & 1.808000 & 62.310000 & Faltantes > 30\% \\
+QS212T & Tomó bebidas & object & 33569 & 0.000000 & 43 & NaN & NaN & NaN & NaN &  \\
+QS212A & Tomó cerveza & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.268000 & 73.160000 & Faltantes > 30\% \\
+QS212AV & Fueron Vasos/copas & float64 & 7105 & 78.830000 & 24 & 0.000000 & 98.000000 & 2.783000 & 59.790000 & Faltantes > 30\% \\
+QS212AB & Fueron botellas & float64 & 7105 & 78.830000 & 21 & 0.000000 & 98.000000 & 3.131000 & 38.240000 & Faltantes > 30\% \\
+QS212B & Tomó Vino/cachina & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.855000 & 85.460000 & Faltantes > 30\% \\
+QS212BV & Fueron vasos/copas & float64 & 1412 & 95.790000 & 15 & 0.000000 & 98.000000 & 2.834000 & 32.790000 & Faltantes > 30\% \\
+QS212BB & Fueron botellas & float64 & 1412 & 95.790000 & 9 & 0.000000 & 98.000000 & 0.409000 & 90.860000 & Faltantes > 30\% \\
+QS212C & Tomó chicha de jora fermentada & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.962000 & 96.220000 & Faltantes > 30\% \\
+QS212CV & Fueron vasos/copas & float64 & 367 & 98.910000 & 18 & 0.000000 & 98.000000 & 4.150000 & 21.800000 & Faltantes > 30\% \\
+QS212CB & Fueron botellas & float64 & 367 & 98.910000 & 7 & 0.000000 & 98.000000 & 0.398000 & 93.190000 & Faltantes > 30\% \\
+QS212D & Tomó masato fermentado & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.986000 & 98.600000 & Faltantes > 30\% \\
+QS212DV & Fueron vasos/copas & float64 & 136 & 99.590000 & 16 & 0.000000 & 98.000000 & 4.007000 & 35.290000 & Faltantes > 30\% \\
+QS212DB & Fueron botellas & float64 & 136 & 99.590000 & 8 & 0.000000 & 98.000000 & 1.978000 & 62.500000 & Faltantes > 30\% \\
+QS212E & Tomó Yonque/cañazo & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.950000 & 95.020000 & Faltantes > 30\% \\
+QS212EV & Fueron vasos/copas & float64 & 484 & 98.560000 & 17 & 0.000000 & 98.000000 & 4.215000 & 23.140000 & Faltantes > 30\% \\
+QS212EB & Fueron botellas & float64 & 484 & 98.560000 & 9 & 0.000000 & 98.000000 & 1.320000 & 80.580000 & Faltantes > 30\% \\
+QS212F & Tomó Anisado & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.998000 & 99.800000 & Faltantes > 30\% \\
+QS212FV & Fueron vasos/copas & float64 & 19 & 99.940000 & 7 & 0.000000 & 20.000000 & 3.421000 & 26.320000 & Faltantes > 30\% \\
+QS212FB & Fueron botellas & float64 & 19 & 99.940000 & 3 & 0.000000 & 2.000000 & 0.158000 & 89.470000 & Faltantes > 30\% \\
+QS212G & Tomó Whisky/pisco /ron & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.872000 & 87.160000 & Faltantes > 30\% \\
+QS212GV & Fueron vasos/copas & float64 & 1247 & 96.290000 & 22 & 0.000000 & 98.000000 & 4.087000 & 20.530000 & Faltantes > 30\% \\
+QS212GB & Fueron botellas & float64 & 1247 & 96.290000 & 8 & 0.000000 & 98.000000 & 0.552000 & 89.170000 & Faltantes > 30\% \\
+QS212O & Tomó otro & float64 & 9712 & 71.070000 & 2 & 1.000000 & 2.000000 & 1.984000 & 98.450000 & Faltantes > 30\% \\
+QS212XV & Fueron vasos/copas & float64 & 151 & 99.550000 & 13 & 0.000000 & 98.000000 & 3.258000 & 27.810000 & Faltantes > 30\% \\
+QS212XB & Fueron botellas & float64 & 151 & 99.550000 & 6 & 0.000000 & 98.000000 & 0.894000 & 87.420000 & Faltantes > 30\% \\
+QS212Z & No sabe/no recuerda & float64 & 9712 & 71.070000 & 2 & 0.000000 & 1.000000 & 0.000000 & 99.990000 & Faltantes > 30\% \\
+QS213U & Cuántos días consumió frutas - Unidad & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 1.177000 & 91.270000 &  \\
+QS213C & Cantidad de días que consumió frutas & float64 & 27764 & 17.290000 & 7 & 1.000000 & 7.000000 & 4.420000 & 36.570000 &  \\
+QS214U & Cuántas tajadas o racimos de fruta comió - Unicad & float64 & 27764 & 17.290000 & 2 & 1.000000 & 8.000000 & 1.005000 & 99.930000 & Varianza casi nula (>98\% en una categoría) \\
+QS214C & Cantidad de tajadas o racimos de fruta que comió & float64 & 27744 & 17.350000 & 12 & 1.000000 & 9.000000 & 1.972000 & 41.480000 &  \\
+QS215U & Cuántos días tomó jugo de frutas - Unidad & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 2.130000 & 56.160000 &  \\
+QS215C & Cantidad de días tomó jugo de frutas & float64 & 13306 & 60.360000 & 7 & 1.000000 & 7.000000 & 2.699000 & 30.330000 & Faltantes > 30\% \\
+QS216U & Cuántos vasos de jugo tomo - Unidad & float64 & 13306 & 60.360000 & 2 & 1.000000 & 8.000000 & 1.001000 & 99.990000 & Faltantes > 30\% \\
+QS216C & Cantidad de vasos de jugo que tomo & float64 & 13305 & 60.370000 & 11 & 1.000000 & 9.000000 & 1.458000 & 63.320000 & Faltantes > 30\% \\
+QS217U & Cuántos días comió ensalada frutas - Unidad & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 2.649000 & 81.780000 &  \\
+QS217C & Cantidad de días ensalada frutas & float64 & 5486 & 83.660000 & 7 & 1.000000 & 7.000000 & 1.989000 & 49.560000 & Faltantes > 30\% \\
+QS218U & Cuántas porciones de ensalada de frutas comió - Unidad & float64 & 5486 & 83.660000 & 2 & 1.000000 & 8.000000 & 1.010000 & 99.850000 & Faltantes > 30\% \\
+QS218C & Cantidad porciones ensalada frutas & float64 & 5478 & 83.680000 & 9 & 1.000000 & 8.000000 & 1.160000 & 88.900000 & Faltantes > 30\% \\
+QS219U & Cuántos días comió ensalada de verduras - Unidad & float64 & 30420 & 9.380000 & 3 & 1.000000 & 8.000000 & 1.524000 & 73.990000 &  \\
+QS219C & Días que comió ensalada de verduras & float64 & 22507 & 32.950000 & 7 & 1.000000 & 7.000000 & 3.285000 & 24.940000 & Faltantes > 30\% \\
+QS220U & Cuántas porciones ensalada verduras comió - Unidad & float64 & 22507 & 32.950000 & 3 & 1.000000 & 8.000000 & 1.101000 & 90.170000 & Faltantes > 30\% \\
+QS220CV & Cantidad porciones ensalada verduras & float64 & 20295 & 39.540000 & 11 & 1.000000 & 9.000000 & 1.217000 & 87.000000 & Faltantes > 30\% \\
+QS220CC & Cantidad cucharadas & float64 & 2192 & 93.470000 & 6 & 1.000000 & 7.000000 & 2.559000 & 41.060000 & Faltantes > 30\% \\
+QS301 & Alguna vez un médico/personal de salud le ha evaluado o medido la vista & float64 & 8306 & 75.260000 & 3 & 1.000000 & 8.000000 & 1.408000 & 60.820000 & Faltantes > 30\% \\
+QS302U & Hace cuánto tiempo que le evaluaron - Unidad & float64 & 5052 & 84.950000 & 3 & 1.000000 & 8.000000 & 1.507000 & 57.030000 & Faltantes > 30\% \\
+QS302C & Hace cuánto tiempo que le evaluaron - cantidad & float64 & 4987 & 85.140000 & 44 & 0.000000 & 60.000000 & 6.790000 & 18.110000 & Faltantes > 30\% \\
+QS303 & Lugar donde la evaluaron & float64 & 5052 & 84.950000 & 15 & 10.000000 & 98.000000 & 19.746000 & 38.260000 & Faltantes > 30\% \\
+QS304 & Le han diagnosticado Catarata & float64 & 8306 & 75.260000 & 3 & 1.000000 & 8.000000 & 1.857000 & 83.600000 & Faltantes > 30\% \\
+QS305U & Tiempo que le diagnosticaron - Unidad & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS305C & Tiempo que le diagnosticaron - cantidad & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS306 & En los últimos 12 meses ha tenido dificultad para ver o reconocer a una distanci & float64 & 8306 & 75.260000 & 3 & 1.000000 & 8.000000 & 1.781000 & 77.560000 & Faltantes > 30\% \\
+QS307 & En los últimos 30 días continúa con la dificultad & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS308 & En los últimos 12 meses dificultad ver imagen o texto brazo extendido & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS309 & En los últimos 30 días continúa con esa dificultad & float64 & 0 & 100.000000 & 0 & NaN & NaN & NaN & NaN & Faltantes > 30\% \\
+QS311 & Alguna vez ha sido atendido en servicio dental o un odontólogo & float64 & 5021 & 85.040000 & 3 & 1.000000 & 8.000000 & 1.199000 & 81.660000 & Faltantes > 30\% \\
+QS312U & Hace cuánto tiempo - Unidad & float64 & 4100 & 87.790000 & 3 & 1.000000 & 8.000000 & 1.773000 & 53.410000 & Faltantes > 30\% \\
+QS312C & Hace cuánto tiempo - cantidad & float64 & 3960 & 88.200000 & 54 & 0.000000 & 68.000000 & 8.001000 & 15.300000 & Faltantes > 30\% \\
+QS313 & Donde le atendieron la última vez & float64 & 4100 & 87.790000 & 13 & 10.000000 & 98.000000 & 18.319000 & 65.830000 & Faltantes > 30\% \\
+QS401 & Se puede prevenir el cáncer & float64 & 29144 & 13.180000 & 3 & 1.000000 & 8.000000 & 1.377000 & 86.250000 &  \\
+QS402 & Ha oído hablar de cáncer cuello uterino/cervical & float64 & 29144 & 13.180000 & 3 & 1.000000 & 8.000000 & 1.201000 & 83.460000 &  \\
+QS403 & Ha oído del virus papiloma humano & float64 & 24325 & 27.540000 & 3 & 1.000000 & 8.000000 & 1.213000 & 83.550000 &  \\
+QS404 & Cree que el virus papiloma humano causa el cáncer uterino & float64 & 20323 & 39.460000 & 3 & 1.000000 & 8.000000 & 1.638000 & 87.650000 & Faltantes > 30\% \\
+QS404C & Cree que el análisis de sangre para el dosaje del Antígeno Prostático Específico & float64 & 29143 & 13.180000 & 3 & 1.000000 & 8.000000 & 2.955000 & 62.000000 &  \\
+QS406 & Se realizo un chequeo general, descarte algun tipo de cáncer & float64 & 27342 & 18.550000 & 3 & 1.000000 & 8.000000 & 1.742000 & 73.810000 &  \\
+QS407 & Donde le realizaron el chequeo & object & 33569 & 0.000000 & 1 & NaN & NaN & NaN & NaN & Constante \\
+QS409 & Alguna vez un médico/profesional salud le ha realizado un examen físico de mama & float64 & 11191 & 66.660000 & 3 & 1.000000 & 8.000000 & 1.637000 & 63.070000 & Faltantes > 30\% \\
+QS410U & Hace cuánto tiempo del examen de mama - Unidad & float64 & 4123 & 87.720000 & 3 & 1.000000 & 8.000000 & 1.532000 & 50.470000 & Faltantes > 30\% \\
+QS410C & Hace cuánto tiempo del examen de mama - cantidad & float64 & 4098 & 87.790000 & 36 & 0.000000 & 41.000000 & 6.892000 & 17.200000 & Faltantes > 30\% \\
+QS411 & Alguna vez un médico/profesional de salud le ha realizado la prueba de Papanicol & float64 & 12823 & 61.800000 & 3 & 1.000000 & 8.000000 & 1.219000 & 78.470000 & Faltantes > 30\% \\
+QS412U & Hace cuánto tiempo de la prueba papanicolaou - Unidad & float64 & 10062 & 70.030000 & 3 & 1.000000 & 8.000000 & 1.506000 & 53.360000 & Faltantes > 30\% \\
+QS412C & Hace cuánto tiempo de la prueba papanicolaou - cantidad & float64 & 9995 & 70.230000 & 34 & 0.000000 & 35.000000 & 7.125000 & 17.040000 & Faltantes > 30\% \\
+QS413 & Recogió o llegó a  conocer los resultados de la prueba de Papanicolaou & float64 & 10062 & 70.030000 & 3 & 1.000000 & 8.000000 & 1.198000 & 81.660000 & Faltantes > 30\% \\
+QS413A & Alguna vez en su vida un médico u otro profesional de salud le ha realizado la P & float64 & 12823 & 61.800000 & 3 & 1.000000 & 8.000000 & 1.885000 & 82.430000 & Faltantes > 30\% \\
+QS413B & Hace cuánto tiempo le realizaron la última vez la prueba de Inspección de Ácido  & float64 & 2142 & 93.620000 & 3 & 1.000000 & 8.000000 & 1.446000 & 60.410000 & Faltantes > 30\% \\
+QS413B\_A & Años/meses en que le realizaron la prueba de Inspección de Ácido Acético (IVAA) & float64 & 2124 & 93.670000 & 29 & 0.000000 & 35.000000 & 6.647000 & 18.130000 & Faltantes > 30\% \\
+QS413C & Recogió o llegó a conocer los resultados de la prueba de Inspección de Ácido Acé & float64 & 2142 & 93.620000 & 3 & 1.000000 & 8.000000 & 1.124000 & 89.310000 & Faltantes > 30\% \\
+QS413D & Alguna vez en su vida un médico u otro profesional de salud le ha realizado la P & float64 & 12823 & 61.800000 & 3 & 1.000000 & 8.000000 & 1.909000 & 85.710000 & Faltantes > 30\% \\
+QS413E & Hace cuánto tiempo le realizaron la última vez la Prueba Molecular del Virus del & float64 & 1737 & 94.830000 & 3 & 1.000000 & 8.000000 & 1.490000 & 57.920000 & Faltantes > 30\% \\
+QS413E\_A & Años/meses en que le realizaron la prueba Molecular del Virus del Papiloma Human & float64 & 1717 & 94.890000 & 28 & 0.000000 & 30.000000 & 6.637000 & 18.930000 & Faltantes > 30\% \\
+QS413F & Recogió o llegó a conocer los resultados de la Prueba Molecular del Virus del Pa & float64 & 1737 & 94.830000 & 3 & 1.000000 & 8.000000 & 1.138000 & 88.260000 & Faltantes > 30\% \\
+QS415 & Alguna vez un médico/profesional de salud le ha realizado un examen de mamografí & float64 & 6063 & 81.940000 & 3 & 1.000000 & 8.000000 & 1.751000 & 74.570000 & Faltantes > 30\% \\
+QS416U & Hace cuanto tiempo le realizaron la mamografía - Unidad & float64 & 1537 & 95.420000 & 3 & 1.000000 & 8.000000 & 1.568000 & 54.980000 & Faltantes > 30\% \\
+QS416C & Hace cuanto tiempo le realizaron la mamografía - cantidad & float64 & 1533 & 95.430000 & 30 & 0.000000 & 44.000000 & 6.997000 & 16.110000 & Faltantes > 30\% \\
+QS418A & Alguna vez en su vida le han realizado el análisis de sangre para el dosaje de A & float64 & 3161 & 90.580000 & 3 & 1.000000 & 8.000000 & 1.781000 & 73.680000 & Faltantes > 30\% \\
+QS419A & Hace cuánto tiempo realizaron la última vez el análisis de sangre para el dosaje & float64 & 812 & 97.580000 & 3 & 1.000000 & 8.000000 & 1.329000 & 69.330000 & Faltantes > 30\% \\
+QS419A\_A & Hace cuánto tiempo realizaron la última vez el análisis de sangre para el dosaje & float64 & 809 & 97.590000 & 21 & 0.000000 & 24.000000 & 6.104000 & 16.440000 & Faltantes > 30\% \\
+QS500 & Actualmente tiene tos con flema & float64 & 30409 & 9.410000 & 2 & 1.000000 & 2.000000 & 1.910000 & 90.960000 &  \\
+QS501U & Hace cuánto tiene tos con flema - Unidad & float64 & 2749 & 91.810000 & 3 & 1.000000 & 8.000000 & 1.186000 & 87.560000 & Faltantes > 30\% \\
+QS501C & Hace cuánto tiene tos con flema - cantidad & float64 & 2721 & 91.890000 & 23 & 0.000000 & 36.000000 & 5.532000 & 22.160000 & Faltantes > 30\% \\
+QS503 & Conoce o ha oído hablar de una enfermedad llamada tuberculosis, TB o TBC & float64 & 17058 & 49.190000 & 3 & 1.000000 & 8.000000 & 1.128000 & 91.090000 & Faltantes > 30\% \\
+QS505A & La tuberculosis se contagia cuando la persona enferma tose o estornuda cerca a o & float64 & 27817 & 17.130000 & 3 & 1.000000 & 8.000000 & 1.289000 & 88.730000 &  \\
+QS505B & Se contagia cuando una persona enferma habla cerca con otra persona & float64 & 27817 & 17.130000 & 3 & 1.000000 & 8.000000 & 1.444000 & 77.330000 &  \\
+QS505C & Se contagia cuando una persona enferma toca a otra & float64 & 27817 & 17.130000 & 3 & 1.000000 & 8.000000 & 1.968000 & 66.590000 &  \\
+QS505D & Se contagia cuando una persona enferma comparte alimentos o utensilios con otra  & float64 & 27817 & 17.130000 & 3 & 1.000000 & 8.000000 & 1.278000 & 87.110000 &  \\
+QS506 & Se puede curar la tuberculosis & float64 & 27817 & 17.130000 & 3 & 1.000000 & 8.000000 & 1.804000 & 73.320000 &  \\
+QS506B & Si un miembro de su familia tuviera tuberculosis¿Usted guardaría en secreto su e & float64 & 15538 & 53.710000 & 3 & 1.000000 & 8.000000 & 1.691000 & 58.000000 & Faltantes > 30\% \\
+QS601A & Ha oído hablar de infección por VIH & float64 & 8756 & 73.920000 & 2 & 1.000000 & 2.000000 & 1.081000 & 91.950000 & Faltantes > 30\% \\
+QS601B & Ha oído hablar de una enfermedad llamada SIDA & float64 & 8756 & 73.920000 & 2 & 1.000000 & 2.000000 & 1.016000 & 98.420000 & Faltantes > 30\% \\
+QS603 & En los últimos 12 meses se ha hecho una prueba de SIDA (VIH) & float64 & 21774 & 35.140000 & 3 & 1.000000 & 8.000000 & 1.742000 & 73.230000 & Faltantes > 30\% \\
+QS604 & Conoció los resultados del examen de laboratorio & float64 & 5800 & 82.720000 & 3 & 1.000000 & 8.000000 & 1.050000 & 95.310000 & Faltantes > 30\% \\
+QS606 & Las personas tienen menos riesgo de adquirir el virus que causa el VIH (SIDA), s & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.251000 & 85.460000 & Faltantes > 30\% \\
+QS607 & Es posible que una persona que parece saludable este infectada con el virus que  & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.364000 & 81.890000 & Faltantes > 30\% \\
+QS608 & Las personas pueden adquirir el virus que causa el SIDA (VIH) por dar un abrazo, & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.787000 & 66.150000 & Faltantes > 30\% \\
+QS609 & Las personas pueden adquirir el virus que causa el SIDA (VIH) por la picadura de & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.847000 & 48.250000 & Faltantes > 30\% \\
+QS610 & Las personas pueden adquirir el virus que causa el SIDA (VIH) compartiendo alime & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.734000 & 53.730000 & Faltantes > 30\% \\
+QS611 & Las personas que usan condón cada vez que tienen relaciones sexuales tienen meno & float64 & 8880 & 73.550000 & 3 & 1.000000 & 8.000000 & 1.305000 & 82.640000 & Faltantes > 30\% \\
+QS700A & Últimos 14 días ha sentido molestias o problemas como:  Poco interés & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.408000 & 70.680000 &  \\
+QS700B & Últimos 14 días ha sentido molestias o problemas como: Deprimido & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.453000 & 67.660000 &  \\
+QS700C & Últimos 14 días ha sentido molestias o problemas como: No puede dormir/dormir de & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.389000 & 74.790000 &  \\
+QS700D & Últimos 14 días ha sentido molestias o problemas como: Cansado & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.333000 & 76.080000 &  \\
+QS700E & Últimos 14 días ha sentido molestias o problemas como: Poco apetito/comer en exc & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.298000 & 80.150000 &  \\
+QS700F & Últimos 14 días ha sentido molestias o problemas como: Poner atencion & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.244000 & 83.070000 &  \\
+QS700G & Últimos 14 días ha sentido molestias o problemas como: Moverse & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.209000 & 85.600000 &  \\
+QS700H & Últimos 14 días ha sentido molestias o problemas como: Hacerse daño de alguna fo & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.097000 & 93.260000 &  \\
+QS700I & Últimos 14 días ha sentido molestias o problemas como: Sentirse mal & float64 & 30401 & 9.440000 & 4 & 0.000000 & 3.000000 & 0.165000 & 88.660000 &  \\
+QS702 & Estas molestias o problema, cuanto le han dificultado para realizar su trabajo,  & float64 & 15036 & 55.210000 & 3 & 1.000000 & 3.000000 & 2.166000 & 56.780000 & Faltantes > 30\% \\
+QS703 & Últimos 12 meses, ha tenido molestias o problemas mencionados anteriormente como & float64 & 30401 & 9.440000 & 2 & 1.000000 & 2.000000 & 1.701000 & 70.090000 &  \\
+QS704T & Ahora hablemos solo de las molestias o problemas que tuvo cuando (en) & object & 33569 & 0.000000 & 1 & NaN & NaN & NaN & NaN & Constante \\
+QS704A & Últimos 12 meses: tuvo pocas ganas o interés en hacer las cosas & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 1.470000 & 42.150000 & Faltantes > 30\% \\
+QS704B & Últimos 12 meses: se sintió desanimada(o), deprimida(o), triste o sin esperanza & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 1.555000 & 44.940000 & Faltantes > 30\% \\
+QS704C & Últimos 12 meses: tuvo problemas para dormir o mantenerse dormida(o) o en dormir & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 1.289000 & 34.380000 & Faltantes > 30\% \\
+QS704D & Últimos 12 meses: se sintió cansada(o) o tuvo poca energía sin motivo que lo jus & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 1.039000 & 39.090000 & Faltantes > 30\% \\
+QS704E & Últimos 12 meses: tuvo poco apetito o ha comido en exceso & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 1.078000 & 38.510000 & Faltantes > 30\% \\
+QS704F & Últimos 12 meses: ha tenido dificultad en poner atención o concentrarse en las c & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 0.884000 & 48.670000 & Faltantes > 30\% \\
+QS704G & Últimos 12 meses: dificultad para moverse o hablar más lento de lo normal o se h & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 0.820000 & 53.960000 & Faltantes > 30\% \\
+QS704H & Últimos 12 meses: ha tenido pensamientos de morir o de hacerse daño & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 0.364000 & 77.910000 & Faltantes > 30\% \\
+QS704I & Últimos 12 meses: se ha sentido mal de sí misma(o) o ha sentido que es una(un) f & float64 & 9092 & 72.920000 & 4 & 0.000000 & 3.000000 & 0.561000 & 67.110000 & Faltantes > 30\% \\
+QS706 & Las molestias o problema cuánto le han dificultado para realizar su trabajo, sus & float64 & 9077 & 72.960000 & 3 & 1.000000 & 3.000000 & 1.871000 & 59.180000 & Faltantes > 30\% \\
+QS707 & En los últimos 12 meses recibió tratamiento de algún profesional de salud por de & float64 & 30401 & 9.440000 & 3 & 1.000000 & 8.000000 & 1.963000 & 96.130000 &  \\
+QS708\_A & ¿Dónde recibió tratamiento? - General (Minsa/Gobierno Regional) & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.190000 & 80.980000 & Faltantes > 30\% \\
+QS708\_AA & ¿Dónde recibió tratamiento? -  Hospital Psiquiátrico & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.007000 & 99.310000 & Faltantes > 30\% \\
+QS708\_AB & ¿Dónde recibió tratamiento? -  Instituto Nacional de Salud Mental & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.010000 & 98.970000 & Faltantes > 30\% \\
+QS708\_B & ¿Dónde recibió tratamiento? - ESSALUD & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.116000 & 88.430000 & Faltantes > 30\% \\
+QS708\_C & ¿Dónde recibió tratamiento? - FFAA y PNP & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.004000 & 99.570000 & Faltantes > 30\% \\
+QS708\_D & ¿Dónde recibió tratamiento? -  Hospital/ Otro Municipal & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.015000 & 98.540000 & Faltantes > 30\% \\
+QS708\_E & ¿Dónde recibió tratamiento? -  Centro/ Puesto del MINSA & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.350000 & 65.040000 & Faltantes > 30\% \\
+QS708\_EA & ¿Dónde recibió tratamiento? -  Centro de Salud Mental Comunitaria & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.066000 & 93.400000 & Faltantes > 30\% \\
+QS708\_F & ¿Dónde recibió tratamiento? -  Policlínico/ Posta de ESSALUD/ UBAP & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.013000 & 98.710000 & Faltantes > 30\% \\
+QS708\_G & ¿Dónde recibió tratamiento? -  Clínica Particular & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.129000 & 87.150000 & Faltantes > 30\% \\
+QS708\_H & ¿Dónde recibió tratamiento? -  Consultorio Particular & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.108000 & 89.200000 & Faltantes > 30\% \\
+QS708\_I & ¿Dónde recibió tratamiento? -  Clínica/ Posta de ONG & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.002000 & 99.830000 & Faltantes > 30\% \\
+QS708\_J & ¿Dónde recibió tratamiento? - Hospital/ Otro de Iglesia & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.003000 & 99.740000 & Faltantes > 30\% \\
+QS708\_X & ¿Dónde recibió tratamiento? -  Otro & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.033000 & 96.660000 & Faltantes > 30\% \\
+QS708\_Y & ¿Dónde recibió tratamiento? -  No Sabe/No Recuerda & float64 & 1167 & 96.520000 & 2 & 0.000000 & 1.000000 & 0.002000 & 99.830000 & Faltantes > 30\% \\
+QS709 & Últimos 12 meses ha estado casada(o) o conviviendo & float64 & 30401 & 9.440000 & 2 & 1.000000 & 2.000000 & 1.347000 & 65.260000 &  \\
+QS710 & Últimos 12 meses cuantas veces su pareja le golpeó con el pie, el puño o alguna  & float64 & 19841 & 40.890000 & 4 & 1.000000 & 4.000000 & 1.050000 & 96.150000 & Faltantes > 30\% \\
+QS711 & Últimos 12 meses cuantas veces su pareja le golpeó, agredió con un objeto como:  & float64 & 19841 & 40.890000 & 4 & 1.000000 & 4.000000 & 1.010000 & 99.180000 & Faltantes > 30\% \\
+QS713 & Últimos 12 meses hubo momentos en que la bebida o la resaca le dificultaron real & float64 & 3197 & 90.480000 & 4 & 1.000000 & 9.000000 & 1.791000 & 77.320000 & Faltantes > 30\% \\
+QS714 & Últimos 12 meses hubo momentos en que el consumo de alcohol le provocó discusion & float64 & 3197 & 90.480000 & 4 & 1.000000 & 9.000000 & 1.885000 & 87.110000 & Faltantes > 30\% \\
+QS715 & Siguió bebiendo a pesar que le provocaba estos problemas con estas personas & float64 & 406 & 98.790000 & 2 & 1.000000 & 2.000000 & 1.490000 & 50.990000 & Faltantes > 30\% \\
+QS716 & Últimos 12 meses hubo momentos que estuvo bajo los efectos del alcohol en situac & float64 & 3197 & 90.480000 & 4 & 1.000000 & 9.000000 & 1.926000 & 90.870000 & Faltantes > 30\% \\
+QS717 & Le han detenido más de una vez por alterar el orden o manejar bajo los efectos d & float64 & 3197 & 90.480000 & 4 & 1.000000 & 9.000000 & 1.983000 & 96.060000 & Faltantes > 30\% \\
+QS719 & Últimos 12 meses hubo momentos en que tuvo tantas ganas de beber que no pudo res & float64 & 951 & 97.170000 & 3 & 1.000000 & 8.000000 & 1.799000 & 77.710000 & Faltantes > 30\% \\
+QS720 & Últimos 12 meses hubo momentos que necesitó beber más cantidad de alcohol para s & float64 & 951 & 97.170000 & 3 & 1.000000 & 8.000000 & 1.891000 & 88.330000 & Faltantes > 30\% \\
+QS721 & Últimos 12 meses hubo momentos en que tuvo síntomas como cansancio, dolores de c & float64 & 951 & 97.170000 & 4 & 1.000000 & 9.000000 & 1.870000 & 85.380000 & Faltantes > 30\% \\
+QS722 & Últimos 12 meses hubo momentos en que tomó un vaso, copa o botella para evitar t & float64 & 814 & 97.580000 & 3 & 1.000000 & 8.000000 & 1.957000 & 94.840000 & Faltantes > 30\% \\
+QS723 & Últimos 12 meses hubo momentos en que continúo bebiendo a pesar que se había pro & float64 & 951 & 97.170000 & 3 & 1.000000 & 8.000000 & 1.713000 & 69.820000 & Faltantes > 30\% \\
+QS724 & Últimos 12 meses hubo momentos en que bebió más frecuentemente o durante más día & float64 & 666 & 98.020000 & 3 & 1.000000 & 8.000000 & 1.937000 & 90.540000 & Faltantes > 30\% \\
+QS725 & Últimos 12 meses hubo momentos en que empezó a beber y se emborrachó cuando no q & float64 & 606 & 98.190000 & 2 & 1.000000 & 2.000000 & 1.800000 & 80.030000 & Faltantes > 30\% \\
+QS726 & Últimos 12 meses hubo momentos en qué intentó beber menos o dejar de beber y no  & float64 & 951 & 97.170000 & 4 & 1.000000 & 9.000000 & 1.764000 & 73.190000 & Faltantes > 30\% \\
+QS727 & Últimos 12 meses hubieron períodos de varios días o más en los que pasó tanto ti & float64 & 951 & 97.170000 & 3 & 1.000000 & 9.000000 & 1.892000 & 88.330000 & Faltantes > 30\% \\
+QS728 & Últimos 12 meses tuvo un período de un mes o más que dejó de hacer actividades i & float64 & 951 & 97.170000 & 3 & 1.000000 & 9.000000 & 1.895000 & 88.640000 & Faltantes > 30\% \\
+QS729 & Últimos 12 meses hubo momentos en que siguió bebiendo aunque sabía que tenía un  & float64 & 951 & 97.170000 & 3 & 1.000000 & 9.000000 & 1.868000 & 85.910000 & Faltantes > 30\% \\
+QS730 & Últimos 12 meses recibió tratamiento de algún profesional de la salud por consum & float64 & 27834 & 17.080000 & 3 & 1.000000 & 8.000000 & 2.001000 & 99.840000 & Varianza casi nula (>98\% en una categoría) \\
+QS731\_A & ¿Dónde recibió tratamiento? - General (Minsa/Gobierno Regional) & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.118000 & 88.240000 & Faltantes > 30\% \\
+QS731\_AA & ¿Dónde recibió tratamiento? -  Hospital Psiquiátrico & float64 & 33 & 99.900000 & 1 & 0.000000 & 0.000000 & 0.000000 & 100.000000 & Faltantes > 30\% \\
+QS731\_AB & ¿Dónde recibió tratamiento? -  Instituto Nacional de Salud Mental & float64 & 33 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.061000 & 93.940000 & Faltantes > 30\% \\
+QS731\_B & ¿Dónde recibió tratamiento? - ESSALUD & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.059000 & 94.120000 & Faltantes > 30\% \\
+QS731\_C & ¿Dónde recibió tratamiento? - FFAA y PNP & float64 & 34 & 99.900000 & 1 & 0.000000 & 0.000000 & 0.000000 & 100.000000 & Faltantes > 30\% \\
+QS731\_D & ¿Dónde recibió tratamiento? -  Hospital/ Otro Municipal & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.029000 & 97.060000 & Faltantes > 30\% \\
+QS731\_E & ¿Dónde recibió tratamiento? -  Centro/ Puesto del MINSA & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.382000 & 61.760000 & Faltantes > 30\% \\
+QS731\_EA & ¿Dónde recibió tratamiento? -  Centro de Salud Mental Comunitaria & float64 & 33 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.121000 & 87.880000 & Faltantes > 30\% \\
+QS731\_F & ¿Dónde recibió tratamiento? -  Policlínico/ Posta de ESSALUD/ UBAP & float64 & 34 & 99.900000 & 1 & 0.000000 & 0.000000 & 0.000000 & 100.000000 & Faltantes > 30\% \\
+QS731\_G & ¿Dónde recibió tratamiento? -  Clínica Particular & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.118000 & 88.240000 & Faltantes > 30\% \\
+QS731\_H & ¿Dónde recibió tratamiento? -  Consultorio Particular & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.059000 & 94.120000 & Faltantes > 30\% \\
+QS731\_I & ¿Dónde recibió tratamiento? -  Clínica/ Posta de ONG & float64 & 34 & 99.900000 & 1 & 0.000000 & 0.000000 & 0.000000 & 100.000000 & Faltantes > 30\% \\
+QS731\_J & ¿Dónde recibió tratamiento? - Hospital/ Otro de Iglesia & float64 & 34 & 99.900000 & 1 & 0.000000 & 0.000000 & 0.000000 & 100.000000 & Faltantes > 30\% \\
+QS731\_X & ¿Dónde recibió tratamiento? -  Otro & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.059000 & 94.120000 & Faltantes > 30\% \\
+QS731\_Y & ¿Dónde recibió tratamiento? -  No Sabe/No Recuerda & float64 & 34 & 99.900000 & 2 & 0.000000 & 1.000000 & 0.029000 & 97.060000 & Faltantes > 30\% \\
+QFIN & Final de Entrevista del Informante & object & 33569 & 0.000000 & 1 & NaN & NaN & NaN & NaN & Constante \\
+QS8INICIO & Indicación inicio capítulo 8 & object & 33569 & 0.000000 & 1 & NaN & NaN & NaN & NaN & Constante \\
+QS900 & Personas de 15 años a màs de edad - Peso en kilogramos & float64 & 30396 & 9.450000 & 930 & 25.600000 & 999.900000 & 83.025000 & 1.660000 &  \\
+QS901 & Personas de 15 años a màs de edad - Talla en centímetros & float64 & 30396 & 9.450000 & 563 & 115.100000 & 999.900000 & 170.817000 & 1.680000 &  \\
+QS902 & Resultado medición antropométrica & float64 & 30401 & 9.440000 & 6 & 1.000000 & 6.000000 & 2.341000 & 54.990000 &  \\
+QS903S & Primera medición presión arterial sistólica & float64 & 30131 & 10.240000 & 153 & 64.000000 & 220.000000 & 117.483000 & 2.710000 &  \\
+QS903D & Primera medición presión arterial diastólica & float64 & 30131 & 10.240000 & 93 & 40.000000 & 140.000000 & 74.590000 & 4.360000 &  \\
+QS905S & Segunda medición presión arterial sistólica & float64 & 30131 & 10.240000 & 148 & 61.000000 & 220.000000 & 115.769000 & 2.790000 &  \\
+QS905D & Segunda medición presión arterial diastólica & float64 & 30131 & 10.240000 & 92 & 40.000000 & 142.000000 & 73.722000 & 4.150000 &  \\
+QS906 & Resultado medición presión arterial & float64 & 30401 & 9.440000 & 4 & 1.000000 & 6.000000 & 1.018000 & 99.110000 & Varianza casi nula (>98\% en una categoría) \\
+QS907 & Perímetro abdominal en centímetros & float64 & 30397 & 9.450000 & 791 & 54.800000 & 999.900000 & 119.423000 & 3.050000 &  \\
+QS908 & Resultado de la medición del perímetro abdominal & float64 & 30401 & 9.440000 & 4 & 1.000000 & 6.000000 & 1.101000 & 96.940000 &  \\
+Peso15\_AMAS & Factor ponderado & float64 & 30226 & 9.960000 & 24221 & 21475.029000 & 19369346.815000 & 1196744.806000 & 0.020000 &  \\
+HV022 & Estrato & float64 & 33569 & 0.000000 & 240 & 1.000000 & 250.000000 & 125.757000 & 3.100000 &  \\
+HV024 & Región & float64 & 33569 & 0.000000 & 25 & 1.000000 & 25.000000 & 13.015000 & 12.170000 &  \\
+HV023 & Dominio & float64 & 33569 & 0.000000 & 25 & 1.000000 & 25.000000 & 13.015000 & 12.170000 &  \\
+HV025 & Área de residencia & float64 & 33569 & 0.000000 & 2 & 1.000000 & 2.000000 & 1.352000 & 64.790000 &  \\
+HV040 & Altitud del conglomerado en metros & float64 & 33569 & 0.000000 & 1647 & 1.000000 & 4500.000000 & 1392.362000 & 0.640000 &  \\
+UBIGEO & Código de Ubicación Gegráfica & object & 33569 & 0.000000 & 927 & NaN & NaN & NaN & NaN &  \\
+HV026 & Lugar de residencia & float64 & 33569 & 0.000000 & 4 & 0.000000 & 3.000000 & 1.842000 & 35.210000 &  \\
+HV009 & Total de personas en el hogar & float64 & 33569 & 0.000000 & 18 & 1.000000 & 25.000000 & 3.930000 & 24.690000 &  \\
+HV001 & Conglomerado & object & 33569 & 0.000000 & 3252 & NaN & NaN & NaN & NaN &  \\
+LONGITUDX & Longitud a nivel centro poblado & float64 & 33569 & 0.000000 & 3978 & -81.274000 & -3.513000 & -73.065000 & 0.050000 &  \\
+LATITUDY & Latitud  a nivel centro poblado & float64 & 33569 & 0.000000 & 3978 & -80.797000 & -2.450000 & -13.197000 & 0.050000 &  \\
+NOMCCPP & Nombre del Centro Poblado & object & 33569 & 0.000000 & 1907 & NaN & NaN & NaN & NaN &  \\
+\end{longtable}

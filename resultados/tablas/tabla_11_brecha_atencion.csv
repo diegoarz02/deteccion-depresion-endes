@@ -1,0 +1,18 @@
+﻿grupo,categoria,n,brecha
+Nacional,Total,2021,87.568
+Sexo,Hombre,449,92.205
+Sexo,Mujer,1572,86.242
+Área de residencia,Rural,811,92.593
+Área de residencia,Urbano,1210,84.202
+Región natural,Costa,744,83.445
+Región natural,Sierra,969,91.116
+Región natural,Selva,308,86.364
+Nivel educativo,Primaria o menos,573,92.496
+Nivel educativo,Secundaria,815,86.364
+Nivel educativo,Superior,419,80.43
+Grupo etario,15-19,201,81.0
+Grupo etario,20-29,342,84.795
+Grupo etario,30-39,368,87.772
+Grupo etario,40-49,246,86.585
+Grupo etario,50-59,270,88.519
+Grupo etario,60+,594,91.231

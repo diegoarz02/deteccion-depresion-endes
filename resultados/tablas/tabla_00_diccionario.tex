@@ -1,0 +1,100 @@
+\begin{longtable}{llrrll}
+\caption{Diccionario de variables del dataset analítico} \label{tab:tabla_00_diccionario} \\
+\toprule
+variable & tipo & n\_valido & pct\_faltantes & categorias & regla\_de\_construccion \\
+\midrule
+\endfirsthead
+\caption[]{Diccionario de variables del dataset analítico} \\
+\toprule
+variable & tipo & n\_valido & pct\_faltantes & categorias & regla\_de\_construccion \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+HHID & object & 33569 & 0.000000 &  & Identificador del hogar en la ENDES. Con QSNUMERO forma la llave. \\
+QSNUMERO & float64 & 33569 & 0.000000 & 1.0 a 14.0 & Número de orden de la persona dentro del hogar. \\
+peso & float64 & 30226 & 9.960000 & 0.0 a 19.4 & Peso15\_AMAS / 1,000,000 (ficha técnica ENDES 2025, pág. 12). Es un peso RELATIVO normalizado, no un factor de expansión: sirve para proporciones y errores estándar, no para totales poblacionales. \\
+conglomerado & float64 & 33569 & 0.000000 & 4344.0 a 7601.0 & QHCLUSTER (UPM). \\
+estrato & float64 & 33569 & 0.000000 & 1.0 a 250.0 & HV022, proveniente de RECH0. \\
+tiene\_peso & int64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si la persona tiene ponderador Peso15\_AMAS asignado. Sin él no puede entrar al análisis con diseño complejo. \\
+en\_analisis & int64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si la persona tiene PHQ-9 completo y ponderador. Es la población de análisis del flujograma STROBE (n = 30 226). \\
+phq9\_score & float64 & 30401 & 9.440000 & 0.0 a 27.0 & Suma de QS700A..QS700I (escala 0-3 cada uno). Solo si los 9 ítems están presentes; con cualquier ítem faltante -> NaN, sin imputar. \\
+phq9\_completo & int64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si los nueve ítems del PHQ-9 están presentes; 0 si falta alguno. Es la marca que separa el faltante estructural del aleatorio. \\
+depresion\_bin & Float64 & 30401 & 9.440000 & 0.0 a 1.0 & 1 si phq9\_score >= 10; 0 si no. NaN si PHQ incompleto. \\
+depresion\_leve\_bin & Float64 & 30401 & 9.440000 & 0.0 a 1.0 & 1 si phq9\_score >= 5; 0 si no. \\
+phq9\_categoria & category & 30401 & 9.440000 & Mínima, Leve, Moderada, Moderadamente severa, Severa & Mínima 0-4 / Leve 5-9 / Moderada 10-14 / Mod-severa 15-19 / Severa 20-27. \\
+QS700A & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Poco interés o placer en hacer las cosas». Escala 0-3, tal cual de la encuesta. \\
+QS700B & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Se sintió deprimido(a), decaído(a) o sin esperanza». Escala 0-3, tal cual de la encuesta. \\
+QS700C & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Problemas para dormir o dormir demasiado». Escala 0-3, tal cual de la encuesta. \\
+QS700D & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Se sintió cansado(a) o con poca energía». Escala 0-3, tal cual de la encuesta. \\
+QS700E & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Poco apetito o comer en exceso». Escala 0-3, tal cual de la encuesta. \\
+QS700F & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Dificultad para poner atención o concentrarse». Escala 0-3, tal cual de la encuesta. \\
+QS700G & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Moverse o hablar lento, o estar inquieto(a)». Escala 0-3, tal cual de la encuesta. \\
+QS700H & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Pensamientos de hacerse daño». Escala 0-3, tal cual de la encuesta. No se analiza ni se publica como desenlace independiente (ética, §15.3); alimenta la detección de crisis del agente. \\
+QS700I & float64 & 30401 & 9.440000 & 0.0 a 3.0 & Ítem del PHQ-9: «Se sintió mal consigo mismo(a) o fracasado(a)». Escala 0-3, tal cual de la encuesta. \\
+edad & float64 & 30435 & 9.340000 & 15.0 a 97.0 & QS23 tal cual (15-97). El valor 97 es un tope: '97 o más años'. \\
+edad\_topeada & int64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si la edad declarada es 97, el tope de la encuesta ('97 o más años'). Marca que ese valor está censurado. \\
+grupo\_etario & category & 30435 & 9.340000 & 15-19, 20-29, 30-39, 40-49, 50-59, 60+ & 15-19 / 20-29 / 30-39 / 40-49 / 50-59 / 60+. \\
+sexo & object & 30435 & 9.340000 &  & QS24 recodificada a etiquetas: 1 = Hombre, 2 = Mujer. \\
+es\_mujer & Float64 & 30435 & 9.340000 & 0.0 a 1.0 & 1 si sexo = Mujer; 0 si Hombre. NaN si el sexo falta. \\
+educacion & category & 29287 & 12.760000 & Inicial, Primaria, Secundaria, Superior no univ., Superior univ., Postgrado & QS25 en sus cuatro niveles originales, como categoría ordenada. \\
+educacion\_grupo & category & 29287 & 12.760000 & Primaria o menos, Secundaria, Superior & QS25N agrupado: \{0,1\}=Primaria o menos, \{2\}=Secundaria, \{3,4,5\}=Superior. \\
+departamento & object & 33569 & 0.000000 &  & HV024 (etiquetas limpias; HV023 es idéntica pero trae espacios a la izquierda). \\
+departamento\_norm & object & 33569 & 0.000000 &  & Nombre del departamento sin tildes ni espacios sobrantes, para poder cruzarlo con los shapefiles. \\
+area & object & 33569 & 0.000000 &  & HV025: 1=Urbano, 2=Rural. \\
+es\_rural & Float64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si el área de residencia es rural; 0 si urbana. \\
+region\_natural & category & 33569 & 0.000000 & Costa, Sierra, Selva & Derivada a nivel de conglomerado: Sierra si HV040 >= 1500 m; si no, Costa cuando el departamento pertenece a la vertiente occidental (Tumbes, Piura, Lambayeque, La Libertad, Áncash, Lima, Callao, Ica, Arequipa, Moquegua, Tacna); Selva en cualquier otro caso. \\
+dominio\_inei & category & 33569 & 0.000000 & Lima Metropolitana, Costa, Sierra, Selva & Lima Metropolitana si UBIGEO de provincia es 1501 (Lima) o 0701 (Callao); en caso contrario, la región natural. \\
+ubigeo & object & 33569 & 0.000000 &  & Código INEI de seis dígitos, rellenado con ceros a la izquierda. \\
+cod\_departamento & object & 33569 & 0.000000 &  & Dígitos 1-2 del UBIGEO. 25 unidades: 24 departamentos más la Provincia Constitucional del Callao. \\
+cod\_provincia & object & 33569 & 0.000000 &  & Dígitos 1-4 del UBIGEO. Acumulativo: el código de provincia solo es único dentro de su departamento. \\
+cod\_distrito & object & 33569 & 0.000000 &  & UBIGEO completo de seis dígitos, único a nivel nacional. \\
+longitud & float64 & 33569 & 0.000000 & -81.3 a -68.7 & LONGITUDX del centro poblado, tras corregir los registros con los campos intercambiados. NaN si el punto cae fuera del Perú. \\
+latitud & float64 & 33569 & 0.000000 & -18.2 a -2.5 & LATITUDY del centro poblado, con la misma corrección que longitud. \\
+coord\_estado & object & 33569 & 0.000000 &  & Trazabilidad de la corrección: correcta / corregida (campos intercambiados) / descartada (fuera del territorio) / sin dato. \\
+NOMCCPP & object & 33569 & 0.000000 &  & Nombre del centro poblado, tal como viene en RECH0. No se usa en el análisis; se conserva para poder auditar casos concretos. \\
+altitud & float64 & 33569 & 0.000000 & 1.0 a 4500.0 & HV040, altitud del conglomerado en metros sobre el nivel del mar. \\
+altitud\_categoria & category & 33569 & 0.000000 & Costa / selva baja (0-499 m), Yunga (500-1 999 m), Quechua (2 000-2 999 m), Suni (3 000-3 999 m), Puna (4 000 m o más) & Piso altitudinal de Pulgar Vidal: Costa/selva baja (0-499), Yunga (500-1 999), Quechua (2 000-2 999), Suni (3 000-3 999), Puna (4 000+). Ordinal. \\
+altitud\_100m & float64 & 33569 & 0.000000 & 0.0 a 45.0 & altitud / 100. El OR por metro sería ilegible (1,0001). \\
+altitud\_km & float64 & 33569 & 0.000000 & 0.0 a 4.5 & altitud / 1000, para los modelos que reportan por kilómetro. \\
+gran\_altitud & Float64 & 33569 & 0.000000 & 0.0 a 1.0 & 1 si altitud >= 2 500 m. El corte es el de la literatura sobre altitud y depresión, no un cuantil de esta muestra. \\
+alcohol\_alguna\_vez & Float64 & 30416 & 9.390000 & 0.0 a 1.0 & QS400 = Sí (consumió alcohol alguna vez en la vida). \\
+consumo\_alcohol\_12m & Float64 & 30413 & 9.400000 & 0.0 a 1.0 & QS208 (1=Sí,2=No). Quien responde 'No' en QS206 (nunca bebió) se fija en 0. \\
+consumo\_frecuente & Float64 & 30402 & 9.430000 & 0.0 a 1.0 & QS209 = Sí (12 o más días en 12 meses). Quien no bebió en 12 meses se fija en 0. \\
+consumo\_30d & Float64 & 30410 & 9.410000 & 0.0 a 1.0 & QS402 = Sí (consumo en los últimos 30 días). Se fija en 0 para quienes no bebieron en 12 meses: es un salto de cuestionario, no un dato ausente. \\
+n\_criterios\_abuso & float64 & 30402 & 9.430000 & 0.0 a 4.0 & Número de criterios de abuso satisfechos (0-4), evaluados con lógica OR sobre sus ítems: actividades (QS713), social (QS715), riesgo (QS716), legal (QS717). Filtrado por QS209==1; quien no llegó al bloque = 0 (no aplica -> 0). \\
+alcohol\_problematico & Float64 & 30402 & 9.430000 & 0.0 a 1.0 & 1 si n\_criterios\_abuso >= 2. \\
+n\_criterios\_dependencia & float64 & 30402 & 9.430000 & 0.0 a 8.0 & Número de criterios de dependencia satisfechos (0-8) sobre QS719-QS729, agrupando por criterio y no por ítem: abstinencia = QS721 o QS722; 'más de lo previsto' = QS723 o QS724 o QS725. Esta agrupación es necesaria porque el cuestionario salta la pregunta siguiente cuando la anterior fue 'Sí' (el criterio ya quedó satisfecho): contar ítems en crudo penalizaría a los casos más graves. Filtrado por alguna de QS713-717 == Sí; quien no llegó = 0. \\
+alcohol\_dependencia & Float64 & 30402 & 9.430000 & 0.0 a 1.0 & 1 si n\_criterios\_dependencia >= 3. \\
+alcohol\_categoria & category & 30413 & 9.400000 & No consumió en 12 meses, Ocasional, Frecuente sin problemas, Consumo problemático & Resumen ordinal del patrón de consumo: sin consumo, consumo sin criterios, abuso, dependencia. \\
+fuma\_12m & Float64 & 30413 & 9.400000 & 0.0 a 1.0 & QS200 = Sí. \\
+fuma\_30d & Float64 & 30410 & 9.410000 & 0.0 a 1.0 & QS201 = Sí; quien no fumó en 12 meses se fija en 0 (no aplica -> 0). \\
+fuma\_diario & Float64 & 30410 & 9.410000 & 0.0 a 1.0 & QS202 = Sí; quien no fumó en 30 días se fija en 0. \\
+tabaco\_categoria & category & 30413 & 9.400000 & No fumó, Fumó en 12 meses, Fumador ocasional, Fumador diario & Resumen ordinal del consumo de tabaco: nunca, exfumador, ocasional, diario. \\
+estado\_pareja & category & 30401 & 9.440000 & Sin pareja, Con pareja & QS709: 1=Con pareja, 2=Sin pareja. Define la SUBPOBLACIÓN del análisis de violencia. \\
+tuvo\_pareja & Float64 & 30401 & 9.440000 & 0.0 a 1.0 & QS800 = Sí (tuvo alguna vez pareja). Define la subpoblación a la que se le pregunta por violencia. \\
+violencia\_fisica & Float64 & 19841 & 40.890000 & 0.0 a 1.0 & 1 si QS710 > 1 o QS711 > 1 (cualquier frecuencia distinta de 'Nunca'). Solo definida en la subpoblación con pareja; NaN para quien no tuvo pareja (no es un 0). QS711 se lee en escala 1-4 pese a que el diccionario del INEI etiqueta 8 y 9. \\
+violencia\_objeto & Float64 & 19841 & 40.890000 & 0.0 a 1.0 & 1 si la pareja lanzó un objeto más de una vez. Solo definida en quienes tuvieron pareja; NaN en el resto. \\
+violencia\_max & float64 & 19841 & 40.890000 & 1.0 a 4.0 & Máximo entre violencia por golpe y por objeto: el peor de los dos indicadores, no su suma. \\
+violencia\_severidad & category & 19841 & 40.890000 & Nunca, Rara vez (1-2 veces), A veces (3-5 veces), A menudo (6 o más veces) & Máximo de QS710 y QS711 en escala Nunca / Rara vez / A veces / A menudo. \\
+peso\_kg & float64 & 29892 & 10.950000 & 25.6 a 181.4 & QS900 en kilogramos, tras convertir a NaN los códigos de no-medición (>= 900). \\
+talla\_cm & float64 & 29884 & 10.980000 & 115.1 a 193.7 & QS901 en centímetros, con la misma limpieza de códigos. \\
+imc & float64 & 29884 & 10.980000 & 13.9 a 70.0 & peso\_kg / (talla\_cm/100)\textasciicircum 2, tras convertir a NaN los códigos de no-medición (>=900). Valores fuera de [12, 70] se descartan por implausibles. \\
+imc\_categoria & category & 29884 & 10.980000 & Bajo peso, Normal, Sobrepeso, Obesidad & Categoría de la OMS: bajo peso (< 18,5), normal (18,5-24,9), sobrepeso (25-29,9), obesidad (>= 30). \\
+obesidad & Float64 & 29884 & 10.980000 & 0.0 a 1.0 & IMC >= 30.0. \\
+perimetro\_abdominal & float64 & 29471 & 12.210000 & 54.8 a 165.8 & QS903 en centímetros, con la misma limpieza. \\
+obesidad\_abdominal & Float64 & 29471 & 12.210000 & 0.0 a 1.0 & Perímetro abdominal >= 102 cm en hombres, >= 88 cm en mujeres. \\
+presion\_sistolica & float64 & 30131 & 10.240000 & 62.5 a 220.0 & Promedio de las dos tomas de presión sistólica. \\
+presion\_diastolica & float64 & 30131 & 10.240000 & 40.0 a 141.0 & Promedio de las dos tomas de presión diastólica. \\
+hta\_medida & Float64 & 30131 & 10.240000 & 0.0 a 1.0 & Promedio de las dos tomas: sistólica >= 140 o diastólica >= 90 mmHg. \\
+hta\_dx & Float64 & 30412 & 9.400000 & 0.0 a 1.0 & QS102 = Sí (diagnóstico autorreportado de hipertensión). \\
+diabetes\_dx & Float64 & 30407 & 9.420000 & 0.0 a 1.0 & QS109 = Sí (diagnóstico autorreportado de diabetes). \\
+n\_cronicas & Float64 & 30432 & 9.340000 & 0.0 a 3.0 & Suma de hta\_dx, diabetes\_dx y obesidad (0-3). \\
+tiene\_cronica & Float64 & 30432 & 9.340000 & 0.0 a 1.0 & 1 si n\_cronicas >= 1 (al menos hipertensión, diabetes u obesidad). \\
+recibio\_tratamiento\_sm & Float64 & 30392 & 9.460000 & 0.0 a 1.0 & QS707 = Sí (recibió tratamiento profesional por depresión/tristeza en 12 meses). \\
+brecha\_atencion & Float64 & 2027 & 93.960000 & 0.0 a 1.0 & 1 - recibio\_tratamiento\_sm, calculada SOLO entre quienes tienen depresion\_bin == 1. NaN para el resto. \\
+\end{longtable}

@@ -1,0 +1,9 @@
+﻿termino,or_diseno,ic_inf_diseno,ic_sup_diseno,p_diseno,or_sin_ponderar,ic_inf_sin_ponderar,ic_sup_sin_ponderar,p_sin_ponderar,cambio_pct,etiqueta
+es_mujer,2.938,2.386,3.617,0.0,2.76,2.436,3.128,0.0,6.425,Sexo femenino
+es_rural,0.836,0.708,0.988,0.036,0.875,0.775,0.989,0.032,-4.47,Área rural
+consumo_frecuente,0.831,0.593,1.164,0.282,1.009,0.828,1.23,0.93,-17.655,Consumo frecuente de alcohol
+alcohol_problematico,6.071,3.407,10.819,0.0,4.1,2.775,6.059,0.0,48.059,Consumo problemático de alcohol
+fuma_12m,1.413,1.066,1.873,0.016,1.304,1.107,1.536,0.001,8.363,Fumó en 12 meses
+hta_dx,1.445,1.133,1.844,0.003,1.568,1.343,1.831,0.0,-7.835,Hipertensión diagnosticada
+diabetes_dx,1.414,1.001,1.997,0.049,1.456,1.181,1.794,0.0,-2.853,Diabetes diagnosticada
+obesidad,1.095,0.917,1.308,0.317,1.03,0.922,1.151,0.602,6.302,Obesidad (IMC ≥ 30)

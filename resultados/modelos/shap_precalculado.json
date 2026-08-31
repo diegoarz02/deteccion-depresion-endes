@@ -1,0 +1,88 @@
+{
+  "importancia": [
+    {
+      "variable": "es_mujer",
+      "etiqueta": "es_mujer",
+      "shap_medio_abs": 0.09248709201604578,
+      "importancia_relativa": 37.19926635398266
+    },
+    {
+      "variable": "edad",
+      "etiqueta": "edad",
+      "shap_medio_abs": 0.032151061947943316,
+      "importancia_relativa": 12.931490123588748
+    },
+    {
+      "variable": "region_natural__Selva",
+      "etiqueta": "region_natural: Selva (ref. Costa)",
+      "shap_medio_abs": 0.019065047019601218,
+      "importancia_relativa": 7.668159379584639
+    },
+    {
+      "variable": "educacion_grupo__Primaria o menos",
+      "etiqueta": "educacion_grupo: Primaria o menos (ref. Superior)",
+      "shap_medio_abs": 0.01587392636092587,
+      "importancia_relativa": 6.38465759828562
+    },
+    {
+      "variable": "hta_dx",
+      "etiqueta": "hta_dx",
+      "shap_medio_abs": 0.01439409092245622,
+      "importancia_relativa": 5.7894524573763935
+    },
+    {
+      "variable": "imc",
+      "etiqueta": "imc",
+      "shap_medio_abs": 0.013347644883300163,
+      "importancia_relativa": 5.368561021749
+    },
+    {
+      "variable": "grupo_etario__60+",
+      "etiqueta": "grupo_etario: 60+ (ref. 30-39)",
+      "shap_medio_abs": 0.01057648466682671,
+      "importancia_relativa": 4.253971680089607
+    },
+    {
+      "variable": "es_rural",
+      "etiqueta": "es_rural",
+      "shap_medio_abs": 0.010116949098615368,
+      "importancia_relativa": 4.069141714865305
+    },
+    {
+      "variable": "region_natural__Sierra",
+      "etiqueta": "region_natural: Sierra (ref. Costa)",
+      "shap_medio_abs": 0.008229140238094325,
+      "importancia_relativa": 3.309845437977853
+    },
+    {
+      "variable": "educacion_grupo__Secundaria",
+      "etiqueta": "educacion_grupo: Secundaria (ref. Superior)",
+      "shap_medio_abs": 0.00606223351904172,
+      "importancia_relativa": 2.4382931116025386
+    },
+    {
+      "variable": "grupo_etario__15-19",
+      "etiqueta": "grupo_etario: 15-19 (ref. 30-39)",
+      "shap_medio_abs": 0.0056158126506532045,
+      "importancia_relativa": 2.2587380144839098
+    },
+    {
+      "variable": "diabetes_dx",
+      "etiqueta": "diabetes_dx",
+      "shap_medio_abs": 0.005021518335698873,
+      "importancia_relativa": 2.0197066855411814
+    },
+    {
+      "variable": "grupo_etario__50-59",
+      "etiqueta": "grupo_etario: 50-59 (ref. 30-39)",
+      "shap_medio_abs": 0.0033339962467054344,
+      "importancia_relativa": 1.3409678226541824
+    },
+    {
+      "variable": "fuma_12m",
+      "etiqueta": "fuma_12m",
+      "shap_medio_abs": 0.0031546672645526032,
+      "importancia_relativa": 1.2688398486128487
+    }
+  ]
+}

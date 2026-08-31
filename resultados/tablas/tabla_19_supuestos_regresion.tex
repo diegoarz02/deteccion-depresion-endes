@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\caption{Verificación de supuestos de la regresión lineal}
+\label{tab:tabla_19_supuestos_regresion}
+\begin{tabular}{lllrl}
+\toprule
+modelo & supuesto & estadistico & p & veredicto \\
+\midrule
+(a) Lineal crudo & Normalidad de residuos & asimetría 2.354, curtosis 7.306 & 0.000000 & Desviación GRAVE de la normalidad (|asimetría|>1 o |curtosis|>3): usar alternativa no paramétrica o transformación \\
+(a) Lineal crudo & Homocedasticidad & Breusch-Pagan & 0.000000 & Heterocedasticidad: usar errores estándar robustos HC3 \\
+(a) Lineal crudo & Linealidad & RESET F = 40.37 & 0.000000 & RESET rechaza linealidad: considerar términos no lineales \\
+(a) Lineal crudo & Observaciones influyentes & 1523 casos con D de Cook > 0.00014 (5.3 \%) & NaN & Revisar casos influyentes \\
+(b) Raíz cuadrada & Normalidad de residuos & asimetría 0.794, curtosis -0.139 & 0.000000 & Rechaza normalidad, pero la desviación es leve: con N grande el teorema central del límite respalda la inferencia sobre los coeficientes \\
+(b) Raíz cuadrada & Homocedasticidad & Breusch-Pagan & 0.000000 & Heterocedasticidad: usar errores estándar robustos HC3 \\
+(b) Raíz cuadrada & Linealidad & RESET F = 19.98 & 0.000000 & RESET rechaza linealidad: considerar términos no lineales \\
+(b) Raíz cuadrada & Observaciones influyentes & 1324 casos con D de Cook > 0.00014 (4.6 \%) & NaN & Sin influencia desproporcionada \\
+(d1) Poisson & Sobredispersión & χ²/gl = 6.064 & NaN & Sobredispersión (razón = 6.06): usar binomial negativa \\
+\bottomrule
+\end{tabular}
+\end{table}

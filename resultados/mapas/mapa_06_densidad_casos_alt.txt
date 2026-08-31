@@ -1,0 +1,1 @@
+Mapa de densidad hexagonal del Perú. Las celdas más oscuras, con más casos ponderados, se concentran en la costa central alrededor de Lima y en los principales núcleos urbanos.

@@ -1,0 +1,1 @@
+Mapa de puntos del Perú con 3,143 conglomerados muestrales. Los puntos se distribuyen por todo el territorio, más densos en la costa y la sierra. El color indica la prevalencia agregada del conglomerado.

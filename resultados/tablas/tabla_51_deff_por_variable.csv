@@ -1,0 +1,16 @@
+﻿variable,etiqueta,tipo,n,deff,n_efectivo,pct_informacion_conservada,lectura
+diabetes_dx,Diabetes diagnosticada,proporcion,30202,3.769,8012.275,26.529,Agrupamiento moderado
+altitud,Altitud de residencia,media,30226,3.728,8107.054,26.821,Agrupamiento moderado
+consumo_frecuente,Consumo frecuente de alcohol,proporcion,30208,3.347,9025.326,29.877,Agrupamiento moderado
+depresion_leve_bin,Síntomas leves o más (PHQ-9 ≥ 5),proporcion,30226,3.269,9246.012,30.59,Agrupamiento moderado
+phq9_score,Puntaje PHQ-9,media,30226,3.261,9269.699,30.668,Agrupamiento moderado
+edad,Edad,media,30226,3.253,9292.066,30.742,Agrupamiento moderado
+hta_dx,Hipertensión diagnosticada,proporcion,30206,3.162,9551.901,31.623,Agrupamiento moderado
+fuma_12m,Tabaquismo en 12 meses,proporcion,30219,3.14,9622.801,31.844,Agrupamiento moderado
+imc,Índice de masa corporal,media,29728,3.098,9595.282,32.277,Agrupamiento moderado
+depresion_bin,Depresión (PHQ-9 ≥ 10),proporcion,30226,3.093,9773.649,32.335,Agrupamiento moderado
+es_mujer,Sexo femenino,proporcion,30226,2.881,10492.454,34.713,Agrupamiento moderado
+alcohol_problematico,Consumo problemático de alcohol,proporcion,30208,2.823,10701.975,35.428,Agrupamiento moderado
+violencia_fisica,Violencia física de pareja,proporcion,19733,2.818,7002.352,35.485,Agrupamiento moderado
+obesidad,Obesidad,proporcion,29728,2.813,10566.494,35.544,Agrupamiento moderado
+es_rural,Residencia rural,proporcion,30226,1.298,23290.635,77.055,Se distribuye de forma pareja dentro de los conglomerados

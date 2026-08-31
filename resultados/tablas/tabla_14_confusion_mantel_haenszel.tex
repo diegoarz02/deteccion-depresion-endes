@@ -1,0 +1,44 @@
+\begin{table}[htbp]
+\caption{Confusión y modificación de efecto por Mantel-Haenszel}
+\label{tab:tabla_14_confusion_mantel_haenszel}
+\begin{tabular}{lllrrrrrrrrl}
+\toprule
+exposicion & variable & estratificador & or\_crudo & or\_mh & mh\_ic\_inf & mh\_ic\_sup & cambio\_pct & p\_homogeneidad & confunde & modifica\_efecto & veredicto \\
+\midrule
+Violencia física de pareja & violencia\_fisica & Sexo & 3.645000 & 3.380000 & 2.762000 & 4.137000 & 7.828000 & 0.017000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Violencia física de pareja & violencia\_fisica & Grupo etario & 3.645000 & 4.263000 & 3.479000 & 5.222000 & -14.489000 & 0.013000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Violencia física de pareja & violencia\_fisica & Área & 3.645000 & 3.667000 & 3.004000 & 4.477000 & -0.598000 & 0.031000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Violencia física de pareja & violencia\_fisica & Nivel educativo & 3.645000 & 3.723000 & 3.045000 & 4.552000 & -2.103000 & 0.018000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Consumo frecuente de alcohol & consumo\_frecuente & Sexo & 0.751000 & 1.004000 & 0.850000 & 1.187000 & -25.250000 & 0.301000 & True & False & Confusión: el ajuste cambia el estimador ≥10 \% \\
+Consumo frecuente de alcohol & consumo\_frecuente & Grupo etario & 0.751000 & 0.872000 & 0.740000 & 1.029000 & -13.916000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Consumo frecuente de alcohol & consumo\_frecuente & Área & 0.751000 & 0.762000 & 0.647000 & 0.898000 & -1.482000 & 0.067000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Consumo frecuente de alcohol & consumo\_frecuente & Nivel educativo & 0.751000 & 0.872000 & 0.739000 & 1.029000 & -13.940000 & 0.003000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Consumo problemático de alcohol & alcohol\_problematico & Sexo & 2.138000 & 3.586000 & 2.538000 & 5.066000 & -40.377000 & 0.390000 & True & False & Confusión: el ajuste cambia el estimador ≥10 \% \\
+Consumo problemático de alcohol & alcohol\_problematico & Grupo etario & 2.138000 & 2.575000 & 1.835000 & 3.615000 & -16.987000 & 0.256000 & True & False & Confusión: el ajuste cambia el estimador ≥10 \% \\
+Consumo problemático de alcohol & alcohol\_problematico & Área & 2.138000 & 2.171000 & 1.551000 & 3.037000 & -1.504000 & 0.383000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Consumo problemático de alcohol & alcohol\_problematico & Nivel educativo & 2.138000 & 2.520000 & 1.799000 & 3.530000 & -15.160000 & 0.472000 & True & False & Confusión: el ajuste cambia el estimador ≥10 \% \\
+Fumó en los últimos 12 meses & fuma\_12m & Sexo & 0.723000 & 1.169000 & 1.006000 & 1.358000 & -38.143000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Fumó en los últimos 12 meses & fuma\_12m & Grupo etario & 0.723000 & 0.792000 & 0.687000 & 0.913000 & -8.702000 & 0.000000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Fumó en los últimos 12 meses & fuma\_12m & Área & 0.723000 & 0.723000 & 0.628000 & 0.833000 & -0.048000 & 0.102000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Fumó en los últimos 12 meses & fuma\_12m & Nivel educativo & 0.723000 & 0.789000 & 0.684000 & 0.909000 & -8.318000 & 0.314000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Hipertensión diagnosticada & hta\_dx & Sexo & 2.316000 & 2.232000 & 1.970000 & 2.530000 & 3.729000 & 0.514000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Hipertensión diagnosticada & hta\_dx & Grupo etario & 2.316000 & 1.643000 & 1.439000 & 1.877000 & 40.912000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Hipertensión diagnosticada & hta\_dx & Área & 2.316000 & 2.315000 & 2.045000 & 2.621000 & 0.013000 & 0.164000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Hipertensión diagnosticada & hta\_dx & Nivel educativo & 2.316000 & 1.973000 & 1.737000 & 2.242000 & 17.343000 & 0.008000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Diabetes diagnosticada & diabetes\_dx & Sexo & 2.256000 & 2.184000 & 1.829000 & 2.607000 & 3.322000 & 0.620000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Diabetes diagnosticada & diabetes\_dx & Grupo etario & 2.256000 & 1.660000 & 1.388000 & 1.985000 & 35.949000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Diabetes diagnosticada & diabetes\_dx & Área & 2.256000 & 2.295000 & 1.925000 & 2.736000 & -1.690000 & 0.022000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Diabetes diagnosticada & diabetes\_dx & Nivel educativo & 2.256000 & 2.066000 & 1.730000 & 2.468000 & 9.216000 & 0.003000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Obesidad (IMC ≥ 30) & obesidad & Sexo & 1.095000 & 0.982000 & 0.887000 & 1.087000 & 11.470000 & 0.003000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Obesidad (IMC ≥ 30) & obesidad & Grupo etario & 1.095000 & 1.174000 & 1.060000 & 1.301000 & -6.780000 & 0.046000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Obesidad (IMC ≥ 30) & obesidad & Área & 1.095000 & 1.115000 & 1.007000 & 1.233000 & -1.785000 & 0.054000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Obesidad (IMC ≥ 30) & obesidad & Nivel educativo & 1.095000 & 1.140000 & 1.030000 & 1.261000 & -3.954000 & 0.391000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Sexo femenino & es\_mujer & Grupo etario & 2.554000 & 2.724000 & 2.444000 & 3.037000 & -6.250000 & 0.009000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Sexo femenino & es\_mujer & Área & 2.554000 & 2.569000 & 2.307000 & 2.861000 & -0.596000 & 0.061000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Sexo femenino & es\_mujer & Nivel educativo & 2.554000 & 2.380000 & 2.135000 & 2.652000 & 7.339000 & 0.000000 & False & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Área rural & es\_rural & Sexo & 1.136000 & 1.166000 & 1.063000 & 1.280000 & -2.595000 & 0.061000 & False & False & Sin confusión relevante (cambio <10 \%) \\
+Área rural & es\_rural & Grupo etario & 1.136000 & 1.006000 & 0.915000 & 1.107000 & 12.921000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+Área rural & es\_rural & Nivel educativo & 1.136000 & 0.821000 & 0.741000 & 0.910000 & 38.350000 & 0.000000 & True & True & Modificación de efecto: reportar OR por estrato, no un OR único \\
+\bottomrule
+\end{tabular}
+\end{table}

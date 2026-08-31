@@ -1,0 +1,7 @@
+﻿exposicion,variable,or_crudo,crudo_ic_inf,crudo_ic_sup,p_crudo,or_ajustado,ajustado_ic_inf,ajustado_ic_sup,p_ajustado,cambio_pct,cambia_de_direccion
+Consumo frecuente de alcohol,consumo_frecuente,0.72,0.553,0.938,0.015,1.13,0.857,1.491,0.385,-36.29,True
+Consumo problemático de alcohol,alcohol_problematico,2.978,1.844,4.812,0.0,5.736,3.544,9.283,0.0,-48.07,False
+Fumó en 12 meses,fuma_12m,0.829,0.658,1.046,0.113,1.443,1.108,1.879,0.007,-42.51,True
+Hipertensión diagnosticada,hta_dx,1.855,1.529,2.251,0.0,1.451,1.142,1.843,0.002,27.857,False
+Diabetes diagnosticada,diabetes_dx,1.95,1.452,2.619,0.0,1.697,1.23,2.342,0.001,14.899,False
+Obesidad (IMC ≥ 30),obesidad,1.166,0.988,1.376,0.069,1.127,0.945,1.344,0.183,3.42,False

@@ -1,0 +1,125 @@
+var,n_8,n_9,etiq_8,etiq_9,descripcion
+QSNUMERO,73,35,—SIN ETIQUETA—,—SIN ETIQUETA—,Número de la persona seleccionada
+QSINTM,2975,3400,Agosto,Septiembre,Mes de visita final
+QSTOTVISIT,75,65,—SIN ETIQUETA—,—SIN ETIQUETA—,Número total de visitas
+QSRESULT,0,3,—SIN ETIQUETA—,Otra,Codigo resultado final
+QSRESINF,0,5,—SIN ETIQUETA—,Otra,Resultado informante
+QS20C,61,27,—SIN ETIQUETA—,—SIN ETIQUETA—,Codigo persona seleccionada
+QSDIA,1048,906,—SIN ETIQUETA—,—SIN ETIQUETA—,Día de nacimiento
+QS22M,2535,2431,Agosto,Septiembre,Mes de nacimiento
+QS25AA,14,120,Achuar,Otra lengua nativa u originaria,¿Cuál es el idioma o lengua materna qu
+QS25BB,321,0,Otro,—SIN ETIQUETA—,Por sus antepasados y de acuerdo a sus
+QS100,14,0,No sabe/ No recuerda,—SIN ETIQUETA—,Algun profesional le ha medido la Pres
+QS102,20,0,No sabe/No recuerda,—SIN ETIQUETA—,Le diagnosticaron Hipertensión Arteria
+QS105,10,0,No sabe/ no recuerda,—SIN ETIQUETA—,Compro con/sin receta médica
+QS106,2,0,No sabe/ no recuerda,—SIN ETIQUETA—,Tomo medicamentos tal cual indico le i
+QS107,46,0,No sabe/ no recuerda,—SIN ETIQUETA—,Le midieron el azúcar o glucosa en la 
+QS109,25,0,No sabe/ no recuerda,—SIN ETIQUETA—,Le diagnosticaron diabetes o azúcar al
+QS111,1,0,No sabe/ no recuerda,—SIN ETIQUETA—,Ha comprado medicamentos para controla
+QS112,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,Compro con/sin receta médica
+QS113,1,0,No sabe/ no recuerda,—SIN ETIQUETA—,Tomó los medicamentos tal cual le indi
+QS200,7,0,No sabe/ no recuerda,—SIN ETIQUETA—,En los  últimos 12 meses ha fumado cig
+QS201,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,En los últimos 30 días ha fumado cigar
+QS203U,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,Edad que empezó a fumar diariamente - 
+QS204U,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,Hace que años empezó a fumar diariamen
+QS205U,2,0,No sabe/ no recuerda,—SIN ETIQUETA—,Cuántos cigarrillos fuma a diario - Un
+QS205C,7,0,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad de cigarrillos
+QS206,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,Ha consumido alguna vez bebidas alcohó
+QS207U,351,0,No sabe/ no recuerda,—SIN ETIQUETA—,Unidad Edad primera vez que tomo bebid
+QS207C,29,15,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad  Edad primera vez que tomo be
+QS208,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,En los últimos 12 meses ha consumido a
+QS209,11,0,No sabe/ no recuerda,—SIN ETIQUETA—,"En los últimos 12 meses, tomó bebidas "
+QS210,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,En los últimos 30 días ha consumido be
+QS211U,5,0,No sabe/ no recuerda,—SIN ETIQUETA—,Unidad Veces que tomo
+QS211C,28,3,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad Veces que tomo
+QS212AV,89,12,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron Vasos/copas
+QS212AB,116,12,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron botellas
+QS212BV,17,1,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS212BB,2,0,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron botellas
+QS212CV,5,3,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS212CB,0,1,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron botellas
+QS212DV,5,3,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS212EV,10,2,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS212EB,1,0,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron botellas
+QS212GV,21,8,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS212XV,3,0,—SIN ETIQUETA—,—SIN ETIQUETA—,Fueron vasos/copas
+QS213U,16,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántos días consumió frutas - Unidad
+QS214U,20,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántas tajadas o racimos de fruta com
+QS214C,67,55,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad de tajadas o racimos de fruta
+QS215U,30,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántos días tomó jugo de frutas - Uni
+QS216U,1,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántos vasos de jugo tomo - Unidad
+QS216C,5,4,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad de vasos de jugo que tomo
+QS217U,56,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántos días comió ensalada frutas - U
+QS218U,8,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántas porciones de ensalada de fruta
+QS218C,1,0,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad porciones ensalada frutas
+QS219U,20,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántos días comió ensalada de verdura
+QS220U,12,0,No sabe/No recuerda,—SIN ETIQUETA—,Cuántas porciones ensalada verduras co
+QS220CV,1,2,—SIN ETIQUETA—,—SIN ETIQUETA—,Cantidad porciones ensalada verduras
+QS301,23,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez un médico/personal de salud
+QS302U,65,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuánto tiempo que le evaluaron - 
+QS302C,180,71,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiempo que le evaluaron - 
+QS304,25,0,No sabe/No recuerda,—SIN ETIQUETA—,Le han diagnosticado Catarata
+QS306,7,0,No sabe/No recuerda,—SIN ETIQUETA—,En los últimos 12 meses ha tenido difi
+QS311,13,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez ha sido atendido en servici
+QS312U,140,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuánto tiempo - Unidad
+QS312C,145,54,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiempo - cantidad
+QS401,1164,0,No sabe/No recuerda,—SIN ETIQUETA—,Se puede prevenir el cáncer
+QS402,175,0,No sabe/No recuerda,—SIN ETIQUETA—,Ha oído hablar de cáncer cuello uterin
+QS403,195,0,No sabe/No recuerda,—SIN ETIQUETA—,Ha oído del virus papiloma humano
+QS404,1743,0,No sabe/No recuerda,—SIN ETIQUETA—,Cree que el virus papiloma humano caus
+QS404C,7652,0,No sabe/No recuerda,—SIN ETIQUETA—,Cree que el análisis de sangre para el
+QS406,15,0,No sabe/No recuerda,—SIN ETIQUETA—,"Se realizo un chequeo general, descart"
+QS409,10,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez un médico/profesional salud
+QS410U,25,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuánto tiempo del examen de mama 
+QS410C,166,92,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiempo del examen de mama 
+QS411,7,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez un médico/profesional de sa
+QS412U,67,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuánto tiempo de la prueba papani
+QS412C,419,252,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiempo de la prueba papani
+QS413,24,0,No sabe/No recuerda,—SIN ETIQUETA—,Recogió o llegó a  conocer los resulta
+QS413A,111,0,No sabe/no recuerda,—SIN ETIQUETA—,Alguna vez en su vida un médico u otro
+QS413B,18,0,No sabe/no recuerda,—SIN ETIQUETA—,Hace cuánto tiempo le realizaron la úl
+QS413B_A,78,47,—SIN ETIQUETA—,—SIN ETIQUETA—,Años/meses en que le realizaron la pru
+QS413C,6,0,No sabe/no recuerda,—SIN ETIQUETA—,Recogió o llegó a conocer los resultad
+QS413D,95,0,No sabe/no recuerda,—SIN ETIQUETA—,Alguna vez en su vida un médico u otro
+QS413E,20,0,No sabe/no recuerda,—SIN ETIQUETA—,Hace cuánto tiempo le realizaron la úl
+QS413E_A,66,46,—SIN ETIQUETA—,—SIN ETIQUETA—,Años/meses en que le realizaron la pru
+QS413F,6,0,No sabe/no recuerda,—SIN ETIQUETA—,Recogió o llegó a conocer los resultad
+QS415,5,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez un médico/profesional de sa
+QS416U,4,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuanto tiempo le realizaron la ma
+QS416C,70,35,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuanto tiempo le realizaron la ma
+QS418A,20,0,No sabe/No recuerda,—SIN ETIQUETA—,Alguna vez en su vida le han realizado
+QS419A,3,0,No sabe/No recuerda,—SIN ETIQUETA—,Hace cuánto tiempo realizaron la últim
+QS419A_A,46,11,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiempo realizaron la últim
+QS501U,28,0,No sabe/no recuerda,—SIN ETIQUETA—,Hace cuánto tiene tos con flema - Unid
+QS501C,50,8,—SIN ETIQUETA—,—SIN ETIQUETA—,Hace cuánto tiene tos con flema - cant
+QS503,111,0,No sabe/No recuerda,—SIN ETIQUETA—,Conoce o ha oído hablar de una enferme
+QS505A,818,0,No sabe/No recuerda,—SIN ETIQUETA—,La tuberculosis se contagia cuando la 
+QS505B,1006,0,No sabe/No recuerda,—SIN ETIQUETA—,Se contagia cuando una persona enferma
+QS505C,1201,0,No sabe/No recuerda,—SIN ETIQUETA—,Se contagia cuando una persona enferma
+QS505D,692,0,No sabe/No recuerda,—SIN ETIQUETA—,Se contagia cuando una persona enferma
+QS506,2490,0,No sabe/No recuerda,—SIN ETIQUETA—,Se puede curar la tuberculosis
+QS506B,247,0,No sabe/No esta segura(o)/Depende,—SIN ETIQUETA—,Si un miembro de su familia tuviera tu
+QS603,29,0,No sabe/No recuerda,—SIN ETIQUETA—,En los últimos 12 meses se ha hecho un
+QS604,3,0,No sabe/No recuerda,—SIN ETIQUETA—,Conoció los resultados del examen de l
+QS606,157,0,No sabe/No recuerda,—SIN ETIQUETA—,Las personas tienen menos riesgo de ad
+QS607,271,0,No sabe/No recuerda,—SIN ETIQUETA—,Es posible que una persona que parece 
+QS608,159,0,No sabe/No recuerda,—SIN ETIQUETA—,Las personas pueden adquirir el virus 
+QS609,487,0,No sabe/No recuerda,—SIN ETIQUETA—,Las personas pueden adquirir el virus 
+QS610,249,0,No sabe/No recuerda,—SIN ETIQUETA—,Las personas pueden adquirir el virus 
+QS611,194,0,No sabe/No recuerda,—SIN ETIQUETA—,Las personas que usan condón cada vez 
+QS707,9,0,No sabe/No recuerda,—SIN ETIQUETA—,En los últimos 12 meses recibió tratam
+QS713,6,2,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS714,4,2,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS716,7,1,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos que est
+QS717,9,1,No sabe/No recuerda,Rehusa,Le han detenido más de una vez por alt
+QS719,3,0,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS720,1,0,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos que nec
+QS721,1,1,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS722,1,0,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS723,2,0,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS724,3,0,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS726,1,3,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en qué 
+QS727,0,1,No sabe/No recuerda,Rehusa,Últimos 12 meses hubieron períodos de 
+QS728,0,1,No sabe/No recuerda,Rehusa,Últimos 12 meses tuvo un período de un
+QS729,0,1,No sabe/No recuerda,Rehusa,Últimos 12 meses hubo momentos en que 
+QS730,12,0,No sabe/No recuerda,—SIN ETIQUETA—,Últimos 12 meses recibió tratamiento d

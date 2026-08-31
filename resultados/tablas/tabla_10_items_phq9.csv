@@ -1,0 +1,10 @@
+﻿item,sintoma,n,media,pct_ningun_dia,pct_varios_dias,pct_mayoria_dias,pct_casi_todos,pct_positivo,pct_relevante,sensible
+QS700B,"Se sintió deprimido(a), decaído(a) o sin esperanza",30226,0.454,67.637,23.397,4.9,4.066,32.363,8.966,False
+QS700A,Poco interés o placer en hacer las cosas,30226,0.409,70.635,21.624,3.954,3.788,29.365,7.742,False
+QS700C,Problemas para dormir o dormir demasiado,30226,0.389,74.777,16.175,4.43,4.619,25.223,9.049,False
+QS700D,Se sintió cansado(a) o con poca energía,30226,0.334,76.047,17.594,3.279,3.08,23.953,6.359,False
+QS700E,Poco apetito o comer en exceso,30226,0.298,80.143,13.124,3.54,3.193,19.857,6.733,False
+QS700F,Dificultad para poner atención o concentrarse,30226,0.244,83.048,12.056,2.382,2.514,16.952,4.896,False
+QS700G,"Moverse o hablar lento, o estar inquieto(a)",30226,0.21,85.585,10.018,2.236,2.16,14.415,4.397,False
+QS700I,Se sintió mal consigo mismo(a) o fracasado(a),30226,0.165,88.642,8.053,1.472,1.833,11.358,3.305,False
+QS700H,Pensamientos de hacerse daño,30226,0.097,93.261,4.824,0.844,1.072,6.739,1.916,True

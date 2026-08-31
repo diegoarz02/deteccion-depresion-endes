@@ -1,0 +1,122 @@
+﻿exposicion,estratificador,estrato,n,or,ic_inf,ic_sup,p
+Violencia física de pareja,Sexo,0.0,8457,1.809,1.02,3.207,0.062
+Violencia física de pareja,Sexo,1.0,11276,3.77,3.03,4.69,0.0
+Violencia física de pareja,Grupo etario,15-19,296,2.503,0.668,9.378,0.164
+Violencia física de pareja,Grupo etario,20-29,4184,5.856,4.031,8.507,0.0
+Violencia física de pareja,Grupo etario,30-39,6773,5.076,3.661,7.037,0.0
+Violencia física de pareja,Grupo etario,40-49,3660,4.511,2.719,7.485,0.0
+Violencia física de pareja,Grupo etario,50-59,2163,2.209,0.971,5.026,0.097
+Violencia física de pareja,Grupo etario,60+,2657,1.368,0.574,3.262,0.645
+Violencia física de pareja,Área,0.0,12050,4.351,3.403,5.563,0.0
+Violencia física de pareja,Área,1.0,7683,2.736,1.938,3.863,0.0
+Violencia física de pareja,Nivel educativo,Primaria o menos,4490,2.957,2.0,4.371,0.0
+Violencia física de pareja,Nivel educativo,Secundaria,8726,3.881,2.893,5.207,0.0
+Violencia física de pareja,Nivel educativo,Superior,5963,5.761,3.861,8.596,0.0
+Violencia física de pareja,Nivel educativo,nan,554,0.88,0.193,4.001,1.0
+Consumo frecuente de alcohol,Sexo,0.0,12340,0.91,0.706,1.173,0.508
+Consumo frecuente de alcohol,Sexo,1.0,17868,1.087,0.871,1.356,0.495
+Consumo frecuente de alcohol,Grupo etario,15-19,2712,2.529,1.494,4.28,0.001
+Consumo frecuente de alcohol,Grupo etario,20-29,6242,1.347,1.005,1.804,0.055
+Consumo frecuente de alcohol,Grupo etario,30-39,8279,0.732,0.522,1.027,0.083
+Consumo frecuente de alcohol,Grupo etario,40-49,4734,0.682,0.432,1.077,0.121
+Consumo frecuente de alcohol,Grupo etario,50-59,3254,0.405,0.212,0.771,0.006
+Consumo frecuente de alcohol,Grupo etario,60+,4987,0.625,0.392,0.994,0.057
+Consumo frecuente de alcohol,Área,0.0,18942,0.836,0.694,1.008,0.066
+Consumo frecuente de alcohol,Área,1.0,11266,0.579,0.41,0.82,0.002
+Consumo frecuente de alcohol,Nivel educativo,Primaria o menos,6434,0.662,0.434,1.009,0.066
+Consumo frecuente de alcohol,Nivel educativo,Secundaria,13734,0.726,0.555,0.948,0.021
+Consumo frecuente de alcohol,Nivel educativo,Superior,8896,1.261,0.98,1.622,0.082
+Consumo frecuente de alcohol,Nivel educativo,nan,1144,0.33,0.078,1.401,0.142
+Consumo problemático de alcohol,Sexo,0.0,12340,3.278,2.19,4.908,0.0
+Consumo problemático de alcohol,Sexo,1.0,17868,4.638,2.345,9.174,0.0
+Consumo problemático de alcohol,Grupo etario,15-19,2712,6.004,2.419,14.901,0.0
+Consumo problemático de alcohol,Grupo etario,20-29,6242,2.943,1.582,5.478,0.001
+Consumo problemático de alcohol,Grupo etario,30-39,8279,2.02,1.012,4.031,0.072
+Consumo problemático de alcohol,Grupo etario,40-49,4734,2.265,0.961,5.339,0.106
+Consumo problemático de alcohol,Grupo etario,50-59,3254,0.961,0.225,4.097,1.0
+Consumo problemático de alcohol,Grupo etario,60+,4987,3.73,1.12,12.427,0.045
+Consumo problemático de alcohol,Área,0.0,18942,2.377,1.62,3.489,0.0
+Consumo problemático de alcohol,Área,1.0,11266,1.669,0.831,3.354,0.216
+Consumo problemático de alcohol,Nivel educativo,Primaria o menos,6434,1.714,0.663,4.436,0.408
+Consumo problemático de alcohol,Nivel educativo,Secundaria,13734,2.35,1.425,3.873,0.001
+Consumo problemático de alcohol,Nivel educativo,Superior,8896,3.187,1.895,5.362,0.0
+Fumó en los últimos 12 meses,Sexo,0.0,12344,0.858,0.694,1.061,0.172
+Fumó en los últimos 12 meses,Sexo,1.0,17875,1.688,1.371,2.079,0.0
+Fumó en los últimos 12 meses,Grupo etario,15-19,2712,2.071,1.343,3.195,0.001
+Fumó en los últimos 12 meses,Grupo etario,20-29,6242,0.89,0.663,1.194,0.481
+Fumó en los últimos 12 meses,Grupo etario,30-39,8281,0.738,0.542,1.006,0.063
+Fumó en los últimos 12 meses,Grupo etario,40-49,4736,0.642,0.435,0.947,0.03
+Fumó en los últimos 12 meses,Grupo etario,50-59,3255,0.587,0.384,0.896,0.016
+Fumó en los últimos 12 meses,Grupo etario,60+,4993,0.711,0.516,0.978,0.042
+Fumó en los últimos 12 meses,Área,0.0,18945,0.793,0.665,0.946,0.011
+Fumó en los últimos 12 meses,Área,1.0,11274,0.621,0.491,0.786,0.0
+Fumó en los últimos 12 meses,Nivel educativo,Primaria o menos,6440,0.664,0.494,0.892,0.008
+Fumó en los últimos 12 meses,Nivel educativo,Secundaria,13738,0.81,0.657,0.998,0.053
+Fumó en los últimos 12 meses,Nivel educativo,Superior,8896,0.925,0.707,1.211,0.618
+Fumó en los últimos 12 meses,Nivel educativo,nan,1145,0.531,0.224,1.257,0.199
+Hipertensión diagnosticada,Sexo,0.0,12334,2.055,1.558,2.712,0.0
+Hipertensión diagnosticada,Sexo,1.0,17872,2.279,1.981,2.623,0.0
+Hipertensión diagnosticada,Grupo etario,15-19,2713,2.224,0.646,7.653,0.181
+Hipertensión diagnosticada,Grupo etario,20-29,6241,2.094,1.139,3.849,0.026
+Hipertensión diagnosticada,Grupo etario,30-39,8281,3.124,2.114,4.619,0.0
+Hipertensión diagnosticada,Grupo etario,40-49,4734,2.663,1.854,3.823,0.0
+Hipertensión diagnosticada,Grupo etario,50-59,3255,1.799,1.333,2.428,0.0
+Hipertensión diagnosticada,Grupo etario,60+,4982,1.286,1.07,1.547,0.008
+Hipertensión diagnosticada,Área,0.0,18944,2.152,1.828,2.533,0.0
+Hipertensión diagnosticada,Área,1.0,11262,2.572,2.124,3.116,0.0
+Hipertensión diagnosticada,Nivel educativo,Primaria o menos,6435,2.055,1.675,2.522,0.0
+Hipertensión diagnosticada,Nivel educativo,Secundaria,13736,2.515,2.027,3.12,0.0
+Hipertensión diagnosticada,Nivel educativo,Superior,8895,1.286,0.9,1.836,0.199
+Hipertensión diagnosticada,Nivel educativo,nan,1140,1.621,1.149,2.286,0.007
+Diabetes diagnosticada,Sexo,0.0,12333,1.996,1.344,2.966,0.001
+Diabetes diagnosticada,Sexo,1.0,17869,2.233,1.831,2.723,0.0
+Diabetes diagnosticada,Grupo etario,15-19,2713,3.168,1.049,9.565,0.055
+Diabetes diagnosticada,Grupo etario,20-29,6240,4.391,2.008,9.603,0.0
+Diabetes diagnosticada,Grupo etario,30-39,8283,3.458,2.081,5.746,0.0
+Diabetes diagnosticada,Grupo etario,40-49,4734,2.192,1.322,3.635,0.003
+Diabetes diagnosticada,Grupo etario,50-59,3255,2.324,1.632,3.308,0.0
+Diabetes diagnosticada,Grupo etario,60+,4977,1.046,0.793,1.379,0.806
+Diabetes diagnosticada,Área,0.0,18941,2.006,1.615,2.493,0.0
+Diabetes diagnosticada,Área,1.0,11261,3.095,2.288,4.186,0.0
+Diabetes diagnosticada,Nivel educativo,Primaria o menos,6432,1.563,1.117,2.187,0.012
+Diabetes diagnosticada,Nivel educativo,Secundaria,13735,3.103,2.375,4.053,0.0
+Diabetes diagnosticada,Nivel educativo,Superior,8894,1.5,0.952,2.362,0.104
+Diabetes diagnosticada,Nivel educativo,nan,1141,1.85,1.112,3.077,0.024
+Obesidad (IMC ≥ 30),Sexo,0.0,12111,0.687,0.529,0.891,0.005
+Obesidad (IMC ≥ 30),Sexo,1.0,17617,1.057,0.946,1.18,0.344
+Obesidad (IMC ≥ 30),Grupo etario,15-19,2680,0.961,0.556,1.659,0.995
+Obesidad (IMC ≥ 30),Grupo etario,20-29,6162,1.113,0.867,1.429,0.439
+Obesidad (IMC ≥ 30),Grupo etario,30-39,8124,1.311,1.057,1.627,0.016
+Obesidad (IMC ≥ 30),Grupo etario,40-49,4671,1.639,1.265,2.124,0.0
+Obesidad (IMC ≥ 30),Grupo etario,50-59,3207,1.003,0.768,1.31,1.0
+Obesidad (IMC ≥ 30),Grupo etario,60+,4884,1.02,0.832,1.252,0.887
+Obesidad (IMC ≥ 30),Área,0.0,18545,1.195,1.057,1.351,0.005
+Obesidad (IMC ≥ 30),Área,1.0,11183,0.964,0.805,1.155,0.725
+Obesidad (IMC ≥ 30),Nivel educativo,Primaria o menos,6365,1.116,0.92,1.352,0.287
+Obesidad (IMC ≥ 30),Nivel educativo,Secundaria,13541,1.088,0.929,1.275,0.313
+Obesidad (IMC ≥ 30),Nivel educativo,Superior,8701,1.325,1.079,1.626,0.008
+Obesidad (IMC ≥ 30),Nivel educativo,nan,1121,0.989,0.682,1.434,1.0
+Sexo femenino,Grupo etario,15-19,2713,2.784,1.99,3.896,0.0
+Sexo femenino,Grupo etario,20-29,6243,2.264,1.725,2.973,0.0
+Sexo femenino,Grupo etario,30-39,8284,3.182,2.413,4.196,0.0
+Sexo femenino,Grupo etario,40-49,4736,3.855,2.776,5.354,0.0
+Sexo femenino,Grupo etario,50-59,3257,3.46,2.54,4.711,0.0
+Sexo femenino,Grupo etario,60+,4993,2.175,1.806,2.62,0.0
+Sexo femenino,Área,0.0,18949,2.805,2.428,3.24,0.0
+Sexo femenino,Área,1.0,11277,2.28,1.938,2.681,0.0
+Sexo femenino,Nivel educativo,Primaria o menos,6442,1.714,1.418,2.071,0.0
+Sexo femenino,Nivel educativo,Secundaria,13741,2.584,2.193,3.046,0.0
+Sexo femenino,Nivel educativo,Superior,8898,3.296,2.562,4.242,0.0
+Sexo femenino,Nivel educativo,nan,1145,2.32,1.354,3.978,0.002
+Área rural,Sexo,0.0,12346,1.366,1.13,1.65,0.001
+Área rural,Sexo,1.0,17880,1.11,0.998,1.235,0.059
+Área rural,Grupo etario,15-19,2713,0.388,0.268,0.562,0.0
+Área rural,Grupo etario,20-29,6243,0.61,0.471,0.79,0.0
+Área rural,Grupo etario,30-39,8284,0.759,0.597,0.964,0.027
+Área rural,Grupo etario,40-49,4736,0.873,0.667,1.143,0.358
+Área rural,Grupo etario,50-59,3257,1.432,1.115,1.839,0.006
+Área rural,Grupo etario,60+,4993,1.762,1.477,2.102,0.0
+Área rural,Nivel educativo,Primaria o menos,6442,1.126,0.939,1.349,0.216
+Área rural,Nivel educativo,Secundaria,13741,0.635,0.541,0.744,0.0
+Área rural,Nivel educativo,Superior,8898,0.773,0.574,1.039,0.101
+Área rural,Nivel educativo,nan,1145,1.034,0.732,1.461,0.919

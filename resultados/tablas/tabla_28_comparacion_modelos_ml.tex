@@ -1,0 +1,15 @@
+\begin{table}[htbp]
+\caption{Comparación de modelos predictivos con validación agrupada}
+\label{tab:tabla_28_comparacion_modelos_ml}
+\begin{tabular}{lrlrrrrrrrrrr}
+\toprule
+modelo & umbral & criterio\_umbral & auc\_roc & auc\_pr & prevalencia & sensibilidad & especificidad & vpp & vpn & f1 & exactitud & exactitud\_modelo\_trivial \\
+\midrule
+Logística regularizada & 0.696000 & cuantil de la prevalencia & 0.673000 & 0.117000 & 0.062000 & 0.147000 & 0.944000 & 0.147000 & 0.944000 & 0.147000 & 0.894000 & 0.938000 \\
+Random Forest & 0.644000 & cuantil de la prevalencia & 0.684000 & 0.119000 & 0.062000 & 0.158000 & 0.944000 & 0.158000 & 0.944000 & 0.158000 & 0.895000 & 0.938000 \\
+XGBoost & 0.695000 & cuantil de la prevalencia & 0.667000 & 0.115000 & 0.062000 & 0.152000 & 0.944000 & 0.152000 & 0.944000 & 0.152000 & 0.895000 & 0.938000 \\
+LightGBM & 0.690000 & cuantil de la prevalencia & 0.655000 & 0.111000 & 0.062000 & 0.152000 & 0.944000 & 0.152000 & 0.944000 & 0.152000 & 0.895000 & 0.938000 \\
+Modelo trivial (predice 'nadie') & NaN & NaN & 0.500000 & 0.062000 & 0.062000 & 0.000000 & 1.000000 & NaN & 0.938000 & 0.000000 & 0.938000 & 0.938000 \\
+\bottomrule
+\end{tabular}
+\end{table}

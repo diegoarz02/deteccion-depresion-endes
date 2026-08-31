@@ -1,0 +1,134 @@
+﻿variable,codigo,etiqueta,casos_convertidos,accion
+QS100,8,No sabe/ No recuerda,14,-> NaN
+QS102,8,No sabe/No recuerda,20,-> NaN
+QS105,8,No sabe/ no recuerda,10,-> NaN
+QS106,8,No sabe/ no recuerda,2,-> NaN
+QS107,8,No sabe/ no recuerda,46,-> NaN
+QS109,8,No sabe/ no recuerda,25,-> NaN
+QS111,8,No sabe/ no recuerda,1,-> NaN
+QS112,8,No sabe/ no recuerda,3,-> NaN
+QS113,8,No sabe/ no recuerda,1,-> NaN
+QS200,8,No sabe/ no recuerda,7,-> NaN
+QS201,8,No sabe/ no recuerda,3,-> NaN
+QS203U,8,No sabe/ no recuerda,4,-> NaN
+QS204U,8,No sabe/ no recuerda,4,-> NaN
+QS205U,8,No sabe/ no recuerda,2,-> NaN
+QS206,8,No sabe/ no recuerda,4,-> NaN
+QS207U,8,No sabe/ no recuerda,351,-> NaN
+QS208,8,No sabe/ no recuerda,3,-> NaN
+QS209,8,No sabe/ no recuerda,11,-> NaN
+QS210,8,No sabe/ no recuerda,3,-> NaN
+QS211U,8,No sabe/ no recuerda,5,-> NaN
+QS213U,8,No sabe/No recuerda,16,-> NaN
+QS214U,8,No sabe/No recuerda,20,-> NaN
+QS215U,8,No sabe/No recuerda,30,-> NaN
+QS216U,8,No sabe/No recuerda,1,-> NaN
+QS217U,8,No sabe/No recuerda,56,-> NaN
+QS218U,8,No sabe/No recuerda,8,-> NaN
+QS219U,8,No sabe/No recuerda,20,-> NaN
+QS220U,8,No sabe/No recuerda,12,-> NaN
+QS301,8,No sabe/No recuerda,23,-> NaN
+QS302U,8,No sabe/No recuerda,65,-> NaN
+QS304,8,No sabe/No recuerda,25,-> NaN
+QS306,8,No sabe/No recuerda,7,-> NaN
+QS311,8,No sabe/No recuerda,13,-> NaN
+QS312U,8,No sabe/No recuerda,140,-> NaN
+QS401,8,No sabe/No recuerda,1164,-> NaN
+QS402,8,No sabe/No recuerda,175,-> NaN
+QS403,8,No sabe/No recuerda,195,-> NaN
+QS404,8,No sabe/No recuerda,1743,-> NaN
+QS404C,8,No sabe/No recuerda,7652,-> NaN
+QS406,8,No sabe/No recuerda,15,-> NaN
+QS409,8,No sabe/No recuerda,10,-> NaN
+QS410U,8,No sabe/No recuerda,25,-> NaN
+QS411,8,No sabe/No recuerda,7,-> NaN
+QS412U,8,No sabe/No recuerda,67,-> NaN
+QS413,8,No sabe/No recuerda,24,-> NaN
+QS413A,8,No sabe/no recuerda,111,-> NaN
+QS413B,8,No sabe/no recuerda,18,-> NaN
+QS413C,8,No sabe/no recuerda,6,-> NaN
+QS413D,8,No sabe/no recuerda,95,-> NaN
+QS413E,8,No sabe/no recuerda,20,-> NaN
+QS413F,8,No sabe/no recuerda,6,-> NaN
+QS415,8,No sabe/No recuerda,5,-> NaN
+QS416U,8,No sabe/No recuerda,4,-> NaN
+QS418A,8,No sabe/No recuerda,20,-> NaN
+QS419A,8,No sabe/No recuerda,3,-> NaN
+QS501U,8,No sabe/no recuerda,28,-> NaN
+QS503,8,No sabe/No recuerda,111,-> NaN
+QS505A,8,No sabe/No recuerda,818,-> NaN
+QS505B,8,No sabe/No recuerda,1006,-> NaN
+QS505C,8,No sabe/No recuerda,1201,-> NaN
+QS505D,8,No sabe/No recuerda,692,-> NaN
+QS506,8,No sabe/No recuerda,2490,-> NaN
+QS506B,8,No sabe/No esta segura(o)/Depende,247,-> NaN
+QS603,8,No sabe/No recuerda,29,-> NaN
+QS604,8,No sabe/No recuerda,3,-> NaN
+QS606,8,No sabe/No recuerda,157,-> NaN
+QS607,8,No sabe/No recuerda,271,-> NaN
+QS608,8,No sabe/No recuerda,159,-> NaN
+QS609,8,No sabe/No recuerda,487,-> NaN
+QS610,8,No sabe/No recuerda,249,-> NaN
+QS611,8,No sabe/No recuerda,194,-> NaN
+QS707,8,No sabe/No recuerda,9,-> NaN
+QS713,8,No sabe/No recuerda,6,-> NaN
+QS713,9,Rehusa,2,-> NaN
+QS714,8,No sabe/No recuerda,4,-> NaN
+QS714,9,Rehusa,2,-> NaN
+QS716,8,No sabe/No recuerda,7,-> NaN
+QS716,9,Rehusa,1,-> NaN
+QS717,8,No sabe/No recuerda,9,-> NaN
+QS717,9,Rehusa,1,-> NaN
+QS719,8,No sabe/No recuerda,3,-> NaN
+QS720,8,No sabe/No recuerda,1,-> NaN
+QS721,8,No sabe/No recuerda,1,-> NaN
+QS721,9,Rehusa,1,-> NaN
+QS722,8,No sabe/No recuerda,1,-> NaN
+QS723,8,No sabe/No recuerda,2,-> NaN
+QS724,8,No sabe/No recuerda,3,-> NaN
+QS726,8,No sabe/No recuerda,1,-> NaN
+QS726,9,Rehusa,3,-> NaN
+QS727,9,Rehusa,1,-> NaN
+QS728,9,Rehusa,1,-> NaN
+QS729,9,Rehusa,1,-> NaN
+QS730,8,No sabe/No recuerda,12,-> NaN
+QSNUMERO,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QSINTM,8/9,Agosto / Septiembre,0,INTACTA — el código no es dato faltante
+QSTOTVISIT,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QSRESULT,8/9,—SIN ETIQUETA— / Otra,0,INTACTA — el código no es dato faltante
+QSRESINF,8/9,—SIN ETIQUETA— / Otra,0,INTACTA — el código no es dato faltante
+QS20C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QSDIA,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS22M,8/9,Agosto / Septiembre,0,INTACTA — el código no es dato faltante
+QS25AA,8/9,Achuar / Otra lengua nativa u originaria,0,INTACTA — el código no es dato faltante
+QS25BB,8/9,Otro / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS205C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS207C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS211C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212AV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212AB,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212BV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212BB,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212CV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212CB,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212DV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212EV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212EB,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212GV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS212XV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS214C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS216C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS218C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS220CV,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS302C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS312C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS410C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS412C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS413B_A,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS413E_A,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS416C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS419A_A,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+QS501C,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante
+HV024,8/9,Cusco / Huancavelica,0,INTACTA — el código no es dato faltante
+HV023,8/9,Cusco / Huancavelica,0,INTACTA — el código no es dato faltante
+HV009,8/9,—SIN ETIQUETA— / —SIN ETIQUETA—,0,INTACTA — el código no es dato faltante

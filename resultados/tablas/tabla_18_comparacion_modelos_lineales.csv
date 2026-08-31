@@ -1,0 +1,6 @@
+﻿modelo,n,r2,aic,asimetria_resid,bp_p,escala_respuesta,aic_comparable
+(a) Lineal crudo,28553,0.054,159099.894,2.354,0.0,PHQ-9,"sí, entre modelos de escala PHQ-9"
+(b) Raíz cuadrada,28553,0.061,90105.2,0.794,0.0,raíz(PHQ-9),NO — otra escala de respuesta
+(c) Crudo con HC3,28553,0.054,,2.354,,PHQ-9,"sí, entre modelos de escala PHQ-9"
+(d1) Poisson,28553,,181793.879,,,PHQ-9,"sí, entre modelos de escala PHQ-9"
+(d2) Binomial negativa (α=5.06),28553,,112584.825,,,PHQ-9,"sí, entre modelos de escala PHQ-9"

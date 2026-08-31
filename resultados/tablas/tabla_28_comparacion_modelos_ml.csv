@@ -1,0 +1,6 @@
+﻿modelo,umbral,criterio_umbral,auc_roc,auc_pr,prevalencia,sensibilidad,especificidad,vpp,vpn,f1,exactitud,exactitud_modelo_trivial
+Logística regularizada,0.696,cuantil de la prevalencia,0.673,0.117,0.062,0.147,0.944,0.147,0.944,0.147,0.894,0.938
+Random Forest,0.644,cuantil de la prevalencia,0.684,0.119,0.062,0.158,0.944,0.158,0.944,0.158,0.895,0.938
+XGBoost,0.695,cuantil de la prevalencia,0.667,0.115,0.062,0.152,0.944,0.152,0.944,0.152,0.895,0.938
+LightGBM,0.69,cuantil de la prevalencia,0.655,0.111,0.062,0.152,0.944,0.152,0.944,0.152,0.895,0.938
+Modelo trivial (predice 'nadie'),,,0.5,0.062,0.062,0.0,1.0,,0.938,0.0,0.938,0.938

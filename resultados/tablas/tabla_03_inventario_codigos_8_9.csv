@@ -1,0 +1,128 @@
+﻿variable,descripcion,n_validos,maximo,n_8,n_9,etiqueta_8,etiqueta_9,es_faltante_8,es_faltante_9,decision
+QSNUMERO,Número de la persona seleccionada,33569,14.0,73,35,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QSINTM,Mes de visita final,33569,12.0,2975,3400,Agosto,Septiembre,False,False,REVISAR — el código no es dato faltante
+QSTOTVISIT,Número total de visitas,33569,9.0,75,65,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QSRESULT,Codigo resultado final,33569,9.0,0,3,—SIN ETIQUETA—,Otra,False,False,REVISAR — el código no es dato faltante
+QSRESINF,Resultado informante,33569,9.0,0,5,—SIN ETIQUETA—,Otra,False,False,REVISAR — el código no es dato faltante
+QS20C,Codigo persona seleccionada,30435,14.0,61,27,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QSDIA,Día de nacimiento,30435,31.0,1048,906,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS22M,Mes de nacimiento,30435,12.0,2535,2431,Agosto,Septiembre,False,False,REVISAR — el código no es dato faltante
+QS25AA,¿Cuál es el idioma o lengua materna que aprendió hablar en su niñez,30435,12.0,14,120,Achuar,Otra lengua nativa u originaria,False,False,REVISAR — el código no es dato faltante
+QS25BB,Por sus antepasados y de acuerdo a sus costumbres ¿Usted se siente o s,30435,98.0,321,0,Otro,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS100,Algun profesional le ha medido la Presión Arterial,30432,8.0,14,0,No sabe/ No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS102,Le diagnosticaron Hipertensión Arterial o Presión Alta,30432,8.0,20,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS105,Compro con/sin receta médica,1648,8.0,10,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS106,Tomo medicamentos tal cual indico le indico el médico,1648,8.0,2,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS107,Le midieron el azúcar o glucosa en la sangre,30432,8.0,46,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS109,Le diagnosticaron diabetes o azúcar alta,30432,8.0,25,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS111,Ha comprado medicamentos para controlar la diabetes o azúcar alta,1169,8.0,1,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS112,Compro con/sin receta médica,786,8.0,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS113,Tomó los medicamentos tal cual le indicó el médico,786,8.0,1,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS200,En los  últimos 12 meses ha fumado cigarrillos,30420,8.0,7,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS201,En los últimos 30 días ha fumado cigarrillos,4550,8.0,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS203U,Edad que empezó a fumar diariamente - Unidad,300,8.0,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS204U,Hace que años empezó a fumar diariamente - Unidad,4,8.0,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS205U,Cuántos cigarrillos fuma a diario - Unidad,300,8.0,2,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS205C,Cantidad de cigarrillos,298,20.0,7,0,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS206,Ha consumido alguna vez bebidas alcohólicas,30420,8.0,4,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS207U,Unidad Edad primera vez que tomo bebidas alcohólicas,27852,8.0,351,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS207C,Cantidad  Edad primera vez que tomo bebidas alcohólicas,27501,77.0,29,15,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS208,En los últimos 12 meses ha consumido alguna bebida alcohólica,27852,8.0,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS209,"En los últimos 12 meses, tomó bebidas alcohólicas 12 o más días",19959,8.0,11,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS210,En los últimos 30 días ha consumido bebidas alcohólicas,19959,8.0,3,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS211U,Unidad Veces que tomo,9716,8.0,5,0,No sabe/ no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS211C,Cantidad Veces que tomo,9711,30.0,28,3,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212AV,Fueron Vasos/copas,7105,98.0,89,12,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212AB,Fueron botellas,7105,98.0,116,12,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212BV,Fueron vasos/copas,1412,98.0,17,1,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212BB,Fueron botellas,1412,98.0,2,0,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212CV,Fueron vasos/copas,367,98.0,5,3,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212CB,Fueron botellas,367,98.0,0,1,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212DV,Fueron vasos/copas,136,98.0,5,3,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212EV,Fueron vasos/copas,484,98.0,10,2,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212EB,Fueron botellas,484,98.0,1,0,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212GV,Fueron vasos/copas,1247,98.0,21,8,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS212XV,Fueron vasos/copas,151,98.0,3,0,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS213U,Cuántos días consumió frutas - Unidad,30420,8.0,16,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS214U,Cuántas tajadas o racimos de fruta comió - Unicad,27764,8.0,20,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS214C,Cantidad de tajadas o racimos de fruta que comió,27744,9.0,67,55,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS215U,Cuántos días tomó jugo de frutas - Unidad,30420,8.0,30,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS216U,Cuántos vasos de jugo tomo - Unidad,13306,8.0,1,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS216C,Cantidad de vasos de jugo que tomo,13305,9.0,5,4,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS217U,Cuántos días comió ensalada frutas - Unidad,30420,8.0,56,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS218U,Cuántas porciones de ensalada de frutas comió - Unidad,5486,8.0,8,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS218C,Cantidad porciones ensalada frutas,5478,8.0,1,0,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS219U,Cuántos días comió ensalada de verduras - Unidad,30420,8.0,20,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS220U,Cuántas porciones ensalada verduras comió - Unidad,22507,8.0,12,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS220CV,Cantidad porciones ensalada verduras,20295,9.0,1,2,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS301,Alguna vez un médico/personal de salud le ha evaluado o medido la vist,8306,8.0,23,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS302U,Hace cuánto tiempo que le evaluaron - Unidad,5052,8.0,65,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS302C,Hace cuánto tiempo que le evaluaron - cantidad,4987,60.0,180,71,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS304,Le han diagnosticado Catarata,8306,8.0,25,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS306,En los últimos 12 meses ha tenido dificultad para ver o reconocer a un,8306,8.0,7,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS311,Alguna vez ha sido atendido en servicio dental o un odontólogo,5021,8.0,13,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS312U,Hace cuánto tiempo - Unidad,4100,8.0,140,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS312C,Hace cuánto tiempo - cantidad,3960,68.0,145,54,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS401,Se puede prevenir el cáncer,29144,8.0,1164,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS402,Ha oído hablar de cáncer cuello uterino/cervical,29144,8.0,175,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS403,Ha oído del virus papiloma humano,24325,8.0,195,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS404,Cree que el virus papiloma humano causa el cáncer uterino,20323,8.0,1743,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS404C,Cree que el análisis de sangre para el dosaje del Antígeno Prostático ,29143,8.0,7652,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS406,"Se realizo un chequeo general, descarte algun tipo de cáncer",27342,8.0,15,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS409,Alguna vez un médico/profesional salud le ha realizado un examen físic,11191,8.0,10,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS410U,Hace cuánto tiempo del examen de mama - Unidad,4123,8.0,25,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS410C,Hace cuánto tiempo del examen de mama - cantidad,4098,41.0,166,92,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS411,Alguna vez un médico/profesional de salud le ha realizado la prueba de,12823,8.0,7,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS412U,Hace cuánto tiempo de la prueba papanicolaou - Unidad,10062,8.0,67,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS412C,Hace cuánto tiempo de la prueba papanicolaou - cantidad,9995,35.0,419,252,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS413,Recogió o llegó a  conocer los resultados de la prueba de Papanicolaou,10062,8.0,24,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413A,Alguna vez en su vida un médico u otro profesional de salud le ha real,12823,8.0,111,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413B,Hace cuánto tiempo le realizaron la última vez la prueba de Inspección,2142,8.0,18,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413B_A,Años/meses en que le realizaron la prueba de Inspección de Ácido Acéti,2124,35.0,78,47,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS413C,Recogió o llegó a conocer los resultados de la prueba de Inspección de,2142,8.0,6,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413D,Alguna vez en su vida un médico u otro profesional de salud le ha real,12823,8.0,95,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413E,Hace cuánto tiempo le realizaron la última vez la Prueba Molecular del,1737,8.0,20,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS413E_A,Años/meses en que le realizaron la prueba Molecular del Virus del Papi,1717,30.0,66,46,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS413F,Recogió o llegó a conocer los resultados de la Prueba Molecular del Vi,1737,8.0,6,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS415,Alguna vez un médico/profesional de salud le ha realizado un examen de,6063,8.0,5,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS416U,Hace cuanto tiempo le realizaron la mamografía - Unidad,1537,8.0,4,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS416C,Hace cuanto tiempo le realizaron la mamografía - cantidad,1533,44.0,70,35,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS418A,Alguna vez en su vida le han realizado el análisis de sangre para el d,3161,8.0,20,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS419A,Hace cuánto tiempo realizaron la última vez el análisis de sangre para,812,8.0,3,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS419A_A,Hace cuánto tiempo realizaron la última vez el análisis de sangre para,809,24.0,46,11,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS501U,Hace cuánto tiene tos con flema - Unidad,2749,8.0,28,0,No sabe/no recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS501C,Hace cuánto tiene tos con flema - cantidad,2721,36.0,50,8,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante
+QS503,"Conoce o ha oído hablar de una enfermedad llamada tuberculosis, TB o T",17058,8.0,111,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS505A,La tuberculosis se contagia cuando la persona enferma tose o estornuda,27817,8.0,818,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS505B,Se contagia cuando una persona enferma habla cerca con otra persona,27817,8.0,1006,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS505C,Se contagia cuando una persona enferma toca a otra,27817,8.0,1201,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS505D,Se contagia cuando una persona enferma comparte alimentos o utensilios,27817,8.0,692,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS506,Se puede curar la tuberculosis,27817,8.0,2490,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS506B,Si un miembro de su familia tuviera tuberculosis¿Usted guardaría en se,15538,8.0,247,0,No sabe/No esta segura(o)/Depende,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS603,En los últimos 12 meses se ha hecho una prueba de SIDA (VIH),21774,8.0,29,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS604,Conoció los resultados del examen de laboratorio,5800,8.0,3,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS606,Las personas tienen menos riesgo de adquirir el virus que causa el VIH,8880,8.0,157,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS607,Es posible que una persona que parece saludable este infectada con el ,8880,8.0,271,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS608,Las personas pueden adquirir el virus que causa el SIDA (VIH) por dar ,8880,8.0,159,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS609,Las personas pueden adquirir el virus que causa el SIDA (VIH) por la p,8880,8.0,487,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS610,Las personas pueden adquirir el virus que causa el SIDA (VIH) comparti,8880,8.0,249,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS611,Las personas que usan condón cada vez que tienen relaciones sexuales t,8880,8.0,194,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS707,En los últimos 12 meses recibió tratamiento de algún profesional de sa,30401,8.0,9,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+QS713,Últimos 12 meses hubo momentos en que la bebida o la resaca le dificul,3197,9.0,6,2,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS714,Últimos 12 meses hubo momentos en que el consumo de alcohol le provocó,3197,9.0,4,2,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS716,Últimos 12 meses hubo momentos que estuvo bajo los efectos del alcohol,3197,9.0,7,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS717,Le han detenido más de una vez por alterar el orden o manejar bajo los,3197,9.0,9,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS719,Últimos 12 meses hubo momentos en que tuvo tantas ganas de beber que n,951,8.0,3,0,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS720,Últimos 12 meses hubo momentos que necesitó beber más cantidad de alco,951,8.0,1,0,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS721,"Últimos 12 meses hubo momentos en que tuvo síntomas como cansancio, do",951,9.0,1,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS722,"Últimos 12 meses hubo momentos en que tomó un vaso, copa o botella par",814,8.0,1,0,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS723,Últimos 12 meses hubo momentos en que continúo bebiendo a pesar que se,951,8.0,2,0,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS724,Últimos 12 meses hubo momentos en que bebió más frecuentemente o duran,666,8.0,3,0,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS726,Últimos 12 meses hubo momentos en qué intentó beber menos o dejar de b,951,9.0,1,3,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS727,Últimos 12 meses hubieron períodos de varios días o más en los que pas,951,9.0,0,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS728,Últimos 12 meses tuvo un período de un mes o más que dejó de hacer act,951,9.0,0,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS729,Últimos 12 meses hubo momentos en que siguió bebiendo aunque sabía que,951,9.0,0,1,No sabe/No recuerda,Rehusa,True,True,recodificar a NaN
+QS730,Últimos 12 meses recibió tratamiento de algún profesional de la salud ,27834,8.0,12,0,No sabe/No recuerda,—SIN ETIQUETA—,True,False,recodificar a NaN
+HV024,Región,33569,25.0,1177,1302,Cusco,Huancavelica,False,False,REVISAR — el código no es dato faltante
+HV023,Dominio,33569,25.0,1177,1302,Cusco,Huancavelica,False,False,REVISAR — el código no es dato faltante
+HV009,Total de personas en el hogar,33569,25.0,642,310,—SIN ETIQUETA—,—SIN ETIQUETA—,False,False,REVISAR — el código no es dato faltante

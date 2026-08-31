@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\caption{Casos completos frente a imputación múltiple (reglas de Rubin)}
+\label{tab:tabla_47_imputacion_multiple}
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+termino & etiqueta & or\_casos\_completos & cc\_ic\_inf & cc\_ic\_sup & or\_imputado & imp\_ic\_inf & imp\_ic\_sup & cambio\_pct & fraccion\_informacion\_perdida & conclusion\_cambia \\
+\midrule
+consumo\_frecuente & Consumo frecuente de alcohol & 0.835000 & 0.598000 & 1.165000 & 0.826000 & 0.594000 & 1.150000 & 1.011000 & 0.000000 & False \\
+alcohol\_problematico & Consumo problemático de alcohol & 6.088000 & 3.420000 & 10.836000 & 5.979000 & 3.369000 & 10.612000 & 1.808000 & 0.000000 & False \\
+fuma\_12m & Fumó en 12 meses & 1.394000 & 1.055000 & 1.842000 & 1.355000 & 1.030000 & 1.783000 & 2.860000 & 0.000000 & False \\
+hta\_dx & Hipertensión diagnosticada & 1.455000 & 1.160000 & 1.825000 & 1.365000 & 1.082000 & 1.724000 & 6.581000 & 0.000000 & False \\
+diabetes\_dx & Diabetes diagnosticada & 1.330000 & 0.955000 & 1.851000 & 1.486000 & 1.075000 & 2.055000 & -10.510000 & 0.000000 & True \\
+es\_mujer & Sexo femenino & 2.953000 & 2.410000 & 3.618000 & 2.861000 & 2.328000 & 3.518000 & 3.184000 & 0.000000 & False \\
+es\_rural & Área rural & 0.842000 & 0.719000 & 0.987000 & 0.849000 & 0.724000 & 0.995000 & -0.778000 & 0.000000 & False \\
+obesidad & Obesidad (IMC ≥ 30) & 1.091000 & 0.919000 & 1.295000 & 1.089000 & 0.917000 & 1.295000 & 0.145000 & 0.037000 & False \\
+grupo\_etario\_20-29 & grupo\_etario\_20-29 & 0.791000 & 0.594000 & 1.052000 & 0.801000 & 0.603000 & 1.064000 & -1.303000 & 0.000000 & False \\
+grupo\_etario\_30-39 & grupo\_etario\_30-39 & 0.475000 & 0.360000 & 0.627000 & 0.478000 & 0.363000 & 0.629000 & -0.576000 & 0.001000 & False \\
+grupo\_etario\_40-49 & grupo\_etario\_40-49 & 0.590000 & 0.433000 & 0.804000 & 0.601000 & 0.442000 & 0.818000 & -1.860000 & 0.001000 & False \\
+grupo\_etario\_50-59 & grupo\_etario\_50-59 & 0.776000 & 0.558000 & 1.079000 & 0.781000 & 0.564000 & 1.082000 & -0.630000 & 0.001000 & False \\
+grupo\_etario\_60+ & grupo\_etario\_60+ & 0.836000 & 0.615000 & 1.135000 & 0.901000 & 0.669000 & 1.213000 & -7.193000 & 0.001000 & False \\
+educacion\_grupo\_Secundaria & educacion\_grupo\_Secundaria & 0.837000 & 0.684000 & 1.025000 & 0.817000 & 0.662000 & 1.007000 & 2.531000 & 0.000000 & False \\
+educacion\_grupo\_Superior & educacion\_grupo\_Superior & 0.651000 & 0.507000 & 0.836000 & 0.627000 & 0.488000 & 0.806000 & 3.827000 & 0.000000 & False \\
+region\_natural\_Sierra & region\_natural\_Sierra & 1.201000 & 1.014000 & 1.421000 & 1.201000 & 1.016000 & 1.419000 & 0.022000 & 0.000000 & False \\
+region\_natural\_Selva & region\_natural\_Selva & 0.715000 & 0.586000 & 0.873000 & 0.716000 & 0.587000 & 0.872000 & -0.027000 & 0.000000 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

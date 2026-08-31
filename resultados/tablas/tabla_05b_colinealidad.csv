@@ -1,0 +1,6 @@
+﻿var_a,var_b,cramers_v
+obesidad,tiene_cronica,0.855
+obesidad,obesidad_abdominal,0.592
+obesidad_abdominal,tiene_cronica,0.551
+alcohol_problematico,alcohol_dependencia,0.484
+hta_dx,tiene_cronica,0.429

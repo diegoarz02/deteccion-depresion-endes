@@ -1,0 +1,15 @@
+\begin{table}[htbp]
+\caption{Comparación de las cuatro versiones del modelo lineal}
+\label{tab:tabla_18_comparacion_modelos_lineales}
+\begin{tabular}{lrrrrrll}
+\toprule
+modelo & n & r2 & aic & asimetria\_resid & bp\_p & escala\_respuesta & aic\_comparable \\
+\midrule
+(a) Lineal crudo & 28553 & 0.054000 & 159099.894000 & 2.354000 & 0.000000 & PHQ-9 & sí, entre modelos de escala PHQ-9 \\
+(b) Raíz cuadrada & 28553 & 0.061000 & 90105.200000 & 0.794000 & 0.000000 & raíz(PHQ-9) & NO — otra escala de respuesta \\
+(c) Crudo con HC3 & 28553 & 0.054000 & NaN & 2.354000 & NaN & PHQ-9 & sí, entre modelos de escala PHQ-9 \\
+(d1) Poisson & 28553 & NaN & 181793.879000 & NaN & NaN & PHQ-9 & sí, entre modelos de escala PHQ-9 \\
+(d2) Binomial negativa (α=5.06) & 28553 & NaN & 112584.825000 & NaN & NaN & PHQ-9 & sí, entre modelos de escala PHQ-9 \\
+\bottomrule
+\end{tabular}
+\end{table}

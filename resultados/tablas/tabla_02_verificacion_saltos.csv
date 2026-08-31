@@ -1,0 +1,31 @@
+﻿cadena,filtro,variable,esperados,presentes,violaciones,faltantes_en_filtro,veredicto
+Violencia,QS709 == 1,QS710,19841,19841,0,0,SALTO LIMPIO — NaN = no aplica
+Violencia,QS709 == 1,QS711,19841,19841,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704A,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704B,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704C,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704D,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704E,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704F,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704G,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704H,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Salud mental 12m,QS703 == 1,QS704I,9092,9092,0,0,SALTO LIMPIO — NaN = no aplica
+Funcionalidad,algún QS700x > 0,QS702,15036,15036,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N1,QS209 == 1,QS713,3199,3197,0,2,SALTO LIMPIO — NaN = no aplica
+Alcohol N1,QS209 == 1,QS714,3199,3197,0,2,SALTO LIMPIO — NaN = no aplica
+Alcohol N1,QS209 == 1,QS716,3199,3197,0,2,SALTO LIMPIO — NaN = no aplica
+Alcohol N1,QS209 == 1,QS717,3199,3197,0,2,SALTO LIMPIO — NaN = no aplica
+Alcohol N1 (subfiltro),QS714 == 1,QS715,406,406,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS719,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS720,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS721,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS723,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS726,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS727,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS728,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2,algún QS713-717 == 1,QS729,951,951,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2 (subfiltro),llegó a N2 y QS721 != 1,QS722,814,814,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2 (subfiltro),llegó a N2 y QS723 != 1,QS724,666,666,0,0,SALTO LIMPIO — NaN = no aplica
+Alcohol N2 (subfiltro),QS724 respondida y != 1,QS725,606,606,0,0,SALTO LIMPIO — NaN = no aplica
+Tabaco 30d,QS200 == 1,QS201,4550,4550,0,0,SALTO LIMPIO — NaN = no aplica
+Tabaco diario,QS201 == 1,QS202,2564,2564,0,0,SALTO LIMPIO — NaN = no aplica

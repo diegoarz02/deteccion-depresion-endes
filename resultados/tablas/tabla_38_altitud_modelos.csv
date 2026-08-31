@@ -1,0 +1,4 @@
+﻿modelo,termino,or,ic_inf,ic_sup,p,ajuste,or_formato,por_1000m
+(a) Cruda,Altitud (por 100 m),1.009,1.004,1.014,0.0,ninguno,1.009 (1.004 – 1.014),1.093
+(b) Ajustada,Altitud (por 100 m),1.009,1.003,1.014,0.002,"sexo, edad, educación, área, crónicas, tabaco, alcohol",1.009 (1.003 – 1.014),1.092
+(c) Ajustada + región,Altitud (por 100 m),1.031,1.015,1.046,0.0,lo anterior + región natural,1.031 (1.015 – 1.046),1.353

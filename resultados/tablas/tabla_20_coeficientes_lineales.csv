@@ -1,0 +1,66 @@
+﻿modelo,termino,coeficiente,ee,ic_inf,ic_sup,p
+(a) Crudo,C(educacion_grupo)[T.Secundaria],-0.398,0.068,-0.531,-0.265,0.0
+(a) Crudo,C(educacion_grupo)[T.Superior],-0.909,0.074,-1.054,-0.764,0.0
+(a) Crudo,C(region_natural)[T.Sierra],0.3,0.06,0.183,0.417,0.0
+(a) Crudo,C(region_natural)[T.Selva],-0.342,0.064,-0.469,-0.216,0.0
+(a) Crudo,es_mujer,1.412,0.052,1.311,1.514,0.0
+(a) Crudo,edad,0.009,0.002,0.006,0.012,0.0
+(a) Crudo,es_rural,-0.22,0.057,-0.332,-0.108,0.0
+(a) Crudo,consumo_frecuente,0.056,0.082,-0.104,0.216,0.493
+(a) Crudo,alcohol_problematico,2.14,0.24,1.67,2.61,0.0
+(a) Crudo,fuma_12m,0.347,0.071,0.208,0.485,0.0
+(a) Crudo,hta_dx,1.162,0.092,0.982,1.343,0.0
+(a) Crudo,diabetes_dx,1.018,0.128,0.767,1.268,0.0
+(a) Crudo,obesidad,-0.088,0.053,-0.192,0.016,0.098
+(b) Raíz,C(educacion_grupo)[T.Secundaria],-0.109,0.02,-0.148,-0.069,0.0
+(b) Raíz,C(educacion_grupo)[T.Superior],-0.27,0.022,-0.313,-0.227,0.0
+(b) Raíz,C(region_natural)[T.Sierra],0.113,0.018,0.078,0.148,0.0
+(b) Raíz,C(region_natural)[T.Selva],-0.086,0.019,-0.124,-0.049,0.0
+(b) Raíz,es_mujer,0.464,0.015,0.434,0.494,0.0
+(b) Raíz,edad,0.003,0.001,0.002,0.004,0.0
+(b) Raíz,es_rural,-0.084,0.017,-0.117,-0.051,0.0
+(b) Raíz,consumo_frecuente,0.026,0.024,-0.022,0.074,0.286
+(b) Raíz,alcohol_problematico,0.707,0.072,0.567,0.848,0.0
+(b) Raíz,fuma_12m,0.116,0.021,0.075,0.157,0.0
+(b) Raíz,hta_dx,0.374,0.027,0.32,0.428,0.0
+(b) Raíz,diabetes_dx,0.318,0.038,0.243,0.393,0.0
+(b) Raíz,obesidad,-0.038,0.016,-0.07,-0.007,0.016
+(c) HC3,C(educacion_grupo)[T.Secundaria],-0.398,0.071,-0.537,-0.259,0.0
+(c) HC3,C(educacion_grupo)[T.Superior],-0.909,0.074,-1.055,-0.763,0.0
+(c) HC3,C(region_natural)[T.Sierra],0.3,0.059,0.184,0.416,0.0
+(c) HC3,C(region_natural)[T.Selva],-0.342,0.061,-0.461,-0.224,0.0
+(c) HC3,es_mujer,1.412,0.05,1.315,1.51,0.0
+(c) HC3,edad,0.009,0.002,0.005,0.013,0.0
+(c) HC3,es_rural,-0.22,0.056,-0.329,-0.111,0.0
+(c) HC3,consumo_frecuente,0.056,0.073,-0.088,0.2,0.445
+(c) HC3,alcohol_problematico,2.14,0.28,1.592,2.688,0.0
+(c) HC3,fuma_12m,0.347,0.067,0.216,0.478,0.0
+(c) HC3,hta_dx,1.162,0.111,0.945,1.379,0.0
+(c) HC3,diabetes_dx,1.018,0.157,0.71,1.326,0.0
+(c) HC3,obesidad,-0.088,0.054,-0.193,0.017,0.102
+(d1) Poisson,C(educacion_grupo)[T.Secundaria],-0.129,0.01,-0.149,-0.109,0.0
+(d1) Poisson,C(educacion_grupo)[T.Superior],-0.344,0.012,-0.367,-0.321,0.0
+(d1) Poisson,C(region_natural)[T.Sierra],0.118,0.009,0.1,0.137,0.0
+(d1) Poisson,C(region_natural)[T.Selva],-0.146,0.011,-0.168,-0.125,0.0
+(d1) Poisson,es_mujer,0.611,0.009,0.593,0.629,0.0
+(d1) Poisson,edad,0.004,0.0,0.003,0.004,0.0
+(d1) Poisson,es_rural,-0.084,0.009,-0.102,-0.066,0.0
+(d1) Poisson,consumo_frecuente,0.022,0.014,-0.006,0.05,0.119
+(d1) Poisson,alcohol_problematico,0.762,0.032,0.699,0.825,0.0
+(d1) Poisson,fuma_12m,0.155,0.012,0.131,0.179,0.0
+(d1) Poisson,hta_dx,0.346,0.012,0.321,0.37,0.0
+(d1) Poisson,diabetes_dx,0.29,0.017,0.257,0.322,0.0
+(d1) Poisson,obesidad,-0.039,0.008,-0.055,-0.022,0.0
+(d2) Bin. negativa,C(educacion_grupo)[T.Secundaria],-0.156,0.04,-0.236,-0.077,0.0
+(d2) Bin. negativa,C(educacion_grupo)[T.Superior],-0.384,0.044,-0.47,-0.297,0.0
+(d2) Bin. negativa,C(region_natural)[T.Sierra],0.12,0.036,0.05,0.189,0.001
+(d2) Bin. negativa,C(region_natural)[T.Selva],-0.143,0.039,-0.219,-0.067,0.0
+(d2) Bin. negativa,es_mujer,0.622,0.031,0.561,0.683,0.0
+(d2) Bin. negativa,edad,0.003,0.001,0.001,0.005,0.002
+(d2) Bin. negativa,es_rural,-0.101,0.034,-0.168,-0.034,0.003
+(d2) Bin. negativa,consumo_frecuente,0.015,0.049,-0.081,0.112,0.756
+(d2) Bin. negativa,alcohol_problematico,0.787,0.141,0.51,1.065,0.0
+(d2) Bin. negativa,fuma_12m,0.134,0.043,0.05,0.217,0.002
+(d2) Bin. negativa,hta_dx,0.356,0.054,0.25,0.463,0.0
+(d2) Bin. negativa,diabetes_dx,0.317,0.075,0.169,0.465,0.0
+(d2) Bin. negativa,obesidad,-0.057,0.032,-0.119,0.006,0.075

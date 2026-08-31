@@ -1,0 +1,4 @@
+﻿grupo,n,pct,accion
+Correctas,32303,96.23,Se usan tal cual
+Intercambiadas,1266,3.77,Se intercambian los campos LONGITUDX y LATITUDY
+Fuera de rango,0,0.0,Se marcan como faltantes

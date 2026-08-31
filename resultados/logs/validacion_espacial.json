@@ -1,0 +1,8 @@
+{
+  "n_evaluados": 4000,
+  "coinciden": 3911,
+  "pct_coinciden": 97.78,
+  "en_otro_distrito": 89,
+  "sin_poligono": 0,
+  "veredicto": "La corrección es coherente con el UBIGEO declarado"
+}

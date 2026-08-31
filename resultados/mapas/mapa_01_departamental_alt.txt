@@ -1,0 +1,1 @@
+Dos mapas del Perú por departamento. El izquierdo colorea la prevalencia de depresión: los tonos más oscuros, con los valores más altos, se concentran en la sierra sur (Puno, Huancavelica, Ayacucho, Apurímac). El derecho muestra la amplitud del intervalo de confianza: los departamentos amazónicos tienen estimaciones menos precisas.

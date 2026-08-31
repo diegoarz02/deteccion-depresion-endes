@@ -1,0 +1,275 @@
+﻿variable,descripcion,tipo,n_validos,pct_faltantes,n_unicos,minimo,maximo,media,pct_categoria_modal,bandera
+ID1,Año,float64,33569,0.0,1,2025.0,2025.0,2025.0,100.0,Varianza casi nula (>98% en una categoría)
+HHID,Identificacion Cuestionario del Hogar,object,33569,0.0,33569,,,,,
+QHCLUSTER,Conglomerado,float64,33569,0.0,3252,4344.0,7601.0,5974.849,0.05,
+QHNUMBER,Vivienda seleccionada,float64,33569,0.0,272,1.0,390.0,64.271,1.11,
+QHHOME,Hogar seleccionado,float64,33569,0.0,5,1.0,5.0,1.018,98.48,Varianza casi nula (>98% en una categoría)
+QSNUMERO,Número de la persona seleccionada,float64,33569,0.0,13,1.0,14.0,1.856,48.89,
+QSINTM,Mes de visita final,float64,33569,0.0,12,1.0,12.0,6.827,10.16,
+QSINTY,Año de visita final,float64,33569,0.0,2,2025.0,2026.0,2025.051,94.87,
+QSTOTVISIT,Número total de visitas,float64,33569,0.0,9,1.0,9.0,1.591,64.75,
+QSRESULT,Codigo resultado final,float64,33569,0.0,6,1.0,9.0,1.373,88.33,
+QSNINOS,Total Niños/Niñas de 0 a 11 años,float64,0,100.0,0,,,,,Faltantes > 30%
+QSRESINF,Resultado informante,float64,33569,0.0,6,1.0,9.0,1.208,90.04,
+QS20C,Codigo persona seleccionada,float64,30435,9.34,13,1.0,14.0,1.827,49.77,
+QSSEXO,Sexo de la persona seleccionada,float64,30435,9.34,2,1.0,2.0,1.59,59.0,
+QSMEF,Informante en MEF,float64,30435,9.34,2,1.0,2.0,1.561,56.12,
+QSDIA,Día de nacimiento,float64,30435,9.34,31,1.0,31.0,15.561,3.89,
+QS22M,Mes de nacimiento,float64,30435,9.34,12,1.0,12.0,6.373,9.14,
+QS22A,Año de nacimiento,float64,30435,9.34,86,1920.0,2011.0,1984.314,3.09,
+QS23,Años cumplidos,float64,30435,9.34,83,15.0,97.0,40.448,3.16,
+QS24,Asistió a la escuela,float64,30435,9.34,2,1.0,2.0,1.038,96.23,
+QS25N,Nivel que aprobó,float64,29287,12.76,6,0.0,5.0,2.237,47.21,
+QS25AG,Grado o año,float64,29279,12.78,2,1.0,2.0,1.134,86.64,
+QS25A,Año de estudios,float64,25366,24.44,7,0.0,6.0,3.77,48.63,
+QS25G,Grado de estudios,float64,3913,88.34,6,1.0,6.0,4.649,50.86,Faltantes > 30%
+QS25AA,¿Cuál es el idioma o lengua materna que aprendió hablar en su niñez,float64,30435,9.34,12,1.0,12.0,7.806,74.03,
+QS25BB,Por sus antepasados y de acuerdo a sus costumbres ¿Usted se siente o se consider,float64,30435,9.34,9,1.0,98.0,9.511,40.97,
+QS25C1,"Alguna dificultad para ver, aún usando anteojos",float64,30434,9.34,2,1.0,2.0,1.994,99.42,Varianza casi nula (>98% en una categoría)
+QS25C2,"Alguna dificultad para oír, aún usando audífonos",float64,30434,9.34,2,1.0,2.0,1.997,99.65,Varianza casi nula (>98% en una categoría)
+QS25C3,"Alguna dificultad para hablar o comunicarse, aún usando la lengua de señas u otr",float64,30434,9.34,2,1.0,2.0,1.999,99.89,Varianza casi nula (>98% en una categoría)
+QS25C4,Alguna dificultad para mover o caminar para usar brazos y/o piernas,float64,30434,9.34,2,1.0,2.0,1.995,99.52,Varianza casi nula (>98% en una categoría)
+QS25C5,Alguna dificultad para entender o aprender (concentrarse y recordarse),float64,30434,9.34,2,1.0,2.0,1.998,99.79,Varianza casi nula (>98% en una categoría)
+QS25C6,"Alguna dificultad para relacionarse con los demás, por sus pensamientos, sentimi",float64,30434,9.34,2,1.0,2.0,1.998,99.79,Varianza casi nula (>98% en una categoría)
+QS26,Tiene seguro de salud,float64,30435,9.34,2,1.0,2.0,1.066,93.38,
+QS27,Institucion a que corresponde el seguro que tiene,object,33569,0.0,13,,,,,
+QS28,Conoce o ha oído hablar de la tuberculosis o TBC,float64,13355,60.22,2,1.0,2.0,1.08,91.97,Faltantes > 30%
+QS29A,Ha oído hablar de la infección por VIH,float64,13355,60.22,2,1.0,2.0,1.1,90.03,Faltantes > 30%
+QS29B,Ha oído hablar de la enfermedad llamada SIDA,float64,13355,60.22,2,1.0,2.0,1.019,98.05,Faltantes > 30%
+QS100,Algun profesional le ha medido la Presión Arterial,float64,30432,9.34,3,1.0,8.0,1.493,50.97,
+QS101,Donde le midieron la Presión Arterial,float64,15510,53.8,14,10.0,98.0,15.028,40.99,Faltantes > 30%
+QS102,Le diagnosticaron Hipertensión Arterial o Presión Alta,float64,30432,9.34,3,1.0,8.0,1.917,91.27,
+QS103U,Unidad de tiempo que le diagnosticaron hipertensión arterial o presión alta,float64,0,100.0,0,,,,,Faltantes > 30%
+QS103C,Años/meses que diagnosticaron hipertensión arterial o presión arterial alta,float64,0,100.0,0,,,,,Faltantes > 30%
+QS104,Compraron medicamentos para controlar su Presión Alta,float64,2638,92.14,2,1.0,2.0,1.375,62.47,Faltantes > 30%
+QS105,Compro con/sin receta médica,float64,1648,95.09,3,1.0,8.0,1.145,89.14,Faltantes > 30%
+QS106,Tomo medicamentos tal cual indico le indico el médico,float64,1648,95.09,3,1.0,8.0,1.177,83.07,Faltantes > 30%
+QS107,Le midieron el azúcar o glucosa en la sangre,float64,30432,9.34,3,1.0,8.0,1.711,70.07,
+QS108,"Donde le midieron el azúcar o glucosa en la sangre, última vez",float64,9062,73.0,14,10.0,98.0,15.472,30.74,Faltantes > 30%
+QS109,Le diagnosticaron diabetes o azúcar alta,float64,30432,9.34,3,1.0,8.0,1.967,96.08,
+QS110U,Unidad de tiempo en que le diagnosticaron Diabetes o azúcar alta,float64,0,100.0,0,,,,,Faltantes > 30%
+QS110C,Años/meses diagnosticaron Diabetes o azúcar alta,float64,0,100.0,0,,,,,Faltantes > 30%
+QS111,Ha comprado medicamentos para controlar la diabetes o azúcar alta,float64,1169,96.52,3,1.0,8.0,1.333,67.24,Faltantes > 30%
+QS112,Compro con/sin receta médica,float64,786,97.66,3,1.0,8.0,1.095,92.75,Faltantes > 30%
+QS113,Tomó los medicamentos tal cual le indicó el médico,float64,786,97.66,3,1.0,8.0,1.158,84.99,Faltantes > 30%
+QS200,En los  últimos 12 meses ha fumado cigarrillos,float64,30420,9.38,3,1.0,8.0,1.852,85.02,
+QS201,En los últimos 30 días ha fumado cigarrillos,float64,4550,86.45,3,1.0,8.0,1.44,56.35,Faltantes > 30%
+QS202,Fuma diariamente,float64,2564,92.36,2,1.0,2.0,1.883,88.3,Faltantes > 30%
+QS203U,Edad que empezó a fumar diariamente - Unidad,float64,300,99.11,2,1.0,8.0,1.093,98.67,Faltantes > 30%
+QS203C,Edad que empezó a fumar diariamente,float64,296,99.12,48,12.0,75.0,29.091,12.16,Faltantes > 30%
+QS204U,Hace que años empezó a fumar diariamente - Unidad,float64,4,99.99,1,8.0,8.0,8.0,100.0,Faltantes > 30%
+QS204C,Cantidad años,float64,0,100.0,0,,,,,Faltantes > 30%
+QS205U,Cuántos cigarrillos fuma a diario - Unidad,float64,300,99.11,2,1.0,8.0,1.047,99.33,Faltantes > 30%
+QS205C,Cantidad de cigarrillos,float64,298,99.11,13,1.0,20.0,4.718,20.81,Faltantes > 30%
+QS206,Ha consumido alguna vez bebidas alcohólicas,float64,30420,9.38,3,1.0,8.0,1.085,91.56,
+QS207U,Unidad Edad primera vez que tomo bebidas alcohólicas,float64,27852,17.03,2,1.0,8.0,1.088,98.74,Varianza casi nula (>98% en una categoría)
+QS207C,Cantidad  Edad primera vez que tomo bebidas alcohólicas,float64,27501,18.08,56,5.0,77.0,19.122,20.08,
+QS208,En los últimos 12 meses ha consumido alguna bebida alcohólica,float64,27852,17.03,3,1.0,8.0,1.284,71.66,
+QS209,"En los últimos 12 meses, tomó bebidas alcohólicas 12 o más días",float64,19959,40.54,3,1.0,8.0,1.843,83.92,Faltantes > 30%
+QS210,En los últimos 30 días ha consumido bebidas alcohólicas,float64,19959,40.54,3,1.0,8.0,1.514,51.31,Faltantes > 30%
+QS211U,Unidad Veces que tomo,float64,9716,71.06,2,1.0,8.0,1.004,99.95,Faltantes > 30%
+QS211C,Cantidad Veces que tomo,float64,9711,71.07,23,1.0,30.0,1.808,62.31,Faltantes > 30%
+QS212T,Tomó bebidas,object,33569,0.0,43,,,,,
+QS212A,Tomó cerveza,float64,9712,71.07,2,1.0,2.0,1.268,73.16,Faltantes > 30%
+QS212AV,Fueron Vasos/copas,float64,7105,78.83,24,0.0,98.0,2.783,59.79,Faltantes > 30%
+QS212AB,Fueron botellas,float64,7105,78.83,21,0.0,98.0,3.131,38.24,Faltantes > 30%
+QS212B,Tomó Vino/cachina,float64,9712,71.07,2,1.0,2.0,1.855,85.46,Faltantes > 30%
+QS212BV,Fueron vasos/copas,float64,1412,95.79,15,0.0,98.0,2.834,32.79,Faltantes > 30%
+QS212BB,Fueron botellas,float64,1412,95.79,9,0.0,98.0,0.409,90.86,Faltantes > 30%
+QS212C,Tomó chicha de jora fermentada,float64,9712,71.07,2,1.0,2.0,1.962,96.22,Faltantes > 30%
+QS212CV,Fueron vasos/copas,float64,367,98.91,18,0.0,98.0,4.15,21.8,Faltantes > 30%
+QS212CB,Fueron botellas,float64,367,98.91,7,0.0,98.0,0.398,93.19,Faltantes > 30%
+QS212D,Tomó masato fermentado,float64,9712,71.07,2,1.0,2.0,1.986,98.6,Faltantes > 30%
+QS212DV,Fueron vasos/copas,float64,136,99.59,16,0.0,98.0,4.007,35.29,Faltantes > 30%
+QS212DB,Fueron botellas,float64,136,99.59,8,0.0,98.0,1.978,62.5,Faltantes > 30%
+QS212E,Tomó Yonque/cañazo,float64,9712,71.07,2,1.0,2.0,1.95,95.02,Faltantes > 30%
+QS212EV,Fueron vasos/copas,float64,484,98.56,17,0.0,98.0,4.215,23.14,Faltantes > 30%
+QS212EB,Fueron botellas,float64,484,98.56,9,0.0,98.0,1.32,80.58,Faltantes > 30%
+QS212F,Tomó Anisado,float64,9712,71.07,2,1.0,2.0,1.998,99.8,Faltantes > 30%
+QS212FV,Fueron vasos/copas,float64,19,99.94,7,0.0,20.0,3.421,26.32,Faltantes > 30%
+QS212FB,Fueron botellas,float64,19,99.94,3,0.0,2.0,0.158,89.47,Faltantes > 30%
+QS212G,Tomó Whisky/pisco /ron,float64,9712,71.07,2,1.0,2.0,1.872,87.16,Faltantes > 30%
+QS212GV,Fueron vasos/copas,float64,1247,96.29,22,0.0,98.0,4.087,20.53,Faltantes > 30%
+QS212GB,Fueron botellas,float64,1247,96.29,8,0.0,98.0,0.552,89.17,Faltantes > 30%
+QS212O,Tomó otro,float64,9712,71.07,2,1.0,2.0,1.984,98.45,Faltantes > 30%
+QS212XV,Fueron vasos/copas,float64,151,99.55,13,0.0,98.0,3.258,27.81,Faltantes > 30%
+QS212XB,Fueron botellas,float64,151,99.55,6,0.0,98.0,0.894,87.42,Faltantes > 30%
+QS212Z,No sabe/no recuerda,float64,9712,71.07,2,0.0,1.0,0.0,99.99,Faltantes > 30%
+QS213U,Cuántos días consumió frutas - Unidad,float64,30420,9.38,3,1.0,8.0,1.177,91.27,
+QS213C,Cantidad de días que consumió frutas,float64,27764,17.29,7,1.0,7.0,4.42,36.57,
+QS214U,Cuántas tajadas o racimos de fruta comió - Unicad,float64,27764,17.29,2,1.0,8.0,1.005,99.93,Varianza casi nula (>98% en una categoría)
+QS214C,Cantidad de tajadas o racimos de fruta que comió,float64,27744,17.35,12,1.0,9.0,1.972,41.48,
+QS215U,Cuántos días tomó jugo de frutas - Unidad,float64,30420,9.38,3,1.0,8.0,2.13,56.16,
+QS215C,Cantidad de días tomó jugo de frutas,float64,13306,60.36,7,1.0,7.0,2.699,30.33,Faltantes > 30%
+QS216U,Cuántos vasos de jugo tomo - Unidad,float64,13306,60.36,2,1.0,8.0,1.001,99.99,Faltantes > 30%
+QS216C,Cantidad de vasos de jugo que tomo,float64,13305,60.37,11,1.0,9.0,1.458,63.32,Faltantes > 30%
+QS217U,Cuántos días comió ensalada frutas - Unidad,float64,30420,9.38,3,1.0,8.0,2.649,81.78,
+QS217C,Cantidad de días ensalada frutas,float64,5486,83.66,7,1.0,7.0,1.989,49.56,Faltantes > 30%
+QS218U,Cuántas porciones de ensalada de frutas comió - Unidad,float64,5486,83.66,2,1.0,8.0,1.01,99.85,Faltantes > 30%
+QS218C,Cantidad porciones ensalada frutas,float64,5478,83.68,9,1.0,8.0,1.16,88.9,Faltantes > 30%
+QS219U,Cuántos días comió ensalada de verduras - Unidad,float64,30420,9.38,3,1.0,8.0,1.524,73.99,
+QS219C,Días que comió ensalada de verduras,float64,22507,32.95,7,1.0,7.0,3.285,24.94,Faltantes > 30%
+QS220U,Cuántas porciones ensalada verduras comió - Unidad,float64,22507,32.95,3,1.0,8.0,1.101,90.17,Faltantes > 30%
+QS220CV,Cantidad porciones ensalada verduras,float64,20295,39.54,11,1.0,9.0,1.217,87.0,Faltantes > 30%
+QS220CC,Cantidad cucharadas,float64,2192,93.47,6,1.0,7.0,2.559,41.06,Faltantes > 30%
+QS301,Alguna vez un médico/personal de salud le ha evaluado o medido la vista,float64,8306,75.26,3,1.0,8.0,1.408,60.82,Faltantes > 30%
+QS302U,Hace cuánto tiempo que le evaluaron - Unidad,float64,5052,84.95,3,1.0,8.0,1.507,57.03,Faltantes > 30%
+QS302C,Hace cuánto tiempo que le evaluaron - cantidad,float64,4987,85.14,44,0.0,60.0,6.79,18.11,Faltantes > 30%
+QS303,Lugar donde la evaluaron,float64,5052,84.95,15,10.0,98.0,19.746,38.26,Faltantes > 30%
+QS304,Le han diagnosticado Catarata,float64,8306,75.26,3,1.0,8.0,1.857,83.6,Faltantes > 30%
+QS305U,Tiempo que le diagnosticaron - Unidad,float64,0,100.0,0,,,,,Faltantes > 30%
+QS305C,Tiempo que le diagnosticaron - cantidad,float64,0,100.0,0,,,,,Faltantes > 30%
+QS306,En los últimos 12 meses ha tenido dificultad para ver o reconocer a una distanci,float64,8306,75.26,3,1.0,8.0,1.781,77.56,Faltantes > 30%
+QS307,En los últimos 30 días continúa con la dificultad,float64,0,100.0,0,,,,,Faltantes > 30%
+QS308,En los últimos 12 meses dificultad ver imagen o texto brazo extendido,float64,0,100.0,0,,,,,Faltantes > 30%
+QS309,En los últimos 30 días continúa con esa dificultad,float64,0,100.0,0,,,,,Faltantes > 30%
+QS311,Alguna vez ha sido atendido en servicio dental o un odontólogo,float64,5021,85.04,3,1.0,8.0,1.199,81.66,Faltantes > 30%
+QS312U,Hace cuánto tiempo - Unidad,float64,4100,87.79,3,1.0,8.0,1.773,53.41,Faltantes > 30%
+QS312C,Hace cuánto tiempo - cantidad,float64,3960,88.2,54,0.0,68.0,8.001,15.3,Faltantes > 30%
+QS313,Donde le atendieron la última vez,float64,4100,87.79,13,10.0,98.0,18.319,65.83,Faltantes > 30%
+QS401,Se puede prevenir el cáncer,float64,29144,13.18,3,1.0,8.0,1.377,86.25,
+QS402,Ha oído hablar de cáncer cuello uterino/cervical,float64,29144,13.18,3,1.0,8.0,1.201,83.46,
+QS403,Ha oído del virus papiloma humano,float64,24325,27.54,3,1.0,8.0,1.213,83.55,
+QS404,Cree que el virus papiloma humano causa el cáncer uterino,float64,20323,39.46,3,1.0,8.0,1.638,87.65,Faltantes > 30%
+QS404C,Cree que el análisis de sangre para el dosaje del Antígeno Prostático Específico,float64,29143,13.18,3,1.0,8.0,2.955,62.0,
+QS406,"Se realizo un chequeo general, descarte algun tipo de cáncer",float64,27342,18.55,3,1.0,8.0,1.742,73.81,
+QS407,Donde le realizaron el chequeo,object,33569,0.0,1,,,,,Constante
+QS409,Alguna vez un médico/profesional salud le ha realizado un examen físico de mama,float64,11191,66.66,3,1.0,8.0,1.637,63.07,Faltantes > 30%
+QS410U,Hace cuánto tiempo del examen de mama - Unidad,float64,4123,87.72,3,1.0,8.0,1.532,50.47,Faltantes > 30%
+QS410C,Hace cuánto tiempo del examen de mama - cantidad,float64,4098,87.79,36,0.0,41.0,6.892,17.2,Faltantes > 30%
+QS411,Alguna vez un médico/profesional de salud le ha realizado la prueba de Papanicol,float64,12823,61.8,3,1.0,8.0,1.219,78.47,Faltantes > 30%
+QS412U,Hace cuánto tiempo de la prueba papanicolaou - Unidad,float64,10062,70.03,3,1.0,8.0,1.506,53.36,Faltantes > 30%
+QS412C,Hace cuánto tiempo de la prueba papanicolaou - cantidad,float64,9995,70.23,34,0.0,35.0,7.125,17.04,Faltantes > 30%
+QS413,Recogió o llegó a  conocer los resultados de la prueba de Papanicolaou,float64,10062,70.03,3,1.0,8.0,1.198,81.66,Faltantes > 30%
+QS413A,Alguna vez en su vida un médico u otro profesional de salud le ha realizado la P,float64,12823,61.8,3,1.0,8.0,1.885,82.43,Faltantes > 30%
+QS413B,Hace cuánto tiempo le realizaron la última vez la prueba de Inspección de Ácido ,float64,2142,93.62,3,1.0,8.0,1.446,60.41,Faltantes > 30%
+QS413B_A,Años/meses en que le realizaron la prueba de Inspección de Ácido Acético (IVAA),float64,2124,93.67,29,0.0,35.0,6.647,18.13,Faltantes > 30%
+QS413C,Recogió o llegó a conocer los resultados de la prueba de Inspección de Ácido Acé,float64,2142,93.62,3,1.0,8.0,1.124,89.31,Faltantes > 30%
+QS413D,Alguna vez en su vida un médico u otro profesional de salud le ha realizado la P,float64,12823,61.8,3,1.0,8.0,1.909,85.71,Faltantes > 30%
+QS413E,Hace cuánto tiempo le realizaron la última vez la Prueba Molecular del Virus del,float64,1737,94.83,3,1.0,8.0,1.49,57.92,Faltantes > 30%
+QS413E_A,Años/meses en que le realizaron la prueba Molecular del Virus del Papiloma Human,float64,1717,94.89,28,0.0,30.0,6.637,18.93,Faltantes > 30%
+QS413F,Recogió o llegó a conocer los resultados de la Prueba Molecular del Virus del Pa,float64,1737,94.83,3,1.0,8.0,1.138,88.26,Faltantes > 30%
+QS415,Alguna vez un médico/profesional de salud le ha realizado un examen de mamografí,float64,6063,81.94,3,1.0,8.0,1.751,74.57,Faltantes > 30%
+QS416U,Hace cuanto tiempo le realizaron la mamografía - Unidad,float64,1537,95.42,3,1.0,8.0,1.568,54.98,Faltantes > 30%
+QS416C,Hace cuanto tiempo le realizaron la mamografía - cantidad,float64,1533,95.43,30,0.0,44.0,6.997,16.11,Faltantes > 30%
+QS418A,Alguna vez en su vida le han realizado el análisis de sangre para el dosaje de A,float64,3161,90.58,3,1.0,8.0,1.781,73.68,Faltantes > 30%
+QS419A,Hace cuánto tiempo realizaron la última vez el análisis de sangre para el dosaje,float64,812,97.58,3,1.0,8.0,1.329,69.33,Faltantes > 30%
+QS419A_A,Hace cuánto tiempo realizaron la última vez el análisis de sangre para el dosaje,float64,809,97.59,21,0.0,24.0,6.104,16.44,Faltantes > 30%
+QS500,Actualmente tiene tos con flema,float64,30409,9.41,2,1.0,2.0,1.91,90.96,
+QS501U,Hace cuánto tiene tos con flema - Unidad,float64,2749,91.81,3,1.0,8.0,1.186,87.56,Faltantes > 30%
+QS501C,Hace cuánto tiene tos con flema - cantidad,float64,2721,91.89,23,0.0,36.0,5.532,22.16,Faltantes > 30%
+QS503,"Conoce o ha oído hablar de una enfermedad llamada tuberculosis, TB o TBC",float64,17058,49.19,3,1.0,8.0,1.128,91.09,Faltantes > 30%
+QS505A,La tuberculosis se contagia cuando la persona enferma tose o estornuda cerca a o,float64,27817,17.13,3,1.0,8.0,1.289,88.73,
+QS505B,Se contagia cuando una persona enferma habla cerca con otra persona,float64,27817,17.13,3,1.0,8.0,1.444,77.33,
+QS505C,Se contagia cuando una persona enferma toca a otra,float64,27817,17.13,3,1.0,8.0,1.968,66.59,
+QS505D,Se contagia cuando una persona enferma comparte alimentos o utensilios con otra ,float64,27817,17.13,3,1.0,8.0,1.278,87.11,
+QS506,Se puede curar la tuberculosis,float64,27817,17.13,3,1.0,8.0,1.804,73.32,
+QS506B,Si un miembro de su familia tuviera tuberculosis¿Usted guardaría en secreto su e,float64,15538,53.71,3,1.0,8.0,1.691,58.0,Faltantes > 30%
+QS601A,Ha oído hablar de infección por VIH,float64,8756,73.92,2,1.0,2.0,1.081,91.95,Faltantes > 30%
+QS601B,Ha oído hablar de una enfermedad llamada SIDA,float64,8756,73.92,2,1.0,2.0,1.016,98.42,Faltantes > 30%
+QS603,En los últimos 12 meses se ha hecho una prueba de SIDA (VIH),float64,21774,35.14,3,1.0,8.0,1.742,73.23,Faltantes > 30%
+QS604,Conoció los resultados del examen de laboratorio,float64,5800,82.72,3,1.0,8.0,1.05,95.31,Faltantes > 30%
+QS606,"Las personas tienen menos riesgo de adquirir el virus que causa el VIH (SIDA), s",float64,8880,73.55,3,1.0,8.0,1.251,85.46,Faltantes > 30%
+QS607,Es posible que una persona que parece saludable este infectada con el virus que ,float64,8880,73.55,3,1.0,8.0,1.364,81.89,Faltantes > 30%
+QS608,"Las personas pueden adquirir el virus que causa el SIDA (VIH) por dar un abrazo,",float64,8880,73.55,3,1.0,8.0,1.787,66.15,Faltantes > 30%
+QS609,Las personas pueden adquirir el virus que causa el SIDA (VIH) por la picadura de,float64,8880,73.55,3,1.0,8.0,1.847,48.25,Faltantes > 30%
+QS610,Las personas pueden adquirir el virus que causa el SIDA (VIH) compartiendo alime,float64,8880,73.55,3,1.0,8.0,1.734,53.73,Faltantes > 30%
+QS611,Las personas que usan condón cada vez que tienen relaciones sexuales tienen meno,float64,8880,73.55,3,1.0,8.0,1.305,82.64,Faltantes > 30%
+QS700A,Últimos 14 días ha sentido molestias o problemas como:  Poco interés,float64,30401,9.44,4,0.0,3.0,0.408,70.68,
+QS700B,Últimos 14 días ha sentido molestias o problemas como: Deprimido,float64,30401,9.44,4,0.0,3.0,0.453,67.66,
+QS700C,Últimos 14 días ha sentido molestias o problemas como: No puede dormir/dormir de,float64,30401,9.44,4,0.0,3.0,0.389,74.79,
+QS700D,Últimos 14 días ha sentido molestias o problemas como: Cansado,float64,30401,9.44,4,0.0,3.0,0.333,76.08,
+QS700E,Últimos 14 días ha sentido molestias o problemas como: Poco apetito/comer en exc,float64,30401,9.44,4,0.0,3.0,0.298,80.15,
+QS700F,Últimos 14 días ha sentido molestias o problemas como: Poner atencion,float64,30401,9.44,4,0.0,3.0,0.244,83.07,
+QS700G,Últimos 14 días ha sentido molestias o problemas como: Moverse,float64,30401,9.44,4,0.0,3.0,0.209,85.6,
+QS700H,Últimos 14 días ha sentido molestias o problemas como: Hacerse daño de alguna fo,float64,30401,9.44,4,0.0,3.0,0.097,93.26,
+QS700I,Últimos 14 días ha sentido molestias o problemas como: Sentirse mal,float64,30401,9.44,4,0.0,3.0,0.165,88.66,
+QS702,"Estas molestias o problema, cuanto le han dificultado para realizar su trabajo, ",float64,15036,55.21,3,1.0,3.0,2.166,56.78,Faltantes > 30%
+QS703,"Últimos 12 meses, ha tenido molestias o problemas mencionados anteriormente como",float64,30401,9.44,2,1.0,2.0,1.701,70.09,
+QS704T,Ahora hablemos solo de las molestias o problemas que tuvo cuando (en),object,33569,0.0,1,,,,,Constante
+QS704A,Últimos 12 meses: tuvo pocas ganas o interés en hacer las cosas,float64,9092,72.92,4,0.0,3.0,1.47,42.15,Faltantes > 30%
+QS704B,"Últimos 12 meses: se sintió desanimada(o), deprimida(o), triste o sin esperanza",float64,9092,72.92,4,0.0,3.0,1.555,44.94,Faltantes > 30%
+QS704C,Últimos 12 meses: tuvo problemas para dormir o mantenerse dormida(o) o en dormir,float64,9092,72.92,4,0.0,3.0,1.289,34.38,Faltantes > 30%
+QS704D,Últimos 12 meses: se sintió cansada(o) o tuvo poca energía sin motivo que lo jus,float64,9092,72.92,4,0.0,3.0,1.039,39.09,Faltantes > 30%
+QS704E,Últimos 12 meses: tuvo poco apetito o ha comido en exceso,float64,9092,72.92,4,0.0,3.0,1.078,38.51,Faltantes > 30%
+QS704F,Últimos 12 meses: ha tenido dificultad en poner atención o concentrarse en las c,float64,9092,72.92,4,0.0,3.0,0.884,48.67,Faltantes > 30%
+QS704G,Últimos 12 meses: dificultad para moverse o hablar más lento de lo normal o se h,float64,9092,72.92,4,0.0,3.0,0.82,53.96,Faltantes > 30%
+QS704H,Últimos 12 meses: ha tenido pensamientos de morir o de hacerse daño,float64,9092,72.92,4,0.0,3.0,0.364,77.91,Faltantes > 30%
+QS704I,Últimos 12 meses: se ha sentido mal de sí misma(o) o ha sentido que es una(un) f,float64,9092,72.92,4,0.0,3.0,0.561,67.11,Faltantes > 30%
+QS706,"Las molestias o problema cuánto le han dificultado para realizar su trabajo, sus",float64,9077,72.96,3,1.0,3.0,1.871,59.18,Faltantes > 30%
+QS707,En los últimos 12 meses recibió tratamiento de algún profesional de salud por de,float64,30401,9.44,3,1.0,8.0,1.963,96.13,
+QS708_A,¿Dónde recibió tratamiento? - General (Minsa/Gobierno Regional),float64,1167,96.52,2,0.0,1.0,0.19,80.98,Faltantes > 30%
+QS708_AA,¿Dónde recibió tratamiento? -  Hospital Psiquiátrico,float64,1167,96.52,2,0.0,1.0,0.007,99.31,Faltantes > 30%
+QS708_AB,¿Dónde recibió tratamiento? -  Instituto Nacional de Salud Mental,float64,1167,96.52,2,0.0,1.0,0.01,98.97,Faltantes > 30%
+QS708_B,¿Dónde recibió tratamiento? - ESSALUD,float64,1167,96.52,2,0.0,1.0,0.116,88.43,Faltantes > 30%
+QS708_C,¿Dónde recibió tratamiento? - FFAA y PNP,float64,1167,96.52,2,0.0,1.0,0.004,99.57,Faltantes > 30%
+QS708_D,¿Dónde recibió tratamiento? -  Hospital/ Otro Municipal,float64,1167,96.52,2,0.0,1.0,0.015,98.54,Faltantes > 30%
+QS708_E,¿Dónde recibió tratamiento? -  Centro/ Puesto del MINSA,float64,1167,96.52,2,0.0,1.0,0.35,65.04,Faltantes > 30%
+QS708_EA,¿Dónde recibió tratamiento? -  Centro de Salud Mental Comunitaria,float64,1167,96.52,2,0.0,1.0,0.066,93.4,Faltantes > 30%
+QS708_F,¿Dónde recibió tratamiento? -  Policlínico/ Posta de ESSALUD/ UBAP,float64,1167,96.52,2,0.0,1.0,0.013,98.71,Faltantes > 30%
+QS708_G,¿Dónde recibió tratamiento? -  Clínica Particular,float64,1167,96.52,2,0.0,1.0,0.129,87.15,Faltantes > 30%
+QS708_H,¿Dónde recibió tratamiento? -  Consultorio Particular,float64,1167,96.52,2,0.0,1.0,0.108,89.2,Faltantes > 30%
+QS708_I,¿Dónde recibió tratamiento? -  Clínica/ Posta de ONG,float64,1167,96.52,2,0.0,1.0,0.002,99.83,Faltantes > 30%
+QS708_J,¿Dónde recibió tratamiento? - Hospital/ Otro de Iglesia,float64,1167,96.52,2,0.0,1.0,0.003,99.74,Faltantes > 30%
+QS708_X,¿Dónde recibió tratamiento? -  Otro,float64,1167,96.52,2,0.0,1.0,0.033,96.66,Faltantes > 30%
+QS708_Y,¿Dónde recibió tratamiento? -  No Sabe/No Recuerda,float64,1167,96.52,2,0.0,1.0,0.002,99.83,Faltantes > 30%
+QS709,Últimos 12 meses ha estado casada(o) o conviviendo,float64,30401,9.44,2,1.0,2.0,1.347,65.26,
+QS710,"Últimos 12 meses cuantas veces su pareja le golpeó con el pie, el puño o alguna ",float64,19841,40.89,4,1.0,4.0,1.05,96.15,Faltantes > 30%
+QS711,"Últimos 12 meses cuantas veces su pareja le golpeó, agredió con un objeto como: ",float64,19841,40.89,4,1.0,4.0,1.01,99.18,Faltantes > 30%
+QS713,Últimos 12 meses hubo momentos en que la bebida o la resaca le dificultaron real,float64,3197,90.48,4,1.0,9.0,1.791,77.32,Faltantes > 30%
+QS714,Últimos 12 meses hubo momentos en que el consumo de alcohol le provocó discusion,float64,3197,90.48,4,1.0,9.0,1.885,87.11,Faltantes > 30%
+QS715,Siguió bebiendo a pesar que le provocaba estos problemas con estas personas,float64,406,98.79,2,1.0,2.0,1.49,50.99,Faltantes > 30%
+QS716,Últimos 12 meses hubo momentos que estuvo bajo los efectos del alcohol en situac,float64,3197,90.48,4,1.0,9.0,1.926,90.87,Faltantes > 30%
+QS717,Le han detenido más de una vez por alterar el orden o manejar bajo los efectos d,float64,3197,90.48,4,1.0,9.0,1.983,96.06,Faltantes > 30%
+QS719,Últimos 12 meses hubo momentos en que tuvo tantas ganas de beber que no pudo res,float64,951,97.17,3,1.0,8.0,1.799,77.71,Faltantes > 30%
+QS720,Últimos 12 meses hubo momentos que necesitó beber más cantidad de alcohol para s,float64,951,97.17,3,1.0,8.0,1.891,88.33,Faltantes > 30%
+QS721,"Últimos 12 meses hubo momentos en que tuvo síntomas como cansancio, dolores de c",float64,951,97.17,4,1.0,9.0,1.87,85.38,Faltantes > 30%
+QS722,"Últimos 12 meses hubo momentos en que tomó un vaso, copa o botella para evitar t",float64,814,97.58,3,1.0,8.0,1.957,94.84,Faltantes > 30%
+QS723,Últimos 12 meses hubo momentos en que continúo bebiendo a pesar que se había pro,float64,951,97.17,3,1.0,8.0,1.713,69.82,Faltantes > 30%
+QS724,Últimos 12 meses hubo momentos en que bebió más frecuentemente o durante más día,float64,666,98.02,3,1.0,8.0,1.937,90.54,Faltantes > 30%
+QS725,Últimos 12 meses hubo momentos en que empezó a beber y se emborrachó cuando no q,float64,606,98.19,2,1.0,2.0,1.8,80.03,Faltantes > 30%
+QS726,Últimos 12 meses hubo momentos en qué intentó beber menos o dejar de beber y no ,float64,951,97.17,4,1.0,9.0,1.764,73.19,Faltantes > 30%
+QS727,Últimos 12 meses hubieron períodos de varios días o más en los que pasó tanto ti,float64,951,97.17,3,1.0,9.0,1.892,88.33,Faltantes > 30%
+QS728,Últimos 12 meses tuvo un período de un mes o más que dejó de hacer actividades i,float64,951,97.17,3,1.0,9.0,1.895,88.64,Faltantes > 30%
+QS729,Últimos 12 meses hubo momentos en que siguió bebiendo aunque sabía que tenía un ,float64,951,97.17,3,1.0,9.0,1.868,85.91,Faltantes > 30%
+QS730,Últimos 12 meses recibió tratamiento de algún profesional de la salud por consum,float64,27834,17.08,3,1.0,8.0,2.001,99.84,Varianza casi nula (>98% en una categoría)
+QS731_A,¿Dónde recibió tratamiento? - General (Minsa/Gobierno Regional),float64,34,99.9,2,0.0,1.0,0.118,88.24,Faltantes > 30%
+QS731_AA,¿Dónde recibió tratamiento? -  Hospital Psiquiátrico,float64,33,99.9,1,0.0,0.0,0.0,100.0,Faltantes > 30%
+QS731_AB,¿Dónde recibió tratamiento? -  Instituto Nacional de Salud Mental,float64,33,99.9,2,0.0,1.0,0.061,93.94,Faltantes > 30%
+QS731_B,¿Dónde recibió tratamiento? - ESSALUD,float64,34,99.9,2,0.0,1.0,0.059,94.12,Faltantes > 30%
+QS731_C,¿Dónde recibió tratamiento? - FFAA y PNP,float64,34,99.9,1,0.0,0.0,0.0,100.0,Faltantes > 30%
+QS731_D,¿Dónde recibió tratamiento? -  Hospital/ Otro Municipal,float64,34,99.9,2,0.0,1.0,0.029,97.06,Faltantes > 30%
+QS731_E,¿Dónde recibió tratamiento? -  Centro/ Puesto del MINSA,float64,34,99.9,2,0.0,1.0,0.382,61.76,Faltantes > 30%
+QS731_EA,¿Dónde recibió tratamiento? -  Centro de Salud Mental Comunitaria,float64,33,99.9,2,0.0,1.0,0.121,87.88,Faltantes > 30%
+QS731_F,¿Dónde recibió tratamiento? -  Policlínico/ Posta de ESSALUD/ UBAP,float64,34,99.9,1,0.0,0.0,0.0,100.0,Faltantes > 30%
+QS731_G,¿Dónde recibió tratamiento? -  Clínica Particular,float64,34,99.9,2,0.0,1.0,0.118,88.24,Faltantes > 30%
+QS731_H,¿Dónde recibió tratamiento? -  Consultorio Particular,float64,34,99.9,2,0.0,1.0,0.059,94.12,Faltantes > 30%
+QS731_I,¿Dónde recibió tratamiento? -  Clínica/ Posta de ONG,float64,34,99.9,1,0.0,0.0,0.0,100.0,Faltantes > 30%
+QS731_J,¿Dónde recibió tratamiento? - Hospital/ Otro de Iglesia,float64,34,99.9,1,0.0,0.0,0.0,100.0,Faltantes > 30%
+QS731_X,¿Dónde recibió tratamiento? -  Otro,float64,34,99.9,2,0.0,1.0,0.059,94.12,Faltantes > 30%
+QS731_Y,¿Dónde recibió tratamiento? -  No Sabe/No Recuerda,float64,34,99.9,2,0.0,1.0,0.029,97.06,Faltantes > 30%
+QFIN,Final de Entrevista del Informante,object,33569,0.0,1,,,,,Constante
+QS8INICIO,Indicación inicio capítulo 8,object,33569,0.0,1,,,,,Constante
+QS900,Personas de 15 años a màs de edad - Peso en kilogramos,float64,30396,9.45,930,25.6,999.9,83.025,1.66,
+QS901,Personas de 15 años a màs de edad - Talla en centímetros,float64,30396,9.45,563,115.1,999.9,170.817,1.68,
+QS902,Resultado medición antropométrica,float64,30401,9.44,6,1.0,6.0,2.341,54.99,
+QS903S,Primera medición presión arterial sistólica,float64,30131,10.24,153,64.0,220.0,117.483,2.71,
+QS903D,Primera medición presión arterial diastólica,float64,30131,10.24,93,40.0,140.0,74.59,4.36,
+QS905S,Segunda medición presión arterial sistólica,float64,30131,10.24,148,61.0,220.0,115.769,2.79,
+QS905D,Segunda medición presión arterial diastólica,float64,30131,10.24,92,40.0,142.0,73.722,4.15,
+QS906,Resultado medición presión arterial,float64,30401,9.44,4,1.0,6.0,1.018,99.11,Varianza casi nula (>98% en una categoría)
+QS907,Perímetro abdominal en centímetros,float64,30397,9.45,791,54.8,999.9,119.423,3.05,
+QS908,Resultado de la medición del perímetro abdominal,float64,30401,9.44,4,1.0,6.0,1.101,96.94,
+Peso15_AMAS,Factor ponderado,float64,30226,9.96,24221,21475.029,19369346.815,1196744.806,0.02,
+HV022,Estrato,float64,33569,0.0,240,1.0,250.0,125.757,3.1,
+HV024,Región,float64,33569,0.0,25,1.0,25.0,13.015,12.17,
+HV023,Dominio,float64,33569,0.0,25,1.0,25.0,13.015,12.17,
+HV025,Área de residencia,float64,33569,0.0,2,1.0,2.0,1.352,64.79,
+HV040,Altitud del conglomerado en metros,float64,33569,0.0,1647,1.0,4500.0,1392.362,0.64,
+UBIGEO,Código de Ubicación Gegráfica,object,33569,0.0,927,,,,,
+HV026,Lugar de residencia,float64,33569,0.0,4,0.0,3.0,1.842,35.21,
+HV009,Total de personas en el hogar,float64,33569,0.0,18,1.0,25.0,3.93,24.69,
+HV001,Conglomerado,object,33569,0.0,3252,,,,,
+LONGITUDX,Longitud a nivel centro poblado,float64,33569,0.0,3978,-81.274,-3.513,-73.065,0.05,
+LATITUDY,Latitud  a nivel centro poblado,float64,33569,0.0,3978,-80.797,-2.45,-13.197,0.05,
+NOMCCPP,Nombre del Centro Poblado,object,33569,0.0,1907,,,,,

@@ -1,0 +1,1 @@
+Dos mapas del Perú lado a lado. El izquierdo muestra la altitud media por departamento, con la sierra en tonos oscuros. El derecho muestra la prevalencia de depresión. Los patrones se parecen: la correlación es 0.63.
