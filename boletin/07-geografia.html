@@ -144,6 +144,165 @@ del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la 
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Calculado solo entre quienes dan positivo al tamizaje. Los departamentos con menos de 30 casos positivos no se estiman.</figcaption>
 </figure>
 </section>
+<h3>Busca tu departamento</h3>
+
+<p>Los mapas de arriba muestran el patrón completo. Si lo que quieres es
+<strong>tu</strong> departamento, elígelo aquí y verás su cifra con su margen de error,
+junto a la del país y la de los departamentos que tiene más cerca en la escala.</p>
+
+<div class="selector-dep">
+  <label for="dep-sel">Departamento
+    <select id="dep-sel"></select>
+  </label>
+  <div class="dep-tarjeta" aria-live="polite">
+    <div class="dep-cifra" id="dep-cifra">&mdash;</div>
+    <p class="dep-nombre" id="dep-nombre"></p>
+    <p class="dep-detalle" id="dep-detalle"></p>
+  </div>
+</div>
+
+<svg id="dep-barras" class="barras-comparativas" role="img"
+     aria-label="Comparación del departamento con el país"></svg>
+<p class="explorador-interpreta" id="dep-interpreta"></p>
+
+<details class="detalle-numerico">
+  <summary>Ver el detalle</summary>
+  <div id="dep-tabla"></div>
+</details>
+
+<script id="datos-departamentos" type="application/json">{"nacional":{"prevalencia":6.98,"ic_inf":6.5,"ic_sup":7.51,"n":30226,"brecha":87.6},"departamentos":[{"codigo":"01","nombre":"Amazonas","prevalencia":3.53,"ic_inf":2.58,"ic_sup":4.8,"n":1278,"brecha":93.8,"altitud_media":1199},{"codigo":"02","nombre":"Ancash","prevalencia":9.08,"ic_inf":7.1,"ic_sup":11.55,"n":1030,"brecha":90.2,"altitud_media":1998},{"codigo":"03","nombre":"Apurimac","prevalencia":8.3,"ic_inf":6.3,"ic_sup":10.87,"n":1147,"brecha":89.5,"altitud_media":3150},{"codigo":"04","nombre":"Arequipa","prevalencia":6.29,"ic_inf":4.84,"ic_sup":8.13,"n":939,"brecha":80.0,"altitud_media":2200},{"codigo":"05","nombre":"Ayacucho","prevalencia":8.79,"ic_inf":7.17,"ic_sup":10.75,"n":1329,"brecha":88.7,"altitud_media":2880},{"codigo":"06","nombre":"Cajamarca","prevalencia":7.71,"ic_inf":5.93,"ic_sup":9.97,"n":1171,"brecha":92.6,"altitud_media":2316},{"codigo":"07","nombre":"Callao","prevalencia":7.71,"ic_inf":5.98,"ic_sup":9.89,"n":924,"brecha":86.8,"altitud_media":102},{"codigo":"08","nombre":"Cusco","prevalencia":7.41,"ic_inf":5.32,"ic_sup":10.24,"n":1059,"brecha":96.2,"altitud_media":3113},{"codigo":"09","nombre":"Huancavelica","prevalencia":10.61,"ic_inf":8.79,"ic_sup":12.76,"n":1222,"brecha":95.5,"altitud_media":3414},{"codigo":"10","nombre":"Huanuco","prevalencia":6.95,"ic_inf":5.52,"ic_sup":8.73,"n":1307,"brecha":87.0,"altitud_media":2126},{"codigo":"11","nombre":"Ica","prevalencia":6.11,"ic_inf":4.76,"ic_sup":7.82,"n":1165,"brecha":84.7,"altitud_media":328},{"codigo":"12","nombre":"Junin","prevalencia":6.13,"ic_inf":4.39,"ic_sup":8.5,"n":1089,"brecha":80.0,"altitud_media":2508},{"codigo":"13","nombre":"La Libertad","prevalencia":8.13,"ic_inf":6.31,"ic_sup":10.42,"n":1096,"brecha":84.7,"altitud_media":1063},{"codigo":"14","nombre":"Lambayeque","prevalencia":5.74,"ic_inf":4.36,"ic_sup":7.53,"n":1117,"brecha":82.9,"altitud_media":155},{"codigo":"15","nombre":"Lima","prevalencia":7.18,"ic_inf":6.15,"ic_sup":8.37,"n":3447,"brecha":82.4,"altitud_media":324},{"codigo":"16","nombre":"Loreto","prevalencia":3.86,"ic_inf":2.82,"ic_sup":5.27,"n":1129,"brecha":85.7,"altitud_media":126},{"codigo":"17","nombre":"Madre de Dios","prevalencia":4.37,"ic_inf":3.19,"ic_sup":5.96,"n":1049,"brecha":83.7,"altitud_media":263},{"codigo":"18","nombre":"Moquegua","prevalencia":3.86,"ic_inf":2.68,"ic_sup":5.53,"n":1035,"brecha":75.0,"altitud_media":1335},{"codigo":"19","nombre":"Pasco","prevalencia":5.78,"ic_inf":4.02,"ic_sup":8.25,"n":1007,"brecha":93.2,"altitud_media":2755},{"codigo":"20","nombre":"Piura","prevalencia":4.73,"ic_inf":3.36,"ic_sup":6.63,"n":1116,"brecha":74.5,"altitud_media":347},{"codigo":"21","nombre":"Puno","prevalencia":12.83,"ic_inf":10.34,"ic_sup":15.81,"n":1116,"brecha":95.3,"altitud_media":3797},{"codigo":"22","nombre":"San Martin","prevalencia":7.79,"ic_inf":6.17,"ic_sup":9.79,"n":1178,"brecha":87.8,"altitud_media":598},{"codigo":"23","nombre":"Tacna","prevalencia":4.25,"ic_inf":2.82,"ic_sup":6.35,"n":972,"brecha":87.5,"altitud_media":962},{"codigo":"24","nombre":"Tumbes","prevalencia":6.42,"ic_inf":4.63,"ic_sup":8.83,"n":1117,"brecha":89.8,"altitud_media":23},{"codigo":"25","nombre":"Ucayali","prevalencia":1.1,"ic_inf":0.59,"ic_sup":2.04,"n":1187,"brecha":null,"altitud_media":203}],"subgrupos":[{"variable":"Sexo","categoria":"Hombre","prevalencia":3.86,"n":12346},{"variable":"Sexo","categoria":"Mujer","prevalencia":9.87,"n":17880},{"variable":"Grupo etario","categoria":"15-19","prevalencia":8.37,"n":2713},{"variable":"Grupo etario","categoria":"20-29","prevalencia":6.68,"n":6243},{"variable":"Grupo etario","categoria":"30-39","prevalencia":4.25,"n":8284},{"variable":"Grupo etario","categoria":"40-49","prevalencia":5.68,"n":4736},{"variable":"Grupo etario","categoria":"50-59","prevalencia":7.84,"n":3257},{"variable":"Grupo etario","categoria":"60+","prevalencia":9.8,"n":4993},{"variable":"Nivel educativo","categoria":"Primaria o menos","prevalencia":8.77,"n":6442},{"variable":"Nivel educativo","categoria":"Secundaria","prevalencia":7.05,"n":13741},{"variable":"Nivel educativo","categoria":"Superior","prevalencia":5.28,"n":8898},{"variable":"Área de residencia","categoria":"Rural","prevalencia":6.84,"n":11277},{"variable":"Área de residencia","categoria":"Urbano","prevalencia":7.01,"n":18949},{"variable":"Región natural","categoria":"Costa","prevalencia":6.9,"n":11359},{"variable":"Región natural","categoria":"Selva","prevalencia":4.97,"n":6744},{"variable":"Región natural","categoria":"Sierra","prevalencia":8.04,"n":12123},{"variable":"Dominio","categoria":"Costa","prevalencia":6.33,"n":8154},{"variable":"Dominio","categoria":"Lima Metropolitana","prevalencia":7.28,"n":3205},{"variable":"Dominio","categoria":"Selva","prevalencia":4.97,"n":6744},{"variable":"Dominio","categoria":"Sierra","prevalencia":8.04,"n":12123}],"fuente":"ENDES 2025 (INEI)"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('datos-departamentos').textContent);
+  var DEPS = D.departamentos.slice().sort(function (a, b) {
+    return a.nombre.localeCompare(b.nombre, 'es'); });
+  var NAC = D.nacional;
+  var sel = document.getElementById('dep-sel');
+
+  DEPS.forEach(function (d) {
+    var o = document.createElement('option');
+    o.value = d.codigo; o.textContent = d.nombre;
+    if (d.nombre === 'Puno') o.selected = true;
+    sel.appendChild(o);
+  });
+
+  /* Ucayali no tiene brecha calculada: sus casos positivos no llegan al mínimo
+     para estimarla. Devolver un guion es más honesto que un cero, que se leería
+     como «aquí todo el mundo recibe atención». */
+  function coma(x, n) {
+    return (x === null || x === undefined) ? '—' : x.toFixed(n).replace('.', ',');
+  }
+
+  /* Los dos departamentos con la prevalencia más parecida, uno por encima y
+     otro por debajo. Comparar con «el vecino en la escala» sitúa mejor que
+     comparar con el máximo y el mínimo, que siempre son los mismos. */
+  function vecinos(d) {
+    var orden = DEPS.slice().sort(function (a, b) {
+      return a.prevalencia - b.prevalencia; });
+    var i = orden.findIndex(function (x) { return x.codigo === d.codigo; });
+    return [orden[i - 1], orden[i + 1]].filter(Boolean);
+  }
+
+  function barras(d, vs) {
+    var filas = [{ etq: d.nombre, d: d, destacada: true },
+                 { etq: 'Todo el Perú', d: NAC }];
+    vs.forEach(function (v) { filas.push({ etq: v.nombre, d: v }); });
+
+    var max = Math.max.apply(null, filas.map(function (f) { return f.d.ic_sup; })) * 1.08;
+    var W = 460, alto = 34, pad = 122, y = 6, svg = '';
+    filas.forEach(function (f) {
+      var x = function (val) { return pad + (val / max) * (W - pad - 46); };
+      var color = f.destacada ? 'var(--verde-700)' : 'var(--salvia-500)';
+      svg += '<text x="' + (pad - 8) + '" y="' + (y + 15) + '" text-anchor="end" '
+        + 'class="bc-etq">' + f.etq + '</text>'
+        + '<rect x="' + pad + '" y="' + (y + 4) + '" width="' + (x(f.d.prevalencia) - pad)
+        + '" height="15" rx="3" fill="' + color + '"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 11.5)
+        + '" y2="' + (y + 11.5) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_inf) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_sup) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<text x="' + (x(f.d.ic_sup) + 7) + '" y="' + (y + 15) + '" class="bc-val">'
+        + coma(f.d.prevalencia, 1) + ' %</text>';
+      y += alto;
+    });
+    var g = document.getElementById('dep-barras');
+    g.setAttribute('viewBox', '0 0 ' + W + ' ' + y);
+    g.innerHTML = svg;
+  }
+
+  function pintar() {
+    var d = DEPS.find(function (x) { return x.codigo === sel.value; });
+    if (!d) return;
+    var vs = vecinos(d);
+    var amplitud = d.ic_sup - d.ic_inf;
+    // El coeficiente de variación no viene en este archivo; se aproxima por la
+    // amplitud relativa del intervalo, que es lo que se quiere comunicar.
+    var impreciso = amplitud / d.prevalencia > 0.8;
+
+    document.getElementById('dep-cifra').innerHTML = coma(d.prevalencia, 1)
+      + '<small> de cada 100</small>';
+    document.getElementById('dep-nombre').textContent = d.nombre;
+    document.getElementById('dep-detalle').innerHTML =
+      'Sobre ' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + ' personas entrevistadas. '
+      + 'Intervalo de confianza del 95 %: ' + coma(d.ic_inf, 1) + ' % a '
+      + coma(d.ic_sup, 1) + ' %.'
+      + (impreciso ? ' <strong>El intervalo es ancho:</strong> con esta muestra la cifra '
+        + 'puntual no se sostiene sola.' : '');
+
+    barras(d, vs);
+
+    var partes = [];
+    var r = d.prevalencia / NAC.prevalencia;
+    if (r >= 1.15) {
+      partes.push('<strong>' + d.nombre + '</strong> está por encima del promedio del país: '
+        + coma(r, 1) + ' veces la cifra nacional.');
+    } else if (r <= 0.87) {
+      partes.push('<strong>' + d.nombre + '</strong> está por debajo del promedio del país. '
+        + 'En el conjunto del Perú la proporción es ' + coma(1 / r, 1) + ' veces la de aquí.');
+    } else {
+      partes.push('<strong>' + d.nombre + '</strong> se mueve en torno al promedio del país.');
+    }
+
+    if (vs.length === 2) {
+      partes.push('En la escala nacional queda entre ' + vs[0].nombre + ' ('
+        + coma(vs[0].prevalencia, 1) + ' %) y ' + vs[1].nombre + ' ('
+        + coma(vs[1].prevalencia, 1) + ' %).');
+    }
+
+    // Si los intervalos se solapan, la diferencia entre departamentos no está
+    // asegurada. Decirlo evita el titular fácil de «X duplica a Y».
+    if (d.ic_inf < NAC.ic_sup && NAC.ic_inf < d.ic_sup) {
+      partes.push('Su intervalo se solapa con el nacional, así que la diferencia con el '
+        + 'promedio del país no está asegurada.');
+    }
+
+    if (d.brecha != null) {
+      partes.push('De quienes dieron positivo aquí, el ' + coma(d.brecha, 0)
+        + ' % no recibió atención profesional en todo el año.');
+    }
+    document.getElementById('dep-interpreta').innerHTML = partes.join(' ');
+
+    document.getElementById('dep-tabla').innerHTML = '<table><tbody>'
+      + '<tr><th>Personas entrevistadas</th><td>' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + '</td></tr>'
+      + '<tr><th>Prevalencia ponderada</th><td>' + coma(d.prevalencia, 2) + ' %</td></tr>'
+      + '<tr><th>Intervalo de confianza 95 %</th><td>' + coma(d.ic_inf, 2) + ' % a '
+      + coma(d.ic_sup, 2) + ' %</td></tr>'
+      + '<tr><th>Amplitud del intervalo</th><td>' + coma(amplitud, 2)
+      + ' puntos porcentuales</td></tr>'
+      + '<tr><th>Brecha de atención</th><td>'
+      + (d.brecha == null ? 'sin casos suficientes para estimarla'
+         : coma(d.brecha, 1) + ' %') + '</td></tr>'
+      + '<tr><th>Altitud media</th><td>' + d.altitud_media.toLocaleString('es-PE').replace(/,/g, ' ')
+      + ' m</td></tr></tbody></table>';
+  }
+
+  sel.addEventListener('change', pintar);
+  pintar();
+})();
+</script>
+
 <div class="paginacion"><a href="06-quienes.html">← Quiénes son</a><a href="08-factores.html">Qué se asocia →</a></div>
 </div></main>
 <footer><div class="contenedor"><div class="cols">

@@ -50,9 +50,9 @@ class EstadoAgente(TypedDict, total=False):
     #: parecidos. Encabeza la respuesta cuando existe: es un
     #: recuento, no un pronóstico.
     tasa_observada: dict | None
-    #: Identificador de la frase de ánimo elegida del banco cerrado.
+    #: Frase de ánimo elegida del banco cerrado, con su texto y su fuente.
     #: None cuando hay crisis: ahí no se muestra ninguna.
-    frase_animo: str | None
+    frase_animo: dict | None
     borrador: str | None
     veredicto_seguridad: str | None
     motivo_rechazo: str | None

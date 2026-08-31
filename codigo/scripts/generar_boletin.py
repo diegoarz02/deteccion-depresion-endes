@@ -710,6 +710,45 @@ todos los días (3).</p>
 grave. Como análisis de sensibilidad repetimos todo con el corte en 5, que capta también la
 sintomatología leve y sube la prevalencia al 21,4 %. Las conclusiones no cambian.</p>
 
+<h3>Cómo entra la edad en el modelo</h3>
+
+<p>Una prueba estándar dice que la edad <strong>no se relaciona con la depresión en línea
+recta</strong>: la prevalencia es alta entre los más jóvenes, cae hacia los treinta y vuelve
+a subir después. Metida como una recta, ese doble movimiento se anula y la edad parece no
+importar.</p>
+
+<p>Hay dos formas razonables de resolverlo: partirla en <strong>grupos</strong> (15-19,
+20-29, y así) o dejar que una curva flexible —una <em>spline</em>— se ajuste sola a la forma
+de los datos. Probamos las dos, más otras tres, y las comparamos por un criterio que premia
+el ajuste y penaliza la complejidad.</p>
+
+<div class="tabla-scroll"><table>
+<caption>Comparación de formas funcionales de la edad. Menos AIC es mejor ajuste.</caption>
+<thead><tr><th scope="col">Forma</th><th scope="col" class="num">AIC</th>
+<th scope="col" class="num">Diferencia</th></tr></thead>
+<tbody>
+<tr><td>Curva flexible (spline)</td><td class="num">14 101,8</td><td class="num">—</td></tr>
+<tr><td>Cúbica</td><td class="num">14 104,6</td><td class="num">2,8</td></tr>
+<tr><td>Cuadrática</td><td class="num">14 136,7</td><td class="num">34,9</td></tr>
+<tr><td><strong>Grupos de edad (la que usamos)</strong></td><td class="num">14 174,0</td>
+<td class="num">72,2</td></tr>
+<tr><td>Línea recta</td><td class="num">14 250,6</td><td class="num">148,7</td></tr>
+</tbody></table></div>
+
+<div class="nota atencion">
+  <strong>La curva ajusta mejor, y aun así usamos los grupos. El motivo importa.</strong>
+  Lo que decide qué forma usar no es cuál ajusta mejor la edad, sino si esa elección
+  <em>distorsiona el resto del modelo</em>. Y no lo hace: al cambiar de una a otra, el
+  coeficiente que más se mueve lo hace un <strong>4,3 %</strong>, muy por debajo del 10 %
+  que se toma como señal de que una variable está confundiendo a las demás.
+  <br><br>
+  Con eso resuelto, la elección deja de ser de validez y pasa a ser de comunicación. Los
+  grupos de edad dan cifras que se leen solas —«el grupo de 60+ frente al de 30-39»—, son la
+  forma en que reportan los estudios con los que nos comparamos, y una curva flexible
+  necesita un gráfico para interpretarse. La curva queda documentada como comprobación, y
+  cualquiera puede reproducirla con el código.
+</div>
+
 <h3>Qué pasa con quien no contestó todo</h3>
 <p>El análisis principal usa solo a quienes tienen completas las variables del modelo. Eso
 deja fuera a poca gente —el faltante más grande es el nivel educativo, con un 3,8 %— pero
@@ -737,10 +776,11 @@ cambiaría.</p>
 <div class="nota">
   <strong>Tres variables que quedaron fuera a propósito.</strong> La encuesta incluye una
   pregunta sobre cuánto dificultan los síntomas la vida diaria, y una segunda batería PHQ-9
-  referida a doce meses. Las dos parecen predictores excelentes y las dos son inservibles:
-  solo se preguntan a quien ya declaró síntomas. Su cobertura <em>es</em> el resultado que
-  queremos predecir, disfrazado. Incluirlas habría producido un modelo aparentemente
-  brillante y completamente vacío.
+  referida a doce meses. Las dos parecen predictores excelentes, y ahí está el problema:
+  solo se le preguntan a quien ya declaró síntomas. Miden lo mismo que queremos explicar,
+  así que no aportan información nueva — la cobertura de esas preguntas <em>es</em> el
+  resultado, disfrazado. Un modelo que las incluyera acertaría casi siempre y no habría
+  aprendido nada.
 </div>
 </section>"""
     return plantilla("05-medicion.html", "Cómo lo medimos", contenido, "6")
@@ -815,30 +855,53 @@ con su intervalo de confianza.</p>
 
   <div class="explorador-salida" aria-live="polite">
     <div class="explorador-cifra" id="ex-cifra">&mdash;</div>
-    <p class="explorador-frase" id="ex-frase">Elige las características y la cifra se
-    actualiza sola.</p>
+    <p class="explorador-frase" id="ex-frase"></p>
     <div class="explorador-puntos" id="ex-puntos" role="img"
-         aria-label="Cien puntos; los coloreados son quienes dieron positivo"></div>
+         aria-label="Cuadrícula de cien puntos"></div>
     <p class="explorador-detalle" id="ex-detalle"></p>
   </div>
 </div>
 
-<p class="ficha">Fuente: ENDES 2025 (INEI). Prevalencias ponderadas con el diseño muestral
-complejo. Solo se muestran combinaciones con al menos 100 personas y 20 casos positivos;
-cuando la combinación exacta no llega, se busca el grupo más específico que sí lo haga y
-se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de esta página.</p>
+<div class="explorador-comparativa">
+  <p class="comparativa-titulo">Cómo se compara este grupo</p>
+  <svg id="ex-barras" class="barras-comparativas" role="img"
+       aria-label="Barras comparativas"></svg>
+  <p class="comparativa-nota">La rayita fina sobre cada barra es el intervalo de confianza
+  del 95 %: si dos rayitas se solapan, la diferencia entre esos grupos no est&aacute;
+  asegurada.</p>
+  <p class="explorador-interpreta" id="ex-interpreta"></p>
+</div>
+
+<details class="detalle-numerico">
+  <summary>Ver el detalle</summary>
+  <div id="ex-tabla"></div>
+</details>
+
+<p class="ficha">Fuente: ENDES 2025 (INEI). Prevalencias ponderadas con el dise&ntilde;o
+muestral complejo. Solo se muestran combinaciones con al menos 100 personas y 20 casos
+positivos; cuando la combinaci&oacute;n exacta no llega, se busca el grupo m&aacute;s
+espec&iacute;fico que s&iacute; lo haga y se dice cu&aacute;l es. Funciona sin
+conexi&oacute;n al servidor: los datos van dentro de esta p&aacute;gina.</p>
 
 <script id="datos-tasas" type="application/json">%TASAS%</script>
 <script>
 (function () {
   var CAT = JSON.parse(document.getElementById('datos-tasas').textContent);
   var NIVELES = CAT._orden_niveles, TASAS = CAT.tasas;
+  var NACIONAL = 6.98;
   var campos = { sexo: 'ex-sexo', grupo_etario: 'ex-edad', educacion_grupo: 'ex-edu',
                  area: 'ex-area', region_natural: 'ex-region' };
 
-  function buscar() {
+  function leer() {
     var v = {};
     for (var k in campos) v[k] = document.getElementById(campos[k]).value;
+    return v;
+  }
+
+  /* Baja por la escalera de niveles hasta encontrar el grupo más específico que
+     tenga casos suficientes. Devuelve también qué nivel se alcanzó, porque la
+     interpretación necesita saber si hubo que generalizar. */
+  function buscar(v) {
     for (var i = 0; i < NIVELES.length; i++) {
       var clave = NIVELES[i].map(function (c) { return v[c]; }).join('|');
       if (TASAS[clave]) return TASAS[clave];
@@ -848,19 +911,133 @@ se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de es
 
   function coma(x, d) { return x.toFixed(d).replace('.', ','); }
 
+  /* ── Barra comparativa ───────────────────────────────────────────
+     Un número solo no dice nada; el mismo número junto a tres referencias sí.
+     Se dibuja en SVG a mano: cuatro barras y sus intervalos, sin librerías. */
+  function dibujarBarras(v, t) {
+    var otroSexo = buscar(Object.assign({}, v, {
+      sexo: v.sexo === 'Mujer' ? 'Hombre' : 'Mujer' }));
+    var otraRegion = buscar(Object.assign({}, v, {
+      region_natural: v.region_natural === 'Sierra' ? 'Costa' : 'Sierra' }));
+
+    var filas = [
+      { etq: 'Tu grupo', t: t, destacada: true },
+      { etq: 'Todo el Perú', t: { prevalencia: NACIONAL, ic_inf: 6.49, ic_sup: 7.51 } },
+    ];
+    if (otroSexo) {
+      filas.push({ etq: (v.sexo === 'Mujer' ? 'Hombres' : 'Mujeres') + ' igual', t: otroSexo });
+    }
+    if (otraRegion) {
+      filas.push({ etq: 'En ' + (v.region_natural === 'Sierra' ? 'la costa' : 'la sierra'),
+                   t: otraRegion });
+    }
+
+    var max = Math.max.apply(null, filas.map(function (f) { return f.t.ic_sup; })) * 1.08;
+    var W = 460, alto = 34, pad = 118, y = 6, svg = '';
+
+    filas.forEach(function (f) {
+      var x = function (val) { return pad + (val / max) * (W - pad - 46); };
+      var color = f.destacada ? 'var(--verde-700)' : 'var(--salvia-500)';
+      svg += '<text x="' + (pad - 8) + '" y="' + (y + 15) + '" text-anchor="end" '
+        + 'class="bc-etq">' + f.etq + '</text>'
+        + '<rect x="' + pad + '" y="' + (y + 4) + '" width="' + (x(f.t.prevalencia) - pad)
+        + '" height="15" rx="3" fill="' + color + '"/>'
+        // El intervalo, dibujado encima: la barra sola sugiere una precisión
+        // que el dato no tiene.
+        + '<line x1="' + x(f.t.ic_inf) + '" x2="' + x(f.t.ic_sup) + '" y1="' + (y + 11.5)
+        + '" y2="' + (y + 11.5) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.t.ic_inf) + '" x2="' + x(f.t.ic_inf) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.t.ic_sup) + '" x2="' + x(f.t.ic_sup) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<text x="' + (x(f.t.ic_sup) + 7) + '" y="' + (y + 15) + '" class="bc-val">'
+        + coma(f.t.prevalencia, 1) + ' %</text>';
+      y += alto;
+    });
+
+    var g = document.getElementById('ex-barras');
+    g.setAttribute('viewBox', '0 0 ' + W + ' ' + y);
+    g.innerHTML = svg;
+    g.setAttribute('aria-label', 'Comparación: ' + filas.map(function (f) {
+      return f.etq + ', ' + coma(f.t.prevalencia, 1) + ' por ciento'; }).join('; '));
+    return { otroSexo: otroSexo, otraRegion: otraRegion };
+  }
+
+  /* ── Interpretación reactiva ─────────────────────────────────────
+     Cinco ramas, redactadas distinto cada una. Un texto genérico que no cambia
+     con el filtro convierte el interactivo en decoración. */
+  function interpretar(v, t, extras) {
+    var partes = [];
+    var razon = t.prevalencia / NACIONAL;
+
+    if (razon >= 1.15) {
+      partes.push('Este grupo está <strong>por encima</strong> del promedio del país: '
+        + coma(t.prevalencia, 1) + ' % frente al 6,98 %, es decir '
+        + coma(razon, 1) + ' veces más.');
+    } else if (razon <= 0.87) {
+      partes.push('Este grupo está <strong>por debajo</strong> del promedio del país: '
+        + coma(t.prevalencia, 1) + ' % frente al 6,98 %. Dicho al revés, en el conjunto '
+        + 'del Perú la proporción es ' + coma(1 / razon, 1) + ' veces la de este grupo.');
+    } else {
+      partes.push('Este grupo se mueve <strong>en torno al promedio</strong> del país, '
+        + 'que es del 6,98 %.');
+    }
+
+    // El nivel dice cuántas de las cinco variables definen realmente la celda.
+    if (t.nivel < 5) {
+      partes.push('No hay suficientes personas con esa combinación exacta en la encuesta, '
+        + 'así que la cifra corresponde a un grupo algo más amplio: el mismo <strong>'
+        + t.definido_por + '</strong>.');
+    }
+
+    if (t.impreciso) {
+      partes.push('Con esta muestra el dato baila bastante: la cifra real podría estar en '
+        + 'cualquier punto entre ' + coma(t.ic_inf, 1) + ' % y ' + coma(t.ic_sup, 1)
+        + ' %. Léela como «por ahí anda», no como un número exacto.');
+    }
+
+    var o = extras.otroSexo;
+    if (o) {
+      var d = t.prevalencia / o.prevalencia;
+      var ellas = v.sexo === 'Mujer' ? 'las mujeres' : 'los hombres';
+      var ellos = v.sexo === 'Mujer' ? 'los hombres' : 'las mujeres';
+      if (d >= 1.5 || d <= 0.67) {
+        var mas = d >= 1.5;
+        partes.push('La diferencia por sexo es de las más grandes de todo el estudio: '
+          + 'en este mismo grupo, ' + ellas + ' están ' + coma(mas ? d : 1 / d, 1)
+          + ' veces ' + (mas ? 'por encima' : 'por debajo') + ' que ' + ellos + '.');
+      } else if (d > 0.85 && d < 1.18) {
+        // En el conjunto del país la razón entre sexos es 2,6. Que aquí se
+        // acerque a 1 no es un dato aburrido: es que la brecha se cierra en
+        // este grupo, y eso también dice algo.
+        partes.push('Curiosamente, aquí la brecha entre sexos casi desaparece: '
+          + ellas + ' y ' + ellos + ' de este mismo grupo están en '
+          + coma(t.prevalencia, 1) + ' % y ' + coma(o.prevalencia, 1) + ' %. '
+          + 'En el conjunto del país esa diferencia es de más del doble.');
+      }
+    }
+
+    document.getElementById('ex-interpreta').innerHTML = partes.join(' ');
+  }
+
   function pintar() {
-    var t = buscar();
+    var v = leer();
+    var t = buscar(v);
     var cifra = document.getElementById('ex-cifra');
     var frase = document.getElementById('ex-frase');
     var puntos = document.getElementById('ex-puntos');
     var detalle = document.getElementById('ex-detalle');
+    var tabla = document.getElementById('ex-tabla');
 
     if (!t) {
       cifra.innerHTML = '&mdash;';
-      frase.textContent = 'No hay suficientes personas con esta combinación en la '
-        + 'encuesta para dar una cifra que se sostenga.';
+      frase.textContent = 'No hay suficientes personas con esta combinación en la encuesta '
+        + 'para dar una cifra que se sostenga.';
       puntos.innerHTML = '';
       detalle.textContent = '';
+      document.getElementById('ex-interpreta').textContent = '';
+      document.getElementById('ex-barras').innerHTML = '';
+      if (tabla) tabla.innerHTML = '';
       return;
     }
 
@@ -871,16 +1048,31 @@ se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de es
     var enteros = Math.floor(t.prevalencia), html = '';
     for (var i = 0; i < 100; i++) {
       html += i < enteros ? '<i class="on"></i>'
-        : (i === enteros && t.prevalencia - enteros >= 0.25)
-          ? '<i class="mid"></i>' : '<i></i>';
+        : (i === enteros && t.prevalencia - enteros >= 0.25) ? '<i class="mid"></i>' : '<i></i>';
     }
     puntos.innerHTML = html;
+    puntos.setAttribute('aria-label', 'Cuadrícula de cien puntos: '
+      + Math.round(t.prevalencia) + ' coloreados representan a quienes dieron positivo al '
+      + 'tamizaje, y ' + (100 - Math.round(t.prevalencia)) + ' en gris a quienes no.');
 
-    detalle.innerHTML = 'Sobre ' + t.n.toLocaleString('es-PE') + ' personas, '
-      + t.eventos + ' dieron positivo. IC 95 %: ' + coma(t.ic_inf, 1) + ' % a '
-      + coma(t.ic_sup, 1) + ' %.'
-      + (t.impreciso ? ' <strong>Estimación imprecisa</strong> (CV &gt; 0,20): léela por '
-        + 'su intervalo, no por la cifra puntual.' : '');
+    detalle.innerHTML = 'Sobre ' + t.n.toLocaleString('es-PE').replace(/,/g, ' ') + ' personas, '
+      + t.eventos + ' dieron positivo.';
+
+    var extras = dibujarBarras(v, t);
+    interpretar(v, t, extras);
+
+    if (tabla) {
+      tabla.innerHTML = '<table><tbody>'
+        + '<tr><th>Personas del grupo</th><td>' + t.n.toLocaleString('es-PE').replace(/,/g, ' ') + '</td></tr>'
+        + '<tr><th>Dieron positivo</th><td>' + t.eventos + '</td></tr>'
+        + '<tr><th>Prevalencia ponderada</th><td>' + coma(t.prevalencia, 2) + ' %</td></tr>'
+        + '<tr><th>Intervalo de confianza 95 %</th><td>' + coma(t.ic_inf, 2) + ' % a '
+        + coma(t.ic_sup, 2) + ' %</td></tr>'
+        + '<tr><th>Coeficiente de variación</th><td>' + coma(t.cv, 3)
+        + (t.impreciso ? ' <span class="marca-imprecisa">imprecisa</span>' : '') + '</td></tr>'
+        + '<tr><th>Variables que definen el grupo</th><td>' + t.definido_por + '</td></tr>'
+        + '</tbody></table>';
+    }
   }
 
   for (var k in campos) {
@@ -888,6 +1080,7 @@ se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de es
   }
   pintar();
 })();
+
 </script>
 """.replace("%TASAS%", _tasas_observadas_json())
 
@@ -967,6 +1160,186 @@ menos.</p>
 # 8 · Geografía
 # ─────────────────────────────────────────────────────────────────────
 
+
+
+def _contexto_departamental_json() -> str:
+    """Datos de los 25 departamentos, para incrustar en la sección de geografía."""
+    ruta = cfg.RAIZ / "api" / "datos" / "contexto.json"
+    if not ruta.exists():
+        print(f"  AVISO: no existe {ruta.name}; el selector quedará vacío")
+        return '{"departamentos": [], "nacional": {}}'
+    crudo = json.loads(ruta.read_text(encoding="utf-8"))
+    return json.dumps(crudo, ensure_ascii=False,
+                      separators=(",", ":")).replace("</", "<\\/")
+
+
+def bloque_departamentos() -> str:
+    """Selector que compara un departamento con el país y con sus vecinos.
+
+    La sección de geografía tenía mapas estáticos y nada que tocar, siendo la
+    que más lo pedía: un mapa invita a buscarse en él. Con los 25 departamentos
+    ya calculados, el selector no cuesta ningún dato nuevo.
+    """
+    return """
+<h3>Busca tu departamento</h3>
+
+<p>Los mapas de arriba muestran el patrón completo. Si lo que quieres es
+<strong>tu</strong> departamento, elígelo aquí y verás su cifra con su margen de error,
+junto a la del país y la de los departamentos que tiene más cerca en la escala.</p>
+
+<div class="selector-dep">
+  <label for="dep-sel">Departamento
+    <select id="dep-sel"></select>
+  </label>
+  <div class="dep-tarjeta" aria-live="polite">
+    <div class="dep-cifra" id="dep-cifra">&mdash;</div>
+    <p class="dep-nombre" id="dep-nombre"></p>
+    <p class="dep-detalle" id="dep-detalle"></p>
+  </div>
+</div>
+
+<svg id="dep-barras" class="barras-comparativas" role="img"
+     aria-label="Comparación del departamento con el país"></svg>
+<p class="explorador-interpreta" id="dep-interpreta"></p>
+
+<details class="detalle-numerico">
+  <summary>Ver el detalle</summary>
+  <div id="dep-tabla"></div>
+</details>
+
+<script id="datos-departamentos" type="application/json">%DEPS%</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('datos-departamentos').textContent);
+  var DEPS = D.departamentos.slice().sort(function (a, b) {
+    return a.nombre.localeCompare(b.nombre, 'es'); });
+  var NAC = D.nacional;
+  var sel = document.getElementById('dep-sel');
+
+  DEPS.forEach(function (d) {
+    var o = document.createElement('option');
+    o.value = d.codigo; o.textContent = d.nombre;
+    if (d.nombre === 'Puno') o.selected = true;
+    sel.appendChild(o);
+  });
+
+  /* Ucayali no tiene brecha calculada: sus casos positivos no llegan al mínimo
+     para estimarla. Devolver un guion es más honesto que un cero, que se leería
+     como «aquí todo el mundo recibe atención». */
+  function coma(x, n) {
+    return (x === null || x === undefined) ? '—' : x.toFixed(n).replace('.', ',');
+  }
+
+  /* Los dos departamentos con la prevalencia más parecida, uno por encima y
+     otro por debajo. Comparar con «el vecino en la escala» sitúa mejor que
+     comparar con el máximo y el mínimo, que siempre son los mismos. */
+  function vecinos(d) {
+    var orden = DEPS.slice().sort(function (a, b) {
+      return a.prevalencia - b.prevalencia; });
+    var i = orden.findIndex(function (x) { return x.codigo === d.codigo; });
+    return [orden[i - 1], orden[i + 1]].filter(Boolean);
+  }
+
+  function barras(d, vs) {
+    var filas = [{ etq: d.nombre, d: d, destacada: true },
+                 { etq: 'Todo el Perú', d: NAC }];
+    vs.forEach(function (v) { filas.push({ etq: v.nombre, d: v }); });
+
+    var max = Math.max.apply(null, filas.map(function (f) { return f.d.ic_sup; })) * 1.08;
+    var W = 460, alto = 34, pad = 122, y = 6, svg = '';
+    filas.forEach(function (f) {
+      var x = function (val) { return pad + (val / max) * (W - pad - 46); };
+      var color = f.destacada ? 'var(--verde-700)' : 'var(--salvia-500)';
+      svg += '<text x="' + (pad - 8) + '" y="' + (y + 15) + '" text-anchor="end" '
+        + 'class="bc-etq">' + f.etq + '</text>'
+        + '<rect x="' + pad + '" y="' + (y + 4) + '" width="' + (x(f.d.prevalencia) - pad)
+        + '" height="15" rx="3" fill="' + color + '"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 11.5)
+        + '" y2="' + (y + 11.5) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_inf) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_sup) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<text x="' + (x(f.d.ic_sup) + 7) + '" y="' + (y + 15) + '" class="bc-val">'
+        + coma(f.d.prevalencia, 1) + ' %</text>';
+      y += alto;
+    });
+    var g = document.getElementById('dep-barras');
+    g.setAttribute('viewBox', '0 0 ' + W + ' ' + y);
+    g.innerHTML = svg;
+  }
+
+  function pintar() {
+    var d = DEPS.find(function (x) { return x.codigo === sel.value; });
+    if (!d) return;
+    var vs = vecinos(d);
+    var amplitud = d.ic_sup - d.ic_inf;
+    // El coeficiente de variación no viene en este archivo; se aproxima por la
+    // amplitud relativa del intervalo, que es lo que se quiere comunicar.
+    var impreciso = amplitud / d.prevalencia > 0.8;
+
+    document.getElementById('dep-cifra').innerHTML = coma(d.prevalencia, 1)
+      + '<small> de cada 100</small>';
+    document.getElementById('dep-nombre').textContent = d.nombre;
+    document.getElementById('dep-detalle').innerHTML =
+      'Sobre ' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + ' personas entrevistadas. '
+      + 'Intervalo de confianza del 95 %: ' + coma(d.ic_inf, 1) + ' % a '
+      + coma(d.ic_sup, 1) + ' %.'
+      + (impreciso ? ' <strong>El intervalo es ancho:</strong> con esta muestra la cifra '
+        + 'puntual no se sostiene sola.' : '');
+
+    barras(d, vs);
+
+    var partes = [];
+    var r = d.prevalencia / NAC.prevalencia;
+    if (r >= 1.15) {
+      partes.push('<strong>' + d.nombre + '</strong> está por encima del promedio del país: '
+        + coma(r, 1) + ' veces la cifra nacional.');
+    } else if (r <= 0.87) {
+      partes.push('<strong>' + d.nombre + '</strong> está por debajo del promedio del país. '
+        + 'En el conjunto del Perú la proporción es ' + coma(1 / r, 1) + ' veces la de aquí.');
+    } else {
+      partes.push('<strong>' + d.nombre + '</strong> se mueve en torno al promedio del país.');
+    }
+
+    if (vs.length === 2) {
+      partes.push('En la escala nacional queda entre ' + vs[0].nombre + ' ('
+        + coma(vs[0].prevalencia, 1) + ' %) y ' + vs[1].nombre + ' ('
+        + coma(vs[1].prevalencia, 1) + ' %).');
+    }
+
+    // Si los intervalos se solapan, la diferencia entre departamentos no está
+    // asegurada. Decirlo evita el titular fácil de «X duplica a Y».
+    if (d.ic_inf < NAC.ic_sup && NAC.ic_inf < d.ic_sup) {
+      partes.push('Su intervalo se solapa con el nacional, así que la diferencia con el '
+        + 'promedio del país no está asegurada.');
+    }
+
+    if (d.brecha != null) {
+      partes.push('De quienes dieron positivo aquí, el ' + coma(d.brecha, 0)
+        + ' % no recibió atención profesional en todo el año.');
+    }
+    document.getElementById('dep-interpreta').innerHTML = partes.join(' ');
+
+    document.getElementById('dep-tabla').innerHTML = '<table><tbody>'
+      + '<tr><th>Personas entrevistadas</th><td>' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + '</td></tr>'
+      + '<tr><th>Prevalencia ponderada</th><td>' + coma(d.prevalencia, 2) + ' %</td></tr>'
+      + '<tr><th>Intervalo de confianza 95 %</th><td>' + coma(d.ic_inf, 2) + ' % a '
+      + coma(d.ic_sup, 2) + ' %</td></tr>'
+      + '<tr><th>Amplitud del intervalo</th><td>' + coma(amplitud, 2)
+      + ' puntos porcentuales</td></tr>'
+      + '<tr><th>Brecha de atención</th><td>'
+      + (d.brecha == null ? 'sin casos suficientes para estimarla'
+         : coma(d.brecha, 1) + ' %') + '</td></tr>'
+      + '<tr><th>Altitud media</th><td>' + d.altitud_media.toLocaleString('es-PE').replace(/,/g, ' ')
+      + ' m</td></tr></tbody></table>';
+  }
+
+  sel.addEventListener('change', pintar);
+  pintar();
+})();
+</script>
+""".replace("%DEPS%", _contexto_departamental_json())
 
 def pagina_geografia() -> str:
     """Los mapas y el análisis de altitud."""
@@ -1147,7 +1520,8 @@ del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la 
     "Mapa del Perú por departamento con la brecha de atención en salud mental. Casi todo el "
     "territorio aparece en tonos oscuros, por encima del 80 %.")}
 </section>"""
-    return plantilla("07-geografia.html", "Geografía", contenido, "8")
+    return plantilla("07-geografia.html", "Geografía",
+                     contenido + bloque_departamentos(), "8")
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -1165,7 +1539,7 @@ def pagina_factores() -> str:
 
     contenido = f"""<section>
 {cabecera("9", "activity", "Qué se asocia con la depresión")}
-<p class="entradilla">Los datos dicen que fumar protege contra la depresión. Es falso, y
+<p class="entradilla">Los datos dicen que fumar protege contra la depresión. La cifra es real y la conclusión no, y
 la explicación de por qué es el mejor ejemplo de este boletín.</p>
 
 <h3>La paradoja del tabaco</h3>
@@ -1319,7 +1693,7 @@ preguntas distintas, así que reportamos las dos.</p>
 
 {figura(
     "fig_17_mediacion.png",
-    "Descontar la obesidad casi no cambia nada, y eso también es un resultado",
+    "Descontar el peso corporal casi no cambia nada, y eso también es un resultado",
     "Los círculos son el efecto completo; los cuadrados, lo que queda tras descontar la ruta "
     "corporal. Están casi encima. La única excepción es la diabetes, donde alrededor de una "
     "cuarta parte del efecto sí viaja por ahí. Antes de calcular nada comprobamos el primer "
@@ -1349,8 +1723,9 @@ preguntas distintas, así que reportamos las dos.</p>
     "Una curva ROC es como este juego: se toman dos personas al azar, una con sintomatología "
     "depresiva y otra sin ella, y se le pregunta al modelo cuál es cuál. Un AUC de 0,67 "
     "quiere decir que acierta dos de cada tres veces. Está por encima del azar, que sería "
-    "0,5, y muy lejos de la certeza. Sirve para decidir dónde poner un servicio; no sirve "
-    "para decidir sobre una persona.",
+    "0,5, y lejos de la certeza. Con esa precisión se puede decidir dónde hace falta un "
+    "servicio de salud mental; para saber cómo está una persona concreta hace falta "
+    "hablar con ella.",
     "Fuente: ENDES 2025 (INEI). Curva ROC y calibración por deciles de riesgo sobre 28 553 "
     "personas.",
     "Dos paneles. A la izquierda, la curva ROC, que se aleja de la diagonal del azar. A la "
@@ -1388,8 +1763,9 @@ def pagina_shap() -> str:
 
     contenido = f"""<section>
 {cabecera("11", "search", "Modelo y realidad: dos rankings que no coinciden")}
-<p class="entradilla">El factor con el efecto más fuerte del estudio es casi inútil para
-predecir. No es una contradicción: es que estábamos midiendo dos cosas distintas.</p>
+<p class="entradilla">El factor con el efecto más fuerte del estudio apenas ayuda a
+predecir quién dará positivo. Suena a contradicción y no lo es: son dos preguntas
+distintas, y cada una tiene su propia respuesta.</p>
 
 <p>Además del modelo epidemiológico entrenamos algoritmos de aprendizaje automático
 —bosques aleatorios, XGBoost, LightGBM— y les preguntamos qué variables usan para decidir.
@@ -1441,10 +1817,12 @@ bien porque es frecuente.</p>
 {figura(
     "fig_13_comparacion_modelos_ml.png",
     "Cuatro algoritmos, prácticamente el mismo resultado",
-    "Bosque aleatorio, XGBoost, LightGBM y una regresión logística regularizada se mueven "
-    "todos entre 0,65 y 0,68 de AUC. Cuando cambiar de algoritmo no cambia el resultado, el "
-    "techo no está en el algoritmo: está en lo que las variables disponibles pueden decir. "
-    "La curva de la derecha es la honesta con un 6 % de casos.",
+    "Se probaron cuatro maneras muy distintas de aprender de los mismos datos: desde una "
+    "regresión clásica hasta tres algoritmos de los que se usan hoy en competiciones. Las "
+    "cuatro se quedan entre 0,65 y 0,68. Cuando cambiar de método no mueve la aguja, el "
+    "límite no está en el método sino en lo que la encuesta preguntó. El panel de la "
+    "derecha es el exigente cuando el fenómeno es poco frecuente: mide si el modelo acierta "
+    "al señalar, no solo si acierta al callar.",
     "Fuente: ENDES 2025 (INEI). Validación cruzada de cinco particiones, estratificada y "
     "agrupada por conglomerado muestral para evitar fuga de información.",
     "Dos paneles con curvas de rendimiento de cuatro modelos. Las curvas ROC de la izquierda "
@@ -1466,9 +1844,10 @@ bien porque es frecuente.</p>
             "Comparación de algoritmos. La última fila es la referencia obligada.")}
 
 <div class="nota atencion">
-  <strong>Por qué no aparece la exactitud.</strong> Con un 6 % de casos, un modelo que
-  responda «nadie tiene depresión» acierta el 94 % de las veces y no sirve para nada. Es la
-  métrica más citada y la más engañosa en problemas como este.
+  <strong>Por qué no aparece la exactitud.</strong> Un modelo que responda «nadie tiene
+  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Cuando
+  el fenómeno afecta al 6 %, ese número no dice gran cosa: es la métrica más citada y la
+  que menos informa en problemas como este.
 </div>
 
 <h3>Qué significa un AUC de 0,67, en cifras concretas</h3>

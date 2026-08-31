@@ -382,7 +382,7 @@ def formatear_salida(estado: EstadoAgente) -> dict:
     if estado.get("recursos_texto"):
         final += "\n\n**Dónde encontrar ayuda**\n\n" + estado["recursos_texto"]
     final += prompts.cierre(DISCLAIMER, LINEA_AYUDA, estado.get("modo", "degradado"), auc)
-    return {"salida_final": final, "frase_animo": frase["id"] if frase else None,
+    return {"salida_final": final, "frase_animo": frase,
             "trazas": _traza(estado, "formatear_salida", inicio,
                              f"{len(final)} caracteres"
                              + (f", frase «{frase['id']}»" if frase else ", sin frase"))}

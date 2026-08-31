@@ -385,3 +385,121 @@ footer p { margin: 0 0 8px; max-width: 92ch; }
    parecía un fallo de renderizado, no un campo por rellenar. */
 .observado-cifra.vacio { color: var(--texto-tenue); font-size: 2.2rem; letter-spacing: 0; }
 .observado-cifra.vacio small { display: none; }
+
+/* ════════════════════════════════════════════════════════════════════
+   Compresión del formulario
+   La página medía 4 036 px antes de calcular nada, y el panel de resultado
+   1 212 de ellos estaba casi vacío. Mucho recuadro largo con poco dentro se
+   lee como una página a medio hacer.
+   ════════════════════════════════════════════════════════════════════ */
+
+.panel { padding: 24px; }
+.panel h3 { margin: 22px 0 10px; padding-top: 16px; }
+.campo { margin-bottom: 14px; }
+
+/* Campos cortos en fila: sexo, grupo y edad caben de sobra juntos. */
+.fila-campos { display: grid; grid-template-columns: 1fr 1fr 90px; gap: 10px; }
+.fila-campos.dos { grid-template-columns: 1fr 1.4fr; }
+.fila-campos .campo { margin-bottom: 6px; }
+@media (max-width: 520px) {
+  .fila-campos, .fila-campos.dos { grid-template-columns: 1fr 1fr; }
+  .fila-campos .campo:last-child { grid-column: 1 / -1; }
+}
+
+/* Las seis casillas eran tarjetas de ancho completo con borde, ~85 px cada
+   una: 510 px solo en marcar seis casillas. En rejilla y sin caja individual
+   ocupan un tercio. */
+.interruptores { grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 4px 12px; }
+.interruptor {
+  border: 0; padding: 7px 8px; border-radius: var(--radio-s); gap: 9px;
+  align-items: center;
+}
+.interruptor:hover { background: var(--verde-050); border: 0; }
+.interruptor:has(input:checked) { background: var(--marca-clara); border: 0; }
+.interruptor strong { font-size: .88rem; font-weight: 600; line-height: 1.25; }
+.interruptor em { font-size: .75rem; line-height: 1.3; }
+
+/* ── Bloque de espera ────────────────────────────────────────────────
+   Sustituye a cinco secciones vacías con sus títulos. Dice qué va a pasar,
+   que es lo único que hace falta antes de calcular. */
+.panel.espera { text-align: left; }
+.espera-icono {
+  font-size: 2rem; color: var(--verde-300); line-height: 1; margin-bottom: 10px;
+}
+.panel.espera h2 { border: 0; padding: 0; margin-bottom: 14px; font-size: 1.2rem; }
+.espera-lista {
+  margin: 0; padding-left: 20px; display: grid; gap: 9px;
+  font-size: .92rem; color: var(--texto-suave);
+}
+.espera-lista strong { color: var(--texto); font-weight: 600; }
+.espera-pie {
+  margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--borde-suave);
+  font-size: .88rem; color: var(--texto-suave);
+}
+
+/* La aparición del resultado, corta. Quien pide menos movimiento no la recibe:
+   la regla global de prefers-reduced-motion ya la anula. */
+.resultado.entrando { animation: aparecer .34s cubic-bezier(.2, .7, .3, 1); }
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Recuadro de la frase de ánimo ───────────────────────────────────
+   Es el último bloque que alguien lee. Tiene identidad propia para que se
+   sienta como un cierre y no como un pie de página: fondo distinto, serif
+   generosa, y una comilla grande de fondo que da aire sin recargar. */
+.tarjeta-animo {
+  position: relative; overflow: hidden; margin: 30px 0 0; padding: 26px 28px 22px;
+  background: linear-gradient(150deg, var(--verde-050), var(--miel-100));
+  border: 1px solid var(--verde-200); border-radius: var(--radio-l);
+}
+[data-tema="oscuro"] .tarjeta-animo {
+  background: linear-gradient(150deg, var(--verde-050), var(--tierra-100));
+}
+.tarjeta-animo::before {
+  content: "\201C";
+  position: absolute; top: -34px; left: 10px;
+  font-family: var(--fuente-titulo); font-size: 9rem; line-height: 1;
+  color: var(--verde-600); opacity: .12; pointer-events: none;
+}
+.tarjeta-animo blockquote {
+  position: relative; margin: 0; font-family: var(--fuente-titulo);
+  font-size: 1.18rem; line-height: 1.52; color: var(--verde-900);
+  font-style: italic; text-wrap: balance;
+}
+.tarjeta-animo blockquote::before { content: "«"; }
+.tarjeta-animo blockquote::after { content: "»"; }
+.tarjeta-animo figcaption {
+  margin-top: 12px; font-size: .82rem; color: var(--texto-suave);
+  padding-left: 2px;
+}
+.tarjeta-animo figcaption::before { content: "— "; }
+
+/* ── Secciones plegables ─────────────────────────────────────────────
+   Solo para material de referencia. Los recursos de ayuda nunca se pliegan:
+   esconder un teléfono tras un clic no es una decisión de espacio. */
+.plegable { padding: 0; }
+.plegable > summary {
+  cursor: pointer; padding: 18px 24px; font-family: var(--fuente-titulo);
+  font-size: 1.05rem; font-weight: 600; color: var(--marca-oscura);
+  list-style: none; display: flex; align-items: center; gap: 10px;
+}
+.plegable > summary::-webkit-details-marker { display: none; }
+.plegable > summary::before {
+  content: "▸"; color: var(--marca); font-size: .85em; transition: transform .18s;
+}
+.plegable[open] > summary::before { transform: rotate(90deg); }
+.plegable > summary:hover { color: var(--marca); }
+.plegable > *:not(summary) { padding-left: 24px; padding-right: 24px; }
+.plegable > *:last-child { padding-bottom: 20px; }
+
+/* Intro y panel de límites, algo más apretados. */
+.intro { padding: 36px 0 20px; }
+.intro p { margin-bottom: 10px; }
+.panel-limites { padding: 22px 24px; }
+.limites-rejilla { gap: 11px; }
+.limite { padding: 15px 16px; }
+.limite .cifra { font-size: 1.6rem; }
+.limite p { font-size: .85rem; margin-top: 6px; }
+.limites-cierre { margin-top: 16px; padding: 14px 16px; }

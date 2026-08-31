@@ -54,7 +54,7 @@ preguntamos «¿cuánto aporta beber por vías que no pasan por el cuerpo?», s�
 preguntas distintas, así que reportamos las dos.</p>
 
 <figure class="figura">
-  <p class="titulo-hallazgo">Descontar la obesidad casi no cambia nada, y eso también es un resultado</p>
+  <p class="titulo-hallazgo">Descontar el peso corporal casi no cambia nada, y eso también es un resultado</p>
   <p class="explicacion">Los círculos son el efecto completo; los cuadrados, lo que queda tras descontar la ruta corporal. Están casi encima. La única excepción es la diabetes, donde alrededor de una cuarta parte del efecto sí viaja por ahí. Antes de calcular nada comprobamos el primer eslabón: de las cinco exposiciones, solo tres se asocian con la obesidad. Para las otras dos no hay ruta que descontar.</p>
   <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada fila es un factor medido dos veces: el círculo cuenta todo su efecto; el cuadrado, solo la parte que no pasa por el peso corporal.</li><li>La separación entre ambos símbolos es la parte del efecto que viaja por esa ruta. Si están pegados, el peso no hace de intermediario.</li><li>La línea vertical del 1 separa lo que aumenta el riesgo de lo que lo reduce.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_17_mediacion.png" alt="Gráfico que compara dos estimaciones por exposición: el efecto total y el directo. Los pares de puntos casi coinciden salvo en la diabetes." loading="lazy"></div>
@@ -66,7 +66,7 @@ preguntas distintas, así que reportamos las dos.</p>
 <h3>Qué tan bien funciona</h3>
 <figure class="figura">
   <p class="titulo-hallazgo">El modelo acierta dos de cada tres veces al comparar dos personas al azar</p>
-  <p class="explicacion">Una curva ROC es como este juego: se toman dos personas al azar, una con sintomatología depresiva y otra sin ella, y se le pregunta al modelo cuál es cuál. Un AUC de 0,67 quiere decir que acierta dos de cada tres veces. Está por encima del azar, que sería 0,5, y muy lejos de la certeza. Sirve para decidir dónde poner un servicio; no sirve para decidir sobre una persona.</p>
+  <p class="explicacion">Una curva ROC es como este juego: se toman dos personas al azar, una con sintomatología depresiva y otra sin ella, y se le pregunta al modelo cuál es cuál. Un AUC de 0,67 quiere decir que acierta dos de cada tres veces. Está por encima del azar, que sería 0,5, y lejos de la certeza. Con esa precisión se puede decidir dónde hace falta un servicio de salud mental; para saber cómo está una persona concreta hace falta hablar con ella.</p>
   <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>En la <strong>curva ROC</strong>, cuanto más se despega la línea de la diagonal, mejor distingue el modelo.</li><li>En la <strong>curva de calibración</strong>, la diagonal es el ideal: cuando el modelo dice «10 %», debería acertar el 10 % de las veces.</li><li>Que los puntos sigan la diagonal significa que las probabilidades son creíbles, aunque el modelo no distinga con mucha finura.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_12_roc_calibracion.png" alt="Dos paneles. A la izquierda, la curva ROC, que se aleja de la diagonal del azar. A la derecha, la curva de calibración, con los puntos cerca de la diagonal ideal." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Curva ROC y calibración por deciles de riesgo sobre 28 553 personas.</figcaption>

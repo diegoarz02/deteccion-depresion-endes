@@ -215,6 +215,14 @@ async function calcular() {
   });
   const tasa = rt.ok ? await rt.json() : null;
 
+  // El resultado se revela ahora: el bloque de espera desaparece y el panel
+  // entra con una transición corta. Aparecer de golpe se lee como un salto.
+  document.getElementById('espera').hidden = true;
+  const panel = document.getElementById('resultado');
+  panel.hidden = false;
+  panel.classList.add('entrando');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   mostrarObservado(tasa);
   mostrarResultado(pred);
   mostrarComparacion(pred, tasa);
@@ -223,6 +231,17 @@ async function calcular() {
   await mostrarInterpretacion(perfil);
   marcarPaso(8);
   marcarPaso(9);
+}
+
+/* Pinta la frase de ánimo del banco cerrado. El texto llega ya elegido por el
+   agente: aquí no se decide nada, solo se muestra. Si no viene ninguna —el caso
+   de crisis— el recuadro se queda oculto. */
+function mostrarAnimo(frase) {
+  const caja = document.getElementById('tarjeta-animo');
+  if (!frase || !frase.texto) { caja.hidden = true; return; }
+  document.getElementById('animo-texto').textContent = frase.texto;
+  document.getElementById('animo-fuente').textContent = frase.fuente;
+  caja.hidden = false;
 }
 
 /* Dibuja cien puntos: la traducción visual de «X de cada 100». Una frecuencia
@@ -370,8 +389,13 @@ async function mostrarInterpretacion(perfil) {
       : d.modo === 'llm'
         ? '<span class="etiqueta-modo">Redactada por un modelo y verificada</span>'
         : '<span class="etiqueta-modo">Redactada con plantillas sobre las cifras del modelo</span>';
+    // La frase de ánimo viene también dentro del cuerpo, para los consumidores
+    // que solo leen texto. Aquí se recorta y se muestra en su propio recuadro:
+    // repetirla dos veces en la misma pantalla la vacía de efecto.
+    const cuerpo = (d.texto || '').split('\n\n---\n\n«')[0];
     caja.innerHTML = etiqueta +
-      `<div class="interpretacion-texto">${(d.texto || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>`;
+      `<div class="interpretacion-texto">${cuerpo.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>`;
+    mostrarAnimo(d.frase_animo);
   } catch (e) {
     caja.innerHTML = '<p class="pista">No se pudo generar la interpretación en este momento. ' +
       'La estimación de arriba sigue siendo válida.</p>';

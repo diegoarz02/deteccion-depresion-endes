@@ -441,3 +441,92 @@ body {
 .frase-animo cite {
   font-size: .84rem; color: var(--texto-suave); font-style: normal;
 }
+
+/* ── Barras comparativas del explorador ──────────────────────────────
+   Un número solo no dice nada; el mismo número junto a tres referencias sí.
+   El intervalo se dibuja encima de cada barra porque la barra sola sugiere
+   una precisión que el dato no tiene. */
+.explorador-comparativa {
+  background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 22px 26px; margin: 0 0 16px;
+}
+.comparativa-titulo {
+  font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.02rem;
+  color: var(--verde-900); margin: 0 0 14px;
+}
+.barras-comparativas { width: 100%; height: auto; max-width: 560px; }
+.barras-comparativas .bc-etq {
+  font-family: var(--fuente-texto); font-size: 12.5px; fill: var(--texto-suave);
+}
+.barras-comparativas .bc-val {
+  font-family: var(--fuente-texto); font-size: 12.5px; font-weight: 600;
+  fill: var(--verde-900);
+}
+.barras-comparativas .bc-ic { stroke: var(--tierra-500); stroke-width: 1.6; }
+.comparativa-nota {
+  font-size: .8rem; color: var(--texto-suave); margin: 10px 0 0; max-width: 62ch;
+}
+.explorador-interpreta {
+  margin: 16px 0 0; padding: 15px 17px; background: var(--verde-050);
+  border-left: 4px solid var(--verde-600); border-radius: var(--radio-s);
+  font-size: .93rem; line-height: 1.62;
+}
+.explorador-interpreta strong { color: var(--verde-900); }
+
+/* ── Desplegable con la tabla numérica ───────────────────────────────
+   Quien quiera profundizar lo abre; quien no, sigue leyendo. */
+.detalle-numerico { margin: 0 0 18px; }
+.detalle-numerico > summary {
+  cursor: pointer; font-size: .89rem; color: var(--verde-700); font-weight: 600;
+  padding: 8px 0; list-style: none; display: inline-flex; align-items: center; gap: 7px;
+}
+.detalle-numerico > summary::-webkit-details-marker { display: none; }
+.detalle-numerico > summary::before {
+  content: "▸"; font-size: .82em; transition: transform .18s;
+}
+.detalle-numerico[open] > summary::before { transform: rotate(90deg); }
+.detalle-numerico table { width: auto; margin: 6px 0 0; font-size: .88rem; }
+.detalle-numerico th {
+  text-align: left; font-weight: 600; color: var(--texto-suave); padding: 6px 22px 6px 0;
+  font-size: .85rem;
+}
+.detalle-numerico td { padding: 6px 0; font-variant-numeric: tabular-nums; }
+.marca-imprecisa {
+  background: var(--miel-100); color: var(--miel-700); border-radius: 999px;
+  padding: 1px 9px; font-size: .78rem; font-weight: 600; margin-left: 6px;
+}
+
+/* ── Selector de departamento ────────────────────────────────────────
+   La sección de geografía tenía mapas y nada que tocar, siendo la que más lo
+   pide: un mapa invita a buscarse en él. */
+.selector-dep {
+  display: grid; grid-template-columns: minmax(200px, 260px) 1fr; gap: 26px;
+  align-items: center; background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 22px 26px; margin: 20px 0 16px;
+}
+@media (max-width: 700px) { .selector-dep { grid-template-columns: 1fr; gap: 18px; } }
+.selector-dep label {
+  display: grid; gap: 6px; font-size: .85rem; font-weight: 600; color: var(--texto);
+}
+.selector-dep select {
+  padding: 10px 12px; border: 1px solid var(--borde); border-radius: var(--radio-s);
+  background: var(--superficie); color: var(--texto); font: inherit; font-weight: 400;
+}
+.selector-dep select:focus {
+  border-color: var(--verde-700); box-shadow: 0 0 0 3px var(--verde-100); outline: none;
+}
+.dep-tarjeta { text-align: center; }
+.dep-cifra {
+  font-family: var(--fuente-titulo); font-size: clamp(2.2rem, 5vw, 2.9rem);
+  font-weight: 600; line-height: 1; color: var(--verde-900);
+  font-variant-numeric: tabular-nums;
+}
+.dep-cifra small { font-size: .33em; font-weight: 500; color: var(--texto-suave); }
+.dep-nombre {
+  font-family: var(--fuente-titulo); font-size: 1.06rem; font-weight: 600;
+  color: var(--verde-700); margin: 8px 0 6px;
+}
+.dep-detalle {
+  font-size: .85rem; color: var(--texto-suave); margin: 0 auto; max-width: 52ch;
+}
+.dep-detalle strong { color: var(--miel-700); }

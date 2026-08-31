@@ -34,7 +34,7 @@
 <main class="envoltorio">
 
   <section class="intro">
-    <h1>Mira a cuánta gente como tú le pasa</h1>
+    <h1>¿A cuánta gente como tú le pasa?</h1>
     <p>Elige tu edad, tu sexo y dónde vives, y verás cuántas personas parecidas dieron
     positivo en el tamizaje de depresión de la última encuesta nacional de hogares.</p>
     <p class="encuadre">Son datos de grupos, no un diagnóstico personal. Nada de lo que
@@ -58,30 +58,29 @@
     <!-- ── Pasos 1 y 2: entrada ─────────────────────────────────── -->
     <form id="formulario" class="panel" onsubmit="return false">
       <h2>1 · Tu perfil</h2>
-      <p class="ayuda-seccion">Cada campo lleva la definición exacta que se usó en el
-      análisis. Si alguna no aplica o no la sabes, déjala sin marcar.</p>
+      <p class="ayuda-seccion">Las definiciones son las de la encuesta. Lo que no aplique
+      o no sepas, déjalo sin marcar.</p>
 
-      <div class="campo">
-        <label for="sexo">Sexo</label>
-        <select id="sexo"><option>Hombre</option><option>Mujer</option></select>
-        <p class="pista">Sexo registrado en la encuesta.</p>
+      <div class="fila-campos">
+        <div class="campo">
+          <label for="sexo">Sexo</label>
+          <select id="sexo"><option>Hombre</option><option>Mujer</option></select>
+        </div>
+        <div class="campo">
+          <label for="grupo_etario">Grupo etario</label>
+          <select id="grupo_etario">
+            <option>15-19</option><option>20-29</option>
+            <option selected>30-39</option><option>40-49</option>
+            <option>50-59</option><option>60+</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" value="35" min="15" max="97">
+        </div>
       </div>
-
-      <div class="campo">
-        <label for="grupo_etario">Grupo etario</label>
-        <select id="grupo_etario">
-          <option>15-19</option><option>20-29</option>
-          <option selected>30-39</option><option>40-49</option>
-          <option>50-59</option><option>60+</option>
-        </select>
-        <p class="pista">La prevalencia dibuja una U: es más alta en los extremos.</p>
-      </div>
-
-      <div class="campo">
-        <label for="edad">Edad exacta</label>
-        <input type="number" id="edad" value="35" min="15" max="97">
-        <p class="pista">Debe caer dentro del grupo etario elegido.</p>
-      </div>
+      <p class="pista">La prevalencia dibuja una U: es más alta en los extremos. La edad
+      exacta debe caer dentro del grupo elegido.</p>
 
       <div class="campo">
         <label for="nivel_educativo">Nivel educativo</label>
@@ -90,26 +89,24 @@
           <option selected>Secundaria</option>
           <option>Superior</option>
         </select>
-        <p class="pista">Máximo nivel alcanzado, agrupado en tres categorías.</p>
       </div>
 
       <fieldset class="campo">
         <legend>Conductas y condiciones</legend>
-        <p class="pista">Marca solo lo que corresponda. Las definiciones son las de la
-        encuesta, no las coloquiales.</p>
+
         <div class="interruptores">
           <label class="interruptor"><input type="checkbox" id="consumo_frecuente_alcohol">
-            <span><strong>Bebe con frecuencia</strong><em>12 o más días en el último año</em></span></label>
+            <span><strong>Bebe seguido</strong><em>12+ días al año</em></span></label>
           <label class="interruptor"><input type="checkbox" id="consumo_problematico_alcohol">
-            <span><strong>Consumo problemático</strong><em>Dos o más criterios de abuso</em></span></label>
+            <span><strong>Consumo problemático</strong><em>2+ criterios de abuso</em></span></label>
           <label class="interruptor"><input type="checkbox" id="fuma_12m">
-            <span><strong>Fumó</strong><em>Cigarrillos en el último año</em></span></label>
+            <span><strong>Fumó</strong><em>En el último año</em></span></label>
           <label class="interruptor"><input type="checkbox" id="hipertension">
-            <span><strong>Hipertensión</strong><em>Diagnosticada por un profesional</em></span></label>
+            <span><strong>Hipertensión</strong><em>Diagnosticada</em></span></label>
           <label class="interruptor"><input type="checkbox" id="diabetes">
-            <span><strong>Diabetes</strong><em>Diagnosticada por un profesional</em></span></label>
+            <span><strong>Diabetes</strong><em>Diagnosticada</em></span></label>
           <label class="interruptor"><input type="checkbox" id="obesidad">
-            <span><strong>Obesidad</strong><em>Índice de masa corporal ≥ 30</em></span></label>
+            <span><strong>Obesidad</strong><em>IMC ≥ 30</em></span></label>
         </div>
       </fieldset>
 
@@ -117,36 +114,54 @@
       <div class="campo">
         <label for="departamento">Departamento</label>
         <select id="departamento"><option value="">Cargando…</option></select>
-        <p class="pista">Se usa para comparar tu perfil con la prevalencia de tu región.</p>
+
       </div>
 
-      <div class="campo">
-        <label for="area">Área de residencia</label>
-        <select id="area"><option>Urbano</option><option>Rural</option></select>
-      </div>
-
-      <div class="campo">
-        <label for="region_natural">Región natural</label>
-        <select id="region_natural">
-          <option>Costa</option><option>Sierra</option><option>Selva</option>
-        </select>
-        <p class="pista">Se deriva de la altitud del lugar de residencia.</p>
+      <div class="fila-campos dos">
+        <div class="campo">
+          <label for="area">Área</label>
+          <select id="area"><option>Urbano</option><option>Rural</option></select>
+        </div>
+        <div class="campo">
+          <label for="region_natural">Región natural</label>
+          <select id="region_natural">
+            <option>Costa</option><option>Sierra</option><option>Selva</option>
+          </select>
+        </div>
       </div>
 
       <button class="boton-principal" id="calcular" type="button">Calcular la estimación</button>
       <p class="pista" id="aviso-form" role="status"></p>
     </form>
 
-    <!-- ── Pasos 3 a 8: resultado ───────────────────────────────── -->
-    <div class="panel resultado" id="resultado" aria-live="polite">
+    <!-- ── Antes de calcular: un solo bloque, no cinco huecos ───────
+         Mostrar cinco secciones vacías con sus títulos hace que la página se
+         lea como un formulario a medio rellenar. Este bloque dice qué va a
+         aparecer y ocupa una fracción del espacio. -->
+    <div class="panel espera" id="espera">
+      <div class="espera-icono" aria-hidden="true">◔</div>
+      <h2>Lo que verás aquí</h2>
+      <ol class="espera-lista">
+        <li><strong>Cuánta gente como tú</strong> dio positivo en la encuesta, con su
+        margen de error.</li>
+        <li><strong>Cómo se compara</strong> con el promedio del país y con tu
+        departamento.</li>
+        <li><strong>Tu departamento en el mapa</strong>, resaltado entre los veinticinco.</li>
+        <li><strong>Qué características pesan más</strong> en la estimación del modelo.</li>
+        <li><strong>Una lectura en palabras</strong> de todo lo anterior.</li>
+      </ol>
+      <p class="espera-pie">Rellena el perfil de la izquierda y pulsa el botón.</p>
+    </div>
+
+    <!-- ── Al calcular: se revela el resultado ──────────────────── -->
+    <div class="panel resultado" id="resultado" aria-live="polite" hidden>
       <h2>3 · Lo que se observó en la encuesta</h2>
       <div class="marcador">
         <p class="observado-etiqueta">Dato observado en la ENDES 2025</p>
-        <div class="observado-cifra vacio" id="observado">Sin calcular</div>
-        <p class="observado-frase" id="observado-frase">Rellena el perfil de la izquierda
-        y pulsa el botón.</p>
+        <div class="observado-cifra" id="observado">—</div>
+        <p class="observado-frase" id="observado-frase"></p>
         <div class="rejilla-cien" id="rejilla-cien" role="img"
-             aria-label="Cien puntos; los coloreados representan a quienes dieron positivo"
+             aria-label="Cuadrícula de cien puntos que representa a cien personas con este perfil"
              hidden></div>
         <p class="observado-detalle" id="observado-detalle"></p>
         <p class="aviso-impreciso" id="aviso-impreciso" hidden></p>
@@ -165,10 +180,7 @@
       </div>
 
       <h3>4 · Cómo se compara</h3>
-      <div class="comparacion" id="comparacion">
-        <p class="pista">Aquí verás tu estimación junto a la prevalencia nacional y la de tu
-        departamento.</p>
-      </div>
+      <div class="comparacion" id="comparacion"></div>
 
       <h3>5 · Tu departamento en el mapa</h3>
       <div class="lienzo-mapa"><svg id="mapa" viewBox="0 0 300 420" role="img"
@@ -176,10 +188,17 @@
       <p class="leyenda-mapa" id="leyenda-mapa"></p>
 
       <h3>6 · Qué pesa en la estimación</h3>
-      <div id="factores"><p class="pista">Los factores aparecerán tras calcular.</p></div>
+      <div id="factores"></div>
 
       <h3>7 · Interpretación</h3>
-      <div id="interpretacion"><p class="pista">Se genera al calcular.</p></div>
+      <div id="interpretacion"></div>
+
+      <!-- El último bloque que alguien lee. En crisis no se muestra: una frase
+           de ánimo ahí se lee como restarle importancia a lo que acaba de decir. -->
+      <figure class="tarjeta-animo" id="tarjeta-animo" hidden>
+        <blockquote id="animo-texto"></blockquote>
+        <figcaption id="animo-fuente"></figcaption>
+      </figure>
     </div>
   </div>
 
@@ -243,8 +262,8 @@
     </p>
   </section>
 
-  <section id="privacidad" class="panel ancho">
-    <h2>Qué pasa con tus datos</h2>
+  <details class="panel ancho plegable" id="privacidad">
+  <summary>Qué pasa con tus datos</summary>
     <ul class="lista-limpia">
       <li><strong>No se guarda nada.</strong> No hay base de datos. Lo que escribes se usa
       para calcular y se descarta.</li>
@@ -255,7 +274,7 @@
       <li><strong>El código es público.</strong> Cualquiera puede comprobar que esto es
       cierto leyéndolo.</li>
     </ul>
-  </section>
+  </details>
 </main>
 
 <footer>

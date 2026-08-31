@@ -147,8 +147,8 @@ def interpretar_perfil(perfil: dict, prediccion: dict | None = None,
         "prediccion": final.get("prediccion"),
         "hay_crisis": final.get("hay_crisis", False),
         "recursos": final.get("recursos_ofrecidos", []),
-        # Se expone el identificador, no el texto: así se puede auditar qué
-        # frase se mostró sin tener que buscarla dentro del cuerpo.
+        # La frase completa, no solo su identificador: la interfaz web la
+        # muestra en su propio recuadro, separada del cuerpo del texto.
         "frase_animo": final.get("frase_animo"),
         "trazas": final.get("trazas", []),
     }

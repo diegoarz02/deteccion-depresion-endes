@@ -29,8 +29,9 @@
   <span class="seccion-num">Sección 11 de 13</span>
 </div>
 <h2>Modelo y realidad: dos rankings que no coinciden</h2>
-<p class="entradilla">El factor con el efecto más fuerte del estudio es casi inútil para
-predecir. No es una contradicción: es que estábamos midiendo dos cosas distintas.</p>
+<p class="entradilla">El factor con el efecto más fuerte del estudio apenas ayuda a
+predecir quién dará positivo. Suena a contradicción y no lo es: son dos preguntas
+distintas, y cada una tiene su propia respuesta.</p>
 
 <p>Además del modelo epidemiológico entrenamos algoritmos de aprendizaje automático
 —bosques aleatorios, XGBoost, LightGBM— y les preguntamos qué variables usan para decidir.
@@ -66,7 +67,7 @@ bien porque es frecuente.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">Cuatro algoritmos, prácticamente el mismo resultado</p>
-  <p class="explicacion">Bosque aleatorio, XGBoost, LightGBM y una regresión logística regularizada se mueven todos entre 0,65 y 0,68 de AUC. Cuando cambiar de algoritmo no cambia el resultado, el techo no está en el algoritmo: está en lo que las variables disponibles pueden decir. La curva de la derecha es la honesta con un 6 % de casos.</p>
+  <p class="explicacion">Se probaron cuatro maneras muy distintas de aprender de los mismos datos: desde una regresión clásica hasta tres algoritmos de los que se usan hoy en competiciones. Las cuatro se quedan entre 0,65 y 0,68. Cuando cambiar de método no mueve la aguja, el límite no está en el método sino en lo que la encuesta preguntó. El panel de la derecha es el exigente cuando el fenómeno es poco frecuente: mide si el modelo acierta al señalar, no solo si acierta al callar.</p>
   <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada curva es un algoritmo distinto. Cuanto más se despega hacia la esquina superior izquierda, mejor distingue.</li><li>La diagonal es el equivalente a lanzar una moneda. Las cuatro están por encima, pero no muy lejos.</li><li>El panel derecho es el exigente cuando la condición es poco frecuente: penaliza señalar a demasiada gente con tal de no perderse a nadie.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_13_comparacion_modelos_ml.png" alt="Dos paneles con curvas de rendimiento de cuatro modelos. Las curvas ROC de la izquierda están juntas y por encima de la diagonal; las de precisión-exhaustividad de la derecha también se solapan." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Validación cruzada de cinco particiones, estratificada y agrupada por conglomerado muestral para evitar fuga de información.</figcaption>
@@ -75,9 +76,10 @@ bien porque es frecuente.</p>
 <div class="tabla-scroll"><table><caption>Comparación de algoritmos. La última fila es la referencia obligada.</caption><thead><tr><th scope="col">Modelo</th><th scope="col" class="num">AUC-ROC</th><th scope="col" class="num">AUC-PR</th><th scope="col" class="num">Sensibilidad</th><th scope="col" class="num">Especificidad</th></tr></thead><tbody><tr><td>Logística regularizada</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Random Forest</td><td class="num">0.68</td><td class="num">0.12</td><td class="num">0.16</td><td class="num">0.94</td></tr><tr><td>XGBoost</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>LightGBM</td><td class="num">0.66</td><td class="num">0.11</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Modelo trivial (predice 'nadie')</td><td class="num">0.50</td><td class="num">0.06</td><td class="num">0.00</td><td class="num">1.00</td></tr></tbody></table></div>
 
 <div class="nota atencion">
-  <strong>Por qué no aparece la exactitud.</strong> Con un 6 % de casos, un modelo que
-  responda «nadie tiene depresión» acierta el 94 % de las veces y no sirve para nada. Es la
-  métrica más citada y la más engañosa en problemas como este.
+  <strong>Por qué no aparece la exactitud.</strong> Un modelo que responda «nadie tiene
+  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Cuando
+  el fenómeno afecta al 6 %, ese número no dice gran cosa: es la métrica más citada y la
+  que menos informa en problemas como este.
 </div>
 
 <h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
