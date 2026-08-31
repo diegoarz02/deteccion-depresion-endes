@@ -1,0 +1,68 @@
+#!/bin/sh
+# Bloquea el commit si aparece un secreto o un archivo demasiado grande.
+#
+# Se instala con:  git config core.hooksPath .githooks
+#
+# El .gitignore ya cubre .env, pero un hook es la última red: basta un
+# `git add -f` distraído, o pegar un token en un comentario, para publicarlo.
+# Un secreto que llega a GitHub hay que darlo por comprometido aunque se borre
+# después: queda en el historial y en los índices de terceros.
+
+set -e
+
+archivos=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$archivos" ] && exit 0
+
+fallos=0
+
+# ── 1. Secretos ───────────────────────────────────────────────────────
+# Sintaxis ERE, sin barras antes de las llaves: `grep -E` las interpreta como
+# cuantificador solo si van desnudas. Escribirlas como \{16,\} —la forma de
+# grep básico— hace que el patrón busque una llave literal y no encuentre
+# nunca nada, así que el hook aprobaría todo sin dar señal de estar roto.
+patron='gh[pousr]_[A-Za-z0-9]{16,}|github_pat_[A-Za-z0-9_]{20,}|sk-ant-[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----'
+
+for f in $archivos; do
+    [ -f "$f" ] || continue
+    case "$f" in
+        .githooks/pre-commit) continue ;;  # este archivo contiene los patrones
+    esac
+    if git show ":$f" 2>/dev/null | grep -qE "$patron"; then
+        echo "BLOQUEADO: posible secreto en $f"
+        fallos=1
+    fi
+done
+
+# ── 2. Archivos .env ──────────────────────────────────────────────────
+for f in $archivos; do
+    case "$f" in
+        .env|.env.*)
+            case "$f" in
+                .env.example) ;;
+                *) echo "BLOQUEADO: $f no debe versionarse."; fallos=1 ;;
+            esac
+            ;;
+    esac
+done
+
+# ── 3. Archivos muy grandes ───────────────────────────────────────────
+# GitHub rechaza a los 100 MB y avisa a los 50. Cortar en 20 mantiene el
+# repositorio clonable; lo que pese más suele ser un artefacto regenerable
+# que debería estar en .gitignore.
+LIMITE=20971520
+for f in $archivos; do
+    [ -f "$f" ] || continue
+    tam=$(git cat-file -s ":$f" 2>/dev/null || echo 0)
+    if [ "$tam" -gt "$LIMITE" ]; then
+        echo "BLOQUEADO: $f pesa $((tam / 1048576)) MB (límite 20 MB)."
+        fallos=1
+    fi
+done
+
+if [ "$fallos" -ne 0 ]; then
+    echo ""
+    echo "Commit detenido. Corrige lo anterior o usa --no-verify solo si sabes por qué."
+    exit 1
+fi
+
+exit 0

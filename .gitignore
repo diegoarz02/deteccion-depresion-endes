@@ -1,0 +1,57 @@
+# ── Secretos ──────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── Datos crudos (NO se versionan: ver README para descarga INEI) ──
+datos/crudos/
+*.sav
+*.SAV
+*.dta
+datos/intermedios/
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+
+# ── Modelos pesados ───────────────────────────────────────
+*.joblib
+*.pkl
+!resultados/modelos/modelo_logistico.joblib
+
+# ── Sistema ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Geodatos de terceros (INEI 2023 vía geogpsperu) ───────
+# 45 MB de shapefiles públicos. No se versionan: se descargan una vez y el
+# README dice de dónde. El GeoJSON derivado sí se versiona porque es pequeño
+# y es lo que consume la aplicación web.
+datos/externos/shapefiles/
+!datos/externos/geojson/
+
+# ── Derivados regenerables ────────────────────────────────
+# data.csv son 16 MB que solo existen para que R lea el mismo dataset que
+# Python. Se regenera con `make data` desde data.parquet, que sí se versiona.
+datos/final/data.csv
+
+# El mapa interactivo pesa 13 MB porque embebe la geometría completa.
+# Se regenera con `make analisis`.
+resultados/mapas/*_interactivo.html
+
+# ── Notebooks ejecutados ──────────────────────────────────
+# Son salida con resultados incrustados: se regeneran con `make notebooks`.
+# Versionar los notebooks limpios (codigo/notebooks/) y no sus ejecuciones
+# evita diffs de miles de líneas en cada corrida.
+resultados/notebooks_ejecutados/

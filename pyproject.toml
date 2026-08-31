@@ -1,0 +1,42 @@
+[project]
+name = "deteccion-depresion-endes"
+version = "0.1.0"
+description = "Modelamiento epidemiológico de la depresión en la población peruana de 15 y más años (ENDES 2025)"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["codigo/src", "api", "agente", "tests"]
+# Los notebooks ejecutados son salida, no fuente: se regeneran con
+# `make notebooks` y no se editan a mano.
+extend-exclude = ["resultados/notebooks_ejecutados"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "D", "SIM"]
+# N818: la convención de sufijo "Error" es inglesa; las clases de este
+# proyecto se nombran en español por decisión del equipo.
+# N806/N803: F, H, W, X, R son nombres canonicos en estadistica (estadistico F,
+# H de Kruskal-Wallis, W de Shapiro, matriz de diseño X). Renombrarlos en
+# minuscula haria el codigo menos legible para quien conoce la materia.
+ignore = ["D203", "D213", "E501", "N818", "N806", "N803"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+# Los notebooks abren con un preámbulo común de importaciones. Que alguno no
+# use todas es normal y deseable: el preámbulo debe ser idéntico en los nueve
+# para que se puedan ejecutar de forma independiente.
+"codigo/notebooks/*" = ["D", "E402", "E401", "F401", "I001"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "api/tests"]
+pythonpath = ["codigo/src"]
+addopts = "-v --tb=short"
