@@ -55,3 +55,8 @@ resultados/mapas/*_interactivo.html
 # Versionar los notebooks limpios (codigo/notebooks/) y no sus ejecuciones
 # evita diffs de miles de líneas en cada corrida.
 resultados/notebooks_ejecutados/
+
+# ── Registro de ejecución ─────────────────────────────────────
+# Cambia en cada corrida con marcas de tiempo distintas: versionarlo llena el
+# historial de diffs que no dicen nada sobre el análisis.
+resultados/logs/
