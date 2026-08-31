@@ -98,7 +98,7 @@ def _lienzo(cuerpo: str, ancho: int = 420, alto: int = 300) -> str:
      width="{ancho}" height="{alto}" role="img">
   <defs>
     <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EEF3F9"/><stop offset="100%" stop-color="#FFFFFF"/>
+      <stop offset="0%" stop-color="#F1F8F6"/><stop offset="100%" stop-color="#FFFDFA"/>
     </linearGradient>
     <linearGradient id="calido" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="{C['dorado_claro']}"/>
@@ -108,6 +108,64 @@ def _lienzo(cuerpo: str, ancho: int = 420, alto: int = 300) -> str:
   <rect width="{ancho}" height="{alto}" fill="url(#cielo)" rx="16"/>
 {cuerpo}
 </svg>"""
+
+
+
+def _brecha_atencion() -> str:
+    """Dibuja la brecha de atención como cien figuras y una puerta.
+
+    La versión anterior —una persona, un rectángulo y una flecha— no comunicaba
+    nada: se leía como un marcador de posición. Esta dibuja la cifra en lugar de
+    ilustrarla en abstracto. Doce de cada cien cruzan; ochenta y ocho se quedan
+    del otro lado, en un tono apagado, sin flecha ni gesto que sugiera que están
+    a punto de entrar.
+
+    Reutiliza el motivo de cien puntos que ya aparece en el boletín y en la
+    aplicación, así que el lector llega reconociéndolo.
+    """
+    filas, columnas = 8, 11        # 88 figuras del lado que no recibe atención
+    paso_x, paso_y = 17, 21
+    x0, y0 = 24, 62
+
+    fuera = []
+    for i in range(filas * columnas):
+        cx = x0 + (i % columnas) * paso_x
+        cy = y0 + (i // columnas) * paso_y
+        fuera.append(
+            f'  <g transform="translate({cx},{cy})" opacity="0.42">'
+            f'<circle cx="0" cy="0" r="4.4" fill="{C["gris"]}"/>'
+            f'<path d="M-5 6 Q0 3 5 6 L6 15 Q0 17 -6 15 Z" fill="{C["gris"]}"/></g>')
+
+    # La puerta: un vano abierto, sin marco pesado, en el color de marca.
+    puerta = (
+        f'  <rect x="316" y="74" width="80" height="164" rx="10" '
+        f'fill="{C["navy_claro"]}" opacity="0.10"/>'
+        f'  <rect x="328" y="86" width="56" height="152" rx="7" fill="url(#calido)" '
+        f'opacity="0.5"/>'
+        f'  <circle cx="374" cy="164" r="3.4" fill="{C["navy"]}" opacity="0.5"/>')
+
+    # Las doce que sí cruzan, en el color de marca y a tamaño completo.
+    dentro = []
+    for i in range(12):
+        cx = 246 + (i % 3) * 20
+        cy = 96 + (i // 3) * 34
+        dentro.append(
+            f'  <g transform="translate({cx},{cy})">'
+            f'<circle cx="0" cy="0" r="5.6" fill="{C["navy_claro"]}"/>'
+            f'<path d="M-6.5 8 Q0 4.5 6.5 8 L7.6 20 Q0 22.5 -7.6 20 Z" '
+            f'fill="{C["navy_claro"]}"/></g>')
+
+    # El hueco entre los dos grupos ES la brecha: no se rellena con nada.
+    separador = (f'  <line x1="228" y1="66" x2="228" y2="246" stroke="{C["gris_claro"]}" '
+                 f'stroke-width="2" stroke-dasharray="5 7"/>')
+
+    etiquetas = (
+        f'  <text x="24" y="46" font-family="Georgia, serif" font-size="15" '
+        f'fill="{C["gris"]}">88 no llegan</text>'
+        f'  <text x="246" y="46" font-family="Georgia, serif" font-size="15" '
+        f'fill="{C["navy"]}">12 sí</text>')
+
+    return "\n".join([*fuera, separador, *dentro, puerta, etiquetas])
 
 
 def _persona(x: int, y: int, escala: float, color: str, brazo: str = "") -> str:
@@ -144,18 +202,8 @@ ILUSTRACIONES_SVG = {
               ' c0 -20 -26 -30 -40 -12 z" fill="url(#calido)" opacity="0.92"/>'
         )),
     "busqueda_ayuda": (
-        "Una persona levantando la mano para pedir ayuda, y una puerta abierta",
-        _lienzo(
-            f'  <rect x="250" y="90" width="96" height="150" rx="8" fill="{C["navy"]}"'
-            ' opacity="0.12"/>'
-            f'  <rect x="262" y="102" width="72" height="138" rx="6" fill="url(#calido)"'
-            ' opacity="0.55"/>'
-            + _persona(150, 210, 1.05, C["navy"],
-                       '    <path d="M18 -20 Q40 -46 44 -70" stroke="' + C["navy"] +
-                       '" stroke-width="9" fill="none" stroke-linecap="round"/>')
-            + f'  <path d="M206 150 h34 m-10 -10 l10 10 l-10 10" stroke="{C["dorado"]}"'
-              ' stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-        )),
+        "Cien figuras: doce cruzan una puerta abierta y ochenta y ocho se quedan fuera",
+        _lienzo(_brecha_atencion())),
     "comunidad": (
         "Un grupo de personas de distintas edades, juntas",
         _lienzo(
@@ -215,9 +263,17 @@ def escribir_creditos(iconos: list[dict], ilustraciones: list[dict]) -> None:
         "",
         f"Última actualización: {hoy}",
         "",
-        "Todos los archivos están **descargados o generados en local**. El boletín no enlaza",
-        "ninguna imagen externa, de modo que funciona sin conexión y en cualquier hosting",
-        "estático.",
+        "Todos los archivos están **descargados o generados en local**: imágenes, iconos,",
+        "ilustraciones y también las tipografías. El boletín no hace ninguna petición a otro",
+        "dominio, así que funciona sin conexión y en cualquier hosting estático.",
+        "",
+        "Las fuentes se autoalojan desde la corrida final. Antes se cargaban desde Google, lo",
+        "que contradecía esta misma afirmación y hacía que la página cambiara de aspecto a",
+        "mitad de carga con una conexión mala. Las descarga",
+        "`codigo/scripts/descargar_fuentes.py`, que trae solo los subconjuntos latinos y",
+        "deduplica por contenido: Fraunces e Inter son variables y Google sirve el mismo",
+        "archivo para cada peso, de modo que catorce descargas son en realidad cuatro",
+        "archivos (254 kB en total, frente a 892 kB sin deduplicar).",
         "",
         "---",
         "",

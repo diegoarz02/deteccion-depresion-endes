@@ -3,21 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Explorador epidemiológico de la depresión en el Perú · ENDES 2025</title>
-<meta name="description" content="Explora cuántas personas con cada perfil dieron positivo al tamizaje de sintomatología depresiva en la ENDES 2025 del INEI. Describe grupos, no personas. No es un diagnóstico.">
+<title>Gente como tú · Depresión en el Perú</title>
+<meta name="description" content="Mira cuánta gente parecida a ti dio positivo en el tamizaje de depresión de la última encuesta nacional de hogares del Perú.">
+<link rel="stylesheet" href="/estatico/fuentes.css">
 <link rel="stylesheet" href="/estatico/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#formulario">Saltar al formulario</a>
 
-<header class="cabecera">
+<header class="cabecera" id="cabecera">
   <div class="envoltorio cabecera-fila">
-    <a class="marca" href="/">Explorador de la depresión en el Perú <span>· ENDES 2025</span></a>
-    <nav>
+    <a class="marca" href="/">Gente como tú</a>
+    <nav id="nav-principal">
       <a href="/docs">API</a>
       <a href="#privacidad">Privacidad</a>
       <a href="#ayuda">Ayuda</a>
     </nav>
+    <button class="boton-menu" onclick="alternarMenu()" aria-label="Abrir el menú"
+            aria-expanded="false" aria-controls="nav-principal">☰</button>
     <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar tema">◐</button>
   </div>
 </header>
@@ -31,15 +34,11 @@
 <main class="envoltorio">
 
   <section class="intro">
-    <h1>¿A cuánta gente con un perfil como este le pasa?</h1>
-    <p>Esta herramienta no predice nada sobre ti. Busca en las 30 226 entrevistas de la
-    Encuesta Demográfica y de Salud Familiar 2025 a las personas que se parecen al perfil
-    que indiques, y te muestra <strong>cuántas de ellas dieron positivo</strong> en el
-    tamizaje PHQ-9. Es un dato observado, no un pronóstico.</p>
-    <p>Debajo aparece también lo que estima el modelo estadístico, con una explicación
-    honesta de por qué esa cifra describe grupos y no personas.</p>
-    <p class="destacado">No es un diagnóstico, no evalúa tu situación y no guarda ningún
-    dato.</p>
+    <h1>Mira a cuánta gente como tú le pasa</h1>
+    <p>Elige tu edad, tu sexo y dónde vives, y verás cuántas personas parecidas dieron
+    positivo en el tamizaje de depresión de la última encuesta nacional de hogares.</p>
+    <p class="encuadre">Son datos de grupos, no un diagnóstico personal. Nada de lo que
+    escribas se guarda.</p>
   </section>
 
   <div class="pasos" role="list">
@@ -51,7 +50,7 @@
     <span role="listitem" class="paso" data-paso="6">6 · Factores</span>
     <span role="listitem" class="paso" data-paso="7">7 · Interpretación</span>
     <span role="listitem" class="paso" data-paso="8">8 · Recursos</span>
-    <span role="listitem" class="paso" data-paso="9">9 · Límites</span>
+    <span role="listitem" class="paso" data-paso="9">9 · Hasta dónde llega</span>
   </div>
 
   <div class="disposicion">
@@ -143,9 +142,9 @@
       <h2>3 · Lo que se observó en la encuesta</h2>
       <div class="marcador">
         <p class="observado-etiqueta">Dato observado en la ENDES 2025</p>
-        <div class="observado-cifra" id="observado">—<small> de cada 100</small></div>
-        <p class="observado-frase" id="observado-frase">Completa el perfil y pulsa
-        calcular.</p>
+        <div class="observado-cifra vacio" id="observado">Sin calcular</div>
+        <p class="observado-frase" id="observado-frase">Rellena el perfil de la izquierda
+        y pulsa el botón.</p>
         <div class="rejilla-cien" id="rejilla-cien" role="img"
              aria-label="Cien puntos; los coloreados representan a quienes dieron positivo"
              hidden></div>
@@ -185,46 +184,6 @@
   </div>
 
   <!-- ── Los límites del modelo, con el peso que merecen ─────────── -->
-  <section class="panel-limites" id="limites" aria-labelledby="titulo-limites">
-    <h2 id="titulo-limites">Por qué este número no te describe a ti</h2>
-    <p>Es la parte más importante de esta página. Estas cifras salen del propio
-    análisis y explican qué puede y qué no puede hacer el modelo.</p>
-
-    <div class="limites-rejilla">
-      <div class="limite">
-        <div class="cifra">2 de cada 3</div>
-        <p>Puestas dos personas al azar, una con síntomas y otra sin ellos, el modelo
-        acierta cuál es cuál solo dos de cada tres veces. Es lo que significa un AUC
-        de 0,67.</p>
-      </div>
-      <div class="limite">
-        <div class="cifra">85 de 100</div>
-        <p>De cada cien personas que el modelo señala como riesgo, cerca de ochenta y
-        cinco <strong>no</strong> dan positivo en el tamizaje.</p>
-      </div>
-      <div class="limite">
-        <div class="cifra">93,8 %</div>
-        <p>Es lo que acierta quien responda «nadie tiene depresión» a todo el mundo.
-        Más que este modelo, que llega al 89,4 %.</p>
-      </div>
-      <div class="limite">
-        <div class="cifra">4 de 4</div>
-        <p>Se probaron cuatro familias de algoritmos y las cuatro dan casi lo mismo
-        (AUC 0,655 a 0,684). No es un problema de método: es el techo de lo que estas
-        variables pueden decir.</p>
-      </div>
-    </div>
-
-    <p class="limites-cierre">
-      <strong>Esto describe grupos, no personas.</strong> La depresión de alguien
-      depende de su historia, sus duelos, su red de apoyo, su contexto inmediato — nada
-      de eso lo mide una encuesta de hogares. Que el modelo discrimine poco no es un
-      fallo del análisis: es el resultado honesto, y sirve igual para orientar dónde
-      poner recursos de salud pública. Lo que no sirve es para saber cómo estás tú.
-      Si te preocupa cómo te sientes, <a href="#ayuda">hablar con un profesional</a> es
-      lo que sí puede responder esa pregunta.
-    </p>
-  </section>
 
   <section id="ayuda" class="panel ancho">
     <h2>8 · Dónde encontrar ayuda</h2>
@@ -237,6 +196,51 @@
       evaluación de un profesional de salud mental. Si algo de lo que ves aquí te
       preocupa, hablar con un profesional es el paso que sí puede evaluar tu situación.
     </div>
+  </section>
+
+  <!-- El detalle técnico va al final del recorrido, no en mitad del
+       camino: quien quiera hacer la consulta la hace, y quien tenga
+       curiosidad por cuánto acierta el modelo la encuentra aquí. -->
+  <section class="panel-limites" id="limites" aria-labelledby="titulo-limites">
+    <h2 id="titulo-limites">Hasta dónde llega esto</h2>
+    <p>Un dato de encuesta dice mucho de un grupo y poco de una persona. Estas cuatro
+    cifras, sacadas del propio análisis, muestran exactamente dónde está esa frontera.</p>
+
+    <div class="limites-rejilla">
+      <div class="limite">
+        <div class="cifra">2 de cada 3</div>
+        <p>Si le enseñas dos personas al azar, una con síntomas y otra sin ellos, el
+        modelo distingue cuál es cuál dos veces de cada tres. Mejor que lanzar una
+        moneda, lejos de una prueba médica.</p>
+      </div>
+      <div class="limite">
+        <div class="cifra">85 de 100</div>
+        <p>De cada cien personas que señala como riesgo, unas ochenta y cinco no dan
+        positivo. Por eso la cifra sirve para mirar un grupo y no para señalar a
+        alguien.</p>
+      </div>
+      <div class="limite">
+        <div class="cifra">93,8 %</div>
+        <p>Es lo que acierta responder «nadie» a todo el mundo, y le gana al modelo por
+        cuatro puntos. Con un fenómeno que afecta al 7 %, acertar mucho es fácil y no
+        significa gran cosa.</p>
+      </div>
+      <div class="limite">
+        <div class="cifra">4 de 4</div>
+        <p>Probamos cuatro familias de algoritmos distintas y las cuatro se quedan en el
+        mismo sitio. Cuando cambiar de método no cambia nada, el límite está en lo que la
+        encuesta pregunta.</p>
+      </div>
+    </div>
+
+    <p class="limites-cierre">
+      <strong>Y eso está bien.</strong> Lo que lleva a alguien a una depresión —una
+      pérdida, una racha mala, con quién cuenta, cómo llega a fin de mes— no cabe en un
+      cuestionario de hogares. Que estas variables no alcancen a explicarlo dice más del
+      fenómeno que del modelo. Sirve para lo que se hizo: ver en qué regiones y en qué
+      grupos se concentra, y decidir dónde hacen falta más psicólogos. Para saber cómo
+      estás tú, la conversación es con <a href="#ayuda">alguien que pueda escucharte</a>.
+    </p>
   </section>
 
   <section id="privacidad" class="panel ancho">

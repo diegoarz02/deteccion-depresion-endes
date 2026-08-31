@@ -9,6 +9,15 @@
 const estado = { contexto: null, geo: null, ultima: null };
 
 /* ── Tema ─────────────────────────────────────────────────────────── */
+/* El menú de la cabecera solo existe en pantallas estrechas: en escritorio los
+   enlaces caben de sobra y el botón está oculto por CSS. */
+function alternarMenu() {
+  var c = document.getElementById('cabecera');
+  var abierto = c.getAttribute('data-menu') === 'abierto';
+  c.setAttribute('data-menu', abierto ? 'cerrado' : 'abierto');
+  document.querySelector('.boton-menu').setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
@@ -247,6 +256,7 @@ function mostrarObservado(t) {
     return;
   }
 
+  cifra.className = 'observado-cifra';
   cifra.innerHTML = num(t.prevalencia, 1) + '<small> de cada 100</small>';
   frase.innerHTML = 'Entre las personas del mismo <strong>' + t.definido_por
     + '</strong> entrevistadas en la ENDES 2025, esa proporción dio positivo al '

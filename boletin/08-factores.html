@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Factores asociados · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">9 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html" aria-current="page">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="07-geografia.html" title="Dónde" aria-label="Anterior: Dónde">‹</a><a class="salto" href="09-modelo.html" title="El modelo" aria-label="Siguiente: El modelo">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html" aria-current="page">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:69%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -21,7 +29,7 @@
   <span class="seccion-num">Sección 9 de 13</span>
 </div>
 <h2>Qué se asocia con la depresión</h2>
-<p class="entradilla">Los datos dicen que fumar protege contra la depresión. No es cierto, y
+<p class="entradilla">Los datos dicen que fumar protege contra la depresión. Es falso, y
 la explicación de por qué es el mejor ejemplo de este boletín.</p>
 
 <h3>La paradoja del tabaco</h3>
@@ -50,8 +58,8 @@ menos.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">Ajustar no es un trámite: en algunos casos cambia el signo del resultado</p>
-  <p class="explicacion">Hay un umbral convencional para decidir si una variable confunde: que el estimador se mueva un 10 % o más al tenerla en cuenta. Las barras destacadas lo superan, el umbral convencional a partir del cual se considera y son bastantes. La hipertensión cambia un 41 % al considerar la edad; el consumo problemático de alcohol, un 40 % al considerar el sexo.</p>
-  
+  <p class="explicacion">Antes de comparar dos grupos hay que descontar aquello que los diferencia por otras razones. Cada barra mide cuánto se mueve el resultado al hacerlo: si se mueve más de un 10 %, la variable descontada estaba distorsionando la comparación. Muchas lo superan. La hipertensión cambia un 41 % al tener en cuenta la edad, y el consumo problemático de alcohol un 40 % al tener en cuenta el sexo.</p>
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada barra es un par: un factor de riesgo y algo que podía estar distorsionando su medición, como la edad o el sexo.</li><li>El largo dice cuánto cambia el resultado al descontar esa distorsión. Más largo, más engañaba la comparación cruda.</li><li>El 10 % es el umbral convencional: por debajo se considera que la distorsión no era relevante.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_07_confusion.png" alt="Gráfico de barras horizontales con el cambio porcentual entre el odds ratio crudo y el ajustado. Las barras que superan el umbral del 10 % aparecen destacadas." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Comparación entre el odds ratio crudo y el ajustado por Mantel-Haenszel.</figcaption>
 </figure>
@@ -69,7 +77,7 @@ menos.</p>
 <figure class="figura">
   <p class="titulo-hallazgo">El odds ratio exagera, pero aquí exagera poco</p>
   <p class="explicacion">Hay dos maneras de expresar cuánto más frecuente es algo en un grupo que en otro, y no coinciden: el odds ratio siempre se aleja más del 1 que la razón de prevalencias, y la diferencia crece cuando la condición es frecuente. Con un 7 % de prevalencia, la teoría dice que deberían parecerse. Y se parecen: la exageración media es del 5,3 %. Comprobarlo con los propios datos es más honesto que citarlo de un manual.</p>
-  
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada punto es un factor medido de dos formas distintas: una en el eje horizontal, la otra en el vertical.</li><li>La diagonal marca dónde caerían si ambas coincidieran. Cuanto más se separa un punto de esa línea, más difieren las dos maneras de contar lo mismo.</li><li>Aquí casi la tocan, que es lo esperable cuando la condición afecta a poca gente.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_06_or_vs_rp.png" alt="Gráfico de puntos que compara el odds ratio con la razón de prevalencias de cada exposición. Los puntos se alinean cerca de la diagonal." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). La razón de prevalencias se estimó con regresión de Poisson y varianza robusta.</figcaption>
 </figure>
@@ -132,6 +140,14 @@ menos vez y media, y que ambos grupos tengan casos suficientes.
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

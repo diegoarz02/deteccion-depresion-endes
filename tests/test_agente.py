@@ -236,3 +236,86 @@ def test_el_motivo_explica_como_reformular():
     """Un guardarraíl que bloquea sin decir qué hacer obliga a adivinar."""
     r = guardrails.verificar("Tu probabilidad es del 19,9 %.")
     assert "tu grupo" in r["motivo"] or "de cada cien" in r["motivo"]
+
+
+# ─────────────────────────────────────────────────────────────────────
+# Banco de frases de ánimo
+# ─────────────────────────────────────────────────────────────────────
+
+import animo  # noqa: E402
+
+
+def test_el_banco_declara_cuando_se_verifico():
+    """Un banco de citas sin fecha envejece sin que nadie lo note."""
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", animo.banco()["_verificado_el"])
+
+
+def test_toda_frase_tiene_los_campos_exigidos():
+    """Sin fuente y sin tono, una frase no se puede ni citar ni elegir."""
+    for f in animo.banco()["frases"]:
+        assert f["texto"].strip()
+        assert f["fuente"].strip()
+        assert f["tono"] in {"sereno", "aliento", "compania"}
+        assert isinstance(f["verificada"], bool)
+
+
+def test_los_identificadores_no_se_repiten():
+    """El modelo elige por identificador: dos iguales harían la elección ambigua."""
+    ids = [f["id"] for f in animo.banco()["frases"]]
+    assert len(ids) == len(set(ids))
+
+
+def test_hay_frases_de_los_tres_tonos():
+    """Si un tono se queda vacío, ese resultado no tendría frase que mostrar."""
+    for tono in ("sereno", "aliento", "compania"):
+        assert animo.por_tono(tono), tono
+
+
+@pytest.mark.parametrize("prohibida", [
+    "todo pasa por algo", "solo depende de ti", "échale ganas",
+    "la felicidad es una decisión", "ponle actitud", "si quieres, puedes",
+])
+def test_nada_de_positividad_toxica(prohibida):
+    """Esas frases culpan a quien está mal: son lo contrario de acompañar."""
+    todo = " ".join(f["texto"].lower() for f in animo.banco()["frases"])
+    assert prohibida not in todo
+
+
+def test_ninguna_frase_se_atribuye_a_una_persona_real():
+    """Solo obras de ficción.
+
+    Una cita mal atribuida en un trabajo académico es un problema que arrastra
+    todo lo demás, y comprobar la autoría real de una frase que circula por
+    internet casi nunca es posible. Limitarse a la ficción elimina el riesgo.
+    """
+    for f in animo.banco()["frases"]:
+        fuente = f["fuente"]
+        # Toda fuente nombra una obra: lleva año entre paréntesis, editorial,
+        # o dice explícitamente que está inspirada en ella.
+        assert ("(" in fuente or "·" in fuente or fuente.startswith("Inspirado")), fuente
+
+
+def test_la_crisis_no_muestra_ninguna_frase():
+    """La regla que no se negocia.
+
+    Una frase de ánimo en mitad de una crisis se lee como restarle importancia
+    a lo que la persona acaba de decir. Ahí va la plantilla fija y nada más.
+    """
+    for categoria in ("bajo", "medio", "alto"):
+        assert animo.elegir(categoria, hay_crisis=True) is None
+
+
+def test_cada_categoria_recibe_el_tono_previsto():
+    """A mayor prevalencia del grupo, menos aliento y más compañía.
+
+    Empujar a alguien que ya se siente señalado suena a exigencia.
+    """
+    assert animo.elegir("bajo")["tono"] == "sereno"
+    assert animo.elegir("alto")["tono"] == "compania"
+
+
+def test_las_frases_adaptadas_se_marcan_como_tales():
+    """Presentar una paráfrasis como cita literal es el error a evitar."""
+    adaptada = next(f for f in animo.banco()["frases"]
+                    if not f["verificada"] and not f["fuente"].startswith("Inspirado"))
+    assert "Adaptado de" in animo.formatear(adaptada)

@@ -1,0 +1,157 @@
+{
+  "_proposito": "Frases para el cierre del boletín y de la aplicación. La IA SELECCIONA de aquí por identificador; nunca inventa ni parafrasea una cita.",
+  "_verificado_el": "2026-08-31",
+  "_criterios": {
+    "solo_ficcion": "Todas las entradas son de obras de ficción (cómic, cine, animación, anime, videojuego). No se atribuye ninguna frase a una persona real: internet está lleno de citas mal atribuidas y una falsa en un trabajo académico es un problema que arrastra todo lo demás.",
+    "sobre_que": "Resistir, levantarse, pedir ayuda, seguir un día más, no estar solo.",
+    "prohibido": "Positividad tóxica. Nada de «todo pasa por algo», «solo depende de ti», «échale ganas» ni «la felicidad es una decisión»: esas frases culpan a quien está mal. Nada que insinúe que la depresión se supera con voluntad.",
+    "verificada": "true solo si la frase se puede situar con seguridad en la obra citada. Las marcadas false están adaptadas o parafraseadas y así se indica en la interfaz."
+  },
+  "_tonos": {
+    "sereno": "Para resultados bajos. Acompaña sin dramatizar.",
+    "aliento": "Para cuando hace falta un empujón, sin exigir nada.",
+    "compania": "Para resultados altos. No alarma: recuerda que no se está solo."
+  },
+  "frases": [
+    {
+      "id": "spiderman_levantarse",
+      "texto": "Cuando te sientas caído, cuando sientas que ya no puedes más, siempre te levantas. Porque eres el mejor de nosotros.",
+      "fuente": "Peter Parker a Miles Morales · Spider-Man: Un nuevo universo (2018)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "spiderman_salto",
+      "texto": "—¿Cuándo sabré que estoy listo? —No lo sabrás. Es un salto de fe.",
+      "fuente": "Miles Morales y Peter Parker · Spider-Man: Un nuevo universo (2018)",
+      "tono": "aliento",
+      "verificada": true
+    },
+    {
+      "id": "spiderman_seguir",
+      "texto": "Todos necesitamos ayuda alguna vez. Incluso si eres el que la da.",
+      "fuente": "Spider-Man · Marvel Comics",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "samsagaz_algo_bueno",
+      "texto": "Hay algo bueno en este mundo, señor Frodo. Y vale la pena luchar por ello.",
+      "fuente": "Samsagaz Gamyi · El Señor de los Anillos: las dos torres (2002)",
+      "tono": "aliento",
+      "verificada": true
+    },
+    {
+      "id": "samsagaz_cargarte",
+      "texto": "No puedo llevar la carga por usted, pero puedo llevarlo a usted.",
+      "fuente": "Samsagaz Gamyi · El Señor de los Anillos: el retorno del rey (2003)",
+      "tono": "compania",
+      "verificada": true
+    },
+    {
+      "id": "gandalf_tiempo",
+      "texto": "Lo único que tenemos que decidir es qué hacer con el tiempo que se nos ha dado.",
+      "fuente": "Gandalf · El Señor de los Anillos: la comunidad del anillo (2001)",
+      "tono": "sereno",
+      "verificada": true
+    },
+    {
+      "id": "mob_ayuda",
+      "texto": "Pedir ayuda no te hace débil. Es lo que hacen las personas cuando se dan cuenta de que no pueden solas.",
+      "fuente": "Inspirado en Mob Psycho 100 (ONE)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "fma_avanzar",
+      "texto": "Hay que seguir adelante, aunque sea a rastras. Un paso a la vez.",
+      "fuente": "Inspirado en Fullmetal Alchemist (Hiromu Arakawa)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "eva_quedarse",
+      "texto": "Está bien quedarse. Está bien no poder hoy. Mañana es otro día para intentarlo.",
+      "fuente": "Inspirado en Neon Genesis Evangelion (Hideaki Anno)",
+      "tono": "sereno",
+      "verificada": false
+    },
+    {
+      "id": "zelda_valor",
+      "texto": "El valor no es no tener miedo. Es dar el paso aunque lo tengas.",
+      "fuente": "Inspirado en The Legend of Zelda (Nintendo)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "kiki_descanso",
+      "texto": "A veces hay que descansar y esperar a que las ganas vuelvan solas.",
+      "fuente": "Inspirado en Nicky, la aprendiz de bruja (Studio Ghibli, 1989)",
+      "tono": "sereno",
+      "verificada": false
+    },
+    {
+      "id": "chihiro_seguir",
+      "texto": "Camina hacia adelante y no mires atrás.",
+      "fuente": "Haku a Chihiro · El viaje de Chihiro (Studio Ghibli, 2001)",
+      "tono": "aliento",
+      "verificada": true
+    },
+    {
+      "id": "totoro_acompanar",
+      "texto": "No hace falta decir nada. A veces basta con que alguien se quede al lado.",
+      "fuente": "Inspirado en Mi vecino Totoro (Studio Ghibli, 1988)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "batman_caer",
+      "texto": "¿Por qué nos caemos? Para aprender a levantarnos.",
+      "fuente": "Thomas Wayne · Batman Begins (2005)",
+      "tono": "aliento",
+      "verificada": true
+    },
+    {
+      "id": "rocky_avanzar",
+      "texto": "No importa lo fuerte que golpees. Importa cuánto aguantas y sigues avanzando.",
+      "fuente": "Rocky Balboa · Rocky Balboa (2006)",
+      "tono": "aliento",
+      "verificada": true
+    },
+    {
+      "id": "dumbledore_luz",
+      "texto": "Hasta en los tiempos más oscuros se puede encontrar la felicidad, si uno recuerda encender la luz.",
+      "fuente": "Albus Dumbledore · Harry Potter y el prisionero de Azkaban (2004)",
+      "tono": "sereno",
+      "verificada": true
+    },
+    {
+      "id": "vaiana_lejos",
+      "texto": "Mira lo lejos que has llegado. No tienes que llegar hoy al final.",
+      "fuente": "Inspirado en Moana / Vaiana (Disney, 2016)",
+      "tono": "sereno",
+      "verificada": false
+    },
+    {
+      "id": "wall_e_compania",
+      "texto": "Alguien que se queda contigo sin pedirte que estés bien ya está haciendo mucho.",
+      "fuente": "Inspirado en WALL·E (Pixar, 2008)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "up_aventura",
+      "texto": "La aventura está ahí afuera, y no tiene fecha límite.",
+      "fuente": "Inspirado en Up: una aventura de altura (Pixar, 2009)",
+      "tono": "sereno",
+      "verificada": false
+    },
+    {
+      "id": "hachiko_esperar",
+      "texto": "Hay quien te espera aunque tardes. Eso también cuenta.",
+      "fuente": "Inspirado en Siempre a tu lado, Hachiko (2009)",
+      "tono": "compania",
+      "verificada": false
+    }
+  ]
+}

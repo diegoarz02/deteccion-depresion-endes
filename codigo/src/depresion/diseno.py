@@ -155,7 +155,11 @@ def variables_css() -> str:
    Generado por codigo/src/depresion/diseno.py. No editar a mano.
    ═══════════════════════════════════════════════════════════════ */
 
-@import url("{FUENTES_GOOGLE}");
+/* Las tipografías se sirven desde el propio sitio (assets/fuentes.css), no
+   desde Google. Un @import a otro dominio bloquea el renderizado y hace que la
+   página cambie de aspecto a mitad de carga si la conexión es mala — justo lo
+   que no quieres durante una sustentación. Las descarga
+   codigo/scripts/descargar_fuentes.py. */
 
 :root {{
 {_bloque("verde", VERDE)}

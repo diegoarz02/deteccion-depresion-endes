@@ -6,10 +6,10 @@
 aspecto & valor & veredicto \\
 \midrule
 Eventos por variable (EPV) & 104.2 & Holgado \\
-Discriminación (AUC) & 0.667 (0.655–0.679) & discriminación aceptable \\
-Bondad de ajuste (Hosmer-Lemeshow) & χ² = 21.42, gl = 8, p = 0.0061 & Rechaza el ajuste, pero con N grande la prueba es hipersensible: juzgar la calibración por la curva y el Brier score \\
+Discriminación (AUC) & 0.667 (0.655–0.679) & discriminación moderada \\
+Bondad de ajuste (Hosmer-Lemeshow) & χ² = 21.42, gl = 8, p = 0.0061 & La calibración se juzga por la curva y por el Brier, no por esta prueba: con decenas de miles de casos detecta desviaciones que no cambian ninguna decisión \\
 Calibración (Brier) & 0.0569 & Brier 0.0569 frente a 0.0582 del modelo nulo (mejora del 2.2 \%) \\
-Linealidad del logit en edad (Box-Tidwell) & p = 0.0000 & El logit NO es lineal: usar splines o categorizar \\
+Linealidad del logit en edad (Box-Tidwell) & p = 0.0000 & El logit no es lineal en esta variable: hay que usar splines o categorizarla \\
 Sensibilidad (corte en la prevalencia) & 0.672 & Umbral 0.0621; el modelo está calibrado, así que el corte en la prevalencia es interpretable \\
 Especificidad (mismo corte) & 0.564 & Compromiso propio de un tamizaje: capta más casos a costa de más falsos positivos \\
 AUC-PR & 0.1169 & Frente a 0.0621 del azar: 1.9 veces mejor \\

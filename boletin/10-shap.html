@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Modelo y realidad · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">11 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html" aria-current="page">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="09-modelo.html" title="El modelo" aria-label="Anterior: El modelo">‹</a><a class="salto" href="11-conclusiones.html" title="Qué significa" aria-label="Siguiente: Qué significa">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html" aria-current="page">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:85%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -59,7 +67,7 @@ bien porque es frecuente.</p>
 <figure class="figura">
   <p class="titulo-hallazgo">Cuatro algoritmos, prácticamente el mismo resultado</p>
   <p class="explicacion">Bosque aleatorio, XGBoost, LightGBM y una regresión logística regularizada se mueven todos entre 0,65 y 0,68 de AUC. Cuando cambiar de algoritmo no cambia el resultado, el techo no está en el algoritmo: está en lo que las variables disponibles pueden decir. La curva de la derecha es la honesta con un 6 % de casos.</p>
-  
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada curva es un algoritmo distinto. Cuanto más se despega hacia la esquina superior izquierda, mejor distingue.</li><li>La diagonal es el equivalente a lanzar una moneda. Las cuatro están por encima, pero no muy lejos.</li><li>El panel derecho es el exigente cuando la condición es poco frecuente: penaliza señalar a demasiada gente con tal de no perderse a nadie.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_13_comparacion_modelos_ml.png" alt="Dos paneles con curvas de rendimiento de cuatro modelos. Las curvas ROC de la izquierda están juntas y por encima de la diagonal; las de precisión-exhaustividad de la derecha también se solapan." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Validación cruzada de cinco particiones, estratificada y agrupada por conglomerado muestral para evitar fuga de información.</figcaption>
 </figure>
@@ -158,6 +166,14 @@ bien porque es frecuente.</p>
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

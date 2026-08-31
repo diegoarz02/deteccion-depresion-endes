@@ -339,3 +339,49 @@ footer p { margin: 0 0 8px; max-width: 92ch; }
   .envoltorio { padding: 0 16px; }
   .rejilla-cien { grid-template-columns: repeat(10, 1fr); max-width: 220px; }
 }
+
+/* ── Entrada ─────────────────────────────────────────────────────────
+   Una frase de encuadre, no un bloque de advertencias. La honestidad se
+   mantiene; lo que baja es la dosis. Repetir cinco veces que la herramienta
+   no sirve para ti deja al lector preguntándose para qué existe la página. */
+.intro h1 { text-wrap: balance; max-width: 18ch; }
+.intro .encuadre {
+  font-size: .93rem; color: var(--texto-suave); border-left: 3px solid var(--verde-300);
+  padding-left: 14px; margin-top: 18px; max-width: 56ch;
+}
+
+.boton-menu {
+  display: none; align-items: center; justify-content: center;
+  border: 1px solid var(--borde); background: var(--superficie); color: var(--texto-suave);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer; font-size: 1.05rem;
+  line-height: 1; margin-left: auto;
+}
+.boton-menu:hover { border-color: var(--marca); color: var(--marca); }
+
+/* ── Cabecera responsive ─────────────────────────────────────────────
+   A 390 px la marca larga se partía en cuatro líneas, la navegación se
+   desbordaba con «Ayu…» cortado y el botón de tema salía de pantalla. Es lo
+   primero que ve alguien desde el celular. */
+@media (max-width: 620px) {
+  .cabecera-fila { padding: 10px 16px; gap: 10px; flex-wrap: nowrap; }
+  .marca { font-size: .98rem; white-space: nowrap; }
+  .marca::before { width: 18px; height: 18px; }
+  /* La navegación se guarda tras el botón de menú: tres enlaces cortos no
+     justifican robarle dos líneas a la pantalla. */
+  .cabecera nav {
+    position: absolute; top: 100%; right: 12px; left: 12px;
+    background: var(--superficie); border: 1px solid var(--borde);
+    border-radius: var(--radio); box-shadow: var(--sombra-3);
+    flex-direction: column; gap: 2px; padding: 8px; display: none; z-index: 60;
+  }
+  .cabecera[data-menu="abierto"] nav { display: flex; }
+  .cabecera nav a { padding: 11px 14px; font-size: .95rem; }
+  .boton-menu { display: inline-flex; }
+  .boton-tema { flex: none; }
+}
+
+/* ── Estado vacío del resultado ──────────────────────────────────────
+   El guion largo a tamaño de titular se leía como una barra negra gruesa:
+   parecía un fallo de renderizado, no un campo por rellenar. */
+.observado-cifra.vacio { color: var(--texto-tenue); font-size: 2.2rem; letter-spacing: 0; }
+.observado-cifra.vacio small { display: none; }

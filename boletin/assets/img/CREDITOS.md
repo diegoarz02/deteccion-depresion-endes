@@ -2,9 +2,17 @@
 
 Última actualización: 2026-08-31
 
-Todos los archivos están **descargados o generados en local**. El boletín no enlaza
-ninguna imagen externa, de modo que funciona sin conexión y en cualquier hosting
-estático.
+Todos los archivos están **descargados o generados en local**: imágenes, iconos,
+ilustraciones y también las tipografías. El boletín no hace ninguna petición a otro
+dominio, así que funciona sin conexión y en cualquier hosting estático.
+
+Las fuentes se autoalojan desde la corrida final. Antes se cargaban desde Google, lo
+que contradecía esta misma afirmación y hacía que la página cambiara de aspecto a
+mitad de carga con una conexión mala. Las descarga
+`codigo/scripts/descargar_fuentes.py`, que trae solo los subconjuntos latinos y
+deduplica por contenido: Fraunces e Inter son variables y Google sirve el mismo
+archivo para cada peso, de modo que catorce descargas son en realidad cuatro
+archivos (254 kB en total, frente a 892 kB sin deduplicar).
 
 ---
 
@@ -36,7 +44,7 @@ que el color de acento coincide exactamente con el del resto del sitio.
 |---|---|---|---|---|
 | `ilustraciones/conversacion.svg` | Dos personas conversando, una escuchando a la otra | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.3 KB |
 | `ilustraciones/apoyo.svg` | Una persona acompañando a otra, con una mano en el hombro | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.1 KB |
-| `ilustraciones/busqueda_ayuda.svg` | Una persona levantando la mano para pedir ayuda, y una puerta abierta | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.1 KB |
+| `ilustraciones/busqueda_ayuda.svg` | Cien figuras: doce cruzan una puerta abierta y ochenta y ocho se quedan fuera | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 17.0 KB |
 | `ilustraciones/comunidad.svg` | Un grupo de personas de distintas edades, juntas | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.4 KB |
 | `ilustraciones/deteccion.svg` | Una lupa sobre un gráfico ascendente, la idea de detectar a tiempo | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.1 KB |
 | `ilustraciones/territorio.svg` | Una silueta del territorio con marcadores de ubicación | Proyecto de Epidemiología 2026-2, UNMSM | MIT (la del repositorio) | 1.2 KB |

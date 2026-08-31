@@ -157,6 +157,14 @@ PIE = """<footer><div class="contenedor"><div class="cols">
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
@@ -185,6 +193,14 @@ def plantilla(archivo: str, titulo: str, contenido: str, numero: str | None = No
     nav_pag = f'<div class="paginacion">{izq}{der}</div>'
     etiqueta_num = f'<span class="num">{numero} de 13</span>' if numero else ""
 
+    # Saltos rápidos en la propia barra: llevan el título como `title` para que
+    # se sepa a dónde van sin ocupar el ancho de escribirlo.
+    salto_anterior = (f'<a class="salto" href="{anterior[0]}" title="{anterior[1]}" '
+                      f'aria-label="Anterior: {anterior[1]}">‹</a>' if anterior else "")
+    salto_siguiente = (f'<a class="salto" href="{siguiente[0]}" title="{siguiente[1]}" '
+                       f'aria-label="Siguiente: {siguiente[1]}">›</a>' if siguiente else "")
+    progreso = round((idx + 1) / len(PAGINAS) * 100)
+
     return f"""<!doctype html>
 <html lang="es">
 <head>
@@ -192,15 +208,23 @@ def plantilla(archivo: str, titulo: str, contenido: str, numero: str | None = No
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titulo} · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú{etiqueta_num}</a>
-  <nav class="enlaces" aria-label="Secciones del boletín">{enlaces}</nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    {salto_anterior}{salto_siguiente}
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín">{enlaces}</nav>
+</div>
+<div class="progreso"><div style="width:{progreso}%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 {contenido}
 {nav_pag}
@@ -231,7 +255,7 @@ def pagina_caratula() -> str:
 
     integrantes = ["Arapa Lazo, Julio", "Araujo Villegas, Diego Alonso",
                    "Hidalgo Huachaca, Dante", "Montero Tabori, Melany",
-                   "Torres Matías", "Zegarra, William"]
+                   "Torres, Matías", "Zegarra, William"]
     equipo = "".join(f"<span>{i}</span>" for i in integrantes)
 
     guia = pd.DataFrame([
@@ -273,7 +297,8 @@ def pagina_caratula() -> str:
   <section>
     <h2>El boletín en cuatro cifras</h2>
     <p class="entradilla">Sobre 30 226 personas entrevistadas en todo el país, estimado con
-    el diseño muestral complejo de la encuesta y no como si fuera una muestra al azar.</p>
+    el diseño muestral complejo de la encuesta, que es lo que corresponde cuando la gente
+    se entrevista por conglomerados y no de una en una.</p>
     <div class="kpis">
       <div class="kpi">
         <div class="valor">{nac.prevalencia:.2f} %</div>
@@ -313,6 +338,7 @@ def pagina_caratula() -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Depresión en el Perú · Boletín epidemiológico ENDES 2025</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
@@ -439,8 +465,8 @@ depresivos. Es cuántas de ellas no llegan nunca a un profesional.</p>
     mantiene por encima del ochenta por ciento en todos los grupos que examinamos: hombres
     y mujeres, ciudad y campo, todas las edades, todos los niveles educativos.</p>
 
-    <p>Eso descarta la explicación fácil. No es que un grupo concreto tenga menos acceso;
-    es que el sistema no está llegando a casi nadie.</p>
+    <p>Eso descarta la explicación fácil. El problema no está en un grupo concreto: el
+    sistema no está llegando a casi nadie.</p>
   </div>
 </div>
 
@@ -570,7 +596,7 @@ confianza demasiado estrechos.</p>
 <div class="nota">
   <strong>Qué significa el efecto de diseño.</strong> Un valor de 3,09 quiere decir que
   estas 30 226 entrevistas aportan tanta información como unas 9 774 tomadas completamente
-  al azar. No es un defecto de la encuesta: es el precio de poder recorrer un país entero.
+  al azar. Es el precio de recorrer un país entero, no un defecto de la encuesta.
   Lo que sí sería un error es ignorarlo al calcular los intervalos.
 </div>
 
@@ -683,6 +709,21 @@ todos los días (3).</p>
 <p>Usamos 10, que es el umbral convencional para «caso probable» de depresión moderada o
 grave. Como análisis de sensibilidad repetimos todo con el corte en 5, que capta también la
 sintomatología leve y sube la prevalencia al 21,4 %. Las conclusiones no cambian.</p>
+
+<h3>Qué pasa con quien no contestó todo</h3>
+<p>El análisis principal usa solo a quienes tienen completas las variables del modelo. Eso
+deja fuera a poca gente —el faltante más grande es el nivel educativo, con un 3,8 %— pero
+conviene comprobar que esa exclusión no está inclinando el resultado.</p>
+
+<p>Se repitió el modelo rellenando los huecos con <strong>imputación múltiple</strong>:
+cinco versiones del conjunto de datos, cada una con un valor plausible distinto en los
+huecos, y los resultados combinados. De los diecisiete coeficientes, dieciséis se mueven
+menos de un 8 %. El único que cambia de forma apreciable es la diabetes, que pasa de 1,33
+a 1,49 —un 10,5 %— y se acerca al resto de enfermedades crónicas en vez de alejarse.</p>
+
+<p>Ninguna conclusión del boletín depende de esa diferencia, pero queda dicho: quien
+prefiera la versión con imputación leerá una asociación algo más fuerte entre diabetes y
+sintomatología depresiva, no una distinta.</p>
 
 <p><strong>Una limitación honesta:</strong> el corte de 10 viene de estudios de validación
 internacionales. No conocemos una validación del PHQ-9 en población peruana que proponga un
@@ -1009,7 +1050,15 @@ de 2019.</p>
     "4 500 m. Los pisos siguen la clasificación de Pulgar Vidal.",
     "Tres paneles: un histograma de la altitud de la muestra, barras de prevalencia por "
     "piso altitudinal que crecen desde la costa hasta la puna, y una nube de puntos por "
-    "tramos de 250 metros con una curva de tendencia ascendente.")}
+    "tramos de 250 metros con una curva de tendencia ascendente.",
+    como_leer=[
+        "El primer panel dice cuánta gente vive a cada altura: la mayoría de la muestra "
+        "está cerca del nivel del mar.",
+        "El segundo agrupa por pisos. Las rayitas son el margen de error, y se ensanchan "
+        "donde hay poca gente: la puna es la más ancha de todas.",
+        "El tercero no agrupa: cada punto es un tramo de 250 metros. Sirve para ver si la "
+        "subida es continua o si hay tramos donde baja.",
+    ])}
 
 {html_tabla(alt[["altitud_categoria", "n", "prevalencia", "ic_inf", "ic_sup"]],
             {"altitud_categoria": "Piso altitudinal", "n": "Personas",
@@ -1116,7 +1165,7 @@ def pagina_factores() -> str:
 
     contenido = f"""<section>
 {cabecera("9", "activity", "Qué se asocia con la depresión")}
-<p class="entradilla">Los datos dicen que fumar protege contra la depresión. No es cierto, y
+<p class="entradilla">Los datos dicen que fumar protege contra la depresión. Es falso, y
 la explicación de por qué es el mejor ejemplo de este boletín.</p>
 
 <h3>La paradoja del tabaco</h3>
@@ -1146,14 +1195,23 @@ menos.</p>
 {figura(
     "fig_07_confusion.png",
     "Ajustar no es un trámite: en algunos casos cambia el signo del resultado",
-    "Hay un umbral convencional para decidir si una variable confunde: que el estimador se "
-    "mueva un 10 % o más al tenerla en cuenta. Las barras destacadas lo superan, el umbral convencional a partir del cual se considera "
-    "y son bastantes. La hipertensión cambia un 41 % al considerar la edad; el consumo "
-    "problemático de alcohol, un 40 % al considerar el sexo.",
+    "Antes de comparar dos grupos hay que descontar aquello que los diferencia por otras "
+    "razones. Cada barra mide cuánto se mueve el resultado al hacerlo: si se mueve más de "
+    "un 10 %, la variable descontada estaba distorsionando la comparación. Muchas lo "
+    "superan. La hipertensión cambia un 41 % al tener en cuenta la edad, y el consumo "
+    "problemático de alcohol un 40 % al tener en cuenta el sexo.",
     "Fuente: ENDES 2025 (INEI). Comparación entre el odds ratio crudo y el ajustado por "
     "Mantel-Haenszel.",
     "Gráfico de barras horizontales con el cambio porcentual entre el odds ratio crudo y el "
-    "ajustado. Las barras que superan el umbral del 10 % aparecen destacadas.")}
+    "ajustado. Las barras que superan el umbral del 10 % aparecen destacadas.",
+    como_leer=[
+        "Cada barra es un par: un factor de riesgo y algo que podía estar distorsionando "
+        "su medición, como la edad o el sexo.",
+        "El largo dice cuánto cambia el resultado al descontar esa distorsión. Más largo, "
+        "más engañaba la comparación cruda.",
+        "El 10 % es el umbral convencional: por debajo se considera que la distorsión no "
+        "era relevante.",
+    ])}
 
 <h3>El panorama completo</h3>
 {figura(
@@ -1186,7 +1244,14 @@ menos.</p>
     "Fuente: ENDES 2025 (INEI). La razón de prevalencias se estimó con regresión de Poisson "
     "y varianza robusta.",
     "Gráfico de puntos que compara el odds ratio con la razón de prevalencias de cada "
-    "exposición. Los puntos se alinean cerca de la diagonal.")}
+    "exposición. Los puntos se alinean cerca de la diagonal.",
+    como_leer=[
+        "Cada punto es un factor medido de dos formas distintas: una en el eje horizontal, "
+        "la otra en el vertical.",
+        "La diagonal marca dónde caerían si ambas coincidieran. Cuanto más se separa un "
+        "punto de esa línea, más difieren las dos maneras de contar lo mismo.",
+        "Aquí casi la tocan, que es lo esperable cuando la condición afecta a poca gente.",
+    ])}
 
 <h3>Cuándo un efecto no es igual para todos</h3>
 <p>Con 30 000 observaciones, las pruebas estadísticas detectan diferencias mínimas. De las
@@ -1263,7 +1328,14 @@ preguntas distintas, así que reportamos las dos.</p>
     "Fuente: ENDES 2025 (INEI). Modelo A sin obesidad ni IMC; modelo B con ellos. La "
     "proporción mediada se calcula en la escala del logaritmo del odds ratio.",
     "Gráfico que compara dos estimaciones por exposición: el efecto total y el directo. Los "
-    "pares de puntos casi coinciden salvo en la diabetes.")}
+    "pares de puntos casi coinciden salvo en la diabetes.",
+    como_leer=[
+        "Cada fila es un factor medido dos veces: el círculo cuenta todo su efecto; el "
+        "cuadrado, solo la parte que no pasa por el peso corporal.",
+        "La separación entre ambos símbolos es la parte del efecto que viaja por esa ruta. "
+        "Si están pegados, el peso no hace de intermediario.",
+        "La línea vertical del 1 separa lo que aumenta el riesgo de lo que lo reduce.",
+    ])}
 
 {html_tabla(med[["exposicion", "or_total_fmt", "or_directo_fmt", "lectura"]],
             {"exposicion": "Exposición", "or_total_fmt": "Efecto total",
@@ -1377,7 +1449,15 @@ bien porque es frecuente.</p>
     "agrupada por conglomerado muestral para evitar fuga de información.",
     "Dos paneles con curvas de rendimiento de cuatro modelos. Las curvas ROC de la izquierda "
     "están juntas y por encima de la diagonal; las de precisión-exhaustividad de la derecha "
-    "también se solapan.")}
+    "también se solapan.",
+    como_leer=[
+        "Cada curva es un algoritmo distinto. Cuanto más se despega hacia la esquina "
+        "superior izquierda, mejor distingue.",
+        "La diagonal es el equivalente a lanzar una moneda. Las cuatro están por encima, "
+        "pero no muy lejos.",
+        "El panel derecho es el exigente cuando la condición es poco frecuente: penaliza "
+        "señalar a demasiada gente con tal de no perderse a nadie.",
+    ])}
 
 {html_tabla(ml[["modelo", "auc_roc", "auc_pr", "sensibilidad", "especificidad"]],
             {"modelo": "Modelo", "auc_roc": "AUC-ROC", "auc_pr": "AUC-PR",
@@ -1581,6 +1661,22 @@ def pagina_cierre() -> str:
 {cabecera("13", "phone-call", "Si necesitas ayuda")}
 <p class="entradilla">Estos números son gratuitos, funcionan en todo el país y atienden
 personas, no casos. Están verificados contra las fuentes oficiales el {verificado}.</p>
+
+<div class="cierre-animo">
+  <p class="cierre-titulo">Si has llegado hasta aquí buscándote en los datos</p>
+  <p>Puede que hayas abierto este boletín por curiosidad. Puede también que lo hayas
+  abierto porque llevas un tiempo sintiéndote mal. Si es lo segundo, hay algo que estas
+  mismas cifras dicen y conviene leer despacio: <strong>casi siete de cada cien personas
+  en el Perú dieron positivo en este tamizaje</strong>. Son cientos de miles. No es un
+  fallo de carácter ni algo que le pase a poca gente.</p>
+  <p>Tampoco es algo que se arregle poniéndole ganas. Es un problema de salud y, como
+  cualquier otro, tiene quien lo trate. Los servicios de abajo son gratuitos y no hace
+  falta que nadie te derive.</p>
+  <blockquote class="frase-animo">
+    <p>Hay algo bueno en este mundo, señor Frodo. Y vale la pena luchar por ello.</p>
+    <cite>Samsagaz Gamyi · El Señor de los Anillos: las dos torres (2002)</cite>
+  </blockquote>
+</div>
 
 <div class="recursos">{tarjetas}</div>
 

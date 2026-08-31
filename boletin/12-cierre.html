@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ayuda y cierre · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">13 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html" aria-current="page">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="11-conclusiones.html" title="Qué significa" aria-label="Anterior: Qué significa">‹</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html" aria-current="page">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:100%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -23,6 +31,22 @@
 <h2>Si necesitas ayuda</h2>
 <p class="entradilla">Estos números son gratuitos, funcionan en todo el país y atienden
 personas, no casos. Están verificados contra las fuentes oficiales el 2026-08-30.</p>
+
+<div class="cierre-animo">
+  <p class="cierre-titulo">Si has llegado hasta aquí buscándote en los datos</p>
+  <p>Puede que hayas abierto este boletín por curiosidad. Puede también que lo hayas
+  abierto porque llevas un tiempo sintiéndote mal. Si es lo segundo, hay algo que estas
+  mismas cifras dicen y conviene leer despacio: <strong>casi siete de cada cien personas
+  en el Perú dieron positivo en este tamizaje</strong>. Son cientos de miles. No es un
+  fallo de carácter ni algo que le pase a poca gente.</p>
+  <p>Tampoco es algo que se arregle poniéndole ganas. Es un problema de salud y, como
+  cualquier otro, tiene quien lo trate. Los servicios de abajo son gratuitos y no hace
+  falta que nadie te derive.</p>
+  <blockquote class="frase-animo">
+    <p>Hay algo bueno en este mundo, señor Frodo. Y vale la pena luchar por ello.</p>
+    <cite>Samsagaz Gamyi · El Señor de los Anillos: las dos torres (2002)</cite>
+  </blockquote>
+</div>
 
 <div class="recursos"><div class="recurso">
   <div class="numero">113</div>
@@ -150,6 +174,14 @@ personas, no casos. Están verificados contra las fuentes oficiales el 2026-08-3
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

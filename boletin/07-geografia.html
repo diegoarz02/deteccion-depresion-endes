@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geografía · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">8 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html" aria-current="page">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="06-quienes.html" title="Quiénes son" aria-label="Anterior: Quiénes son">‹</a><a class="salto" href="08-factores.html" title="Qué se asocia" aria-label="Siguiente: Qué se asocia">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html" aria-current="page">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:62%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -60,7 +68,7 @@ de 2019.</p>
 <figure class="figura">
   <p class="titulo-hallazgo">Por encima de los 2 000 metros la prevalencia empieza a subir, y no antes</p>
   <p class="explicacion">La relación existe pero no es una recta. En la yunga, entre 500 y 2 000 metros, la prevalencia es incluso menor que en la costa. El ascenso arranca en la quechua y se acentúa en la puna, donde llega al 11,7 %. Un modelo que asumiera una línea recta se habría perdido esa forma: el ajuste con curvatura le gana por 15,6 puntos de AIC.</p>
-  
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>El primer panel dice cuánta gente vive a cada altura: la mayoría de la muestra está cerca del nivel del mar.</li><li>El segundo agrupa por pisos. Las rayitas son el margen de error, y se ensanchan donde hay poca gente: la puna es la más ancha de todas.</li><li>El tercero no agrupa: cada punto es un tramo de 250 metros. Sirve para ver si la subida es continua o si hay tramos donde baja.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_15_altitud.png" alt="Tres paneles: un histograma de la altitud de la muestra, barras de prevalencia por piso altitudinal que crecen desde la costa hasta la puna, y una nube de puntos por tramos de 250 metros con una curva de tendencia ascendente." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Altitud del conglomerado según el marco muestral, de 1 a 4 500 m. Los pisos siguen la clasificación de Pulgar Vidal.</figcaption>
 </figure>
@@ -175,6 +183,14 @@ del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la 
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

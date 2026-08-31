@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cómo lo medimos · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">6 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html" aria-current="page">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="04-datos.html" title="Los datos" aria-label="Anterior: Los datos">‹</a><a class="salto" href="06-quienes.html" title="Quiénes son" aria-label="Siguiente: Quiénes son">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html" aria-current="page">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:46%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -44,6 +52,21 @@ todos los días (3).</p>
 <p>Usamos 10, que es el umbral convencional para «caso probable» de depresión moderada o
 grave. Como análisis de sensibilidad repetimos todo con el corte en 5, que capta también la
 sintomatología leve y sube la prevalencia al 21,4 %. Las conclusiones no cambian.</p>
+
+<h3>Qué pasa con quien no contestó todo</h3>
+<p>El análisis principal usa solo a quienes tienen completas las variables del modelo. Eso
+deja fuera a poca gente —el faltante más grande es el nivel educativo, con un 3,8 %— pero
+conviene comprobar que esa exclusión no está inclinando el resultado.</p>
+
+<p>Se repitió el modelo rellenando los huecos con <strong>imputación múltiple</strong>:
+cinco versiones del conjunto de datos, cada una con un valor plausible distinto en los
+huecos, y los resultados combinados. De los diecisiete coeficientes, dieciséis se mueven
+menos de un 8 %. El único que cambia de forma apreciable es la diabetes, que pasa de 1,33
+a 1,49 —un 10,5 %— y se acerca al resto de enfermedades crónicas en vez de alejarse.</p>
+
+<p>Ninguna conclusión del boletín depende de esa diferencia, pero queda dicho: quien
+prefiera la versión con imputación leerá una asociación algo más fuerte entre diabetes y
+sintomatología depresiva, no una distinta.</p>
 
 <p><strong>Una limitación honesta:</strong> el corte de 10 viene de estudios de validación
 internacionales. No conocemos una validación del PHQ-9 en población peruana que proponga un
@@ -101,6 +124,14 @@ cambiaría.</p>
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

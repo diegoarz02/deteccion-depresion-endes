@@ -91,7 +91,32 @@ header.nav {
   border-radius: 999px; padding: 1px 9px; font-size: .78rem; margin-left: 8px;
   font-weight: 600;
 }
-nav.enlaces { display: flex; gap: 2px; margin-left: auto; flex-wrap: wrap; }
+/* ── Índice desplegable ──────────────────────────────────────────────
+   Los trece enlaces en dos filas se comían unos 180 px arriba de cada página:
+   el contenido empezaba por debajo del pliegue. Ahora la barra es una línea y
+   las secciones se abren solo si alguien las pide. */
+.nav-controles { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.salto {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border: 1px solid var(--borde); border-radius: 999px;
+  color: var(--texto-suave); text-decoration: none; font-size: 1.15rem; line-height: 1;
+}
+.salto:hover { border-color: var(--marca); color: var(--marca); background: var(--verde-050); }
+.boton-indice {
+  border: 1px solid var(--borde); background: var(--superficie); color: var(--texto-suave);
+  border-radius: 999px; padding: 6px 15px; cursor: pointer; font: inherit; font-size: .87rem;
+}
+.boton-indice:hover { border-color: var(--marca); color: var(--marca); }
+
+nav.enlaces {
+  display: none; flex-wrap: wrap; gap: 3px; width: 100%;
+  padding: 12px 0 4px; margin-top: 10px; border-top: 1px solid var(--borde-suave);
+}
+header.nav[data-indice="abierto"] nav.enlaces { display: flex; }
+
+/* Barra de progreso: dice dónde estás sin ocupar una fila de texto. */
+.progreso { height: 3px; background: var(--borde-suave); }
+.progreso > div { height: 100%; background: var(--verde-600); transition: width .3s; }
 nav.enlaces a {
   color: var(--texto-suave); text-decoration: none; padding: 6px 11px;
   border-radius: 8px; font-size: .88rem; transition: background .16s, color .16s;
@@ -124,7 +149,11 @@ nav.enlaces a[aria-current="page"] {
 }
 .caratula .institucion strong { font-weight: 650; }
 .caratula h1 {
-  font-size: 2.6rem; line-height: 1.2; margin: 0 auto 18px; max-width: 20ch;
+  font-size: 2.6rem; line-height: 1.2; margin: 0 auto 18px;
+  /* 16ch en vez de 20: con 20 el título quebraba como «Depresión en la /
+     población peruana de 15 / y más años», partiendo «población peruana» y
+     dejando «y más años» huérfano. */
+  max-width: 16ch; text-wrap: balance;
   font-weight: 700; letter-spacing: -.025em;
 }
 .caratula .subtitulo {
@@ -383,3 +412,32 @@ body {
   font-size: .84rem; color: var(--texto-suave); margin: 6px auto 0; max-width: 52ch;
 }
 .explorador-detalle strong { color: var(--miel-700); }
+
+/* ── Cierre de ánimo ─────────────────────────────────────────────────
+   Alguien puede llegar a este boletín justo en un mal momento. Cerrar con una
+   tabla de teléfonos y nada más deja el documento frío en el punto donde más
+   importa que no lo esté. */
+.cierre-animo {
+  background: linear-gradient(155deg, var(--verde-050), var(--miel-100));
+  border: 1px solid var(--verde-200); border-radius: var(--radio-l);
+  padding: 30px 32px; margin: 8px 0 30px;
+}
+[data-tema="oscuro"] .cierre-animo {
+  background: linear-gradient(155deg, var(--verde-050), var(--tierra-100));
+}
+.cierre-titulo {
+  font-family: var(--fuente-titulo); font-size: 1.22rem; font-weight: 600;
+  color: var(--verde-900); margin: 0 0 14px;
+}
+.cierre-animo p { max-width: 68ch; }
+.frase-animo {
+  margin: 22px 0 0; padding: 20px 24px; background: var(--superficie);
+  border-left: 4px solid var(--verde-600); border-radius: var(--radio-s);
+}
+.frase-animo p {
+  font-family: var(--fuente-titulo); font-size: 1.12rem; line-height: 1.5;
+  color: var(--verde-900); margin: 0 0 10px; font-style: italic;
+}
+.frase-animo cite {
+  font-size: .84rem; color: var(--texto-suave); font-style: normal;
+}

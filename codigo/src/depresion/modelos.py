@@ -262,8 +262,9 @@ def hosmer_lemeshow(y: np.ndarray, p: np.ndarray, g: int = 10) -> dict:
         "grupos": int(len(obs)),
         "veredicto": (
             "Ajuste adecuado" if p_val >= 0.05 else
-            "Rechaza el ajuste, pero con N grande la prueba es hipersensible: "
-            "juzgar la calibración por la curva y el Brier score"
+            "La calibración se juzga por la curva y por el Brier, no por esta "
+            "prueba: con decenas de miles de casos detecta desviaciones que no "
+            "cambian ninguna decisión"
         ),
     }
 
@@ -292,7 +293,7 @@ def _calidad_auc(auc: float) -> str:
     if auc < 0.6:
         return "discriminación pobre"
     if auc < 0.7:
-        return "discriminación aceptable"
+        return "discriminación moderada"
     if auc < 0.8:
         return "discriminación buena"
     return "discriminación excelente"
@@ -333,7 +334,8 @@ def linealidad_logit(df: pd.DataFrame, desenlace: str, continua: str) -> dict:
     return {
         "variable": continua, "p_box_tidwell": p, "lineal": p >= 0.05,
         "veredicto": ("El logit es lineal en esta variable" if p >= 0.05 else
-                      "El logit NO es lineal: usar splines o categorizar"),
+                      "El logit no es lineal en esta variable: hay que usar "
+                      "splines o categorizarla"),
     }
 
 

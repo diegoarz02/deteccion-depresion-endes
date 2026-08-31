@@ -41,7 +41,10 @@ COL = cfg.COLORES
 #: Se evita el arcoíris a propósito: introduce fronteras visuales donde los
 #: datos no las tienen y es ilegible con daltonismo.
 ESCALA = LinearSegmentedColormap.from_list("depresion", cfg.PALETA_SECUENCIAL)
-GRIS_SIN_DATO = "#DDE3EA"
+# Neutro cálido, no el gris azulado de antes: sobre un fondo de papel un
+# gris frío se ve sucio. La trama diagonal es lo que de verdad distingue el
+# "sin dato"; el color solo tiene que no competir con la escala.
+GRIS_SIN_DATO = "#EDE8DF"
 
 ESCALA_PLOTLY = [[i / (len(cfg.PALETA_SECUENCIAL) - 1), c]
                  for i, c in enumerate(cfg.PALETA_SECUENCIAL)]
@@ -74,10 +77,15 @@ def _pintar(ax, gdf, columna, titulo, etiqueta_leyenda, vmin=None, vmax=None):
     if len(sin):
         sin.plot(ax=ax, color=GRIS_SIN_DATO, edgecolor=COL["gris"], linewidth=0.3,
                  hatch="////", zorder=1)
+    # Barra horizontal debajo del mapa, no vertical al lado. En vertical el
+    # rótulo se escribe girado 90°, y con textos largos como «Ancho del IC 95 %»
+    # el contenedor lo recortaba por el borde. Horizontal se lee de corrido y
+    # cabe siempre.
     con.plot(ax=ax, column=columna, cmap=ESCALA, edgecolor="white", linewidth=0.35,
              legend=True, vmin=vmin, vmax=vmax, zorder=2,
-             legend_kwds={"label": etiqueta_leyenda, "shrink": 0.55,
-                          "orientation": "vertical", "pad": 0.01})
+             legend_kwds={"label": etiqueta_leyenda, "shrink": 0.72,
+                          "orientation": "horizontal", "pad": 0.02,
+                          "aspect": 34, "fraction": 0.045})
     ax.set_title(titulo, fontsize=13, fontweight="bold", color=COL["navy"], pad=12)
     ax.axis("off")
     if len(sin):
@@ -201,7 +209,8 @@ def mapa_conglomerados(d: pd.DataFrame) -> pd.DataFrame:
     sc = ax.scatter(g.longitud, g.latitud, c=g.prevalencia, cmap=ESCALA,
                     s=np.sqrt(g.n) * 3.6, alpha=0.72, edgecolor="none", zorder=3,
                     vmin=0, vmax=np.percentile(g.prevalencia, 97))
-    cb = fig.colorbar(sc, ax=ax, shrink=0.55, pad=0.01)
+    cb = fig.colorbar(sc, ax=ax, shrink=0.72, pad=0.02,
+                      orientation="horizontal", aspect=34, fraction=0.045)
     cb.set_label("Prevalencia del conglomerado (%)")
     ax.set_title(f"Los {len(g):,} conglomerados de la muestra",
                  fontsize=13, fontweight="bold", color=COL["navy"], pad=12)
@@ -301,7 +310,8 @@ def mapa_densidad(d: pd.DataFrame) -> None:
     limites.plot(ax=ax, color="#F7F9FC", edgecolor=COL["gris_claro"], linewidth=0.5, zorder=1)
     hb = ax.hexbin(casos.longitud, casos.latitud, C=casos.peso, reduce_C_function=np.sum,
                    gridsize=42, cmap=ESCALA, mincnt=1, zorder=2, linewidths=0)
-    cb = fig.colorbar(hb, ax=ax, shrink=0.55, pad=0.01)
+    cb = fig.colorbar(hb, ax=ax, shrink=0.72, pad=0.02,
+                      orientation="horizontal", aspect=34, fraction=0.045)
     cb.set_label("Casos ponderados en la celda")
     ax.set_title("Dónde se concentran los casos, no dónde la tasa es más alta",
                  fontsize=13, fontweight="bold", color=COL["navy"], pad=12)

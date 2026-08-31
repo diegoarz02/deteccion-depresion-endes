@@ -5,15 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El modelo · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
   <a class="marca" href="index.html">Depresión en el Perú<span class="num">10 de 13</span></a>
-  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html" aria-current="page">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
-  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-</div></header>
+  <div class="nav-controles">
+    <a class="salto" href="08-factores.html" title="Qué se asocia" aria-label="Anterior: Qué se asocia">‹</a><a class="salto" href="10-shap.html" title="Modelo y realidad" aria-label="Siguiente: Modelo y realidad">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html" aria-current="page">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:77%"></div></div>
+</header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
@@ -48,7 +56,7 @@ preguntas distintas, así que reportamos las dos.</p>
 <figure class="figura">
   <p class="titulo-hallazgo">Descontar la obesidad casi no cambia nada, y eso también es un resultado</p>
   <p class="explicacion">Los círculos son el efecto completo; los cuadrados, lo que queda tras descontar la ruta corporal. Están casi encima. La única excepción es la diabetes, donde alrededor de una cuarta parte del efecto sí viaja por ahí. Antes de calcular nada comprobamos el primer eslabón: de las cinco exposiciones, solo tres se asocian con la obesidad. Para las otras dos no hay ruta que descontar.</p>
-  
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada fila es un factor medido dos veces: el círculo cuenta todo su efecto; el cuadrado, solo la parte que no pasa por el peso corporal.</li><li>La separación entre ambos símbolos es la parte del efecto que viaja por esa ruta. Si están pegados, el peso no hace de intermediario.</li><li>La línea vertical del 1 separa lo que aumenta el riesgo de lo que lo reduce.</li></ul></div>
   <div class="lienzo"><img src="assets/img/fig_17_mediacion.png" alt="Gráfico que compara dos estimaciones por exposición: el efecto total y el directo. Los pares de puntos casi coinciden salvo en la diabetes." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Modelo A sin obesidad ni IMC; modelo B con ellos. La proporción mediada se calcula en la escala del logaritmo del odds ratio.</figcaption>
 </figure>
@@ -64,7 +72,7 @@ preguntas distintas, así que reportamos las dos.</p>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Curva ROC y calibración por deciles de riesgo sobre 28 553 personas.</figcaption>
 </figure>
 
-<div class="tabla-scroll"><table><caption>Diagnóstico completo del modelo logístico.</caption><thead><tr><th scope="col">Qué se evaluó</th><th scope="col">Resultado</th><th scope="col">Interpretación</th></tr></thead><tbody><tr><td>Eventos por variable (EPV)</td><td>104.2</td><td>Holgado</td></tr><tr><td>Discriminación (AUC)</td><td>0.667 (0.655–0.679)</td><td>discriminación aceptable</td></tr><tr><td>Bondad de ajuste (Hosmer-Lemeshow)</td><td>χ² = 21.42, gl = 8, p = 0.0061</td><td>Rechaza el ajuste, pero con N grande la prueba es hipersensible: juzgar la calibración por la curva y el Brier score</td></tr><tr><td>Calibración (Brier)</td><td>0.0569</td><td>Brier 0.0569 frente a 0.0582 del modelo nulo (mejora del 2.2 %)</td></tr><tr><td>Linealidad del logit en edad (Box-Tidwell)</td><td>p = 0.0000</td><td>El logit NO es lineal: usar splines o categorizar</td></tr><tr><td>Sensibilidad (corte en la prevalencia)</td><td>0.672</td><td>Umbral 0.0621; el modelo está calibrado, así que el corte en la prevalencia es interpretable</td></tr><tr><td>Especificidad (mismo corte)</td><td>0.564</td><td>Compromiso propio de un tamizaje: capta más casos a costa de más falsos positivos</td></tr><tr><td>AUC-PR</td><td>0.1169</td><td>Frente a 0.0621 del azar: 1.9 veces mejor</td></tr><tr><td>Exactitud del modelo trivial</td><td>0.938</td><td>Referencia obligada: predecir 'nadie' acierta el 93 %</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Diagnóstico completo del modelo logístico.</caption><thead><tr><th scope="col">Qué se evaluó</th><th scope="col">Resultado</th><th scope="col">Interpretación</th></tr></thead><tbody><tr><td>Eventos por variable (EPV)</td><td>104.2</td><td>Holgado</td></tr><tr><td>Discriminación (AUC)</td><td>0.667 (0.655–0.679)</td><td>discriminación moderada</td></tr><tr><td>Bondad de ajuste (Hosmer-Lemeshow)</td><td>χ² = 21.42, gl = 8, p = 0.0061</td><td>La calibración se juzga por la curva y por el Brier, no por esta prueba: con decenas de miles de casos detecta desviaciones que no cambian ninguna decisión</td></tr><tr><td>Calibración (Brier)</td><td>0.0569</td><td>Brier 0.0569 frente a 0.0582 del modelo nulo (mejora del 2.2 %)</td></tr><tr><td>Linealidad del logit en edad (Box-Tidwell)</td><td>p = 0.0000</td><td>El logit no es lineal en esta variable: hay que usar splines o categorizarla</td></tr><tr><td>Sensibilidad (corte en la prevalencia)</td><td>0.672</td><td>Umbral 0.0621; el modelo está calibrado, así que el corte en la prevalencia es interpretable</td></tr><tr><td>Especificidad (mismo corte)</td><td>0.564</td><td>Compromiso propio de un tamizaje: capta más casos a costa de más falsos positivos</td></tr><tr><td>AUC-PR</td><td>0.1169</td><td>Frente a 0.0621 del azar: 1.9 veces mejor</td></tr><tr><td>Exactitud del modelo trivial</td><td>0.938</td><td>Referencia obligada: predecir 'nadie' acierta el 93 %</td></tr></tbody></table></div>
 
 <div class="nota">
   <strong>Un AUC de 0,67 no es un mal resultado, es el resultado correcto.</strong> Sería
@@ -112,6 +120,14 @@ preguntas distintas, así que reportamos las dos.</p>
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';

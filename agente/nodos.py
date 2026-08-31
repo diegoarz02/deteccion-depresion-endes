@@ -365,12 +365,27 @@ def formatear_salida(estado: EstadoAgente) -> dict:
         auc = json.loads((MODELOS / "coeficientes_logistico.json")
                          .read_text(encoding="utf-8")).get("auc")
     final = estado["borrador"]
+
+    # La frase de ánimo va antes de los recursos: primero un respiro, después
+    # los teléfonos. En crisis no se muestra ninguna — `animo.elegir` devuelve
+    # None y aquí no hay nada que añadir. Una frase de aliento en mitad de una
+    # crisis se lee como restarle importancia a lo que la persona acaba de decir.
+    frase = None
+    with contextlib.suppress(Exception):
+        import animo
+
+        categoria = (estado.get("prediccion") or {}).get("categoria_riesgo", "bajo")
+        frase = animo.elegir(categoria, hay_crisis=bool(estado.get("hay_crisis")))
+        if frase:
+            final += "\n\n---\n\n" + animo.formatear(frase)
+
     if estado.get("recursos_texto"):
         final += "\n\n**Dónde encontrar ayuda**\n\n" + estado["recursos_texto"]
     final += prompts.cierre(DISCLAIMER, LINEA_AYUDA, estado.get("modo", "degradado"), auc)
-    return {"salida_final": final,
+    return {"salida_final": final, "frase_animo": frase["id"] if frase else None,
             "trazas": _traza(estado, "formatear_salida", inicio,
-                             f"{len(final)} caracteres")}
+                             f"{len(final)} caracteres"
+                             + (f", frase «{frase['id']}»" if frase else ", sin frase"))}
 
 
 def manejar_error(estado: EstadoAgente) -> dict:

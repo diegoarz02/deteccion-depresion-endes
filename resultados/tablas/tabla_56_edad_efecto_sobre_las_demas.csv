@@ -1,0 +1,13 @@
+﻿variable,or_con_categorica,or_con_spline,cambio_pct,relevante
+es_mujer,2.76,2.798,1.374,False
+es_rural,0.875,0.877,0.213,False
+consumo_frecuente,1.009,1.014,0.536,False
+alcohol_problematico,4.1,4.128,0.671,False
+fuma_12m,1.304,1.319,1.121,False
+hta_dx,1.568,1.5,-4.347,False
+diabetes_dx,1.456,1.476,1.385,False
+obesidad,1.03,1.057,2.615,False
+edu_Secundaria,0.755,0.772,2.226,False
+edu_Superior,0.6,0.616,2.688,False
+reg_Sierra,1.068,1.075,0.712,False
+reg_Selva,0.662,0.672,1.527,False

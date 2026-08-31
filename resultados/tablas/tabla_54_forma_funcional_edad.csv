@@ -1,0 +1,6 @@
+﻿forma,descripcion,aic,gl,log_verosimilitud,delta_aic,veredicto,decision
+Spline cúbico,"Nudos en [28, 37, 51] años",14101.845,6,-7043.922,0.0,Mejor AIC,"La spline ajusta mejor la edad —72.2 puntos de AIC aislada, 30.6 en el modelo completo— pero no cambia ninguna otra conclusión: el coeficiente que más se mueve lo hace un 4.3 %, muy por debajo del 10 % que marca una confusión relevante. Elegir entre una y otra es, por tanto, una decisión de comunicación y no de validez. Se mantiene la categórica: da odds ratios que se leen solos («el grupo de 60+ frente al de 30-39»), es la forma en que reporta la literatura con la que este trabajo se compara, y una spline necesita un gráfico para interpretarse. La spline queda documentada como análisis de sensibilidad."
+Cúbica,Se permite una curva con dos inflexiones,14104.646,5,-7046.323,2.801,Peor por 2.8 puntos,
+Cuadrática,Se permite una curva en U,14136.701,4,-7063.351,34.856,Peor por 34.9 puntos,
+Categórica (la actual),"Seis grupos, referencia 30-39",14174.023,7,-7079.012,72.178,Peor por 72.2 puntos,
+Lineal,La edad entra como una recta,14250.58,3,-7121.29,148.735,Peor por 148.7 puntos,

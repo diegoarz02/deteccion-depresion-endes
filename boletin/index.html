@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Depresión en el Perú · Boletín epidemiológico ENDES 2025</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
     sintomatología depresiva. Un análisis de la Encuesta Demográfica y de Salud
     Familiar 2025.
   </p>
-  <div class="equipo"><span>Arapa Lazo, Julio</span><span>Araujo Villegas, Diego Alonso</span><span>Hidalgo Huachaca, Dante</span><span>Montero Tabori, Melany</span><span>Torres Matías</span><span>Zegarra, William</span></div>
+  <div class="equipo"><span>Arapa Lazo, Julio</span><span>Araujo Villegas, Diego Alonso</span><span>Hidalgo Huachaca, Dante</span><span>Montero Tabori, Melany</span><span>Torres, Matías</span><span>Zegarra, William</span></div>
   <p class="pie">
     Docente: Mg. Carlos Alberto Jaimes Velásquez<br>
     Lima – Perú, 2026
@@ -37,7 +38,8 @@
   <section>
     <h2>El boletín en cuatro cifras</h2>
     <p class="entradilla">Sobre 30 226 personas entrevistadas en todo el país, estimado con
-    el diseño muestral complejo de la encuesta y no como si fuera una muestra al azar.</p>
+    el diseño muestral complejo de la encuesta, que es lo que corresponde cuando la gente
+    se entrevista por conglomerados y no de una en una.</p>
     <div class="kpis">
       <div class="kpi">
         <div class="valor">6.98 %</div>
@@ -106,6 +108,14 @@
 </p>
 </div></footer>
 <script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
 function alternarTema() {
   const r = document.documentElement;
   const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
