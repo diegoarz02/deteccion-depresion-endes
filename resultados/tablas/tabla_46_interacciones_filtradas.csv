@@ -1,31 +1,31 @@
-﻿exposicion,variable,estratificador,or_crudo,or_mh,or_minimo_estrato,or_maximo_estrato,razon_or,eventos_min_estrato,p_homogeneidad,p_fdr,criterio_1_p_fdr,criterio_2_magnitud,criterio_3_eventos,sobrevive,veredicto
-Consumo frecuente de alcohol,consumo_frecuente,Grupo etario,0.751,0.872,0.405,2.529,6.25,201,0.0,0.0,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Fumó en 12 meses,fuma_12m,Sexo,0.723,1.169,0.858,1.688,1.968,449,0.0,0.0,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Diabetes diagnosticada,diabetes_dx,Grupo etario,2.256,1.66,1.046,4.391,4.199,201,0.0,0.0,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Hipertensión diagnosticada,hta_dx,Grupo etario,2.316,1.643,1.286,3.124,2.429,201,0.0,0.001,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Fumó en 12 meses,fuma_12m,Grupo etario,0.723,0.792,0.587,2.071,3.531,201,0.0,0.001,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Diabetes diagnosticada,diabetes_dx,Piso altitudinal,2.256,2.403,1.376,8.533,6.201,73,0.001,0.007,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Diabetes diagnosticada,diabetes_dx,Nivel educativo,2.256,2.066,1.5,3.103,2.069,419,0.003,0.011,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Consumo frecuente de alcohol,consumo_frecuente,Nivel educativo,0.751,0.872,0.33,1.261,3.822,419,0.003,0.011,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Obesidad (IMC ≥ 30),obesidad,Sexo,1.095,0.982,0.687,1.057,1.538,440,0.003,0.011,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Hipertensión diagnosticada,hta_dx,Nivel educativo,2.316,1.973,1.286,2.515,1.956,417,0.008,0.023,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
-Diabetes diagnosticada,diabetes_dx,Área,2.256,2.295,2.006,3.095,1.543,805,0.022,0.059,False,True,True,False,No significativa tras corregir por FDR
-Fumó en 12 meses,fuma_12m,Piso altitudinal,0.723,0.738,0.474,0.911,1.92,73,0.041,0.103,False,True,True,False,No significativa tras corregir por FDR
-Obesidad (IMC ≥ 30),obesidad,Grupo etario,1.095,1.174,0.961,1.639,1.706,200,0.046,0.106,False,True,True,False,No significativa tras corregir por FDR
-Obesidad (IMC ≥ 30),obesidad,Área,1.095,1.115,0.964,1.195,1.239,797,0.054,0.115,False,False,True,False,No significativa tras corregir por FDR
-Consumo frecuente de alcohol,consumo_frecuente,Área,0.751,0.762,0.579,0.836,1.443,809,0.067,0.133,False,False,True,False,No significativa tras corregir por FDR
-Fumó en 12 meses,fuma_12m,Área,0.723,0.723,0.621,0.793,1.277,811,0.102,0.192,False,False,True,False,No significativa tras corregir por FDR
-Obesidad (IMC ≥ 30),obesidad,Piso altitudinal,1.095,1.163,0.908,1.312,1.445,69,0.139,0.244,False,False,True,False,No significativa tras corregir por FDR
-Hipertensión diagnosticada,hta_dx,Área,2.316,2.315,2.152,2.572,1.195,805,0.164,0.274,False,False,True,False,No significativa tras corregir por FDR
-Consumo frecuente de alcohol,consumo_frecuente,Piso altitudinal,0.751,0.814,0.546,0.916,1.676,71,0.201,0.317,False,True,True,False,No significativa tras corregir por FDR
-Hipertensión diagnosticada,hta_dx,Piso altitudinal,2.316,2.332,1.906,3.229,1.694,73,0.213,0.32,False,True,True,False,No significativa tras corregir por FDR
-Consumo problemático de alcohol,alcohol_problematico,Grupo etario,2.138,2.575,0.961,6.004,6.249,201,0.256,0.365,False,True,True,False,No significativa tras corregir por FDR
-Fumó en 12 meses,fuma_12m,Nivel educativo,0.723,0.789,0.531,0.925,1.744,419,0.314,0.41,False,True,True,False,No significativa tras corregir por FDR
-Consumo frecuente de alcohol,consumo_frecuente,Sexo,0.751,1.004,0.91,1.087,1.194,448,0.301,0.41,False,False,True,False,No significativa tras corregir por FDR
-Consumo problemático de alcohol,alcohol_problematico,Sexo,2.138,3.586,3.278,4.638,1.415,448,0.39,0.435,False,False,True,False,No significativa tras corregir por FDR
-Obesidad (IMC ≥ 30),obesidad,Nivel educativo,1.095,1.14,0.989,1.325,1.34,414,0.391,0.435,False,False,True,False,No significativa tras corregir por FDR
-Consumo problemático de alcohol,alcohol_problematico,Área,2.138,2.171,1.669,2.377,1.424,809,0.383,0.435,False,False,True,False,No significativa tras corregir por FDR
-Consumo problemático de alcohol,alcohol_problematico,Piso altitudinal,2.138,2.23,1.202,2.754,2.291,71,0.384,0.435,False,True,True,False,No significativa tras corregir por FDR
-Consumo problemático de alcohol,alcohol_problematico,Nivel educativo,2.138,2.52,1.714,3.187,1.859,419,0.472,0.506,False,True,True,False,No significativa tras corregir por FDR
-Hipertensión diagnosticada,hta_dx,Sexo,2.316,2.232,2.055,2.279,1.109,445,0.514,0.532,False,False,True,False,No significativa tras corregir por FDR
-Diabetes diagnosticada,diabetes_dx,Sexo,2.256,2.184,1.996,2.233,1.118,447,0.62,0.62,False,False,True,False,No significativa tras corregir por FDR
+﻿exposicion,variable,estratificador,or_crudo,or_mh,or_minimo_estrato,or_maximo_estrato,razon_or,eventos_min_celda,p_homogeneidad,p_fdr,criterio_1_p_fdr,criterio_2_magnitud,criterio_3_eventos,sobrevive,veredicto
+Consumo frecuente de alcohol,consumo_frecuente,Grupo etario,0.751,0.872,0.405,2.529,6.25,10,0.0,0.0,True,True,False,False,Estratos con muy pocos eventos
+Fumó en 12 meses,fuma_12m,Sexo,0.723,1.169,0.858,1.688,1.968,110,0.0,0.0,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
+Diabetes diagnosticada,diabetes_dx,Grupo etario,2.256,1.66,1.046,4.391,4.199,4,0.0,0.0,True,True,False,False,Estratos con muy pocos eventos
+Hipertensión diagnosticada,hta_dx,Grupo etario,2.316,1.643,1.286,3.124,2.429,3,0.0,0.001,True,True,False,False,Estratos con muy pocos eventos
+Fumó en 12 meses,fuma_12m,Grupo etario,0.723,0.792,0.587,2.071,3.531,25,0.0,0.001,True,True,False,False,Estratos con muy pocos eventos
+Diabetes diagnosticada,diabetes_dx,Piso altitudinal,2.256,2.403,1.376,8.533,6.201,6,0.001,0.007,True,True,False,False,Estratos con muy pocos eventos
+Diabetes diagnosticada,diabetes_dx,Nivel educativo,2.256,2.066,1.5,3.103,2.069,21,0.003,0.011,True,True,False,False,Estratos con muy pocos eventos
+Consumo frecuente de alcohol,consumo_frecuente,Nivel educativo,0.751,0.872,0.33,1.261,3.822,24,0.003,0.011,True,True,False,False,Estratos con muy pocos eventos
+Obesidad (IMC ≥ 30),obesidad,Sexo,1.095,0.982,0.687,1.057,1.538,69,0.003,0.011,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
+Hipertensión diagnosticada,hta_dx,Nivel educativo,2.316,1.973,1.286,2.515,1.956,35,0.008,0.023,True,True,True,True,Modificación de efecto relevante: reportar OR por estrato
+Diabetes diagnosticada,diabetes_dx,Área,2.256,2.295,2.006,3.095,1.543,55,0.022,0.059,False,True,True,False,No significativa tras corregir por FDR
+Fumó en 12 meses,fuma_12m,Piso altitudinal,0.723,0.738,0.474,0.911,1.92,6,0.041,0.103,False,True,False,False,No significativa tras corregir por FDR
+Obesidad (IMC ≥ 30),obesidad,Grupo etario,1.095,1.174,0.961,1.639,1.706,15,0.046,0.106,False,True,False,False,No significativa tras corregir por FDR
+Obesidad (IMC ≥ 30),obesidad,Área,1.095,1.115,0.964,1.195,1.239,158,0.054,0.115,False,False,True,False,No significativa tras corregir por FDR
+Consumo frecuente de alcohol,consumo_frecuente,Área,0.751,0.762,0.579,0.836,1.443,35,0.067,0.133,False,False,True,False,No significativa tras corregir por FDR
+Fumó en 12 meses,fuma_12m,Área,0.723,0.723,0.621,0.793,1.277,81,0.102,0.192,False,False,True,False,No significativa tras corregir por FDR
+Obesidad (IMC ≥ 30),obesidad,Piso altitudinal,1.095,1.163,0.908,1.312,1.445,12,0.139,0.244,False,False,False,False,No significativa tras corregir por FDR
+Hipertensión diagnosticada,hta_dx,Área,2.316,2.315,2.152,2.572,1.195,148,0.164,0.274,False,False,True,False,No significativa tras corregir por FDR
+Consumo frecuente de alcohol,consumo_frecuente,Piso altitudinal,0.751,0.814,0.546,0.916,1.676,0,0.201,0.317,False,True,False,False,No significativa tras corregir por FDR
+Hipertensión diagnosticada,hta_dx,Piso altitudinal,2.316,2.332,1.906,3.229,1.694,17,0.213,0.32,False,True,False,False,No significativa tras corregir por FDR
+Consumo problemático de alcohol,alcohol_problematico,Grupo etario,2.138,2.575,0.961,6.004,6.249,2,0.256,0.365,False,True,False,False,No significativa tras corregir por FDR
+Fumó en 12 meses,fuma_12m,Nivel educativo,0.723,0.789,0.531,0.925,1.744,52,0.314,0.41,False,True,True,False,No significativa tras corregir por FDR
+Consumo frecuente de alcohol,consumo_frecuente,Sexo,0.751,1.004,0.91,1.087,1.194,74,0.301,0.41,False,False,True,False,No significativa tras corregir por FDR
+Consumo problemático de alcohol,alcohol_problematico,Sexo,2.138,3.586,3.278,4.638,1.415,12,0.39,0.435,False,False,False,False,No significativa tras corregir por FDR
+Obesidad (IMC ≥ 30),obesidad,Nivel educativo,1.095,1.14,0.989,1.325,1.34,152,0.391,0.435,False,False,True,False,No significativa tras corregir por FDR
+Consumo problemático de alcohol,alcohol_problematico,Área,2.138,2.171,1.669,2.377,1.424,9,0.383,0.435,False,False,False,False,No significativa tras corregir por FDR
+Consumo problemático de alcohol,alcohol_problematico,Piso altitudinal,2.138,2.23,1.202,2.754,2.291,0,0.384,0.435,False,True,False,False,No significativa tras corregir por FDR
+Consumo problemático de alcohol,alcohol_problematico,Nivel educativo,2.138,2.52,1.714,3.187,1.859,5,0.472,0.506,False,True,False,False,No significativa tras corregir por FDR
+Hipertensión diagnosticada,hta_dx,Sexo,2.316,2.232,2.055,2.279,1.109,62,0.514,0.532,False,False,True,False,No significativa tras corregir por FDR
+Diabetes diagnosticada,diabetes_dx,Sexo,2.256,2.184,1.996,2.233,1.118,28,0.62,0.62,False,False,False,False,No significativa tras corregir por FDR

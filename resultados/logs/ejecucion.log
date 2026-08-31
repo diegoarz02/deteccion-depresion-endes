@@ -2317,3 +2317,36 @@ Población de análisis (covariables clave completas) 29081       1145        Fa
 2026-08-31 01:06:42 | INFO    | depresion.io           | Tabla guardada: tabla_29_importancia_shap (19 filas) -> ['csv', 'xlsx', 'tex']
 2026-08-31 01:06:43 | INFO    | depresion.io           | Figura guardada: fig_14_shap -> ['png', 'pdf']
 2026-08-31 01:06:43 | INFO    | depresion.io           | Tabla guardada: tabla_30_shap_vs_or (17 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño declarado: n=28,591, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño declarado: n=28,591, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño declarado: n=28,600, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:18 | INFO    | depresion.encuesta     | Diseño declarado: n=28,593, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño declarado: n=28,588, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:19 | INFO    | depresion.io           | Tabla guardada: tabla_42_primer_eslabon_mediacion (5 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño declarado: n=29,024, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:19 | INFO    | depresion.encuesta     | Diseño declarado: n=28,553, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:20 | INFO    | depresion.io           | Tabla guardada: tabla_43_efecto_total_vs_directo (5 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:20 | INFO    | depresion.io           | Tabla guardada: tabla_44_modelo_A_efecto_total (16 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:20 | INFO    | depresion.io           | Tabla guardada: tabla_45_modelo_B_efecto_directo (17 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:22 | INFO    | depresion.io           | Tabla guardada: tabla_46_interacciones_filtradas (30 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:26 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:26 | INFO    | depresion.encuesta     | Diseño declarado: n=30,226, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:30 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:30 | INFO    | depresion.encuesta     | Diseño declarado: n=30,226, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:34 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:34 | INFO    | depresion.encuesta     | Diseño declarado: n=30,226, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:38 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:38 | INFO    | depresion.encuesta     | Diseño declarado: n=30,226, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:41 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:41 | INFO    | depresion.encuesta     | Diseño declarado: n=30,226, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:42 | INFO    | depresion.encuesta     | Diseño: 18 estratos con un solo conglomerado tratados con 'center'
+2026-08-31 01:18:42 | INFO    | depresion.encuesta     | Diseño declarado: n=29,666, 3,251 conglomerados, 240 estratos
+2026-08-31 01:18:42 | INFO    | depresion.io           | Tabla guardada: tabla_47_imputacion_multiple (17 filas) -> ['csv', 'xlsx', 'tex']
+2026-08-31 01:18:43 | INFO    | depresion.io           | Figura guardada: fig_17_mediacion -> ['png', 'pdf']

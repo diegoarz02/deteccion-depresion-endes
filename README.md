@@ -109,13 +109,27 @@ pip install -r requirements.txt
 
 cp .env.example .env        # rellenar solo si se usa el agente con LLM
 
-make data        # dataset único desde los .sav
-make analisis    # las seis etapas del análisis epidemiológico
-make boletin     # sitio estático en boletin/
-make tests       # 39 tests (25 de datos + 14 de la API)
-make api         # servidor local en http://localhost:8000
-make agente      # demostración del agente LangGraph
+make data          # dataset único desde los .sav, con georreferenciación
+make analisis      # las diez etapas del análisis epidemiológico
+make boletin       # boletín de 13 secciones en boletin/
+make notebooks     # genera los nueve notebooks y los ejecuta
+make tests         # 88 pruebas: dataset, geografía, agente y API
+make equivalencia  # réplica en R y comparación con Python
+make web           # aplicación interactiva en http://localhost:8000
+make agente        # demostración del agente LangGraph
 ```
+
+Si `make` no está disponible —el caso en Windows sin MSYS—, cada objetivo es una lista de
+comandos `python` que se pueden ejecutar directamente; el Makefile sirve entonces como
+documentación del orden.
+
+**Los notebooks necesitan el kernel del proyecto.** `make notebooks` lo registra. El kernel
+genérico `python3` puede apuntar a otro intérprete de la máquina, sin `svy` ni `lightgbm`,
+y entonces tres notebooks fallan con `ModuleNotFoundError` aunque los mismos scripts corran
+bien desde la consola.
+
+**La réplica en R** necesita R instalado. Si no está en el PATH:
+`make equivalencia RSCRIPT="/ruta/a/Rscript.exe"`.
 
 El dataset se versiona por hash SHA-256 en `datos/final/data_hash.txt`: dos ejecuciones
 sobre los mismos insumos producen el mismo hash.
@@ -128,17 +142,17 @@ sobre los mismos insumos producen el mismo hash.
 ├── datos/final/data.parquet      ← dataset único; todo el proyecto consume esto
 ├── codigo/
 │   ├── src/depresion/            config · io · limpieza · variables · encuesta
-│   │                             epi · supuestos · modelos · viz
+│   │                             epi · supuestos · modelos · viz · geo
 │   ├── scripts/                  pipeline y análisis, uno por etapa
 │   ├── notebooks/                01…09, narrativos
-│   └── R/analisis_equivalente.R  réplica con survey, por si el docente la pide
+│   └── R/analisis_equivalente.R  réplica con survey: coincide hasta el 4.º decimal
 ├── resultados/
-│   ├── tablas/                   30 tablas en csv + xlsx + tex
-│   ├── figuras/                  14 figuras en png (300 dpi) + pdf
-│   ├── mapas/                    coroplético interactivo
+│   ├── tablas/                   64 tablas en csv + xlsx + tex
+│   ├── figuras/                  17 figuras en png (300 dpi) + pdf
+│   ├── mapas/                    6 mapas + coroplético interactivo
 │   └── modelos/                  coeficientes, joblib y model_card.md
-├── boletin/                      sitio estático de 5 páginas
-├── api/                          FastAPI + Docker + render.yaml
+├── boletin/                      boletín de 13 secciones
+├── api/                          FastAPI + web/ + render.yaml (sin Docker)
 ├── agente/                       LangGraph con guardrails y modo degradado
 ├── docs/                         decisiones, diccionario, DAG, STROBE, grafo
 └── tests/                        pytest
@@ -200,7 +214,13 @@ evaluar sin depender de un proveedor externo.
   también son autorreportadas.
 - **Sesgo de selección.** Se excluyó al 9,4 % sin PHQ-9 completo. Si la no respuesta se
   relaciona con la salud mental, la prevalencia estaría subestimada.
-- **Región natural derivada** por altitud, no la clasificación oficial por distrito.
+- **Región natural derivada** por altitud, no la clasificación oficial por distrito. Por eso
+  no se ajusta por ella al estimar el efecto de la altitud: sería ajustar por una versión
+  gruesa de la propia exposición.
+- **La numeración de los ítems del PHQ-9 en la ENDES no es la canónica.** El ítem de
+  pensamientos de hacerse daño es `QS700H`, no `QS700I`: el cuestionario coloca «se sintió
+  mal consigo mismo» al final. Cualquier reanálisis que asuma el orden estándar señalará el
+  ítem equivocado.
 - **Discriminación moderada** (AUC 0,67): sirve para priorizar poblaciones, no para decidir
   sobre personas.
 - **Sin totales poblacionales**, por lo dicho sobre el ponderador.
