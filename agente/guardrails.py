@@ -43,6 +43,31 @@ AUTOLESION = [
     r"\bmatarse\b", r"\bacabar con (su|tu) vida\b",
 ]
 
+# ── Atribución de una cifra a la persona que consulta ─────────────────
+# El fallo más sutil del sistema, y el que motivó el reencuadre de la
+# aplicación: no decir «usted tiene depresión» —eso ya se bloquea— sino
+# «tu probabilidad es del 19,9 %». Suena técnico y prudente, y sin embargo
+# atribuye a una persona concreta una cifra que solo describe a un grupo.
+#
+# Con un valor predictivo positivo de 0,147, de cada cien personas señaladas
+# como riesgo unas ochenta y cinco no dan positivo. Un número personal así, en
+# salud mental, angustia a quien no lo necesita y tranquiliza a quien sí.
+#
+# Los patrones exigen la segunda persona (o el «usted») **junto a** una cifra o
+# a la palabra probabilidad: hablar en segunda persona no es el problema, sino
+# hacerlo para adjudicar un número.
+ATRIBUCION_PERSONAL = [
+    r"\b(tu|su) (probabilidad|riesgo|puntaje|porcentaje|estimaci[óo]n) (es|ser[íi]a|"
+    r"asciende|alcanza|llega)",
+    r"\b(tienes|tiene usted|usted tiene) (un |una )?\d+([.,]\d+)?\s*%",
+    r"\b(tienes|tiene usted|usted tiene) (un |una )?(probabilidad|riesgo) de\b",
+    r"\bt[úu] tienes (un |una )?\d",
+    r"\b(tu|su) riesgo (personal|individual)\b",
+    r"\bprobabilidad de que (t[úu]|usted) (tenga|tengas|desarrolle|desarrolles)\b",
+    r"\ben tu caso,? (la|el) (probabilidad|riesgo|cifra)\b",
+    r"\best[áa]s en (el|un) \d+([.,]\d+)?\s*%",
+]
+
 # ── Certeza indebida sobre un caso individual ─────────────────────────
 CERTEZA = [
     r"\bseguro que (tiene|padece|desarrollar[áa])",
@@ -69,6 +94,7 @@ _COMP = {
     "consejo_medico": [re.compile(p, re.I) for p in CONSEJO_MEDICO],
     "autolesion": [re.compile(p, re.I) for p in AUTOLESION],
     "certeza": [re.compile(p, re.I) for p in CERTEZA],
+    "atribucion_personal": [re.compile(p, re.I) for p in ATRIBUCION_PERSONAL],
 }
 
 MOTIVOS = {
@@ -80,6 +106,10 @@ MOTIVOS = {
                    "clínico y no puede tratarse en una salida automática."),
     "certeza": ("Certeza indebida. Una probabilidad poblacional no permite afirmar qué le "
                 "ocurrirá a una persona concreta."),
+    "atribucion_personal": ("El texto adjudica una cifra a quien consulta («tu probabilidad "
+                            "es X»). La cifra describe a un grupo, no a una persona: debe "
+                            "reformularse como «en tu grupo la tasa observada fue X» o «de "
+                            "cada cien personas con este perfil, X»."),
     "contacto_inventado": ("El texto incluye un teléfono o una URL que no está en el catálogo "
                            "verificado. Los datos de contacto solo pueden salir de "
                            "`agente/recursos_ayuda.json`."),

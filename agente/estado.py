@@ -46,6 +46,10 @@ class EstadoAgente(TypedDict, total=False):
     perfil: dict | None
     prediccion: dict | None
     contexto_epidemiologico: list[str]
+    #: Tasa realmente observada en la ENDES para perfiles
+    #: parecidos. Encabeza la respuesta cuando existe: es un
+    #: recuento, no un pronóstico.
+    tasa_observada: dict | None
     borrador: str | None
     veredicto_seguridad: str | None
     motivo_rechazo: str | None

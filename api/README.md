@@ -190,3 +190,33 @@ python -m pytest api/tests/ -v
 comprueba que **un perfil con más factores de riesgo puntúa más alto**: es la forma más
 directa de detectar un modelo invertido, que es el fallo más silencioso posible en un
 servicio de predicción.
+
+## Despliegue
+
+Render con **runtime nativo de Python**, sin Docker. La configuración está en
+`render.yaml` y el despliegue es manual (`autoDeploy: false`): un push no debe publicar
+sin revisar antes.
+
+El `Dockerfile` se retiró en la tercera corrida. No aportaba nada: la API no necesita
+ninguna dependencia que no venga en una rueda de PyPI —carga el modelo desde un JSON de
+coeficientes, no desde un `.joblib`, así que ni scikit-learn ni pandas entran en
+producción— y una imagen solo añadía minutos de construcción y una capa más que mantener.
+
+### Antes de desplegar
+
+1. `ANTHROPIC_API_KEY` se pone **en el panel de Render**, nunca en el repositorio. Sin
+   ella el agente responde igual, con plantillas deterministas sobre las cifras reales.
+2. `CORS_ORIGINS` debe incluir el dominio de GitHub Pages donde vive el boletín. La
+   aplicación web no lo necesita: la sirve este mismo proceso, desde el mismo origen.
+3. Comprobar que `api/datos/` está poblado: `coeficientes.json`, `contexto.json`,
+   `departamentos.geojson` y `tasas_observadas.json`. Los generan
+   `preparar_datos_web.py` y `preparar_tasas_observadas.py`, y sin ellos el servicio
+   arranca pero responde 404 en el contexto y en la tasa observada.
+
+### Después de desplegar
+
+- `/health` responde 200 con `modelo_cargado: true`.
+- El flujo completo de la aplicación, incluido el panel de límites.
+- El agente con y sin clave: las dos rutas deben dar respuesta.
+- El nodo de crisis, con un perfil de prueba que lleve `item_autolesion` ≥ 1.
+- Consumo de memoria por debajo de 512 MB.

@@ -197,23 +197,92 @@ async function calcular() {
   const pred = await r.json();
   estado.ultima = pred;
 
+  // La tasa observada es el titular. Si no hay celda con suficientes casos, la
+  // interfaz lo dice en vez de inventar una cifra.
+  const rt = await pedir('/tasa-observada', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(perfil),
+  });
+  const tasa = rt.ok ? await rt.json() : null;
+
+  mostrarObservado(tasa);
   mostrarResultado(pred);
-  mostrarComparacion(pred);
+  mostrarComparacion(pred, tasa);
   mostrarFactores(pred);
   marcarPaso(7);
   await mostrarInterpretacion(perfil);
   marcarPaso(8);
+  marcarPaso(9);
+}
+
+/* Dibuja cien puntos: la traducción visual de «X de cada 100». Una frecuencia
+   natural se entiende mejor vista que leída, y aleja la lectura de «esta es mi
+   probabilidad» hacia «esto le pasa a esta parte del grupo». */
+function dibujarCien(pct) {
+  const rejilla = document.getElementById('rejilla-cien');
+  const enteros = Math.floor(pct);
+  const resto = pct - enteros;
+  rejilla.innerHTML = Array.from({ length: 100 }, (_, i) => {
+    if (i < enteros) return '<i class="marcado"></i>';
+    if (i === enteros && resto >= 0.25) return '<i class="parcial"></i>';
+    return '<i></i>';
+  }).join('');
+  rejilla.hidden = false;
+}
+
+function mostrarObservado(t) {
+  const cifra = document.getElementById('observado');
+  const frase = document.getElementById('observado-frase');
+  const detalle = document.getElementById('observado-detalle');
+  const avisoImp = document.getElementById('aviso-impreciso');
+
+  if (!t) {
+    cifra.innerHTML = '\u2014';
+    frase.textContent = 'No hay suficientes personas con este perfil en la encuesta para '
+      + 'dar una cifra que se sostenga. Abajo queda la estimación del modelo.';
+    document.getElementById('rejilla-cien').hidden = true;
+    detalle.textContent = '';
+    avisoImp.hidden = true;
+    return;
+  }
+
+  cifra.innerHTML = num(t.prevalencia, 1) + '<small> de cada 100</small>';
+  frase.innerHTML = 'Entre las personas del mismo <strong>' + t.definido_por
+    + '</strong> entrevistadas en la ENDES 2025, esa proporción dio positivo al '
+    + 'tamizaje PHQ-9.';
+  dibujarCien(t.prevalencia);
+  detalle.textContent = 'Calculado sobre ' + t.n.toLocaleString('es-PE') + ' personas, de las '
+    + 'cuales ' + t.eventos + ' dieron positivo. Intervalo de confianza del 95 %: '
+    + num(t.ic_inf, 1) + ' % a ' + num(t.ic_sup, 1) + ' %.';
+
+  if (t.impreciso) {
+    avisoImp.hidden = false;
+    avisoImp.innerHTML = '<strong>Estimación imprecisa.</strong> La muestra de este grupo es '
+      + 'pequeña: la cifra real puede estar en cualquier punto entre ' + num(t.ic_inf, 1)
+      + ' % y ' + num(t.ic_sup, 1) + ' %. Léela por su intervalo, no por el número puntual.';
+  } else {
+    avisoImp.hidden = true;
+  }
 }
 
 function mostrarResultado(p) {
   const pct = p.probabilidad_pct;
   const clase = p.categoria_riesgo === 'alto' ? 'riesgo-alto'
     : p.categoria_riesgo === 'medio' ? 'riesgo-medio' : 'riesgo-bajo';
-  const texto = { alto: 'Riesgo alto', medio: 'Riesgo medio', bajo: 'Riesgo bajo' };
+  // Las etiquetas nombran al grupo, no a quien consulta: «grupo de prevalencia
+  // alta» describe una población; «riesgo alto» a secas se lee como veredicto.
+  const texto = {
+    alto: 'grupo de prevalencia alta',
+    medio: 'grupo de prevalencia media',
+    bajo: 'grupo de prevalencia baja',
+  };
+
+  document.getElementById('bloque-modelo').hidden = false;
 
   const el = document.getElementById('probabilidad');
   el.textContent = num(pct, 1) + ' %';
-  el.className = 'probabilidad ' + clase;
+  el.className = 'estimacion-valor ' + clase;
 
   const cat = document.getElementById('categoria');
   cat.textContent = texto[p.categoria_riesgo];
@@ -223,20 +292,28 @@ function mostrarResultado(p) {
   barra.style.width = Math.min(100, pct * 3) + '%';
   barra.className = clase;
 
-  document.getElementById('incertidumbre').textContent =
-    `De cada cien personas con este perfil, alrededor de ${Math.round(pct)} darían positivo ` +
-    'en el tamizaje. El modelo distingue con un AUC de 0,67: sirve para comparar grupos, ' +
-    'no para clasificar a una persona.';
+  document.getElementById('incertidumbre').innerHTML =
+    'Es lo que el modelo calcula para un perfil con estas características. '
+    + '<strong>No es tu probabilidad</strong>: con un AUC de 0,67 ordena poblaciones '
+    + 'por riesgo, pero no distingue a una persona de otra. '
+    + '<a href="#limites">Ver por qué</a>.';
 }
 
-function mostrarComparacion(p) {
+function mostrarComparacion(p, tasa) {
   const nacional = estado.contexto.nacional.prevalencia;
   const cod = document.getElementById('departamento').value;
   const dep = estado.contexto.departamentos.find((d) => d.codigo === cod);
 
+  // Se compara la tasa observada, no la predicción. Poner una estimación del
+  // modelo junto a prevalencias observadas mezcla dos cantidades distintas y
+  // hace parecer que son la misma clase de dato.
+  const propia = tasa ? tasa.prevalencia : p.probabilidad_pct;
+  const etiqueta = tasa ? 'Personas con este perfil (observado)'
+    : 'Este perfil (estimación del modelo)';
+
   let filas = `
-    <div class="fila-comp destacada"><span>Este perfil</span>
-      <b>${num(p.probabilidad_pct, 1)} %</b></div>
+    <div class="fila-comp destacada"><span>${etiqueta}</span>
+      <b>${num(propia, 1)} %</b></div>
     <div class="fila-comp"><span>Prevalencia nacional</span><b>${num(nacional, 2)} %</b></div>`;
 
   if (dep) {
@@ -246,10 +323,11 @@ function mostrarComparacion(p) {
       filas += `<div class="fila-comp"><span>Sin atención profesional en ${dep.nombre}</span>
         <b>${num(dep.brecha, 1)} %</b></div>`;
     }
-    const razonDep = p.probabilidad_pct / dep.prevalencia;
-    filas += `<p class="pista">Este perfil está ${num(razonDep, 1)} veces por
+    const razonDep = propia / dep.prevalencia;
+    const razonNac = propia / nacional;
+    filas += `<p class="pista">Este grupo está ${num(razonDep, 1)} veces por
       ${razonDep >= 1 ? 'encima' : 'debajo'} de la prevalencia de ${dep.nombre}, y
-      ${num(p.razon_sobre_prevalencia, 1)} veces respecto de la nacional.</p>`;
+      ${num(razonNac, 1)} veces respecto de la nacional.</p>`;
   } else {
     filas += '<p class="pista">Selecciona tu departamento para comparar también con tu región.</p>';
   }

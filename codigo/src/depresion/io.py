@@ -12,6 +12,7 @@ import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pyreadstat
 
@@ -95,6 +96,43 @@ def leer_sav(nombre: str, carpeta: Path | None = None) -> tuple[pd.DataFrame, Me
 # ─────────────────────────────────────────────────────────────────────
 
 
+def _marcar_imprecisas(df: pd.DataFrame) -> tuple[pd.DataFrame, str]:
+    """Marca con asterisco las filas cuyo coeficiente de variación pasa el umbral.
+
+    Se aplica aquí, en el único punto por el que salen todas las tablas, y no
+    en cada script: así ninguna estimación imprecisa se publica sin advertencia
+    por haberse olvidado de marcarla.
+
+    La regla es marcar, no suprimir. Una celda imprecisa que se borra deja un
+    hueco que el lector rellena solo, casi siempre mal; una marcada comunica a
+    la vez el dato y su fragilidad. El caso que motivó esto es la Puna en la
+    tabla 33: CV 0,222 sobre 748 personas, con un intervalo de 7,4 % a 18,0 %.
+    El gradiente altitudinal no depende de ella —Suni ya lo marca con n = 6 538
+    y CV 0,062—, así que borrarla no cambiaría la conclusión, pero sí ocultaría
+    dónde están los límites de la muestra.
+
+    Returns
+    -------
+    tuple of (pandas.DataFrame, str)
+        La tabla con la columna ``precision`` si hacía falta, y la nota al pie
+        para la versión LaTeX (cadena vacía si no hay ninguna imprecisa).
+    """
+    if "cv" not in df.columns:
+        return df, ""
+    cv = pd.to_numeric(df["cv"], errors="coerce")
+    imprecisas = cv > cfg.CV_MAXIMO_PUBLICABLE
+    if not imprecisas.any():
+        return df, ""
+
+    out = df.copy()
+    out["precision"] = np.where(imprecisas, "* imprecisa (CV > 0,20)", "")
+    nota = (f" {cfg.NOTA_CV_ALTO} Afecta a "
+            f"{int(imprecisas.sum())} de {len(out)} filas, marcadas con asterisco.")
+    log.warning("%s de %s estimaciones superan el CV de %s y quedan marcadas",
+                int(imprecisas.sum()), len(out), cfg.CV_MAXIMO_PUBLICABLE)
+    return out, nota
+
+
 def guardar_tabla(
     df: pd.DataFrame,
     nombre: str,
@@ -130,6 +168,7 @@ def guardar_tabla(
     salidas: dict[str, Path] = {}
 
     df_out = df.copy()
+    df_out, nota_cv = _marcar_imprecisas(df_out)
     for c in df_out.select_dtypes("number").columns:
         df_out[c] = df_out[c].round(decimales)
 
@@ -146,7 +185,7 @@ def guardar_tabla(
         index=indice,
         escape=True,
         longtable=len(df_out) > 40,
-        caption=titulo or nombre.replace("_", " "),
+        caption=(titulo or nombre.replace("_", " ")) + nota_cv,
         label=f"tab:{nombre}",
         position="htbp" if len(df_out) <= 40 else None,
     )

@@ -1,80 +1,48 @@
 /* Boletín epidemiológico — Depresión en el Perú (ENDES 2025)
    ============================================================================
-   PALETA. Base azul profundo con secundario teal y un único acento ámbar.
+   PALETA. Verde-teal del lazo de la salud mental como voz principal, sobre un
+   fondo de papel cálido. Sustituye al azul marino institucional de la primera
+   versión, que era correcto y anónimo: servía igual para un banco.
 
-   El rojo se retiró deliberadamente del cuerpo del boletín. En salud mental,
-   pintar de rojo la cifra de prevalencia convierte un dato en una alarma, y la
-   alarma no ayuda a nadie a pedir ayuda. El ámbar señala «esto merece
-   atención» sin gritar. El rojo queda reservado para el aviso legal, donde su
-   función es normativa y no emocional.
+   El rojo está retirado del cuerpo del boletín. En salud mental, pintar de rojo
+   una cifra de prevalencia convierte un dato en una alarma, y la alarma no
+   ayuda a nadie a pedir ayuda. La terracota señala «esto merece atención» sin
+   gritar. El ciruela queda reservado al aviso legal, donde su función es
+   normativa y no emocional.
 
-   Cada gráfico usa UN solo color de énfasis para su dato protagonista; el
-   resto va en grises y azules apagados.
+   TIPOGRAFÍA. Fraunces en titulares y cifras grandes, Inter en el texto. Una
+   serif humanista acerca el documento; el todo-sans corporativo distancia.
 
-   CONTRASTE. Todos los pares texto/fondo superan WCAG AA (4,5:1 en texto
-   normal, 3:1 en texto grande). Comprobado en modo claro y oscuro.
+   CONTRASTE. Todos los pares texto/fondo superan WCAG AA. Comprobado en modo
+   claro y oscuro.
    ========================================================================= */
 
+@import url("identidad.css");
+
+/* Los nombres antiguos se conservan como alias de los tokens nuevos: así las
+   reglas de componente de más abajo no necesitan tocarse una por una. */
 :root {
-  /* Base */
-  --azul-900: #0d2b45;   /* titulares y texto de énfasis */
-  --azul-700: #17456b;
-  --azul-500: #2a6f97;
-  --azul-300: #7fa8c4;
-  --azul-100: #dfeaf2;
+  --azul-900: var(--verde-900);
+  --azul-700: var(--verde-700);
+  --azul-500: var(--verde-600);
+  --azul-300: var(--verde-300);
+  --azul-100: var(--verde-100);
 
-  /* Secundario */
-  --teal-700: #146b6b;
-  --teal-500: #1d8f8f;
-  --teal-100: #ddf0ef;
+  --teal-700: var(--salvia-700);
+  --teal-500: var(--verde-500);
+  --teal-100: var(--verde-050);
 
-  /* Acento único de atención */
-  --ambar-600: #b06f0e;  /* 4,7:1 sobre blanco */
-  --ambar-500: #d18d1f;
-  --ambar-100: #fdf1dc;
+  --ambar-600: var(--arcilla-600);
+  --ambar-500: var(--arcilla-500);
+  --ambar-100: var(--arcilla-100);
 
-  /* Solo para el aviso legal */
-  --alerta: #9c1f2b;
-  --alerta-fondo: #fbeced;
+  --alerta: var(--ciruela-700);
+  --alerta-fondo: var(--ciruela-100);
 
-  --texto: #14202e;         /* 15,8:1 sobre blanco */
-  --texto-suave: #4d5a6a;   /* 7,4:1 sobre blanco */
-  --borde: #dde5ed;
-  --fondo: #ffffff;
-  --fondo-alt: #f5f9fc;
-  --fondo-card: #ffffff;
-  --sombra: 0 1px 2px rgba(13, 43, 69, .05), 0 10px 28px rgba(13, 43, 69, .07);
-
-  --radio: 14px;
-  --ancho: 1140px;
-  --fuente: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-}
-
-[data-tema="oscuro"] {
-  --azul-900: #cfe3f2;      /* 12,1:1 sobre el fondo oscuro */
-  --azul-700: #a8ccdf;
-  --azul-500: #7fb3d0;
-  --azul-300: #4d7c99;
-  --azul-100: #1a2c3d;
-
-  --teal-700: #7fd4d0;
-  --teal-500: #5cbdb9;
-  --teal-100: #12312f;
-
-  --ambar-600: #f0bd6b;     /* 9,6:1 sobre el fondo oscuro */
-  --ambar-500: #e8ae52;
-  --ambar-100: #2e2312;
-
-  --alerta: #f09aa3;
-  --alerta-fondo: #35171b;
-
-  --texto: #e9eff6;
-  --texto-suave: #a3b2c2;
-  --borde: #24374a;
-  --fondo: #0c1620;
-  --fondo-alt: #111e2b;
-  --fondo-card: #142334;
-  --sombra: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px rgba(0, 0, 0, .4);
+  --fondo-alt: var(--superficie-alt);
+  --fondo-card: var(--superficie);
+  --sombra: var(--sombra-2);
+  --fuente: var(--fuente-texto);
 }
 
 * { box-sizing: border-box; }
@@ -143,7 +111,10 @@ nav.enlaces a[aria-current="page"] {
 /* ── Carátula ───────────────────────────────────────────────────────── */
 .caratula {
   min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-  background: linear-gradient(155deg, #0d2b45 0%, #17456b 55%, #146b6b 100%);
+  /* Verde profundo hacia salvia, con un punto de miel al final. Los valores
+     van fijos y no como tokens: en modo oscuro la carátula no se invierte —
+     el texto blanco necesita este fondo en ambos temas. */
+  background: linear-gradient(158deg, #12352F 0%, #1A4A42 42%, #2F7D71 78%, #5A6B58 100%);
   color: #fff; padding: 56px 0; text-align: center;
 }
 .caratula .logo { width: 116px; height: auto; margin: 0 auto 26px; border-radius: 10px; }
@@ -329,3 +300,86 @@ code { background: var(--fondo-alt); padding: 1px 6px; border-radius: 5px;
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }
 }
+
+/* ── Tipografía de titulares ─────────────────────────────────────────
+   Fraunces tiene eje óptico: a tamaño grande gana carácter y a tamaño
+   pequeño se mantiene legible. Los números tabulares evitan que las cifras
+   de una tabla bailen de fila en fila. */
+h1, h2, h3, h4, .cifra-grande, .titulo-hallazgo {
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  letter-spacing: -.014em;
+}
+h1 { letter-spacing: -.026em; }
+table td.num, table th.num, .cifra-grande, .num { font-variant-numeric: tabular-nums; }
+
+/* Fondo de papel: dos gradientes muy tenues de la propia paleta. No se
+   percibe como patrón; solo evita que la página se lea como pantalla. */
+body {
+  background-image:
+    radial-gradient(circle at 10% 0%, var(--verde-050) 0%, transparent 40%),
+    radial-gradient(circle at 90% 6%, var(--miel-100) 0%, transparent 34%);
+  background-attachment: fixed;
+}
+
+/* ── Descargo del pie, presente en las trece secciones ───────────────
+   Tiene que leerse, no esconderse: fondo propio y borde de color, pero sin
+   el rojo de alarma que convertiría una advertencia sensata en un susto. */
+.descargo-pie {
+  margin: 30px 0 0; padding: 18px 22px;
+  background: var(--verde-050);
+  border-left: 4px solid var(--verde-600);
+  border-radius: var(--radio-s);
+  font-size: .89rem; line-height: 1.66; color: var(--texto-suave);
+  max-width: 88ch;
+}
+.descargo-pie strong { color: var(--verde-900); }
+
+/* ── Explorador de tasas observadas ──────────────────────────────────
+   Vive en el boletín estático y no consulta ningún servidor: el catálogo va
+   incrustado en la página. En GitHub Pages no hay backend, y depender del
+   servicio de Render metería un arranque en frío de un minuto justo en el
+   momento en que alguien está interactuando. */
+.explorador {
+  display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: 30px;
+  background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 26px 28px; margin: 22px 0 14px;
+  box-shadow: var(--sombra-2); align-items: start;
+}
+@media (max-width: 820px) { .explorador { grid-template-columns: 1fr; gap: 22px; } }
+
+.explorador-campos { display: grid; gap: 13px; }
+.explorador-campos label {
+  display: grid; gap: 5px; font-size: .84rem; font-weight: 600; color: var(--texto);
+}
+.explorador-campos select {
+  padding: 10px 12px; border: 1px solid var(--borde); border-radius: var(--radio-s);
+  background: var(--superficie); color: var(--texto);
+  font: inherit; font-weight: 400; font-size: .93rem;
+}
+.explorador-campos select:focus {
+  border-color: var(--verde-700); box-shadow: 0 0 0 3px var(--verde-100); outline: none;
+}
+
+.explorador-salida { text-align: center; padding-top: 6px; }
+.explorador-cifra {
+  font-family: var(--fuente-titulo); font-size: clamp(2.6rem, 6vw, 3.5rem);
+  font-weight: 600; line-height: 1; letter-spacing: -.03em;
+  color: var(--verde-900); font-variant-numeric: tabular-nums;
+}
+.explorador-cifra small { font-size: .34em; font-weight: 500; color: var(--texto-suave); }
+.explorador-frase {
+  font-size: .96rem; margin: 12px auto 0; max-width: 46ch; color: var(--texto);
+  line-height: 1.55;
+}
+.explorador-puntos {
+  display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px;
+  max-width: 280px; margin: 18px auto 8px;
+}
+.explorador-puntos i { aspect-ratio: 1; border-radius: 50%; background: var(--borde); }
+.explorador-puntos i.on { background: var(--verde-700); }
+.explorador-puntos i.mid { background: var(--verde-300); }
+.explorador-detalle {
+  font-size: .84rem; color: var(--texto-suave); margin: 6px auto 0; max-width: 52ch;
+}
+.explorador-detalle strong { color: var(--miel-700); }

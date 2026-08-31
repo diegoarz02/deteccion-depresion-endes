@@ -64,6 +64,117 @@ menos.</p>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI), n = 30 401. El ítem marcado con asterisco es el de pensamientos de hacerse daño, que se reporta pero no se analiza por separado.</figcaption>
 </figure>
 </section>
+<h3>Búscate en los datos</h3>
+
+<p>Las cifras de arriba son promedios de grupos grandes. Abajo puedes cruzar varias
+características a la vez y ver <strong>cuántas personas así dieron positivo</strong> entre
+las 30 226 entrevistadas. No hay modelo ni predicción: es un recuento sobre la muestra,
+con su intervalo de confianza.</p>
+
+<div class="explorador">
+  <div class="explorador-campos">
+    <label>Sexo
+      <select id="ex-sexo"><option>Mujer</option><option>Hombre</option></select>
+    </label>
+    <label>Grupo de edad
+      <select id="ex-edad">
+        <option>15-19</option><option>20-29</option><option selected>30-39</option>
+        <option>40-49</option><option>50-59</option><option>60+</option>
+      </select>
+    </label>
+    <label>Nivel educativo
+      <select id="ex-edu">
+        <option>Primaria o menos</option><option selected>Secundaria</option>
+        <option>Superior</option>
+      </select>
+    </label>
+    <label>Área de residencia
+      <select id="ex-area"><option selected>Urbano</option><option>Rural</option></select>
+    </label>
+    <label>Región natural
+      <select id="ex-region">
+        <option selected>Costa</option><option>Sierra</option><option>Selva</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="explorador-salida" aria-live="polite">
+    <div class="explorador-cifra" id="ex-cifra">&mdash;</div>
+    <p class="explorador-frase" id="ex-frase">Elige las características y la cifra se
+    actualiza sola.</p>
+    <div class="explorador-puntos" id="ex-puntos" role="img"
+         aria-label="Cien puntos; los coloreados son quienes dieron positivo"></div>
+    <p class="explorador-detalle" id="ex-detalle"></p>
+  </div>
+</div>
+
+<p class="ficha">Fuente: ENDES 2025 (INEI). Prevalencias ponderadas con el diseño muestral
+complejo. Solo se muestran combinaciones con al menos 100 personas y 20 casos positivos;
+cuando la combinación exacta no llega, se busca el grupo más específico que sí lo haga y
+se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de esta página.</p>
+
+<script id="datos-tasas" type="application/json">{"_fuente":"ENDES 2025 (INEI), módulo CSALUD01","_criterio":"Solo se usan celdas con al menos 100 personas y 20 casos positivos. Las que superan un coeficiente de variación de 0.2 se marcan como imprecisas, no se suprimen.","_orden_niveles":[["sexo","grupo_etario","educacion_grupo","area","region_natural"],["sexo","grupo_etario","educacion_grupo","area"],["sexo","grupo_etario","educacion_grupo"],["sexo","grupo_etario"],["sexo"]],"tasas":{"Hombre|60+|Primaria o menos|Rural|Sierra":{"prevalencia":16.58,"ic_inf":12.73,"ic_sup":21.31,"n":558,"eventos":80,"cv":0.1312,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|15-19|Secundaria|Urbano|Costa":{"prevalencia":15.26,"ic_inf":11.28,"ic_sup":20.32,"n":452,"eventos":65,"cv":0.1499,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|15-19|Secundaria|Urbano|Sierra":{"prevalencia":16.93,"ic_inf":11.29,"ic_sup":24.59,"n":212,"eventos":32,"cv":0.1971,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|20-29|Secundaria|Rural|Sierra":{"prevalencia":5.09,"ic_inf":3.14,"ic_sup":8.13,"n":496,"eventos":23,"cv":0.2418,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|20-29|Secundaria|Urbano|Costa":{"prevalencia":11.73,"ic_inf":8.59,"ic_sup":15.81,"n":651,"eventos":67,"cv":0.1554,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|20-29|Superior|Urbano|Costa":{"prevalencia":11.55,"ic_inf":8.25,"ic_sup":15.93,"n":701,"eventos":65,"cv":0.1677,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|20-29|Superior|Urbano|Sierra":{"prevalencia":6.24,"ic_inf":3.7,"ic_sup":10.34,"n":388,"eventos":23,"cv":0.2615,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|30-39|Secundaria|Rural|Sierra":{"prevalencia":4.05,"ic_inf":2.42,"ic_sup":6.69,"n":435,"eventos":20,"cv":0.2586,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|30-39|Secundaria|Urbano|Costa":{"prevalencia":7.02,"ic_inf":4.97,"ic_sup":9.81,"n":789,"eventos":60,"cv":0.1732,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|30-39|Secundaria|Urbano|Sierra":{"prevalencia":8.79,"ic_inf":5.8,"ic_sup":13.1,"n":376,"eventos":31,"cv":0.2071,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|30-39|Superior|Urbano|Costa":{"prevalencia":5.64,"ic_inf":3.95,"ic_sup":7.97,"n":947,"eventos":64,"cv":0.1787,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|30-39|Superior|Urbano|Sierra":{"prevalencia":6.55,"ic_inf":4.43,"ic_sup":9.58,"n":563,"eventos":32,"cv":0.1958,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|40-49|Primaria o menos|Rural|Sierra":{"prevalencia":10.2,"ic_inf":6.33,"ic_sup":16.03,"n":324,"eventos":30,"cv":0.2367,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|40-49|Secundaria|Urbano|Costa":{"prevalencia":8.67,"ic_inf":5.66,"ic_sup":13.05,"n":396,"eventos":40,"cv":0.2126,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|40-49|Superior|Urbano|Costa":{"prevalencia":6.86,"ic_inf":4.01,"ic_sup":11.49,"n":357,"eventos":21,"cv":0.2678,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|50-59|Primaria o menos|Rural|Sierra":{"prevalencia":13.25,"ic_inf":9.63,"ic_sup":17.96,"n":372,"eventos":57,"cv":0.1585,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|50-59|Primaria o menos|Urbano|Costa":{"prevalencia":12.89,"ic_inf":6.99,"ic_sup":22.58,"n":141,"eventos":22,"cv":0.2967,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|50-59|Secundaria|Urbano|Costa":{"prevalencia":13.34,"ic_inf":8.49,"ic_sup":20.34,"n":283,"eventos":26,"cv":0.2225,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|60+|Primaria o menos|Rural|Sierra":{"prevalencia":17.7,"ic_inf":13.92,"ic_sup":22.24,"n":513,"eventos":92,"cv":0.1193,"impreciso":false,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|60+|Primaria o menos|Urbano|Costa":{"prevalencia":9.55,"ic_inf":5.76,"ic_sup":15.43,"n":274,"eventos":32,"cv":0.2507,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Mujer|60+|Secundaria|Urbano|Costa":{"prevalencia":13.21,"ic_inf":8.67,"ic_sup":19.62,"n":264,"eventos":32,"cv":0.2075,"impreciso":true,"nivel":5,"definido_por":"sexo, grupo de edad, nivel educativo, área de residencia y región natural"},"Hombre|15-19|Secundaria|Urbano":{"prevalencia":5.05,"ic_inf":3.12,"ic_sup":8.08,"n":668,"eventos":31,"cv":0.2428,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|20-29|Secundaria|Urbano":{"prevalencia":4.67,"ic_inf":2.68,"ic_sup":8.01,"n":717,"eventos":30,"cv":0.2789,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|20-29|Superior|Urbano":{"prevalencia":4.36,"ic_inf":2.54,"ic_sup":7.38,"n":739,"eventos":24,"cv":0.2715,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|60+|Primaria o menos|Rural":{"prevalencia":12.31,"ic_inf":9.46,"ic_sup":15.87,"n":734,"eventos":86,"cv":0.1318,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|60+|Primaria o menos|Urbano":{"prevalencia":6.26,"ic_inf":2.46,"ic_sup":15.04,"n":336,"eventos":24,"cv":0.4632,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|60+|Secundaria|Urbano":{"prevalencia":6.22,"ic_inf":3.43,"ic_sup":11.01,"n":398,"eventos":20,"cv":0.2969,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|15-19|Secundaria|Rural":{"prevalencia":4.84,"ic_inf":2.84,"ic_sup":8.15,"n":439,"eventos":23,"cv":0.2683,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|15-19|Secundaria|Urbano":{"prevalencia":14.9,"ic_inf":11.77,"ic_sup":18.7,"n":889,"eventos":114,"cv":0.118,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|20-29|Secundaria|Rural":{"prevalencia":4.28,"ic_inf":2.88,"ic_sup":6.32,"n":850,"eventos":37,"cv":0.1996,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|20-29|Secundaria|Urbano":{"prevalencia":9.67,"ic_inf":7.32,"ic_sup":12.67,"n":1303,"eventos":96,"cv":0.1398,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|20-29|Superior|Rural":{"prevalencia":9.09,"ic_inf":5.56,"ic_sup":14.5,"n":264,"eventos":21,"cv":0.2435,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|20-29|Superior|Urbano":{"prevalencia":9.92,"ic_inf":7.42,"ic_sup":13.14,"n":1330,"eventos":100,"cv":0.1456,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|30-39|Primaria o menos|Rural":{"prevalencia":6.26,"ic_inf":3.75,"ic_sup":10.27,"n":485,"eventos":24,"cv":0.2565,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|30-39|Secundaria|Rural":{"prevalencia":4.43,"ic_inf":2.89,"ic_sup":6.73,"n":709,"eventos":32,"cv":0.2154,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|30-39|Secundaria|Urbano":{"prevalencia":7.19,"ic_inf":5.53,"ic_sup":9.29,"n":1469,"eventos":108,"cv":0.132,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|30-39|Superior|Urbano":{"prevalencia":5.75,"ic_inf":4.39,"ic_sup":7.49,"n":1847,"eventos":110,"cv":0.1365,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|40-49|Primaria o menos|Rural":{"prevalencia":8.46,"ic_inf":5.66,"ic_sup":12.44,"n":482,"eventos":42,"cv":0.2006,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|40-49|Primaria o menos|Urbano":{"prevalencia":12.31,"ic_inf":7.52,"ic_sup":19.5,"n":302,"eventos":28,"cv":0.2422,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|40-49|Secundaria|Urbano":{"prevalencia":8.38,"ic_inf":5.89,"ic_sup":11.8,"n":677,"eventos":59,"cv":0.1772,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|40-49|Superior|Urbano":{"prevalencia":7.18,"ic_inf":4.76,"ic_sup":10.68,"n":625,"eventos":40,"cv":0.2058,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|50-59|Primaria o menos|Rural":{"prevalencia":13.4,"ic_inf":10.14,"ic_sup":17.5,"n":501,"eventos":75,"cv":0.1389,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|50-59|Primaria o menos|Urbano":{"prevalencia":12.63,"ic_inf":8.28,"ic_sup":18.81,"n":310,"eventos":39,"cv":0.2085,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|50-59|Secundaria|Urbano":{"prevalencia":12.87,"ic_inf":8.59,"ic_sup":18.86,"n":409,"eventos":41,"cv":0.2005,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|60+|Primaria o menos|Rural":{"prevalencia":15.83,"ic_inf":12.68,"ic_sup":19.6,"n":657,"eventos":109,"cv":0.1108,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|60+|Primaria o menos|Urbano":{"prevalencia":10.24,"ic_inf":7.02,"ic_sup":14.71,"n":520,"eventos":55,"cv":0.1882,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|60+|Secundaria|Rural":{"prevalencia":17.22,"ic_inf":10.01,"ic_sup":28.0,"n":112,"eventos":20,"cv":0.2601,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|60+|Secundaria|Urbano":{"prevalencia":13.46,"ic_inf":9.47,"ic_sup":18.8,"n":399,"eventos":51,"cv":0.1744,"impreciso":false,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Mujer|60+|Superior|Urbano":{"prevalencia":8.77,"ic_inf":5.15,"ic_sup":14.55,"n":307,"eventos":21,"cv":0.2637,"impreciso":true,"nivel":4,"definido_por":"sexo, grupo de edad, nivel educativo y área de residencia"},"Hombre|15-19|Secundaria":{"prevalencia":4.48,"ic_inf":2.89,"ic_sup":6.9,"n":1081,"eventos":41,"cv":0.2221,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|20-29|Secundaria":{"prevalencia":3.98,"ic_inf":2.34,"ic_sup":6.67,"n":1165,"eventos":36,"cv":0.2669,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|20-29|Superior":{"prevalencia":4.18,"ic_inf":2.46,"ic_sup":7.01,"n":861,"eventos":26,"cv":0.2668,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|30-39|Secundaria":{"prevalencia":1.96,"ic_inf":1.09,"ic_sup":3.5,"n":1512,"eventos":34,"cv":0.2981,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|40-49|Secundaria":{"prevalencia":3.88,"ic_inf":2.03,"ic_sup":7.29,"n":965,"eventos":20,"cv":0.3268,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|50-59|Primaria o menos":{"prevalencia":3.95,"ic_inf":2.24,"ic_sup":6.88,"n":472,"eventos":22,"cv":0.2858,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|50-59|Secundaria":{"prevalencia":3.82,"ic_inf":2.12,"ic_sup":6.79,"n":612,"eventos":26,"cv":0.2966,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|60+|Primaria o menos":{"prevalencia":8.73,"ic_inf":5.76,"ic_sup":13.03,"n":1070,"eventos":110,"cv":0.2083,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|60+|Secundaria":{"prevalencia":6.35,"ic_inf":3.81,"ic_sup":10.4,"n":678,"eventos":39,"cv":0.2564,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|15-19|Secundaria":{"prevalencia":12.98,"ic_inf":10.39,"ic_sup":16.1,"n":1328,"eventos":137,"cv":0.1117,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|20-29|Primaria o menos":{"prevalencia":7.22,"ic_inf":3.95,"ic_sup":12.84,"n":322,"eventos":20,"cv":0.3001,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|20-29|Secundaria":{"prevalencia":8.61,"ic_inf":6.68,"ic_sup":11.03,"n":2153,"eventos":133,"cv":0.128,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|20-29|Superior":{"prevalencia":9.87,"ic_inf":7.5,"ic_sup":12.88,"n":1594,"eventos":121,"cv":0.138,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|30-39|Primaria o menos":{"prevalencia":7.09,"ic_inf":4.72,"ic_sup":10.53,"n":785,"eventos":42,"cv":0.2047,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|30-39|Secundaria":{"prevalencia":6.69,"ic_inf":5.29,"ic_sup":8.43,"n":2178,"eventos":140,"cv":0.1189,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|30-39|Superior":{"prevalencia":5.64,"ic_inf":4.34,"ic_sup":7.3,"n":2116,"eventos":122,"cv":0.1325,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|40-49|Primaria o menos":{"prevalencia":10.69,"ic_inf":7.52,"ic_sup":14.97,"n":784,"eventos":70,"cv":0.1755,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|40-49|Secundaria":{"prevalencia":8.16,"ic_inf":5.91,"ic_sup":11.16,"n":1005,"eventos":78,"cv":0.1618,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|40-49|Superior":{"prevalencia":7.14,"ic_inf":4.78,"ic_sup":10.52,"n":733,"eventos":46,"cv":0.2011,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|50-59|Primaria o menos":{"prevalencia":12.91,"ic_inf":9.73,"ic_sup":16.92,"n":811,"eventos":114,"cv":0.141,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|50-59|Secundaria":{"prevalencia":12.84,"ic_inf":8.79,"ic_sup":18.4,"n":553,"eventos":60,"cv":0.1884,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|60+|Primaria o menos":{"prevalencia":11.76,"ic_inf":9.15,"ic_sup":15.0,"n":1177,"eventos":164,"cv":0.126,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|60+|Secundaria":{"prevalencia":13.69,"ic_inf":9.88,"ic_sup":18.68,"n":511,"eventos":71,"cv":0.1623,"impreciso":false,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Mujer|60+|Superior":{"prevalencia":8.62,"ic_inf":5.09,"ic_sup":14.23,"n":349,"eventos":22,"cv":0.2617,"impreciso":true,"nivel":3,"definido_por":"sexo, grupo de edad y nivel educativo"},"Hombre|15-19":{"prevalencia":4.39,"ic_inf":2.92,"ic_sup":6.56,"n":1201,"eventos":47,"cv":0.2066,"impreciso":true,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre|20-29":{"prevalencia":4.14,"ic_inf":2.9,"ic_sup":5.89,"n":2165,"eventos":67,"cv":0.1809,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre|30-39":{"prevalencia":2.06,"ic_inf":1.35,"ic_sup":3.11,"n":3165,"eventos":62,"cv":0.2123,"impreciso":true,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre|40-49":{"prevalencia":2.84,"ic_inf":1.82,"ic_sup":4.4,"n":2125,"eventos":45,"cv":0.2254,"impreciso":true,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre|50-59":{"prevalencia":3.28,"ic_inf":2.09,"ic_sup":5.09,"n":1421,"eventos":53,"cv":0.2268,"impreciso":true,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre|60+":{"prevalencia":6.45,"ic_inf":4.87,"ic_sup":8.5,"n":2269,"eventos":175,"cv":0.1424,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|15-19":{"prevalencia":12.5,"ic_inf":10.12,"ic_sup":15.35,"n":1512,"eventos":154,"cv":0.1063,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|20-29":{"prevalencia":9.11,"ic_inf":7.6,"ic_sup":10.89,"n":4078,"eventos":275,"cv":0.0918,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|30-39":{"prevalencia":6.22,"ic_inf":5.31,"ic_sup":7.27,"n":5119,"eventos":306,"cv":0.0802,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|40-49":{"prevalencia":8.28,"ic_inf":6.7,"ic_sup":10.2,"n":2611,"eventos":201,"cv":0.1072,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|50-59":{"prevalencia":11.94,"ic_inf":9.6,"ic_sup":14.76,"n":1836,"eventos":217,"cv":0.1095,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Mujer|60+":{"prevalencia":12.76,"ic_inf":10.97,"ic_sup":14.78,"n":2724,"eventos":419,"cv":0.076,"impreciso":false,"nivel":2,"definido_por":"sexo y grupo de edad"},"Hombre":{"prevalencia":3.86,"ic_inf":3.31,"ic_sup":4.5,"n":12346,"eventos":449,"cv":0.0779,"impreciso":false,"nivel":1,"definido_por":"sexo"},"Mujer":{"prevalencia":9.87,"ic_inf":9.09,"ic_sup":10.7,"n":17880,"eventos":1572,"cv":0.0415,"impreciso":false,"nivel":1,"definido_por":"sexo"}}}</script>
+<script>
+(function () {
+  var CAT = JSON.parse(document.getElementById('datos-tasas').textContent);
+  var NIVELES = CAT._orden_niveles, TASAS = CAT.tasas;
+  var campos = { sexo: 'ex-sexo', grupo_etario: 'ex-edad', educacion_grupo: 'ex-edu',
+                 area: 'ex-area', region_natural: 'ex-region' };
+
+  function buscar() {
+    var v = {};
+    for (var k in campos) v[k] = document.getElementById(campos[k]).value;
+    for (var i = 0; i < NIVELES.length; i++) {
+      var clave = NIVELES[i].map(function (c) { return v[c]; }).join('|');
+      if (TASAS[clave]) return TASAS[clave];
+    }
+    return null;
+  }
+
+  function coma(x, d) { return x.toFixed(d).replace('.', ','); }
+
+  function pintar() {
+    var t = buscar();
+    var cifra = document.getElementById('ex-cifra');
+    var frase = document.getElementById('ex-frase');
+    var puntos = document.getElementById('ex-puntos');
+    var detalle = document.getElementById('ex-detalle');
+
+    if (!t) {
+      cifra.innerHTML = '&mdash;';
+      frase.textContent = 'No hay suficientes personas con esta combinación en la '
+        + 'encuesta para dar una cifra que se sostenga.';
+      puntos.innerHTML = '';
+      detalle.textContent = '';
+      return;
+    }
+
+    cifra.innerHTML = coma(t.prevalencia, 1) + '<small> de cada 100</small>';
+    frase.innerHTML = 'Entre las personas del mismo <strong>' + t.definido_por
+      + '</strong>, esa proporción dio positivo al tamizaje.';
+
+    var enteros = Math.floor(t.prevalencia), html = '';
+    for (var i = 0; i < 100; i++) {
+      html += i < enteros ? '<i class="on"></i>'
+        : (i === enteros && t.prevalencia - enteros >= 0.25)
+          ? '<i class="mid"></i>' : '<i></i>';
+    }
+    puntos.innerHTML = html;
+
+    detalle.innerHTML = 'Sobre ' + t.n.toLocaleString('es-PE') + ' personas, '
+      + t.eventos + ' dieron positivo. IC 95 %: ' + coma(t.ic_inf, 1) + ' % a '
+      + coma(t.ic_sup, 1) + ' %.'
+      + (t.impreciso ? ' <strong>Estimación imprecisa</strong> (CV &gt; 0,20): léela por '
+        + 'su intervalo, no por la cifra puntual.' : '');
+  }
+
+  for (var k in campos) {
+    document.getElementById(campos[k]).addEventListener('change', pintar);
+  }
+  pintar();
+})();
+</script>
+
 <div class="paginacion"><a href="05-medicion.html">← Cómo medimos</a><a href="07-geografia.html">Dónde →</a></div>
 </div></main>
 <footer><div class="contenedor"><div class="cols">
@@ -89,7 +200,19 @@ menos.</p>
     Gratuita, 24 horas, MINSA<br>
     <a href="12-cierre.html">Todos los recursos</a>
   </div>
-</div></div></footer>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
 <script>
 function alternarTema() {
   const r = document.documentElement;

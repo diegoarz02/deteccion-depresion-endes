@@ -5,10 +5,10 @@
       <stop offset="0%" stop-color="#EEF3F9"/><stop offset="100%" stop-color="#FFFFFF"/>
     </linearGradient>
     <linearGradient id="calido" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E8C766"/>
-      <stop offset="100%" stop-color="#C9A227"/>
+      <stop offset="0%" stop-color="#DFA98F"/>
+      <stop offset="100%" stop-color="#C4714E"/>
     </linearGradient>
   </defs>
   <rect width="420" height="300" fill="url(#cielo)" rx="16"/>
-  <path d="M170 60 q56 24 44 84 q-12 60 6 96 q18 36 -18 60 q-40 -18 -52 -66 q-12 -48 -22 -84 q-10 -36 42 -90 z" fill="#0B2545" opacity="0.16"/>  <g transform="translate(172,132)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#C9A227"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>  <g transform="translate(196,196)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#0B2545"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>  <g transform="translate(152,232)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#13315C"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>
+  <path d="M170 60 q56 24 44 84 q-12 60 6 96 q18 36 -18 60 q-40 -18 -52 -66 q-12 -48 -22 -84 q-10 -36 42 -90 z" fill="#12352F" opacity="0.16"/>  <g transform="translate(172,132)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#C4714E"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>  <g transform="translate(196,196)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#12352F"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>  <g transform="translate(152,232)"><path d="M0 0 c-12 -14 -20 -22 -20 -34 a20 20 0 1 1 40 0 c0 12 -8 20 -20 34 z" fill="#236158"/><circle cx="0" cy="-34" r="7" fill="#fff"/></g>
 </svg>

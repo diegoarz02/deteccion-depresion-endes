@@ -12,6 +12,7 @@ sustentan en la auditoría previa documentada en ``HALLAZGOS_FASE_0.md``.
 
 from __future__ import annotations
 
+import os
 import unicodedata
 from pathlib import Path
 
@@ -38,11 +39,20 @@ LOGS = RESULTADOS / "logs"
 DOCS = RAIZ / "docs"
 BOLETIN = RAIZ / "boletin"
 
-# Fuente original de los microdatos (fuera del repo, no se versiona).
-FUENTE_SAV = Path(
-    r"C:\Users\diego\OneDrive\Documentos\EPIDEMIOLOGIA"
-    r"\DATA\DATASET FINAL - DEPRESION SALUD MENTAL"
-)
+# Fuente original de los microdatos. Están fuera del repositorio —pesan y son
+# públicos del INEI— así que la ruta se configura por entorno:
+#
+#     export ENDES_SAV="/ruta/a/los/sav"        # Linux o Git Bash
+#     $env:ENDES_SAV = "D:\datos\endes"         # PowerShell
+#
+# El valor por defecto es la ruta de la máquina donde se desarrolló, para que
+# `make data` funcione ahí sin configurar nada. En cualquier otra hay que
+# fijar la variable: sin ella, la construcción del dataset falla con un aviso
+# claro en vez de con un FileNotFoundError sin contexto.
+FUENTE_SAV = Path(os.getenv(
+    "ENDES_SAV",
+    RAIZ.parent / "DATA" / "DATASET FINAL - DEPRESION SALUD MENTAL",
+))
 
 ARCHIVO_CSALUD = "CSALUD01_2025.sav"
 ARCHIVO_RECH0 = "RECH0_2025.sav"
@@ -109,6 +119,24 @@ ESCALA_PHQ9 = {
     2: "La mayoría de días (7 a 11 días)",
     3: "Casi todos los días (12 o más días)",
 }
+
+# ─────────────────────────────────────────────────────────────────────
+# Umbral de publicación por precisión
+# ─────────────────────────────────────────────────────────────────────
+# Coeficiente de variación máximo para publicar una estimación sin
+# advertencia. El 0,20 es la convención de las oficinas de estadística
+# (INEI, Statistics Canada, ONS): por encima, el error estándar es tan
+# grande respecto de la estimación que la cifra puntual no significa nada.
+#
+# La regla del proyecto es marcar, no suprimir. Una celda imprecisa que se
+# borra deja un hueco que el lector rellena solo, casi siempre mal; una que
+# se marca comunica a la vez el dato y su fragilidad. Ver la Puna en la
+# tabla 33: CV 0,222, con un intervalo de 7,4 % a 18,0 %.
+CV_MAXIMO_PUBLICABLE = 0.20
+
+NOTA_CV_ALTO = (
+    "Estimación imprecisa (CV > 0,20): la muestra de esta categoría es pequeña. "
+    "Debe leerse por su intervalo de confianza, no por la cifra puntual.")
 
 CORTE_DEPRESION = 10        # ★ desenlace principal: moderada o más
 CORTE_DEPRESION_LEVE = 5    # análisis de sensibilidad
@@ -283,23 +311,28 @@ UBIGEO_LIMA_METROPOLITANA = {"1501", "0701"}
 # 10. TEMA GRÁFICO
 # ─────────────────────────────────────────────────────────────────────
 
+# Los nombres de las claves se conservan por compatibilidad con el código que
+# ya las usa, pero los valores son los de la identidad de salud mental definida
+# en `diseno.py`: verde-teal del lazo de la salud mental como voz principal,
+# neutros de base tierra en lugar de grises azulados, y terracota en vez de rojo
+# de alarma. Si se cambia algo aquí, cambiarlo también allí.
 COLORES = {
-    "navy": "#0B2545",
-    "navy_claro": "#13315C",
-    "dorado": "#C9A227",
-    "dorado_claro": "#E8C766",
-    "rojo": "#B3202C",
-    "verde": "#2E7D5B",
-    "ambar": "#E08D24",
-    "gris": "#6B7280",
-    "gris_claro": "#E5E7EB",
-    "fondo": "#FFFFFF",
+    "navy": "#12352F",          # verde-900: el color de los titulares
+    "navy_claro": "#236158",    # verde-700: color de marca
+    "dorado": "#C4714E",        # arcilla-500: el acento cálido
+    "dorado_claro": "#DFA98F",  # arcilla-300
+    "rojo": "#9C3A50",          # ciruela-500: serio, no estridente
+    "verde": "#2F7D71",         # verde-600: protector
+    "ambar": "#D2A03C",         # miel-500: destacado
+    "gris": "#6E675E",          # tierra-500: neutro cálido
+    "gris_claro": "#D8D2C7",    # tierra-200
+    "fondo": "#FFFDFA",         # blanco cálido, no puro
 }
 
-PALETA_SECUENCIAL = ["#E8EEF5", "#B9CBE0", "#7E9CC0", "#41689B", "#13315C", "#0B2545"]
+PALETA_SECUENCIAL = ["#EAF3F0", "#C4DFD8", "#94C4B9", "#5FA396", "#357F73", "#1A5A50", "#12352F"]
 PALETA_CATEGORICA = [
-    COLORES["navy"], COLORES["dorado"], COLORES["verde"],
-    COLORES["rojo"], COLORES["ambar"], COLORES["gris"],
+    COLORES["navy_claro"], COLORES["dorado"], COLORES["ambar"],
+    "#5A6B58", "#8FBDB4", COLORES["gris"],
 ]
 
 DPI_FIGURAS = 300

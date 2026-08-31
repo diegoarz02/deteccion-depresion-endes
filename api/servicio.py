@@ -186,6 +186,45 @@ class Servicio:
                 return d
         return None
 
+    def _tasas(self) -> dict:
+        """Carga el catálogo de tasas observadas por perfil."""
+        if getattr(self, "_tasas_cache", None) is None:
+            ruta = RUTA_DATOS / "tasas_observadas.json"
+            self._tasas_cache = (json.loads(ruta.read_text(encoding="utf-8"))
+                                 if ruta.exists() else {"tasas": {}, "_orden_niveles": []})
+        return self._tasas_cache
+
+    def tasa_observada(self, perfil) -> dict | None:
+        """Busca la tasa realmente observada para un perfil en la ENDES.
+
+        Baja por la escalera de niveles, del más específico al más general, y
+        devuelve la primera celda que exista en el catálogo. El catálogo solo
+        contiene celdas con suficientes casos, así que encontrar una es garantía
+        de que la cifra se sostiene.
+
+        Devuelve también ``definido_por``, para que la interfaz pueda decir a
+        qué se parece exactamente el perfil en lugar de un vago «parecido».
+        """
+        cat = self._tasas()
+        tasas = cat.get("tasas", {})
+        valores = {
+            "sexo": perfil.sexo.value if hasattr(perfil.sexo, "value") else str(perfil.sexo),
+            "grupo_etario": (perfil.grupo_etario.value
+                             if hasattr(perfil.grupo_etario, "value") else str(perfil.grupo_etario)),
+            "educacion_grupo": (perfil.nivel_educativo.value
+                                if hasattr(perfil.nivel_educativo, "value")
+                                else str(perfil.nivel_educativo)),
+            "area": perfil.area.value if hasattr(perfil.area, "value") else str(perfil.area),
+            "region_natural": (perfil.region_natural.value
+                               if hasattr(perfil.region_natural, "value")
+                               else str(perfil.region_natural)),
+        }
+        for nivel in cat.get("_orden_niveles", []):
+            clave = "|".join(valores[c] for c in nivel)
+            if clave in tasas:
+                return {**tasas[clave], "clave": clave}
+        return None
+
     def info(self) -> dict:
         """Devuelve los metadatos del modelo para el endpoint ``/model-info``."""
         m = self.metadatos

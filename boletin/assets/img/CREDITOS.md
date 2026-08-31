@@ -1,6 +1,6 @@
 # Créditos de las imágenes del boletín
 
-Última actualización: 2026-08-30
+Última actualización: 2026-08-31
 
 Todos los archivos están **descargados o generados en local**. El boletín no enlaza
 ninguna imagen externa, de modo que funciona sin conexión y en cualquier hosting
@@ -46,25 +46,25 @@ que el color de acento coincide exactamente con el del resto del sitio.
 ## Iconos
 
 **Lucide** — <https://lucide.dev> · licencia **ISC** · no exige atribución, pero se
-cita igualmente. Descargados desde `unpkg.com/lucide-static` el 2026-08-30 y teñidos con
+cita igualmente. Descargados desde `unpkg.com/lucide-static` el 2026-08-31 y teñidos con
 el navy del proyecto.
 
 | Archivo | Uso en el boletín | Estado |
 |---|---|---|
-| `iconos/brain.svg` | Sección 2 · qué es la depresión | descargado |
-| `iconos/heart-handshake.svg` | Sección 4 · detección temprana y apoyo | descargado |
-| `iconos/users.svg` | Sección 7 · perfil sociodemográfico | descargado |
-| `iconos/map-pin.svg` | Sección 8 · geografía | descargado |
-| `iconos/activity.svg` | Sección 9 · factores asociados | descargado |
-| `iconos/trending-up.svg` | Sección 10 · el modelo | descargado |
-| `iconos/search.svg` | Sección 11 · modelo frente a realidad | descargado |
-| `iconos/phone-call.svg` | Sección 13 · líneas de ayuda | descargado |
-| `iconos/shield-check.svg` | Encuadre ético | descargado |
-| `iconos/clipboard-list.svg` | Sección 6 · cómo lo medimos | descargado |
-| `iconos/database.svg` | Sección 5 · de dónde salen los datos | descargado |
-| `iconos/message-circle-heart.svg` | Sección 3 · la problemática | descargado |
-| `iconos/triangle-alert.svg` | Avisos y limitaciones | descargado |
-| `iconos/map.svg` | Mapas | descargado |
+| `iconos/brain.svg` | Sección 2 · qué es la depresión | ya estaba |
+| `iconos/heart-handshake.svg` | Sección 4 · detección temprana y apoyo | ya estaba |
+| `iconos/users.svg` | Sección 7 · perfil sociodemográfico | ya estaba |
+| `iconos/map-pin.svg` | Sección 8 · geografía | ya estaba |
+| `iconos/activity.svg` | Sección 9 · factores asociados | ya estaba |
+| `iconos/trending-up.svg` | Sección 10 · el modelo | ya estaba |
+| `iconos/search.svg` | Sección 11 · modelo frente a realidad | ya estaba |
+| `iconos/phone-call.svg` | Sección 13 · líneas de ayuda | ya estaba |
+| `iconos/shield-check.svg` | Encuadre ético | ya estaba |
+| `iconos/clipboard-list.svg` | Sección 6 · cómo lo medimos | ya estaba |
+| `iconos/database.svg` | Sección 5 · de dónde salen los datos | ya estaba |
+| `iconos/message-circle-heart.svg` | Sección 3 · la problemática | ya estaba |
+| `iconos/triangle-alert.svg` | Avisos y limitaciones | ya estaba |
+| `iconos/map.svg` | Mapas | ya estaba |
 
 ---
 

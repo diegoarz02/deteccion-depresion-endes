@@ -1,17 +1,51 @@
+# Despliegue en Render con el runtime nativo de Python.
+#
+# Sin Docker, y a propósito: la API no necesita nada que no venga en una rueda
+# de PyPI, así que una imagen solo añadiría minutos de construcción y una capa
+# más que mantener. El servicio carga el modelo desde un JSON de coeficientes
+# —no un .joblib—, de modo que ni scikit-learn ni pandas entran en producción.
+#
+# El mismo servicio sirve la API y la aplicación web: un solo arranque en frío,
+# y sin CORS entre el navegador y el backend porque comparten origen.
+#
+# Este archivo NO se aplica solo. El despliegue se hace desde el panel de
+# Render conectando el repositorio, o con `render blueprint launch`.
+
 services:
   - type: web
-    name: api-depresion-endes
-    runtime: docker
-    dockerfilePath: ./api/Dockerfile
-    dockerContext: .
+    name: explorador-depresion-endes
+    runtime: python
     plan: free
     region: oregon
+
+    # El contexto es la raíz del repositorio: la API importa desde `api/` y
+    # sirve los estáticos de `api/web/`.
+    rootDir: .
+    buildCommand: pip install --upgrade pip && pip install -r api/requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+
+    # Render reinicia el servicio si esta ruta deja de responder. Devuelve 200
+    # incluso con el modelo sin cargar, distinguiendo «servicio caído» de
+    # «servicio arriba, modelo ausente»: son dos incidencias distintas.
     healthCheckPath: /health
+
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
       - key: LOG_LEVEL
         value: INFO
       - key: RATE_LIMIT
         value: "60"
+      # Origen del boletín en GitHub Pages. La aplicación web va servida por
+      # este mismo proceso y no necesita CORS; esto es solo para que el boletín
+      # estático pueda consultar la API desde otro dominio.
       - key: CORS_ORIGINS
         value: https://diegoarz02.github.io
+      # La clave del modelo de lenguaje se pone a mano en el panel de Render y
+      # NUNCA en el repositorio. Sin ella el agente responde igual, con
+      # plantillas deterministas sobre las cifras reales.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+
+    # Despliegue manual: un push no debe publicar sin revisar antes.
     autoDeploy: false

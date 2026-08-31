@@ -71,6 +71,53 @@ bien porque es frecuente.</p>
   responda «nadie tiene depresión» acierta el 94 % de las veces y no sirve para nada. Es la
   métrica más citada y la más engañosa en problemas como este.
 </div>
+
+<h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
+
+<p>Decir «discriminación moderada» suena a matiz técnico. Traducido, es esto:</p>
+
+<div class="rejilla-cifras">
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">2 de cada 3</div>
+    <p>Puestas dos personas al azar, una con síntomas y otra sin ellos, el modelo acierta
+    cuál es cuál solo dos de cada tres veces. Eso <em>es</em> un AUC de 0,67.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">85 de 100</div>
+    <p>De cada cien personas que el modelo señala como riesgo, cerca de ochenta y cinco
+    no dan positivo en el tamizaje. El valor predictivo positivo es 0,147.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">2,2 %</div>
+    <p>Es lo que mejora el error de calibración (Brier) frente a no tener modelo:
+    0,0569 contra 0,0582. Una mejora real y muy pequeña.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">4 de 4</div>
+    <p>Cuatro familias de algoritmos, resultados entre 0,655 y 0,684. Cuando cambiar de
+    método no cambia nada, el límite no está en el método.</p>
+  </div>
+</div>
+
+<div class="nota">
+  <strong>Esto no es un modelo fallido: es el resultado correcto.</strong>
+  La depresión de una persona depende de su historia, sus duelos, su red de apoyo, su
+  situación económica inmediata y su biología. Una encuesta de hogares mide sexo, edad,
+  educación, dónde vive y unas pocas conductas. Con esas variables se puede describir
+  <em>dónde se concentra</em> el problema en el país —y eso se hace bien, con intervalos
+  estrechos y coherente con la literatura—, pero no se puede saber quién lo tiene.
+  <br><br>
+  Un modelo que con estas variables alcanzara un AUC de 0,90 sería motivo de sospecha, no
+  de celebración: casi siempre significa que se coló una variable que ya contiene el
+  desenlace. En este proyecto ese riesgo era real y concreto —<code>QS702</code> y
+  <code>QS704A-I</code> se preguntan solo a quien ya marcó síntomas— y por eso se
+  excluyeron desde el principio.
+  <br><br>
+  Reportar el techo honestamente vale más que maquillarlo. Un modelo con AUC 0,67 bien
+  explicado orienta política pública sin prometer nada falso; el mismo modelo presentado
+  como «detector» invita a usarlo sobre personas concretas, donde se equivoca cinco de
+  cada seis veces.
+</div>
 </section>
 <div class="paginacion"><a href="09-modelo.html">← El modelo</a><a href="11-conclusiones.html">Qué significa →</a></div>
 </div></main>
@@ -97,7 +144,19 @@ bien porque es frecuente.</p>
     Gratuita, 24 horas, MINSA<br>
     <a href="12-cierre.html">Todos los recursos</a>
   </div>
-</div></div></footer>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
 <script>
 function alternarTema() {
   const r = document.documentElement;

@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════════════════
+   Identidad visual — Depresión en el Perú (ENDES 2025)
+   Generado por codigo/src/depresion/diseno.py. No editar a mano.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --verde-900: #12352F;
+  --verde-800: #1A4A42;
+  --verde-700: #236158;
+  --verde-600: #2F7D71;
+  --verde-500: #469186;
+  --verde-300: #8FBDB4;
+  --verde-200: #BEDBD5;
+  --verde-100: #E3F0ED;
+  --verde-050: #F1F8F6;
+  --salvia-700: #5A6B58;
+  --salvia-500: #87977F;
+  --salvia-300: #B5C0AC;
+  --salvia-100: #E6EAE0;
+  --arcilla-700: #8F4526;
+  --arcilla-600: #A85732;
+  --arcilla-500: #C4714E;
+  --arcilla-300: #DFA98F;
+  --arcilla-100: #F7E7DF;
+  --miel-700: #8A6417;
+  --miel-600: #A87D20;
+  --miel-500: #D2A03C;
+  --miel-300: #E8CB8C;
+  --miel-100: #FAF0DA;
+  --ciruela-700: #7A2438;
+  --ciruela-500: #9C3A50;
+  --ciruela-100: #F6E4E8;
+  --tierra-900: #25211D;
+  --tierra-700: #4A443D;
+  --tierra-500: #6E675E;
+  --tierra-300: #A8A197;
+  --tierra-200: #D8D2C7;
+  --tierra-100: #EDE8DF;
+  --tierra-050: #F7F4EE;
+  --tierra-000: #FFFDFA;
+
+  /* Roles semánticos: el resto de la hoja usa estos, no los colores crudos.
+     Así un cambio de paleta no obliga a tocar cada regla. */
+  --marca: var(--verde-700);
+  --marca-oscura: var(--verde-900);
+  --marca-clara: var(--verde-100);
+  --acento: var(--arcilla-500);
+  --acento-oscuro: var(--arcilla-700);
+  --acento-claro: var(--arcilla-100);
+  --destacado: var(--miel-600);
+  --destacado-claro: var(--miel-100);
+  --protector: #2F7D71;
+  --riesgo: #A85732;
+  --crisis: var(--ciruela-700);
+  --crisis-fondo: var(--ciruela-100);
+
+  --texto: var(--tierra-900);
+  --texto-suave: var(--tierra-500);
+  --texto-tenue: var(--tierra-300);
+  --borde: var(--tierra-200);
+  --borde-suave: var(--tierra-100);
+  --fondo: var(--tierra-050);
+  --superficie: var(--tierra-000);
+  --superficie-alt: var(--verde-050);
+
+  --fuente-titulo: Fraunces, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --fuente-texto: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* Sombras con tinte del propio color de marca en vez de negro puro: una
+     sombra gris sobre fondo cálido se ve sucia. */
+  --sombra-1: 0 1px 2px rgba(18, 53, 47, .06);
+  --sombra-2: 0 1px 3px rgba(18, 53, 47, .05), 0 8px 24px rgba(18, 53, 47, .07);
+  --sombra-3: 0 2px 6px rgba(18, 53, 47, .06), 0 18px 48px rgba(18, 53, 47, .10);
+
+  --radio-s: 8px;
+  --radio: 14px;
+  --radio-l: 22px;
+  --ancho: 1180px;
+  --ancho-texto: 68ch;
+}
+
+[data-tema="oscuro"] {
+  --verde-900: #CFE6E0; --verde-800: #B9DBD3; --verde-700: #9BCCC1;
+  --verde-600: #7FBBAE; --verde-500: #5FA396; --verde-300: #3D7268;
+  --verde-200: #2A574F; --verde-100: #1B3B36; --verde-050: #16302C;
+  --salvia-700: #C3CDBB; --salvia-500: #9AA792; --salvia-300: #5E6A58;
+  --salvia-100: #2B322A;
+  --arcilla-700: #F0C0A8; --arcilla-600: #E5AC90; --arcilla-500: #D89877;
+  --arcilla-300: #A66B4C; --arcilla-100: #3A2318;
+  --miel-700: #F2D79C; --miel-600: #E8C67F; --miel-500: #D2A03C;
+  --miel-300: #8A6417; --miel-100: #33280F;
+  --ciruela-700: #EDA9B6; --ciruela-500: #C77E8E; --ciruela-100: #38181F;
+  --tierra-900: #F2EEE7; --tierra-700: #D6D0C6; --tierra-500: #A49D92;
+  --tierra-300: #6E675E; --tierra-200: #3A352F; --tierra-100: #2A2621;
+  --tierra-050: #16140F; --tierra-000: #201D18;
+
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --sombra-2: 0 1px 3px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .45);
+  --sombra-3: 0 2px 6px rgba(0, 0, 0, .4), 0 18px 48px rgba(0, 0, 0, .5);
+}
+
+/* Quien pide menos movimiento, recibe menos movimiento. No es un extra: para
+   algunas personas la animación es un síntoma, no un adorno. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}

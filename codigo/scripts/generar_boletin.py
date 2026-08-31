@@ -143,7 +143,19 @@ PIE = """<footer><div class="contenedor"><div class="cols">
     Gratuita, 24 horas, MINSA<br>
     <a href="12-cierre.html">Todos los recursos</a>
   </div>
-</div></div></footer>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
 <script>
 function alternarTema() {
   const r = document.documentElement;
@@ -698,6 +710,147 @@ cambiaría.</p>
 # ─────────────────────────────────────────────────────────────────────
 
 
+def _tasas_observadas_json() -> str:
+    """Devuelve el catálogo de tasas observadas listo para incrustar.
+
+    Va dentro de la página, no como petición a la API: el boletín vive en
+    GitHub Pages, que no tiene backend, y depender del servicio de Render
+    metería un arranque en frío de un minuto justo cuando alguien está
+    interactuando. Son 20 kB, menos que cualquiera de las figuras.
+    """
+    ruta = cfg.RAIZ / "api" / "datos" / "tasas_observadas.json"
+    if not ruta.exists():
+        print(f"  AVISO: no existe {ruta.name}; el explorador quedará vacío")
+        return '{"_orden_niveles": [], "tasas": {}}'
+    crudo = json.loads(ruta.read_text(encoding="utf-8"))
+    # El "</" se neutraliza: dentro de un <script>, un "</script>" en los datos
+    # cerraría la etiqueta antes de tiempo.
+    return json.dumps(crudo, ensure_ascii=False,
+                      separators=(",", ":")).replace("</", "<\\/")
+
+
+def bloque_explorador() -> str:
+    """Explorador de tasas observadas, funcional sin servidor.
+
+    Es el reencuadre llevado al boletín: aquí no hay modelo ni predicción, solo
+    el recuento de cuántas personas de cada grupo dieron positivo. La búsqueda
+    baja por niveles hasta encontrar el grupo más específico con casos
+    suficientes, y dice cuál es en lugar de un vago «parecido».
+    """
+    return """
+<h3>Búscate en los datos</h3>
+
+<p>Las cifras de arriba son promedios de grupos grandes. Abajo puedes cruzar varias
+características a la vez y ver <strong>cuántas personas así dieron positivo</strong> entre
+las 30 226 entrevistadas. No hay modelo ni predicción: es un recuento sobre la muestra,
+con su intervalo de confianza.</p>
+
+<div class="explorador">
+  <div class="explorador-campos">
+    <label>Sexo
+      <select id="ex-sexo"><option>Mujer</option><option>Hombre</option></select>
+    </label>
+    <label>Grupo de edad
+      <select id="ex-edad">
+        <option>15-19</option><option>20-29</option><option selected>30-39</option>
+        <option>40-49</option><option>50-59</option><option>60+</option>
+      </select>
+    </label>
+    <label>Nivel educativo
+      <select id="ex-edu">
+        <option>Primaria o menos</option><option selected>Secundaria</option>
+        <option>Superior</option>
+      </select>
+    </label>
+    <label>Área de residencia
+      <select id="ex-area"><option selected>Urbano</option><option>Rural</option></select>
+    </label>
+    <label>Región natural
+      <select id="ex-region">
+        <option selected>Costa</option><option>Sierra</option><option>Selva</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="explorador-salida" aria-live="polite">
+    <div class="explorador-cifra" id="ex-cifra">&mdash;</div>
+    <p class="explorador-frase" id="ex-frase">Elige las características y la cifra se
+    actualiza sola.</p>
+    <div class="explorador-puntos" id="ex-puntos" role="img"
+         aria-label="Cien puntos; los coloreados son quienes dieron positivo"></div>
+    <p class="explorador-detalle" id="ex-detalle"></p>
+  </div>
+</div>
+
+<p class="ficha">Fuente: ENDES 2025 (INEI). Prevalencias ponderadas con el diseño muestral
+complejo. Solo se muestran combinaciones con al menos 100 personas y 20 casos positivos;
+cuando la combinación exacta no llega, se busca el grupo más específico que sí lo haga y
+se dice cuál es. Funciona sin conexión al servidor: los datos van dentro de esta página.</p>
+
+<script id="datos-tasas" type="application/json">%TASAS%</script>
+<script>
+(function () {
+  var CAT = JSON.parse(document.getElementById('datos-tasas').textContent);
+  var NIVELES = CAT._orden_niveles, TASAS = CAT.tasas;
+  var campos = { sexo: 'ex-sexo', grupo_etario: 'ex-edad', educacion_grupo: 'ex-edu',
+                 area: 'ex-area', region_natural: 'ex-region' };
+
+  function buscar() {
+    var v = {};
+    for (var k in campos) v[k] = document.getElementById(campos[k]).value;
+    for (var i = 0; i < NIVELES.length; i++) {
+      var clave = NIVELES[i].map(function (c) { return v[c]; }).join('|');
+      if (TASAS[clave]) return TASAS[clave];
+    }
+    return null;
+  }
+
+  function coma(x, d) { return x.toFixed(d).replace('.', ','); }
+
+  function pintar() {
+    var t = buscar();
+    var cifra = document.getElementById('ex-cifra');
+    var frase = document.getElementById('ex-frase');
+    var puntos = document.getElementById('ex-puntos');
+    var detalle = document.getElementById('ex-detalle');
+
+    if (!t) {
+      cifra.innerHTML = '&mdash;';
+      frase.textContent = 'No hay suficientes personas con esta combinación en la '
+        + 'encuesta para dar una cifra que se sostenga.';
+      puntos.innerHTML = '';
+      detalle.textContent = '';
+      return;
+    }
+
+    cifra.innerHTML = coma(t.prevalencia, 1) + '<small> de cada 100</small>';
+    frase.innerHTML = 'Entre las personas del mismo <strong>' + t.definido_por
+      + '</strong>, esa proporción dio positivo al tamizaje.';
+
+    var enteros = Math.floor(t.prevalencia), html = '';
+    for (var i = 0; i < 100; i++) {
+      html += i < enteros ? '<i class="on"></i>'
+        : (i === enteros && t.prevalencia - enteros >= 0.25)
+          ? '<i class="mid"></i>' : '<i></i>';
+    }
+    puntos.innerHTML = html;
+
+    detalle.innerHTML = 'Sobre ' + t.n.toLocaleString('es-PE') + ' personas, '
+      + t.eventos + ' dieron positivo. IC 95 %: ' + coma(t.ic_inf, 1) + ' % a '
+      + coma(t.ic_sup, 1) + ' %.'
+      + (t.impreciso ? ' <strong>Estimación imprecisa</strong> (CV &gt; 0,20): léela por '
+        + 'su intervalo, no por la cifra puntual.' : '');
+  }
+
+  for (var k in campos) {
+    document.getElementById(campos[k]).addEventListener('change', pintar);
+  }
+  pintar();
+})();
+</script>
+""".replace("%TASAS%", _tasas_observadas_json())
+
+
 def pagina_quienes() -> str:
     """Perfil sociodemográfico y prevalencias por subgrupo."""
     prev = tabla("tabla_08_prevalencias_ponderadas")
@@ -765,7 +918,8 @@ menos.</p>
     "Gráfico de barras apiladas horizontales con los nueve síntomas del PHQ-9. Cada barra "
     "se divide en cuatro segmentos según la frecuencia del síntoma.")}
 </section>"""
-    return plantilla("06-quienes.html", "Quiénes son", contenido, "7")
+    return plantilla("06-quienes.html", "Quiénes son",
+                     contenido + bloque_explorador(), "7")
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -862,7 +1016,47 @@ de 2019.</p>
              "prevalencia": "Prevalencia (%)", "ic_inf": "IC inferior",
              "ic_sup": "IC superior"},
             frozenset({"n", "prevalencia", "ic_inf", "ic_sup"}),
-            "Prevalencia ponderada por piso altitudinal.")}
+            "Prevalencia ponderada por piso altitudinal. La Puna lleva asterisco: su "
+            "coeficiente de variación es 0,222, por encima del 0,20 que se toma como "
+            "límite para publicar una cifra puntual sin advertencia.")}
+
+<div class="nota">
+  <strong>Sobre la Puna (4 000 m o más).</strong> Es la prevalencia más alta del país,
+  11,7 %, y también la menos firme: son 748 personas, el efecto de diseño es 4,88 y el
+  intervalo de confianza va del 7,4 % al 18,0 %. Se muestra por completitud, no como una
+  cifra puntual: lo que dice es «probablemente alto», no «11,7».
+  <br><br>
+  El gradiente no depende de ella. Suni, con 6 538 personas y un coeficiente de variación
+  de 0,062, ya marca 8,90 % frente al 6,67 % de la costa. Si se quitara la Puna del
+  análisis, la conclusión sería la misma.
+</div>
+
+<h3>La relación no es una línea recta: tiene forma de J</h3>
+
+<p>Lo que más sorprende de estos datos no es que la prevalencia suba con la altura, sino
+que <strong>primero baje</strong>. El tramo intermedio es el más bajo de los dos cortes
+que se probaron: 5,96 % en la yunga (500-1 999 m) y 5,48 % en el corte de 1 500-2 499 m,
+por debajo del 6,67 % de la costa. Después sube con claridad: 8,90 % en la suni y 8,76 %
+por encima de los 2 500 metros.</p>
+
+<p>Se comparó la forma de la relación ajustando tres modelos —lineal, cuadrático y con
+splines— y contrastándolos por AIC. El lineal queda <strong>15,6 puntos por detrás</strong>
+del mejor. Es una diferencia grande: ajustar una recta a estos datos promedia el descenso
+del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la altitud
+«no importa». La forma es el hallazgo, no un tecnicismo.</p>
+
+<div class="nota atencion">
+  <strong>Una discrepancia que hay que contar, no esconder.</strong> En el tramo intermedio,
+  el estudio sobre la ENDES 2019 reportó un aumento del 38 % (aPR 1,38; IC 1,04-1,84).
+  Aquí sale lo contrario: una reducción del 19 % (aPR 0,81; IC 0,66-0,98). Los intervalos
+  no se solapan, así que no es ruido de muestreo.
+  <br><br>
+  No tenemos explicación, y decirlo es parte del trabajo. Hay tres candidatas razonables:
+  seis años de diferencia entre las olas, distinta composición de la muestra en ese tramo,
+  o una especificación del modelo que no es exactamente la misma. Ninguna se puede
+  comprobar con los datos disponibles. Queda como pregunta abierta bien planteada; en el
+  tramo alto, donde sí coinciden ambos estudios, la evidencia es sólida.
+</div>
 
 {figura(
     "mapa_04_altitud_prevalencia.png",
@@ -1005,11 +1199,11 @@ menos vez y media, y que ambos grupos tengan casos suficientes.
 <strong>Sobreviven {sobreviven}.</strong></p>
 
 {html_tabla(inter[inter.sobrevive][["exposicion", "estratificador", "razon_or",
-                                    "eventos_min_estrato", "p_fdr"]].head(10),
+                                    "eventos_min_celda", "p_fdr"]].head(10),
             {"exposicion": "Exposición", "estratificador": "Difiere según",
-             "razon_or": "Cuánto difieren", "eventos_min_estrato": "Casos mínimos",
+             "razon_or": "Cuánto difieren", "eventos_min_celda": "Casos en la celda más pequeña",
              "p_fdr": "p corregido"},
-            frozenset({"razon_or", "eventos_min_estrato", "p_fdr"}),
+            frozenset({"razon_or", "eventos_min_celda", "p_fdr"}),
             "Las interacciones que superan los tres criterios a la vez.")}
 
 <div class="nota">
@@ -1195,6 +1389,53 @@ bien porque es frecuente.</p>
   <strong>Por qué no aparece la exactitud.</strong> Con un 6 % de casos, un modelo que
   responda «nadie tiene depresión» acierta el 94 % de las veces y no sirve para nada. Es la
   métrica más citada y la más engañosa en problemas como este.
+</div>
+
+<h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
+
+<p>Decir «discriminación moderada» suena a matiz técnico. Traducido, es esto:</p>
+
+<div class="rejilla-cifras">
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">2 de cada 3</div>
+    <p>Puestas dos personas al azar, una con síntomas y otra sin ellos, el modelo acierta
+    cuál es cuál solo dos de cada tres veces. Eso <em>es</em> un AUC de 0,67.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">85 de 100</div>
+    <p>De cada cien personas que el modelo señala como riesgo, cerca de ochenta y cinco
+    no dan positivo en el tamizaje. El valor predictivo positivo es 0,147.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">2,2 %</div>
+    <p>Es lo que mejora el error de calibración (Brier) frente a no tener modelo:
+    0,0569 contra 0,0582. Una mejora real y muy pequeña.</p>
+  </div>
+  <div class="cifra-tarjeta">
+    <div class="cifra-grande">4 de 4</div>
+    <p>Cuatro familias de algoritmos, resultados entre 0,655 y 0,684. Cuando cambiar de
+    método no cambia nada, el límite no está en el método.</p>
+  </div>
+</div>
+
+<div class="nota">
+  <strong>Esto no es un modelo fallido: es el resultado correcto.</strong>
+  La depresión de una persona depende de su historia, sus duelos, su red de apoyo, su
+  situación económica inmediata y su biología. Una encuesta de hogares mide sexo, edad,
+  educación, dónde vive y unas pocas conductas. Con esas variables se puede describir
+  <em>dónde se concentra</em> el problema en el país —y eso se hace bien, con intervalos
+  estrechos y coherente con la literatura—, pero no se puede saber quién lo tiene.
+  <br><br>
+  Un modelo que con estas variables alcanzara un AUC de 0,90 sería motivo de sospecha, no
+  de celebración: casi siempre significa que se coló una variable que ya contiene el
+  desenlace. En este proyecto ese riesgo era real y concreto —<code>QS702</code> y
+  <code>QS704A-I</code> se preguntan solo a quien ya marcó síntomas— y por eso se
+  excluyeron desde el principio.
+  <br><br>
+  Reportar el techo honestamente vale más que maquillarlo. Un modelo con AUC 0,67 bien
+  explicado orienta política pública sin prometer nada falso; el mismo modelo presentado
+  como «detector» invita a usarlo sobre personas concretas, donde se equivoca cinco de
+  cada seis veces.
 </div>
 </section>"""
     return plantilla("10-shap.html", "Modelo y realidad", contenido, "11")

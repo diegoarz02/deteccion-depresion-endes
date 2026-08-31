@@ -187,3 +187,52 @@ def test_limpiar_no_deja_pasar_lo_que_verificar_rechaza():
     """Si limpiar deja el texto listo, verificar debe darlo por bueno."""
     sucio = "Usted tiene depresión. Llame al 0800 99999."
     assert guardrails.verificar(guardrails.limpiar(sucio))["veredicto"] != "aprobado"
+
+
+# ─────────────────────────────────────────────────────────────────────
+# Atribución de cifras a la persona que consulta
+# ─────────────────────────────────────────────────────────────────────
+
+
+@pytest.mark.parametrize("texto", [
+    "Tu probabilidad es del 19,9 %.",
+    "Su riesgo es de 20 %.",
+    "Tienes un 19,9 % de presentar síntomas.",
+    "Usted tiene un 20 % de probabilidad.",
+    "En tu caso, la probabilidad estimada ronda el 20 %.",
+    "Tu riesgo personal es elevado.",
+    "Estás en el 20 % de mayor riesgo.",
+])
+def test_no_se_adjudica_una_cifra_a_quien_consulta(texto):
+    """Es el fallo más sutil del sistema, y el que motivó reencuadrar la app.
+
+    No dice «usted tiene depresión» —eso ya se bloquea— sino «tu probabilidad
+    es del 19,9 %». Suena técnico y prudente, y aun así atribuye a una persona
+    una cifra que solo describe a un grupo. Con un valor predictivo positivo de
+    0,147, esa cifra es falsa cinco de cada seis veces.
+    """
+    assert guardrails.verificar(texto)["veredicto"] != "aprobado", texto
+
+
+@pytest.mark.parametrize("texto", [
+    "De cada cien personas con este perfil, alrededor de veinte dieron positivo en el "
+    "tamizaje. Es una estimación poblacional, no un diagnóstico.",
+    "En tu grupo la tasa observada fue del 17,7 %. Es una prevalencia poblacional "
+    "estimada, no un diagnóstico.",
+    "Entre las personas del mismo sexo y grupo de edad, 18 de cada 100 dieron positivo. "
+    "Es un riesgo poblacional estimado, no un diagnóstico.",
+])
+def test_la_formulacion_poblacional_correcta_no_se_bloquea(texto):
+    """El guardarraíl no puede impedir la forma que sí queremos.
+
+    Hablar en segunda persona no es el problema: el problema es hacerlo para
+    adjudicar un número. «En tu grupo» describe al grupo; «tu probabilidad»
+    describe a la persona.
+    """
+    assert guardrails.verificar(texto)["veredicto"] == "aprobado", texto
+
+
+def test_el_motivo_explica_como_reformular():
+    """Un guardarraíl que bloquea sin decir qué hacer obliga a adivinar."""
+    r = guardrails.verificar("Tu probabilidad es del 19,9 %.")
+    assert "tu grupo" in r["motivo"] or "de cada cien" in r["motivo"]

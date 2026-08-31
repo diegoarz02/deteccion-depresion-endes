@@ -212,6 +212,24 @@ async def contexto_departamento(codigo: str) -> dict:
                                      if nacional.get("prevalencia") else None)}
 
 
+@app.post("/tasa-observada", tags=["Contexto"])
+async def tasa_observada(perfil: Perfil) -> dict:
+    """Devuelve la tasa que **se observó** en la ENDES para perfiles como este.
+
+    Es el número protagonista de la aplicación, y no es una predicción: es el
+    recuento ponderado de cuántas personas parecidas dieron positivo al PHQ-9.
+    Con un valor predictivo positivo de 0,147, una probabilidad personal no
+    puede describir a nadie; una tasa observada sí describe a un grupo.
+    """
+    t = servicio.tasa_observada(perfil)
+    if t is None:
+        return JSONResponse(
+            status_code=404,
+            content={"detalle": ("No hay suficientes personas con este perfil en la "
+                                 "encuesta para dar una cifra que se sostenga.")})
+    return t
+
+
 @app.get("/mapa-datos", tags=["Contexto"])
 async def mapa_datos() -> dict:
     """Datos de los 25 departamentos para dibujar el mapa en el navegador."""

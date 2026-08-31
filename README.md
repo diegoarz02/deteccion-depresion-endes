@@ -103,17 +103,70 @@ bitácora razonada en [`docs/decisiones_metodologicas.md`](docs/decisiones_metod
 
 ## Cómo reproducir
 
-```bash
-python -m venv .venv && source .venv/Scripts/activate   # Windows (Git Bash)
-pip install -r requirements.txt
+Desarrollado con **Python 3.14.5** en Windows 11. Las versiones de las librerías van
+fijadas en `requirements.txt`.
 
+### 1. Entorno
+
+```bash
+# Windows · Git Bash
+python -m venv .venv
+source .venv/Scripts/activate
+
+# Windows · PowerShell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Linux o macOS
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+`requirements.txt` incluye las herramientas de desarrollo (`pytest`, `ruff`). Para
+desplegar el servicio se usa `api/requirements.txt`, que es mínimo a propósito: en Render
+no caben pandas, geopandas ni shap dentro de los 512 MB del plan gratuito.
+
+### 2. Microdatos
+
+Los `.sav` de la ENDES 2025 no se versionan: son públicos y se descargan del
+[portal de microdatos del INEI](https://proyectos.inei.gob.pe/microdatos/). Hacen falta
+`CSALUD01_2025.sav`, `RECH0_2025.sav` y `RECH1_2025.sav`.
+
+La ruta se indica por variable de entorno:
+
+```bash
+export ENDES_SAV="/ruta/a/los/sav"          # Git Bash
+$env:ENDES_SAV = "D:\datos\endes"           # PowerShell
+```
+
+Sin ella se usa `../DATA/DATASET FINAL - DEPRESION SALUD MENTAL`, que es donde están en la
+máquina de desarrollo.
+
+### 3. Comprobar que el entorno funciona
+
+```bash
+python -m pytest tests/ -q     # 104 pruebas, ninguna necesita los .sav salvo las de dataset
+python -m ruff check .
+```
+
+Las pruebas del dataset se saltan solas si `datos/final/data.parquet` no existe todavía,
+así que sirven como comprobación del entorno antes de construir nada.
+
+### 4. Ejecutar el pipeline
+
+```bash
 cp .env.example .env        # rellenar solo si se usa el agente con LLM
 
 make data          # dataset único desde los .sav, con georreferenciación
 make analisis      # las diez etapas del análisis epidemiológico
 make boletin       # boletín de 13 secciones en boletin/
 make notebooks     # genera los nueve notebooks y los ejecuta
-make tests         # 88 pruebas: dataset, geografía, agente y API
+make tests         # 104 pruebas: dataset, geografía, agente y API
 make equivalencia  # réplica en R y comparación con Python
 make web           # aplicación interactiva en http://localhost:8000
 make agente        # demostración del agente LangGraph

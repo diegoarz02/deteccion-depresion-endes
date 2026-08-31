@@ -65,7 +65,45 @@ de 2019.</p>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Altitud del conglomerado según el marco muestral, de 1 a 4 500 m. Los pisos siguen la clasificación de Pulgar Vidal.</figcaption>
 </figure>
 
-<div class="tabla-scroll"><table><caption>Prevalencia ponderada por piso altitudinal.</caption><thead><tr><th scope="col">Piso altitudinal</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Costa / selva baja (0-499 m)</td><td class="num">14615</td><td class="num">6.67</td><td class="num">6.02</td><td class="num">7.39</td></tr><tr><td>Yunga (500-1 999 m)</td><td class="num">4715</td><td class="num">5.96</td><td class="num">4.96</td><td class="num">7.13</td></tr><tr><td>Quechua (2 000-2 999 m)</td><td class="num">3610</td><td class="num">7.11</td><td class="num">6.09</td><td class="num">8.29</td></tr><tr><td>Suni (3 000-3 999 m)</td><td class="num">6538</td><td class="num">8.90</td><td class="num">7.87</td><td class="num">10.04</td></tr><tr><td>Puna (4 000 m o más)</td><td class="num">748</td><td class="num">11.70</td><td class="num">7.42</td><td class="num">17.98</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Prevalencia ponderada por piso altitudinal. La Puna lleva asterisco: su coeficiente de variación es 0,222, por encima del 0,20 que se toma como límite para publicar una cifra puntual sin advertencia.</caption><thead><tr><th scope="col">Piso altitudinal</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Costa / selva baja (0-499 m)</td><td class="num">14615</td><td class="num">6.67</td><td class="num">6.02</td><td class="num">7.39</td></tr><tr><td>Yunga (500-1 999 m)</td><td class="num">4715</td><td class="num">5.96</td><td class="num">4.96</td><td class="num">7.13</td></tr><tr><td>Quechua (2 000-2 999 m)</td><td class="num">3610</td><td class="num">7.11</td><td class="num">6.09</td><td class="num">8.29</td></tr><tr><td>Suni (3 000-3 999 m)</td><td class="num">6538</td><td class="num">8.90</td><td class="num">7.87</td><td class="num">10.04</td></tr><tr><td>Puna (4 000 m o más)</td><td class="num">748</td><td class="num">11.70</td><td class="num">7.42</td><td class="num">17.98</td></tr></tbody></table></div>
+
+<div class="nota">
+  <strong>Sobre la Puna (4 000 m o más).</strong> Es la prevalencia más alta del país,
+  11,7 %, y también la menos firme: son 748 personas, el efecto de diseño es 4,88 y el
+  intervalo de confianza va del 7,4 % al 18,0 %. Se muestra por completitud, no como una
+  cifra puntual: lo que dice es «probablemente alto», no «11,7».
+  <br><br>
+  El gradiente no depende de ella. Suni, con 6 538 personas y un coeficiente de variación
+  de 0,062, ya marca 8,90 % frente al 6,67 % de la costa. Si se quitara la Puna del
+  análisis, la conclusión sería la misma.
+</div>
+
+<h3>La relación no es una línea recta: tiene forma de J</h3>
+
+<p>Lo que más sorprende de estos datos no es que la prevalencia suba con la altura, sino
+que <strong>primero baje</strong>. El tramo intermedio es el más bajo de los dos cortes
+que se probaron: 5,96 % en la yunga (500-1 999 m) y 5,48 % en el corte de 1 500-2 499 m,
+por debajo del 6,67 % de la costa. Después sube con claridad: 8,90 % en la suni y 8,76 %
+por encima de los 2 500 metros.</p>
+
+<p>Se comparó la forma de la relación ajustando tres modelos —lineal, cuadrático y con
+splines— y contrastándolos por AIC. El lineal queda <strong>15,6 puntos por detrás</strong>
+del mejor. Es una diferencia grande: ajustar una recta a estos datos promedia el descenso
+del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la altitud
+«no importa». La forma es el hallazgo, no un tecnicismo.</p>
+
+<div class="nota atencion">
+  <strong>Una discrepancia que hay que contar, no esconder.</strong> En el tramo intermedio,
+  el estudio sobre la ENDES 2019 reportó un aumento del 38 % (aPR 1,38; IC 1,04-1,84).
+  Aquí sale lo contrario: una reducción del 19 % (aPR 0,81; IC 0,66-0,98). Los intervalos
+  no se solapan, así que no es ruido de muestreo.
+  <br><br>
+  No tenemos explicación, y decirlo es parte del trabajo. Hay tres candidatas razonables:
+  seis años de diferencia entre las olas, distinta composición de la muestra en ese tramo,
+  o una especificación del modelo que no es exactamente la misma. Ninguna se puede
+  comprobar con los datos disponibles. Queda como pregunta abierta bien planteada; en el
+  tramo alto, donde sí coinciden ambos estudios, la evidencia es sólida.
+</div>
 
 <figure class="figura">
   <p class="titulo-hallazgo">Los dos mapas se parecen tanto que cuesta no sacar conclusiones</p>
@@ -123,7 +161,19 @@ de 2019.</p>
     Gratuita, 24 horas, MINSA<br>
     <a href="12-cierre.html">Todos los recursos</a>
   </div>
-</div></div></footer>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
 <script>
 function alternarTema() {
   const r = document.documentElement;

@@ -60,3 +60,6 @@ resultados/notebooks_ejecutados/
 # Cambia en cada corrida con marcas de tiempo distintas: versionarlo llena el
 # historial de diffs que no dicen nada sobre el análisis.
 resultados/logs/
+
+# Capturas de verificación en navegador, no forman parte de la entrega.
+.playwright-mcp/

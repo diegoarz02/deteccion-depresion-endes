@@ -191,9 +191,26 @@ def recuperar_contexto(estado: EstadoAgente) -> dict:
     except Exception as e:
         log.warning("No se pudo recuperar contexto: %s", e)
 
-    return {"contexto_epidemiologico": contexto,
+    # La tasa observada es lo primero que dirá la respuesta, así que se busca
+    # aquí junto al resto del contexto. Si no hay celda con suficientes casos,
+    # la plantilla lo dice en lugar de presentar la estimación como un conteo.
+    observado = None
+    try:
+        import sys
+
+        sys.path.insert(0, str(RAIZ / "api"))
+        from esquemas import Perfil
+        from servicio import servicio
+
+        observado = servicio.tasa_observada(Perfil(**perfil))
+    except Exception as e:
+        log.warning("No se pudo recuperar la tasa observada: %s", e)
+
+    return {"contexto_epidemiologico": contexto, "tasa_observada": observado,
             "trazas": _traza(estado, "recuperar_contexto", inicio,
-                             f"{len(contexto)} hallazgos")}
+                             f"{len(contexto)} hallazgos"
+                             + (f", tasa observada {observado['prevalencia']} %"
+                                if observado else ", sin tasa observada"))}
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -223,9 +240,10 @@ def redactar_interpretacion(estado: EstadoAgente) -> dict:
     pred = estado["prediccion"]
     perfil = estado.get("perfil") or {}
     contexto = estado.get("contexto_epidemiologico", [])
+    observado = estado.get("tasa_observada")
 
     if not _hay_llm():
-        texto = prompts.plantilla_determinista(pred, perfil, contexto)
+        texto = prompts.plantilla_determinista(pred, perfil, contexto, observado)
         return {"borrador": texto, "modo": "degradado",
                 "trazas": _traza(estado, "redactar_interpretacion", inicio,
                                  "modo degradado: sin clave de API")}
@@ -242,13 +260,21 @@ def redactar_interpretacion(estado: EstadoAgente) -> dict:
             factores=", ".join(f["factor"] for f in pred.get("factores_contribuyentes", []))
                      or "ninguno destacable",
             contexto="\n".join(f"- {c}" for c in contexto) or "- Sin contexto adicional.",
+            observado=(
+                f"{observado['prevalencia']:.1f} % de las personas del mismo "
+                f"{observado['definido_por']} dieron positivo en la encuesta "
+                f"(IC 95 % {observado['ic_inf']:.1f}-{observado['ic_sup']:.1f}, "
+                f"n = {observado['n']}). ES UN RECUENTO OBSERVADO: empieza por aquí."
+                if observado else
+                "No hay suficientes personas con esta combinación exacta en la encuesta "
+                "para dar un recuento directo. Dilo así y usa solo la estimación."),
         )
         r = llm.invoke([("system", prompts.SISTEMA), ("human", mensaje)])
         return {"borrador": r.content.strip(), "modo": "llm",
                 "trazas": _traza(estado, "redactar_interpretacion", inicio, "redactado con LLM")}
     except Exception as e:
         log.warning("El LLM falló, se pasa a modo degradado: %s", e)
-        texto = prompts.plantilla_determinista(pred, perfil, contexto)
+        texto = prompts.plantilla_determinista(pred, perfil, contexto, observado)
         return {"borrador": texto, "modo": "degradado",
                 "trazas": _traza(estado, "redactar_interpretacion", inicio,
                                  f"degradado tras fallo del LLM: {str(e)[:70]}")}
@@ -298,7 +324,7 @@ def reescribir(estado: EstadoAgente) -> dict:
 
     texto = prompts.plantilla_determinista(
         estado["prediccion"], estado.get("perfil") or {},
-        estado.get("contexto_epidemiologico", []))
+        estado.get("contexto_epidemiologico", []), estado.get("tasa_observada"))
     return {"borrador": texto, "intentos": intentos, "modo": "degradado",
             "trazas": _traza(estado, "reescribir", inicio,
                              f"intento {intentos} con plantilla determinista")}
