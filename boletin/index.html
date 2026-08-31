@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depresión en el Perú · Boletín epidemiológico ENDES 2025</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<main id="contenido"><div class="caratula"><div class="contenedor">
+  <img class="logo" src="assets/img/logo_unmsm.jpg"
+       alt="Escudo de la Universidad Nacional Mayor de San Marcos">
+  <p class="institucion">
+    <strong>Universidad Nacional Mayor de San Marcos</strong><br>
+    Facultad de Ciencias Matemáticas<br>
+    Escuela Profesional de Estadística<br>
+    Curso de Epidemiología
+  </p>
+  <div class="regla"></div>
+  <h1>Depresión en la población peruana de 15 y más años</h1>
+  <p class="subtitulo">
+    Factores conductuales, sociales, clínicos y geográficos asociados a la
+    sintomatología depresiva. Un análisis de la Encuesta Demográfica y de Salud
+    Familiar 2025.
+  </p>
+  <div class="equipo"><span>Arapa Lazo, Julio</span><span>Araujo Villegas, Diego Alonso</span><span>Hidalgo Huachaca, Dante</span><span>Montero Tabori, Melany</span><span>Torres Matías</span><span>Zegarra, William</span></div>
+  <p class="pie">
+    Docente: Mg. Carlos Alberto Jaimes Velásquez<br>
+    Lima – Perú, 2026
+  </p>
+  <a class="bajar" href="01-que-es.html">Empezar a leer →</a>
+</div></div>
+
+<div class="contenedor" style="padding-top:56px">
+  <section>
+    <h2>El boletín en cuatro cifras</h2>
+    <p class="entradilla">Sobre 30 226 personas entrevistadas en todo el país, estimado con
+    el diseño muestral complejo de la encuesta y no como si fuera una muestra al azar.</p>
+    <div class="kpis">
+      <div class="kpi">
+        <div class="valor">6.98 %</div>
+        <div class="nombre">Prevalencia nacional</div>
+        <div class="detalle">PHQ-9 ≥ 10 · IC 95 % (6.49 – 7.51)</div>
+      </div>
+      <div class="kpi atencion">
+        <div class="valor">87.6 %</div>
+        <div class="nombre">No recibió atención</div>
+        <div class="detalle">De quienes dan positivo al tamizaje</div>
+      </div>
+      <div class="kpi">
+        <div class="valor">1 de 14</div>
+        <div class="nombre">Personas afectadas</div>
+        <div class="detalle">Entre quienes tienen 15 años o más</div>
+      </div>
+      <div class="kpi">
+        <div class="valor">11,6×</div>
+        <div class="nombre">Diferencia entre extremos</div>
+        <div class="detalle">Puno frente a Ucayali</div>
+      </div>
+    </div>
+
+    <h3>Cómo está organizado</h3>
+    <p>Las cuatro primeras secciones explican de qué hablamos y por qué importa. A partir
+    de la quinta el tono cambia: entran los datos, el método y los resultados. La última
+    reúne los recursos de ayuda.</p>
+
+    <div class="tabla-scroll"><table><thead><tr><th scope="col">Secciones</th><th scope="col">Bloque</th><th scope="col">Contenido</th></tr></thead><tbody><tr><td>2 – 4</td><td>Contexto</td><td>Qué es la depresión, cómo se manifiesta en el Perú y qué cambia cuando se detecta a tiempo</td></tr><tr><td>5 – 6</td><td>Método</td><td>De dónde salen los datos y cómo se midió cada cosa</td></tr><tr><td>7 – 11</td><td>Resultados</td><td>Quiénes son, dónde están, qué se asocia, qué dice el modelo y en qué se contradice</td></tr><tr><td>12 – 13</td><td>Cierre</td><td>Qué concluimos, qué no podemos concluir y dónde pedir ayuda</td></tr></tbody></table></div>
+  </section>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 — salud mental<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="12-cierre.html">Todos los recursos</a>
+  </div>
+</div></div></footer>
+<script>
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

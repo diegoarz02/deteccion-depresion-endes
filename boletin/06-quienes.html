@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiénes son · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">7 de 13</span></a>
+  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html" aria-current="page">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+</div></header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/users.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 7 de 13</span>
+</div>
+<h2>Quiénes son</h2>
+<p class="entradilla">La depresión no se reparte de forma pareja. Se concentra en unos
+grupos más que en otros, y el patrón dice bastante sobre el país.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Las mujeres presentan sintomatología depresiva dos veces y media más que los hombres</p>
+  <p class="explicacion">9,87 % frente a 3,86 %. Es la brecha más grande de todo el boletín, mayor que la que separa a la sierra de la selva o a quien terminó la primaria de quien terminó la universidad. Aparece en todos los grupos de edad y en todas las regiones, así que no se explica por ninguna de esas otras diferencias.</p>
+  
+  <div class="lienzo"><img src="assets/img/fig_02_prevalencia_subgrupos.png" alt="Gráfico de barras horizontales con la prevalencia de depresión por sexo, grupo etario, nivel educativo, área de residencia y región natural. La barra más larga corresponde a las mujeres, con casi 10 %, y la más corta a los hombres, con menos de 4 %." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Prevalencias ponderadas con el diseño muestral complejo. Las barras horizontales son intervalos de confianza al 95 %. n = 30 226.</figcaption>
+</figure>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">La mitad de las personas responde cero en las nueve preguntas</p>
+  <p class="explicacion">Ese pico en el extremo izquierdo no es un error: más de quince mil personas no reportaron ningún síntoma en dos semanas. La otra mitad se reparte en una cola que se adelgaza rápido. Esta forma —muchísimos ceros y unos pocos valores altos— es la razón por la que más adelante usamos regresión logística y no una regresión lineal corriente.</p>
+  
+  <div class="lienzo"><img src="assets/img/fig_01_distribucion_phq9.png" alt="Histograma del puntaje PHQ-9. Una barra muy alta en el valor cero concentra la mitad de la muestra, y el resto desciende formando una cola larga hacia la derecha." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Puntaje PHQ-9 de 0 a 27 sobre 30 401 personas con las nueve preguntas respondidas. Las líneas verticales marcan los puntos de corte.</figcaption>
+</figure>
+
+<h3>La edad dibuja una U</h3>
+<p>Si se mira la prevalencia por edad, el patrón no es el que suele imaginarse. No crece de
+forma constante con los años: baja hasta los treinta y vuelve a subir.</p>
+
+<div class="tabla-scroll"><table><caption>Prevalencia ponderada por grupo etario.</caption><thead><tr><th scope="col">Grupo etario</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col">IC 95 %</th></tr></thead><tbody><tr><td>15-19</td><td class="num">2713</td><td class="num">8.37</td><td>(6.91 – 10.11)</td></tr><tr><td>20-29</td><td class="num">6243</td><td class="num">6.68</td><td>(5.65 – 7.89)</td></tr><tr><td>30-39</td><td class="num">8284</td><td class="num">4.25</td><td>(3.61 – 5.00)</td></tr><tr><td>40-49</td><td class="num">4736</td><td class="num">5.68</td><td>(4.70 – 6.85)</td></tr><tr><td>50-59</td><td class="num">3257</td><td class="num">7.84</td><td>(6.45 – 9.50)</td></tr><tr><td>60+</td><td class="num">4993</td><td class="num">9.80</td><td>(8.57 – 11.18)</td></tr></tbody></table></div>
+
+<p>Los dos extremos de la vida adulta son los más afectados: la adolescencia tardía, con
+8,37 %, y las personas de 60 años o más, con 9,80 %. En medio, entre los 30 y los 39, la
+prevalencia cae hasta el 4,25 %, menos de la mitad.</p>
+
+<h3>El gradiente educativo</h3>
+<p>A menos años de estudio, más sintomatología: 8,77 % entre quienes llegaron como mucho a
+primaria, 7,05 % en secundaria y 5,28 % en educación superior. La diferencia sobrevive al
+ajuste por edad y sexo, así que no es solo que las personas mayores hayan estudiado
+menos.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Dormir mal y sentirse decaído son los síntomas que más aparecen</p>
+  <p class="explicacion">Cada barra reparte a la población entre quienes no sintieron nada, quienes lo sintieron algunos días y quienes lo sintieron casi a diario. Los problemas de sueño encabezan la lista, por delante del ánimo deprimido. Tiene una consecuencia práctica: quien consulta por insomnio puede estar consultando por depresión sin saberlo.</p>
+  
+  <div class="lienzo"><img src="assets/img/fig_03_items_phq9.png" alt="Gráfico de barras apiladas horizontales con los nueve síntomas del PHQ-9. Cada barra se divide en cuatro segmentos según la frecuencia del síntoma." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI), n = 30 401. El ítem marcado con asterisco es el de pensamientos de hacerse daño, que se reporta pero no se analiza por separado.</figcaption>
+</figure>
+</section>
+<div class="paginacion"><a href="05-medicion.html">← Cómo medimos</a><a href="07-geografia.html">Dónde →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 — salud mental<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="12-cierre.html">Todos los recursos</a>
+  </div>
+</div></div></footer>
+<script>
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

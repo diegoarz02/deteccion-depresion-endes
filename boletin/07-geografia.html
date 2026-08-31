@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geografía · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">8 de 13</span></a>
+  <nav class="enlaces" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html" aria-current="page">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+  <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+</div></header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/map-pin.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 8 de 13</span>
+</div>
+<h2>Dónde está la depresión</h2>
+<p class="entradilla">Puno tiene once veces la prevalencia de Ucayali. No es un matiz
+regional: es otro país dentro del mismo país.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">La sierra sur concentra la sintomatología depresiva</p>
+  <p class="explicacion">Puno encabeza con 12,8 %, seguido de Huancavelica con 10,6 %. En el otro extremo, Ucayali marca 1,1 % y Amazonas 3,5 %. El mapa de la derecha es igual de importante: muestra dónde la estimación es menos precisa. Los departamentos amazónicos tienen intervalos más anchos porque su muestra es más pequeña, y conviene tenerlo presente antes de sacar conclusiones sobre ellos.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_01_departamental.png" alt="Dos mapas del Perú por departamento. En el izquierdo, los tonos más oscuros de prevalencia se concentran en la sierra sur. En el derecho, los departamentos amazónicos aparecen con intervalos de confianza más anchos." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI); límites administrativos del INEI 2023 vía geogpsperu. Prevalencias ponderadas con el diseño complejo.</figcaption>
+</figure>
+
+<div class="tabla-scroll"><table><caption>Los ocho departamentos con mayor prevalencia estimada.</caption><thead><tr><th scope="col">Departamento</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Puno</td><td class="num">1116</td><td class="num">12.83</td><td class="num">10.34</td><td class="num">15.81</td></tr><tr><td>Huancavelica</td><td class="num">1222</td><td class="num">10.61</td><td class="num">8.79</td><td class="num">12.76</td></tr><tr><td>Ancash</td><td class="num">1030</td><td class="num">9.08</td><td class="num">7.10</td><td class="num">11.55</td></tr><tr><td>Ayacucho</td><td class="num">1329</td><td class="num">8.79</td><td class="num">7.17</td><td class="num">10.75</td></tr><tr><td>Apurimac</td><td class="num">1147</td><td class="num">8.30</td><td class="num">6.30</td><td class="num">10.87</td></tr><tr><td>La Libertad</td><td class="num">1096</td><td class="num">8.13</td><td class="num">6.31</td><td class="num">10.42</td></tr><tr><td>San Martin</td><td class="num">1178</td><td class="num">7.79</td><td class="num">6.17</td><td class="num">9.79</td></tr><tr><td>Cajamarca</td><td class="num">1171</td><td class="num">7.71</td><td class="num">5.93</td><td class="num">9.97</td></tr></tbody></table></div>
+
+<h3>Hasta dónde se puede bajar</h3>
+<figure class="figura">
+  <p class="titulo-hallazgo">Solo 139 de las 196 provincias tienen muestra suficiente para estimar</p>
+  <p class="explicacion">Bajar de departamento a provincia es tentador y casi siempre es un error. La encuesta está diseñada para dar cifras departamentales; al partirla en 196 pedazos, más de la cuarta parte se queda con menos de cincuenta personas. Esas provincias van tramadas, no coloreadas. Un mapa da a cada polígono la misma autoridad visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil sería mentir sin decir una sola cifra falsa.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_02_provincial.png" alt="Mapa del Perú por provincias. Las provincias con muestra suficiente aparecen coloreadas según su prevalencia; las demás llevan una trama diagonal gris que las distingue del extremo bajo de la escala de color." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Umbral mínimo de 50 personas por provincia. 139 provincias estimables; la mediana de las descartadas tiene 28 personas.</figcaption>
+</figure>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Así se reparte la muestra por el territorio</p>
+  <p class="explicacion">Cada punto es un conglomerado: un grupo de viviendas visitadas juntas. Son 3 143, distribuidos por todo el país. El color es la prevalencia del grupo y el tamaño, cuántas personas lo componen. Nunca se dibuja un caso individual: un punto que representara a una sola persona sería identificable al cruzarlo con otras fuentes.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_03_conglomerados.png" alt="Mapa de puntos del Perú con 3 143 conglomerados muestrales distribuidos por todo el territorio, más densos en la costa y la sierra que en la Amazonía." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Coordenadas del centro poblado, con 1 266 registros corregidos por traer la latitud y la longitud intercambiadas en el archivo original.</figcaption>
+</figure>
+
+<h3>La altura</h3>
+<p>El contraste entre Puno y Ucayali —altiplano contra selva baja— sugiere una pregunta que
+la literatura internacional ya se hizo: ¿tiene algo que ver la altitud? Hay estudios sobre
+hipoxia crónica y trastornos del ánimo, y hay un antecedente peruano directo con la ENDES
+de 2019.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Por encima de los 2 000 metros la prevalencia empieza a subir, y no antes</p>
+  <p class="explicacion">La relación existe pero no es una recta. En la yunga, entre 500 y 2 000 metros, la prevalencia es incluso menor que en la costa. El ascenso arranca en la quechua y se acentúa en la puna, donde llega al 11,7 %. Un modelo que asumiera una línea recta se habría perdido esa forma: el ajuste con curvatura le gana por 15,6 puntos de AIC.</p>
+  
+  <div class="lienzo"><img src="assets/img/fig_15_altitud.png" alt="Tres paneles: un histograma de la altitud de la muestra, barras de prevalencia por piso altitudinal que crecen desde la costa hasta la puna, y una nube de puntos por tramos de 250 metros con una curva de tendencia ascendente." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Altitud del conglomerado según el marco muestral, de 1 a 4 500 m. Los pisos siguen la clasificación de Pulgar Vidal.</figcaption>
+</figure>
+
+<div class="tabla-scroll"><table><caption>Prevalencia ponderada por piso altitudinal.</caption><thead><tr><th scope="col">Piso altitudinal</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Costa / selva baja (0-499 m)</td><td class="num">14615</td><td class="num">6.67</td><td class="num">6.02</td><td class="num">7.39</td></tr><tr><td>Yunga (500-1 999 m)</td><td class="num">4715</td><td class="num">5.96</td><td class="num">4.96</td><td class="num">7.13</td></tr><tr><td>Quechua (2 000-2 999 m)</td><td class="num">3610</td><td class="num">7.11</td><td class="num">6.09</td><td class="num">8.29</td></tr><tr><td>Suni (3 000-3 999 m)</td><td class="num">6538</td><td class="num">8.90</td><td class="num">7.87</td><td class="num">10.04</td></tr><tr><td>Puna (4 000 m o más)</td><td class="num">748</td><td class="num">11.70</td><td class="num">7.42</td><td class="num">17.98</td></tr></tbody></table></div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Los dos mapas se parecen tanto que cuesta no sacar conclusiones</p>
+  <p class="explicacion">Altitud a la izquierda, depresión a la derecha; la correlación entre ambos agregados departamentales es 0,63. Y precisamente por lo evidente que resulta conviene frenar: en el Perú, la altura viene acompañada de ruralidad, de pobreza, de lengua materna originaria y de menos servicios de salud. Cualquiera de esas cosas podría explicar el parecido.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_04_altitud_prevalencia.png" alt="Dos mapas del Perú lado a lado, uno con la altitud media departamental y otro con la prevalencia de depresión. Los patrones oscuros coinciden en la sierra." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Correlación de Pearson entre agregados departamentales: r = 0,63 (p = 0,0008). Una correlación ecológica no dice nada sobre individuos.</figcaption>
+</figure>
+
+<div class="nota atencion">
+  <strong>¿Sobrevive la altura al ajuste? Sí.</strong> Tras controlar por sexo, edad,
+  educación, área de residencia, enfermedades crónicas, tabaco y alcohol, cada 100 metros
+  de altura siguen asociándose con un odds ratio de 1,009
+  (1,003 – 1,014), lo que equivale a alrededor de un 9 %
+  más de probabilidad por cada mil metros. La razón de prevalencia ajustada por encima de
+  los 2 500 metros es 1,37, prácticamente idéntica al 1,41 que reportó el estudio peruano
+  sobre la ENDES 2019. Que dos olas distintas de la encuesta den lo mismo refuerza el
+  hallazgo.
+  <br><br>
+  <strong>Y aun así, esto no prueba que la altura cause depresión.</strong> Ninguna de las
+  variables que pudimos ajustar mide pobreza, lengua materna ni distancia a un servicio de
+  salud. Lo presentamos como una hipótesis que merece estudiarse, no como una conclusión.
+</div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">En Cusco, 96 de cada 100 personas con tamizaje positivo no recibieron atención</p>
+  <p class="explicacion">Este es el mapa que debería ordenar las prioridades. Todo el país está por encima del 80 %, pero los departamentos donde la brecha es peor son, en buena medida, los mismos donde la prevalencia es más alta. La sierra sur acumula las dos cosas: más casos y menos atención.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_05_brecha_atencion.png" alt="Mapa del Perú por departamento con la brecha de atención en salud mental. Casi todo el territorio aparece en tonos oscuros, por encima del 80 %." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Calculado solo entre quienes dan positivo al tamizaje. Los departamentos con menos de 30 casos positivos no se estiman.</figcaption>
+</figure>
+</section>
+<div class="paginacion"><a href="06-quienes.html">← Quiénes son</a><a href="08-factores.html">Qué se asocia →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 — salud mental<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="12-cierre.html">Todos los recursos</a>
+  </div>
+</div></div></footer>
+<script>
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>
