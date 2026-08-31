@@ -1,0 +1,221 @@
+Cargando paquete requerido: grid
+Cargando paquete requerido: Matrix
+Cargando paquete requerido: survival
+
+Adjuntando el paquete: 'survey'
+
+The following object is masked from 'package:graphics':
+
+    dotchart
+
+
+Adjuntando el paquete: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Población de análisis: 30 226
+
+Diseño declarado:
+Stratified 1 - level Cluster Sampling design (with replacement)
+With (3251) clusters.
+svydesign(ids = ~conglomerado, strata = ~estrato, weights = ~peso, 
+    data = datos, nest = TRUE)
+
+Suma de pesos: 36172.8  (no es la población: es un peso relativo)
+
+--- Prevalencia nacional (PHQ-9 >= 10) ---
+                               2.5%  97.5%
+I(depresion_bin == 1) 0.0698 0.0649 0.0751
+                            2.5%      97.5%
+I(depresion_bin == 1) 0.06494758 0.07506383
+
+Efecto de diseño:
+                   mean        SE   DEff
+depresion_bin 0.0698365 0.0025781 3.0926
+Tamaño de muestra efectivo: 9774
+
+--- Prevalencia por subgrupo ---
+
+sexo:
+         sexo depresion_bin          se       ci_l       ci_u
+Hombre Hombre    0.03859970 0.003008689 0.03270277 0.04449662
+Mujer   Mujer    0.09867585 0.004099626 0.09064073 0.10671097
+
+grupo_etario:
+      grupo_etario depresion_bin          se       ci_l       ci_u
+15-19        15-19    0.08373862 0.008106454 0.06785027 0.09962698
+20-29        20-29    0.06685238 0.005675906 0.05572781 0.07797695
+30-39        30-39    0.04250401 0.003527436 0.03559036 0.04941765
+40-49        40-49    0.05677918 0.005472527 0.04605322 0.06750514
+50-59        50-59    0.07839508 0.007757635 0.06319039 0.09359976
+60+            60+    0.09796065 0.006649020 0.08492882 0.11099249
+
+educacion_grupo:
+                  educacion_grupo depresion_bin          se       ci_l
+Primaria o menos Primaria o menos    0.08767868 0.006237655 0.07545310
+Secundaria             Secundaria    0.07045776 0.003803203 0.06300362
+Superior                 Superior    0.05281140 0.004356429 0.04427295
+                       ci_u
+Primaria o menos 0.09990426
+Secundaria       0.07791190
+Superior         0.06134984
+
+area:
+         area depresion_bin          se       ci_l       ci_u
+Rural   Rural    0.06840738 0.003247202 0.06204298 0.07477178
+Urbano Urbano    0.07013662 0.003044026 0.06417044 0.07610280
+
+region_natural:
+       region_natural depresion_bin          se       ci_l       ci_u
+Costa           Costa    0.06903166 0.003722046 0.06173658 0.07632673
+Selva           Selva    0.04974303 0.003659070 0.04257138 0.05691467
+Sierra         Sierra    0.08042487 0.003714273 0.07314503 0.08770471
+
+--- Prevalencia por departamento ---
+               departamento depresion_bin          se        ci_l       ci_u
+Puno                   Puno    0.12830723 0.013727229 0.101402356 0.15521210
+Huancavelica   Huancavelica    0.10611464 0.009961933 0.086589614 0.12563967
+Ancash               Ancash    0.09084454 0.011148106 0.068994657 0.11269443
+Ayacucho           Ayacucho    0.08794773 0.009004921 0.070298415 0.10559705
+Apurimac           Apurimac    0.08305141 0.011423210 0.060662334 0.10544049
+La Libertad     La Libertad    0.08130871 0.010312828 0.061095935 0.10152148
+San Martin       San Martin    0.07788680 0.009098480 0.060054107 0.09571949
+Cajamarca         Cajamarca    0.07709545 0.010098049 0.057303634 0.09688726
+Callao               Callao    0.07707335 0.009806858 0.057852258 0.09629443
+Cusco                 Cusco    0.07412703 0.012254771 0.050108118 0.09814594
+Lima                   Lima    0.07181617 0.005640987 0.060760039 0.08287230
+Huanuco             Huanuco    0.06954151 0.008058604 0.053746935 0.08533608
+Tumbes               Tumbes    0.06416248 0.010467428 0.043646702 0.08467826
+Arequipa           Arequipa    0.06290324 0.008242604 0.046748038 0.07905845
+Junin                 Junin    0.06129727 0.010228994 0.041248807 0.08134573
+Ica                     Ica    0.06112240 0.007651291 0.046126140 0.07611865
+Pasco                 Pasco    0.05783983 0.010475918 0.037307409 0.07837225
+Lambayeque       Lambayeque    0.05738666 0.007923239 0.041857397 0.07291592
+Piura                 Piura    0.04732955 0.008139339 0.031376736 0.06328236
+Madre de Dios Madre de Dios    0.04369588 0.006895164 0.030181611 0.05721016
+Tacna                 Tacna    0.04249548 0.008712650 0.025419002 0.05957196
+Moquegua           Moquegua    0.03860750 0.007046565 0.024796483 0.05241851
+Loreto               Loreto    0.03860224 0.006088199 0.026669591 0.05053489
+Amazonas           Amazonas    0.03528180 0.005532562 0.024438180 0.04612542
+Ucayali             Ucayali    0.01103270 0.003424991 0.004319844 0.01774556
+
+--- Modelo logístico con diseño complejo ---
+
+Call:
+svyglm(formula = depresion_bin ~ es_mujer + grupo_etario + educacion_grupo + 
+    es_rural + region_natural + consumo_frecuente + alcohol_problematico + 
+    fuma_12m + hta_dx + diabetes_dx + obesidad, design = diseno, 
+    family = quasibinomial())
+
+Survey design:
+update(diseno, grupo_etario = relevel(factor(grupo_etario), ref = "30-39"), 
+    educacion_grupo = relevel(factor(educacion_grupo), ref = "Superior"), 
+    region_natural = relevel(factor(region_natural), ref = "Costa"))
+
+Coefficients:
+                                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     -4.02956    0.15755 -25.576  < 2e-16 ***
+es_mujer                         1.07758    0.10629  10.138  < 2e-16 ***
+grupo_etario15-19                0.74617    0.14218   5.248 1.64e-07 ***
+grupo_etario20-29                0.50962    0.11922   4.275 1.97e-05 ***
+grupo_etario40-49                0.23232    0.13506   1.720 0.085506 .  
+grupo_etario50-59                0.46941    0.14708   3.192 0.001430 ** 
+grupo_etario60+                  0.51152    0.13243   3.863 0.000115 ***
+educacion_grupoPrimaria o menos  0.39429    0.13333   2.957 0.003130 ** 
+educacion_grupoSecundaria        0.25283    0.10996   2.299 0.021559 *  
+es_rural                        -0.17879    0.08525  -2.097 0.036064 *  
+region_naturalSelva             -0.39496    0.10010  -3.946 8.15e-05 ***
+region_naturalSierra             0.12038    0.09047   1.331 0.183418    
+consumo_frecuente               -0.18533    0.17280  -1.073 0.283575    
+alcohol_problematico             1.80354    0.29501   6.113 1.10e-09 ***
+fuma_12m                         0.34587    0.14388   2.404 0.016284 *  
+hta_dx                           0.36834    0.12454   2.958 0.003125 ** 
+diabetes_dx                      0.34659    0.17625   1.966 0.049339 *  
+obesidad                         0.09062    0.09068   0.999 0.317707    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasibinomial family taken to be 1.001919)
+
+Number of Fisher Scoring iterations: 6
+
+
+--- Odds ratios ajustados ---
+                                                        termino      or  ic_inf
+(Intercept)                                         (Intercept) 0.01778 0.01306
+es_mujer                                               es_mujer 2.93756 2.38494
+grupo_etario15-19                             grupo_etario15-19 2.10891 1.59582
+grupo_etario20-29                             grupo_etario20-29 1.66465 1.31767
+grupo_etario40-49                             grupo_etario40-49 1.26153 0.96803
+grupo_etario50-59                             grupo_etario50-59 1.59906 1.19844
+grupo_etario60+                                 grupo_etario60+ 1.66783 1.28642
+educacion_grupoPrimaria o menos educacion_grupoPrimaria o menos 1.48333 1.14208
+educacion_grupoSecundaria             educacion_grupoSecundaria 1.28767 1.03792
+es_rural                                               es_rural 0.83628 0.70755
+region_naturalSelva                         region_naturalSelva 0.67370 0.55364
+region_naturalSierra                       region_naturalSierra 1.12793 0.94458
+consumo_frecuente                             consumo_frecuente 0.83083 0.59206
+alcohol_problematico                       alcohol_problematico 6.07110 3.40448
+fuma_12m                                               fuma_12m 1.41322 1.06583
+hta_dx                                                   hta_dx 1.44533 1.13218
+diabetes_dx                                         diabetes_dx 1.41423 1.00100
+obesidad                                               obesidad 1.09485 0.91651
+                                  ic_sup          p
+(Intercept)                      0.02422 1.163e-130
+es_mujer                         3.61822  9.001e-24
+grupo_etario15-19                2.78696  1.645e-07
+grupo_etario20-29                2.10301  1.973e-05
+grupo_etario40-49                1.64401  8.551e-02
+grupo_etario50-59                2.13359  1.430e-03
+grupo_etario60+                  2.16233  1.146e-04
+educacion_grupoPrimaria o menos  1.92654  3.130e-03
+educacion_grupoSecundaria        1.59751  2.156e-02
+es_rural                         0.98844  3.606e-02
+region_naturalSelva              0.81981  8.146e-05
+region_naturalSierra             1.34686  1.834e-01
+consumo_frecuente                1.16589  2.836e-01
+alcohol_problematico            10.82642  1.101e-09
+fuma_12m                         1.87385  1.628e-02
+hta_dx                           1.84509  3.125e-03
+diabetes_dx                      1.99805  4.934e-02
+obesidad                         1.30789  3.177e-01
+
+--- Violencia de pareja (subpoblación con pareja) ---
+                                  2.5%  97.5%
+I(violencia_fisica == 1) 0.0379 0.0337 0.0426
+
+OR ajustado de violencia física:
+      OR    2.5 %   97.5 % 
+4.152110 2.979412 5.786383 
+
+--- Contraste del PHQ-9 por grupo etario (con diseño) ---
+Wald test for grupo_etario
+ in svyglm(formula = phq9_score ~ grupo_etario, design = diseno)
+F =  30.19452  on  5  and  3006  df: p= < 2.22e-16 
+
+--- Medias del PHQ-9 por grupo etario ---
+      grupo_etario phq9_score         se
+30-39        30-39   1.979201 0.06606470
+15-19        15-19   3.186917 0.13332344
+20-29        20-29   2.434374 0.08945425
+40-49        40-49   2.292110 0.08933092
+50-59        50-59   2.841287 0.13044142
+60+            60+   3.343695 0.11791084
+
+--- Sexo por depresión (chi-cuadrado ajustado por diseño) ---
+
+	Pearson's X^2: Rao & Scott adjustment
+
+data:  svychisq(~sexo + depresion_bin, diseno, statistic = "F")
+F = 122.34, ndf = 1, ddf = 3011, p-value < 2.2e-16
+
+
+
+Listo. Compara estos resultados con las tablas de resultados/tablas/.
+Las diferencias deberían quedar en el cuarto decimal o más allá.

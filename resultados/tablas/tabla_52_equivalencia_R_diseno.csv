@@ -1,0 +1,9 @@
+﻿cantidad,python,r,tolerancia,diferencia,coincide
+Prevalencia nacional (%),6.98,6.984,0.05,0.004,True
+IC inferior (%),6.5,6.495,0.05,0.005,True
+IC superior (%),7.51,7.506,0.05,0.004,True
+Efecto de diseño,3.093,3.093,0.05,0.0,True
+Tamaño de muestra efectivo,9773.649,9773.649,5.0,0.0,True
+Suma de ponderadores,36172.808,36172.808,1.0,0.0,True
+Conglomerados,3251.0,3251.0,0.0,0.0,True
+Población de análisis,30226.0,30226.0,0.0,0.0,True
