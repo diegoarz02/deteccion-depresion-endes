@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimador de riesgo epidemiológico de depresión · ENDES 2025</title>
+<meta name="description" content="Estima el riesgo epidemiológico poblacional de sintomatología depresiva a partir del modelo de la ENDES 2025. No es un diagnóstico.">
+<link rel="stylesheet" href="/estatico/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#formulario">Saltar al formulario</a>
+
+<header class="cabecera">
+  <div class="envoltorio cabecera-fila">
+    <a class="marca" href="/">Riesgo de depresión <span>· ENDES 2025</span></a>
+    <nav>
+      <a href="/docs">API</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<div id="despertando" class="despertando" hidden>
+  <span class="girando"></span>
+  El servidor estaba en reposo y está despertando. La primera carga puede tardar
+  cerca de un minuto; las siguientes son inmediatas.
+</div>
+
+<main class="envoltorio">
+
+  <section class="intro">
+    <h1>¿Cuánta gente con un perfil como este presenta síntomas depresivos?</h1>
+    <p>Esta herramienta responde una pregunta <strong>poblacional</strong>, no personal.
+    Estima cuántas personas de cada cien con las características que indiques darían
+    positivo en el tamizaje PHQ-9, según el modelo ajustado sobre 28 553 entrevistas de la
+    Encuesta Demográfica y de Salud Familiar 2025.</p>
+    <p class="destacado">No es un diagnóstico, no evalúa tu situación y no guarda ningún
+    dato.</p>
+  </section>
+
+  <div class="pasos" role="list">
+    <span role="listitem" class="paso activo" data-paso="1">1 · Perfil</span>
+    <span role="listitem" class="paso" data-paso="2">2 · Ubicación</span>
+    <span role="listitem" class="paso" data-paso="3">3 · Resultado</span>
+    <span role="listitem" class="paso" data-paso="4">4 · Contexto</span>
+    <span role="listitem" class="paso" data-paso="5">5 · Mapa</span>
+    <span role="listitem" class="paso" data-paso="6">6 · Factores</span>
+    <span role="listitem" class="paso" data-paso="7">7 · Interpretación</span>
+    <span role="listitem" class="paso" data-paso="8">8 · Recursos</span>
+  </div>
+
+  <div class="disposicion">
+
+    <!-- ── Pasos 1 y 2: entrada ─────────────────────────────────── -->
+    <form id="formulario" class="panel" onsubmit="return false">
+      <h2>1 · Tu perfil</h2>
+      <p class="ayuda-seccion">Cada campo lleva la definición exacta que se usó en el
+      análisis. Si alguna no aplica o no la sabes, déjala sin marcar.</p>
+
+      <div class="campo">
+        <label for="sexo">Sexo</label>
+        <select id="sexo"><option>Hombre</option><option>Mujer</option></select>
+        <p class="pista">Sexo registrado en la encuesta.</p>
+      </div>
+
+      <div class="campo">
+        <label for="grupo_etario">Grupo etario</label>
+        <select id="grupo_etario">
+          <option>15-19</option><option>20-29</option>
+          <option selected>30-39</option><option>40-49</option>
+          <option>50-59</option><option>60+</option>
+        </select>
+        <p class="pista">La prevalencia dibuja una U: es más alta en los extremos.</p>
+      </div>
+
+      <div class="campo">
+        <label for="edad">Edad exacta</label>
+        <input type="number" id="edad" value="35" min="15" max="97">
+        <p class="pista">Debe caer dentro del grupo etario elegido.</p>
+      </div>
+
+      <div class="campo">
+        <label for="nivel_educativo">Nivel educativo</label>
+        <select id="nivel_educativo">
+          <option>Primaria o menos</option>
+          <option selected>Secundaria</option>
+          <option>Superior</option>
+        </select>
+        <p class="pista">Máximo nivel alcanzado, agrupado en tres categorías.</p>
+      </div>
+
+      <fieldset class="campo">
+        <legend>Conductas y condiciones</legend>
+        <p class="pista">Marca solo lo que corresponda. Las definiciones son las de la
+        encuesta, no las coloquiales.</p>
+        <div class="interruptores">
+          <label class="interruptor"><input type="checkbox" id="consumo_frecuente_alcohol">
+            <span><strong>Bebe con frecuencia</strong><em>12 o más días en el último año</em></span></label>
+          <label class="interruptor"><input type="checkbox" id="consumo_problematico_alcohol">
+            <span><strong>Consumo problemático</strong><em>Dos o más criterios de abuso</em></span></label>
+          <label class="interruptor"><input type="checkbox" id="fuma_12m">
+            <span><strong>Fumó</strong><em>Cigarrillos en el último año</em></span></label>
+          <label class="interruptor"><input type="checkbox" id="hipertension">
+            <span><strong>Hipertensión</strong><em>Diagnosticada por un profesional</em></span></label>
+          <label class="interruptor"><input type="checkbox" id="diabetes">
+            <span><strong>Diabetes</strong><em>Diagnosticada por un profesional</em></span></label>
+          <label class="interruptor"><input type="checkbox" id="obesidad">
+            <span><strong>Obesidad</strong><em>Índice de masa corporal ≥ 30</em></span></label>
+        </div>
+      </fieldset>
+
+      <h2 id="paso-ubicacion">2 · Dónde vives</h2>
+      <div class="campo">
+        <label for="departamento">Departamento</label>
+        <select id="departamento"><option value="">Cargando…</option></select>
+        <p class="pista">Se usa para comparar tu perfil con la prevalencia de tu región.</p>
+      </div>
+
+      <div class="campo">
+        <label for="area">Área de residencia</label>
+        <select id="area"><option>Urbano</option><option>Rural</option></select>
+      </div>
+
+      <div class="campo">
+        <label for="region_natural">Región natural</label>
+        <select id="region_natural">
+          <option>Costa</option><option>Sierra</option><option>Selva</option>
+        </select>
+        <p class="pista">Se deriva de la altitud del lugar de residencia.</p>
+      </div>
+
+      <button class="boton-principal" id="calcular" type="button">Calcular la estimación</button>
+      <p class="pista" id="aviso-form" role="status"></p>
+    </form>
+
+    <!-- ── Pasos 3 a 8: resultado ───────────────────────────────── -->
+    <div class="panel resultado" id="resultado" aria-live="polite">
+      <h2>3 · Resultado</h2>
+      <div class="marcador">
+        <div class="probabilidad" id="probabilidad">—</div>
+        <div class="categoria" id="categoria">Completa el perfil y pulsa calcular</div>
+        <div class="barra"><div id="barra"></div></div>
+        <p class="incertidumbre" id="incertidumbre"></p>
+      </div>
+
+      <h3>4 · Cómo se compara</h3>
+      <div class="comparacion" id="comparacion">
+        <p class="pista">Aquí verás tu estimación junto a la prevalencia nacional y la de tu
+        departamento.</p>
+      </div>
+
+      <h3>5 · Tu departamento en el mapa</h3>
+      <div class="lienzo-mapa"><svg id="mapa" viewBox="0 0 300 420" role="img"
+        aria-label="Mapa del Perú por departamentos, con el seleccionado resaltado"></svg></div>
+      <p class="leyenda-mapa" id="leyenda-mapa"></p>
+
+      <h3>6 · Qué pesa en la estimación</h3>
+      <div id="factores"><p class="pista">Los factores aparecerán tras calcular.</p></div>
+
+      <h3>7 · Interpretación</h3>
+      <div id="interpretacion"><p class="pista">Se genera al calcular.</p></div>
+    </div>
+  </div>
+
+  <section id="ayuda" class="panel ancho">
+    <h2>8 · Dónde encontrar ayuda</h2>
+    <p>Estos servicios son gratuitos, atienden en todo el país y no requieren
+    derivación.</p>
+    <div class="recursos" id="recursos"></div>
+    <div class="aviso-legal">
+      <strong>Esto no es un diagnóstico.</strong> La herramienta estima riesgo
+      epidemiológico poblacional con fines académicos y de salud pública. No reemplaza la
+      evaluación de un profesional de salud mental. Si algo de lo que ves aquí te
+      preocupa, hablar con un profesional es el paso que sí puede evaluar tu situación.
+    </div>
+  </section>
+
+  <section id="privacidad" class="panel ancho">
+    <h2>Qué pasa con tus datos</h2>
+    <ul class="lista-limpia">
+      <li><strong>No se guarda nada.</strong> No hay base de datos. Lo que escribes se usa
+      para calcular y se descarta.</li>
+      <li><strong>No hay registro con datos personales.</strong> Los logs del servidor no
+      almacenan el contenido de las peticiones.</li>
+      <li><strong>No hay cuentas ni seguimiento.</strong> Ni cookies de analítica, ni
+      identificadores, ni terceros.</li>
+      <li><strong>El código es público.</strong> Cualquiera puede comprobar que esto es
+      cierto leyéndolo.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltorio">
+    <p><strong>Fuente:</strong> Encuesta Demográfica y de Salud Familiar 2025, Instituto
+    Nacional de Estadística e Informática del Perú. Modelo logístico ajustado sobre 28 553
+    personas, con el diseño muestral complejo.</p>
+    <p>Proyecto del curso de Epidemiología 2026-2 · Escuela Profesional de Estadística ·
+    Facultad de Ciencias Matemáticas · Universidad Nacional Mayor de San Marcos.</p>
+  </div>
+</footer>
+
+<script src="/estatico/app.js"></script>
+</body>
+</html>

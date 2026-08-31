@@ -1,0 +1,299 @@
+/* Aplicación web del estimador de riesgo epidemiológico.
+   ==========================================================================
+   Todo el cálculo lo hace la API. El navegador solo recoge el perfil, pinta el
+   resultado y dibuja el mapa. No se guarda nada: ni cookies, ni localStorage
+   con datos del perfil, ni peticiones a terceros. Lo único que se recuerda es
+   la preferencia de tema.
+   ========================================================================= */
+
+const estado = { contexto: null, geo: null, ultima: null };
+
+/* ── Tema ─────────────────────────────────────────────────────────── */
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+  if (estado.ultima) dibujarMapa(document.getElementById('departamento').value);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+
+/* ── Utilidades ───────────────────────────────────────────────────── */
+const num = (v, d = 1) => Number(v).toFixed(d).replace('.', ',');
+
+function marcarPaso(n) {
+  document.querySelectorAll('.paso').forEach((p) => {
+    const i = Number(p.dataset.paso);
+    p.classList.toggle('activo', i === n);
+    p.classList.toggle('hecho', i < n);
+  });
+}
+
+/* El arranque en frío de Render puede tardar cerca de un minuto. Se avisa en
+   lugar de dejar la página aparentemente rota. */
+async function pedir(url, opciones = {}) {
+  const aviso = document.getElementById('despertando');
+  const temporizador = setTimeout(() => { aviso.hidden = false; }, 2500);
+  try {
+    const r = await fetch(url, opciones);
+    return r;
+  } finally {
+    clearTimeout(temporizador);
+    aviso.hidden = true;
+  }
+}
+
+/* ── Arranque ─────────────────────────────────────────────────────── */
+async function iniciar() {
+  try {
+    const [ctx, geo] = await Promise.all([
+      pedir('/mapa-datos').then((r) => r.json()),
+      pedir('/geojson').then((r) => (r.ok ? r.json() : null)),
+    ]);
+    estado.contexto = ctx;
+    estado.geo = geo;
+
+    const sel = document.getElementById('departamento');
+    sel.innerHTML = '<option value="">Selecciona tu departamento</option>' +
+      ctx.departamentos.map((d) => `<option value="${d.codigo}">${d.nombre}</option>`).join('');
+    sel.addEventListener('change', () => {
+      dibujarMapa(sel.value);
+      if (estado.ultima) mostrarComparacion(estado.ultima);
+    });
+    dibujarMapa('');
+  } catch (e) {
+    document.getElementById('aviso-form').textContent =
+      'No se pudo contactar con el servidor. Revisa tu conexión e inténtalo de nuevo.';
+  }
+  cargarRecursos();
+}
+
+/* ── Recursos de ayuda ────────────────────────────────────────────── */
+/* Vienen del catálogo verificado del servidor. El navegador no los inventa ni
+   los completa: si el servidor no responde, se muestra el mínimo imprescindible. */
+const RECURSOS_BASE = [
+  { telefono: '113', nombre: 'Línea 113, opción 5 — Salud mental',
+    descripcion: 'Orientación y apoyo psicológico gratuito del Ministerio de Salud.',
+    meta: 'Gratuito · 24 horas, todos los días' },
+  { telefono: '100', nombre: 'Línea 100 — Violencia familiar y sexual',
+    descripcion: 'Atención del MIMP en castellano, quechua y aimara.',
+    meta: 'Gratuito · 24 horas, todos los días' },
+  { telefono: '106', nombre: 'SAMU — Emergencias médicas',
+    descripcion: 'Atención prehospitalaria de urgencias y emergencias.',
+    meta: 'Gratuito · 24 horas' },
+];
+
+function cargarRecursos() {
+  document.getElementById('recursos').innerHTML = RECURSOS_BASE.map((r) => `
+    <div class="recurso">
+      <div class="numero">${r.telefono}</div>
+      <h4>${r.nombre}</h4>
+      <p>${r.descripcion}</p>
+      <p class="meta">${r.meta}</p>
+    </div>`).join('');
+}
+
+/* ── Mapa ─────────────────────────────────────────────────────────── */
+function dibujarMapa(codigoSeleccionado) {
+  const svg = document.getElementById('mapa');
+  if (!estado.geo) {
+    svg.innerHTML = '';
+    document.getElementById('leyenda-mapa').textContent =
+      'El mapa no está disponible en este momento.';
+    return;
+  }
+  const oscuro = document.documentElement.getAttribute('data-tema') === 'oscuro';
+  const escala = ['#dfeaf2', '#b9cbe0', '#7e9cc0', '#41689b', '#17456b', '#0d2b45'];
+  const prevs = estado.contexto.departamentos.map((d) => d.prevalencia);
+  const min = Math.min(...prevs), max = Math.max(...prevs);
+
+  // Proyección lineal simple: basta para una silueta de referencia.
+  let x0 = 180, x1 = -180, y0 = 90, y1 = -90;
+  estado.geo.features.forEach((f) => recorrer(f.geometry, (x, y) => {
+    x0 = Math.min(x0, x); x1 = Math.max(x1, x);
+    y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+  }));
+  const W = 300, H = 420, m = 8;
+  const k = Math.min((W - 2 * m) / (x1 - x0), (H - 2 * m) / (y1 - y0));
+  const px = (x) => m + (x - x0) * k;
+  const py = (y) => H - m - (y - y0) * k;
+
+  const partes = estado.geo.features.map((f) => {
+    const cod = f.properties.codigo;
+    const p = f.properties.prevalencia;
+    const t = (p - min) / (max - min || 1);
+    const relleno = p == null ? '#cbd5e0' : escala[Math.min(escala.length - 1,
+      Math.floor(t * escala.length))];
+    const sel = cod === codigoSeleccionado;
+    return `<path d="${camino(f.geometry, px, py)}" fill="${relleno}"
+      stroke="${sel ? '#d18d1f' : (oscuro ? '#24374a' : '#ffffff')}"
+      stroke-width="${sel ? 2.4 : 0.5}" opacity="${codigoSeleccionado && !sel ? 0.45 : 1}">
+      <title>${f.properties.nombre}: ${p == null ? 'sin dato' : num(p, 2) + ' %'}</title></path>`;
+  });
+  svg.innerHTML = partes.join('');
+
+  const d = estado.contexto.departamentos.find((x) => x.codigo === codigoSeleccionado);
+  document.getElementById('leyenda-mapa').textContent = d
+    ? `${d.nombre}: ${num(d.prevalencia, 2)} % de prevalencia (IC 95 % ${num(d.ic_inf, 2)} – ${num(d.ic_sup, 2)}), sobre ${d.n} personas entrevistadas.`
+    : 'Selecciona tu departamento para resaltarlo. El tono indica la prevalencia estimada.';
+}
+
+function recorrer(geom, fn) {
+  const anillos = geom.type === 'Polygon' ? geom.coordinates : geom.coordinates.flat();
+  anillos.forEach((anillo) => anillo.forEach(([x, y]) => fn(x, y)));
+}
+
+function camino(geom, px, py) {
+  const anillos = geom.type === 'Polygon' ? geom.coordinates : geom.coordinates.flat();
+  return anillos.map((anillo) =>
+    'M' + anillo.map(([x, y]) => `${px(x).toFixed(1)},${py(y).toFixed(1)}`).join('L') + 'Z'
+  ).join(' ');
+}
+
+/* ── Cálculo ──────────────────────────────────────────────────────── */
+function leerPerfil() {
+  const v = (id) => document.getElementById(id).value;
+  const c = (id) => document.getElementById(id).checked;
+  return {
+    sexo: v('sexo'),
+    grupo_etario: v('grupo_etario'),
+    nivel_educativo: v('nivel_educativo'),
+    region_natural: v('region_natural'),
+    area: v('area'),
+    edad: Number(v('edad')),
+    consumo_frecuente_alcohol: c('consumo_frecuente_alcohol'),
+    consumo_problematico_alcohol: c('consumo_problematico_alcohol'),
+    fuma_12m: c('fuma_12m'),
+    hipertension: c('hipertension'),
+    diabetes: c('diabetes'),
+    obesidad: c('obesidad'),
+  };
+}
+
+async function calcular() {
+  const aviso = document.getElementById('aviso-form');
+  aviso.textContent = 'Calculando…';
+  const perfil = leerPerfil();
+
+  const r = await pedir('/predict', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(perfil),
+  });
+
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    const detalle = Array.isArray(err.detail) && err.detail.length
+      ? err.detail[0].msg : 'Revisa que la edad corresponda al grupo etario elegido.';
+    aviso.textContent = `No se pudo calcular. ${detalle}`;
+    return;
+  }
+  aviso.textContent = '';
+  const pred = await r.json();
+  estado.ultima = pred;
+
+  mostrarResultado(pred);
+  mostrarComparacion(pred);
+  mostrarFactores(pred);
+  marcarPaso(7);
+  await mostrarInterpretacion(perfil);
+  marcarPaso(8);
+}
+
+function mostrarResultado(p) {
+  const pct = p.probabilidad_pct;
+  const clase = p.categoria_riesgo === 'alto' ? 'riesgo-alto'
+    : p.categoria_riesgo === 'medio' ? 'riesgo-medio' : 'riesgo-bajo';
+  const texto = { alto: 'Riesgo alto', medio: 'Riesgo medio', bajo: 'Riesgo bajo' };
+
+  const el = document.getElementById('probabilidad');
+  el.textContent = num(pct, 1) + ' %';
+  el.className = 'probabilidad ' + clase;
+
+  const cat = document.getElementById('categoria');
+  cat.textContent = texto[p.categoria_riesgo];
+  cat.className = 'categoria ' + clase;
+
+  const barra = document.getElementById('barra');
+  barra.style.width = Math.min(100, pct * 3) + '%';
+  barra.className = clase;
+
+  document.getElementById('incertidumbre').textContent =
+    `De cada cien personas con este perfil, alrededor de ${Math.round(pct)} darían positivo ` +
+    'en el tamizaje. El modelo distingue con un AUC de 0,67: sirve para comparar grupos, ' +
+    'no para clasificar a una persona.';
+}
+
+function mostrarComparacion(p) {
+  const nacional = estado.contexto.nacional.prevalencia;
+  const cod = document.getElementById('departamento').value;
+  const dep = estado.contexto.departamentos.find((d) => d.codigo === cod);
+
+  let filas = `
+    <div class="fila-comp destacada"><span>Este perfil</span>
+      <b>${num(p.probabilidad_pct, 1)} %</b></div>
+    <div class="fila-comp"><span>Prevalencia nacional</span><b>${num(nacional, 2)} %</b></div>`;
+
+  if (dep) {
+    filas += `<div class="fila-comp"><span>Prevalencia en ${dep.nombre}</span>
+      <b>${num(dep.prevalencia, 2)} %</b></div>`;
+    if (dep.brecha != null) {
+      filas += `<div class="fila-comp"><span>Sin atención profesional en ${dep.nombre}</span>
+        <b>${num(dep.brecha, 1)} %</b></div>`;
+    }
+    const razonDep = p.probabilidad_pct / dep.prevalencia;
+    filas += `<p class="pista">Este perfil está ${num(razonDep, 1)} veces por
+      ${razonDep >= 1 ? 'encima' : 'debajo'} de la prevalencia de ${dep.nombre}, y
+      ${num(p.razon_sobre_prevalencia, 1)} veces respecto de la nacional.</p>`;
+  } else {
+    filas += '<p class="pista">Selecciona tu departamento para comparar también con tu región.</p>';
+  }
+  document.getElementById('comparacion').innerHTML = filas;
+}
+
+function mostrarFactores(p) {
+  const f = p.factores_contribuyentes;
+  document.getElementById('factores').innerHTML = f.length
+    ? f.map((x) => `<div class="factor"><span>${x.factor}</span>
+        <span class="peso">×${num(x.odds_ratio, 2)}</span></div>`).join('') +
+      '<p class="pista">Cada valor es cuánto multiplica ese factor las probabilidades, ' +
+      'manteniendo el resto constante.</p>'
+    : '<p class="pista">Ningún factor de este perfil eleva la estimación de forma apreciable ' +
+      'respecto de la población general.</p>';
+}
+
+async function mostrarInterpretacion(perfil) {
+  const caja = document.getElementById('interpretacion');
+  caja.innerHTML = '<p class="pista">Redactando la interpretación…</p>';
+  try {
+    const r = await pedir('/interpretar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(perfil),
+    });
+    const d = await r.json();
+    const etiqueta = d.modo === 'crisis'
+      ? '<span class="etiqueta-modo crisis">Respuesta de seguridad</span>'
+      : d.modo === 'llm'
+        ? '<span class="etiqueta-modo">Redactada por un modelo y verificada</span>'
+        : '<span class="etiqueta-modo">Redactada con plantillas sobre las cifras del modelo</span>';
+    caja.innerHTML = etiqueta +
+      `<div class="interpretacion-texto">${(d.texto || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>`;
+  } catch (e) {
+    caja.innerHTML = '<p class="pista">No se pudo generar la interpretación en este momento. ' +
+      'La estimación de arriba sigue siendo válida.</p>';
+  }
+}
+
+/* ── Enlaces ──────────────────────────────────────────────────────── */
+document.getElementById('calcular').addEventListener('click', calcular);
+['sexo', 'grupo_etario', 'edad', 'nivel_educativo'].forEach((id) =>
+  document.getElementById(id).addEventListener('change', () => marcarPaso(1)));
+document.getElementById('departamento').addEventListener('change', () => marcarPaso(2));
+
+iniciar();

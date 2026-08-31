@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: api-depresion-endes
+    runtime: docker
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: .
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: LOG_LEVEL
+        value: INFO
+      - key: RATE_LIMIT
+        value: "60"
+      - key: CORS_ORIGINS
+        value: https://diegoarz02.github.io
+    autoDeploy: false
