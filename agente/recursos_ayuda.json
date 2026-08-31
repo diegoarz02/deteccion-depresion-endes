@@ -1,0 +1,99 @@
+{
+  "_nota": "Catálogo fijo y verificado de recursos de ayuda. El modelo de lenguaje NUNCA genera un teléfono ni una URL: solo puede devolver identificadores de este archivo, y el código los sustituye por el dato real. Un modelo puede alucinar un número; enviar a una persona en crisis a un teléfono equivocado es un daño real.",
+  "_verificado_el": "2026-08-30",
+  "_verificado_contra": [
+    "Ministerio de Salud del Perú — gob.pe/minsa (comunicaciones oficiales sobre la Línea 113)",
+    "Ministerio de la Mujer y Poblaciones Vulnerables — gob.pe/mimp (Línea 100 y Chat 100)",
+    "Programa Nacional Aurora / Warmi Ñan — red de Centros Emergencia Mujer"
+  ],
+  "_politica_de_revision": "Volver a verificar cada seis meses o antes de cualquier publicación. Si un dato no se puede confirmar en una fuente oficial, se retira del catálogo en lugar de publicarse con dudas.",
+
+  "recursos": [
+    {
+      "id": "linea_113",
+      "prioridad": 1,
+      "nombre": "Línea 113, opción 5 — Salud mental",
+      "institucion": "Ministerio de Salud del Perú (MINSA)",
+      "telefono": "113",
+      "detalle_acceso": "Marca 113 y elige la opción de salud mental (opción 5).",
+      "descripcion": "Orientación y apoyo psicológico gratuito. Atiende tristeza persistente, ansiedad, descontrol emocional y dificultades de interacción social.",
+      "gratuito": true,
+      "horario": "24 horas, todos los días",
+      "cobertura": "Nacional, desde teléfono fijo, celular o público",
+      "url": "https://www.gob.pe/minsa",
+      "canales_alternativos": [
+        {"tipo": "WhatsApp", "valor": "955 557 000"},
+        {"tipo": "WhatsApp", "valor": "952 842 623"},
+        {"tipo": "Correo", "valor": "infosalud@minsa.gob.pe"}
+      ],
+      "cuando_ofrecerlo": ["siempre", "crisis", "sintomas_depresivos", "ansiedad"]
+    },
+    {
+      "id": "linea_100",
+      "prioridad": 2,
+      "nombre": "Línea 100 — Violencia familiar y sexual",
+      "institucion": "Ministerio de la Mujer y Poblaciones Vulnerables (MIMP)",
+      "telefono": "100",
+      "detalle_acceso": "Marca 100 desde cualquier teléfono del país.",
+      "descripcion": "Información, orientación y contención emocional para personas afectadas por violencia contra la mujer o integrantes del grupo familiar. Atiende en castellano, quechua y aimara.",
+      "gratuito": true,
+      "horario": "24 horas, todos los días, incluidos feriados",
+      "cobertura": "Nacional",
+      "url": "https://www.gob.pe/mimp",
+      "canales_alternativos": [
+        {"tipo": "Chat", "valor": "Chat 100, orientación en línea del MIMP"}
+      ],
+      "cuando_ofrecerlo": ["violencia_pareja", "violencia_familiar", "crisis"]
+    },
+    {
+      "id": "samu_106",
+      "prioridad": 3,
+      "nombre": "SAMU — Emergencias médicas",
+      "institucion": "Sistema de Atención Móvil de Urgencia, MINSA",
+      "telefono": "106",
+      "detalle_acceso": "Marca 106 ante una emergencia médica.",
+      "descripcion": "Atención prehospitalaria de urgencias y emergencias médicas.",
+      "gratuito": true,
+      "horario": "24 horas",
+      "cobertura": "Nacional",
+      "url": "https://www.gob.pe/minsa",
+      "cuando_ofrecerlo": ["crisis", "emergencia_medica"]
+    },
+    {
+      "id": "csmc",
+      "prioridad": 4,
+      "nombre": "Centros de Salud Mental Comunitaria",
+      "institucion": "Ministerio de Salud del Perú (MINSA)",
+      "telefono": null,
+      "detalle_acceso": "Consulta el centro más cercano en el establecimiento de salud de tu jurisdicción o llamando a la Línea 113.",
+      "descripcion": "Red de servicios ambulatorios especializados en salud mental, con atención por psicología, psiquiatría y trabajo social. Son la puerta de entrada al tratamiento en el sistema público.",
+      "gratuito": true,
+      "horario": "Según el establecimiento",
+      "cobertura": "Nacional, con presencia desigual entre regiones",
+      "url": "https://www.gob.pe/minsa",
+      "cuando_ofrecerlo": ["siempre", "sintomas_depresivos", "seguimiento"]
+    },
+    {
+      "id": "insm",
+      "prioridad": 5,
+      "nombre": "Instituto Nacional de Salud Mental «Honorio Delgado – Hideyo Noguchi»",
+      "institucion": "Ministerio de Salud del Perú (MINSA)",
+      "telefono": null,
+      "detalle_acceso": "Establecimiento especializado de referencia nacional, en Lima.",
+      "descripcion": "Instituto de referencia nacional en salud mental: atención especializada, docencia e investigación.",
+      "gratuito": false,
+      "horario": "Según el servicio",
+      "cobertura": "Nacional, con sede en Lima",
+      "url": "https://www.gob.pe/insm",
+      "cuando_ofrecerlo": ["derivacion_especializada"]
+    }
+  ],
+
+  "plantilla_crisis": {
+    "_nota": "Texto FIJO, no generativo. Se emite tal cual cuando se activa el nodo de crisis, antes de cualquier llamada al modelo de lenguaje. Evita deliberadamente cualquier detalle sobre métodos y no intenta evaluar la gravedad: deriva.",
+    "texto": "Gracias por responder con honestidad. Algunas de las respuestas que has dado indican un malestar que merece atención de una persona profesional, y merece atención pronto.\n\nEsto no es un diagnóstico y esta herramienta no puede evaluar tu situación. Lo que sí puede hacer es decirte dónde encontrar a alguien que sí pueda.\n\nTe recomendamos hablar hoy mismo con un profesional de salud mental. Si en este momento sientes que necesitas hablar con alguien, la **Línea 113, opción 5** del Ministerio de Salud atiende de forma gratuita y confidencial las 24 horas, desde cualquier teléfono del Perú. También puedes acudir al establecimiento de salud más cercano y pedir atención en salud mental.\n\nSi la situación es urgente, llama al **106 (SAMU)** o acude a una emergencia hospitalaria.\n\nNo tienes que resolver esto por tu cuenta.",
+    "recursos": ["linea_113", "samu_106", "csmc"]
+  },
+
+  "encuadre_obligatorio": "Esto es una estimación estadística de riesgo poblacional con fines académicos, no un diagnóstico."
+}
