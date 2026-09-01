@@ -128,9 +128,24 @@ Los registros están en la pestaña **Logs** del servicio, en vivo.
 
 ## Después de un cambio en el código
 
-`autoDeploy` está en **false** a propósito: un push no publica nada por su cuenta.
+El servicio tiene **Auto-Deploy: On Commit**, así que cada push a `main` publica solo.
 
-Para actualizar: **Manual Deploy** → **Deploy latest commit**.
+Si un push no llega a desplegarse —pasa cuando el webhook de GitHub se desincroniza—, hay
+dos formas de forzarlo:
+
+- **Manual Deploy** → **Deploy latest commit**, en la esquina superior derecha.
+- El **Deploy Hook** de Settings → Deploy: una URL secreta que dispara un despliegue con una
+  petición POST. Útil para automatizar; trátala como una contraseña y usa *Regenerate hook*
+  si alguna vez se expone.
+
+Para comprobar qué versión está viva sin entrar al panel:
+
+```bash
+curl -s https://depresion-endes.onrender.com/health
+```
+
+Y en la pestaña **Events** se ve el historial: `Deploy live` con su hora, o `Deploy failed`
+con el error.
 
 Si lo que cambió fue el boletín y no la app, no hace falta tocar Render: eso vive en GitHub
 Pages y se actualiza empujando la rama `gh-pages`.

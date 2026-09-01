@@ -53,5 +53,11 @@ services:
       - key: ANTHROPIC_API_KEY
         sync: false
 
-    # Despliegue manual: un push no debe publicar sin revisar antes.
-    autoDeploy: false
+    # El servicio real está configurado en el panel con Auto-Deploy «On Commit»,
+    # así que cada push a main publica. Se refleja aquí para que el archivo no
+    # describa un comportamiento distinto del que tiene: un render.yaml que
+    # miente sobre el servicio es peor que no tenerlo.
+    #
+    # El panel manda sobre este archivo una vez creado el servicio; cambiar esto
+    # a false no lo desactiva, hay que hacerlo en Settings → Auto-Deploy.
+    autoDeploy: true
