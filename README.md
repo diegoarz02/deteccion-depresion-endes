@@ -11,6 +11,22 @@ estratificado, por conglomerados), con boletín interactivo, API y agente conver
 > de salud mental. Si te sientes mal, busca ayuda: en el Perú puedes llamar gratuitamente a
 > la **Línea 113, opción 5 (salud mental)** del MINSA.
 
+## Ver el trabajo
+
+| | |
+|---|---|
+| **Boletín** | https://diegoarz02.github.io/deteccion-depresion-endes/ |
+| **Explorador «Gente como tú»** | https://depresion-endes.onrender.com |
+| **Código** | https://github.com/diegoarz02/deteccion-depresion-endes |
+
+El boletín son trece secciones que se leen de corrido, con dos bloques interactivos —uno
+para buscarse por perfil y otro por departamento— que funcionan sin servidor.
+
+El explorador responde una pregunta distinta: cuántas personas parecidas a ti dieron
+positivo en el tamizaje. Vive en el plan gratuito de Render, así que **la primera visita
+tras un rato de inactividad tarda unos 50 segundos** en despertar el servicio; la propia
+página lo avisa mientras tanto.
+
 ---
 
 ## Hallazgos principales
@@ -150,7 +166,7 @@ máquina de desarrollo.
 ### 3. Comprobar que el entorno funciona
 
 ```bash
-python -m pytest tests/ -q     # 104 pruebas, ninguna necesita los .sav salvo las de dataset
+python -m pytest -q            # 132 pruebas, ninguna necesita los .sav salvo las de dataset
 python -m ruff check .
 ```
 
@@ -166,7 +182,7 @@ make data          # dataset único desde los .sav, con georreferenciación
 make analisis      # las diez etapas del análisis epidemiológico
 make boletin       # boletín de 13 secciones en boletin/
 make notebooks     # genera los nueve notebooks y los ejecuta
-make tests         # 104 pruebas: dataset, geografía, agente y API
+make tests         # 132 pruebas: dataset, geografía, agente y API
 make equivalencia  # réplica en R y comparación con Python
 make web           # aplicación interactiva en http://localhost:8000
 make agente        # demostración del agente LangGraph
@@ -183,6 +199,10 @@ bien desde la consola.
 
 **La réplica en R** necesita R instalado. Si no está en el PATH:
 `make equivalencia RSCRIPT="/ruta/a/Rscript.exe"`.
+
+**Para desplegar** el servicio en Render, la guía paso a paso está en
+[`docs/DESPLIEGUE_RENDER.md`](docs/DESPLIEGUE_RENDER.md). El boletín se publica solo al
+empujar la rama `gh-pages`.
 
 El dataset se versiona por hash SHA-256 en `datos/final/data_hash.txt`: dos ejecuciones
 sobre los mismos insumos producen el mismo hash.
