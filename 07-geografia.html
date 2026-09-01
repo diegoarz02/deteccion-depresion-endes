@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geografía · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">8 de 13</span></a>
+  <div class="nav-controles">
+    <a class="salto" href="06-quienes.html" title="Quiénes son" aria-label="Anterior: Quiénes son">‹</a><a class="salto" href="08-factores.html" title="Qué se asocia" aria-label="Siguiente: Qué se asocia">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html" aria-current="page">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:62%"></div></div>
+</header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/map-pin.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 8 de 13</span>
+</div>
+<h2>Dónde está la depresión</h2>
+<p class="entradilla">Puno tiene once veces la prevalencia de Ucayali. No es un matiz
+regional: es otro país dentro del mismo país.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">La sierra sur concentra la sintomatología depresiva</p>
+  <p class="explicacion">Puno encabeza con 12,8 %, seguido de Huancavelica con 10,6 %. En el otro extremo, Ucayali marca 1,1 % y Amazonas 3,5 %. El mapa de la derecha es igual de importante: muestra dónde la estimación es menos precisa. Los departamentos amazónicos tienen intervalos más anchos porque su muestra es más pequeña, y conviene tenerlo presente antes de sacar conclusiones sobre ellos.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_01_departamental.png" alt="Dos mapas del Perú por departamento. En el izquierdo, los tonos más oscuros de prevalencia se concentran en la sierra sur. En el derecho, los departamentos amazónicos aparecen con intervalos de confianza más anchos." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI); límites administrativos del INEI 2023 vía geogpsperu. Prevalencias ponderadas con el diseño complejo.</figcaption>
+</figure>
+
+<div class="tabla-scroll"><table><caption>Los ocho departamentos con mayor prevalencia estimada.</caption><thead><tr><th scope="col">Departamento</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Puno</td><td class="num">1116</td><td class="num">12.83</td><td class="num">10.34</td><td class="num">15.81</td></tr><tr><td>Huancavelica</td><td class="num">1222</td><td class="num">10.61</td><td class="num">8.79</td><td class="num">12.76</td></tr><tr><td>Ancash</td><td class="num">1030</td><td class="num">9.08</td><td class="num">7.10</td><td class="num">11.55</td></tr><tr><td>Ayacucho</td><td class="num">1329</td><td class="num">8.79</td><td class="num">7.17</td><td class="num">10.75</td></tr><tr><td>Apurimac</td><td class="num">1147</td><td class="num">8.30</td><td class="num">6.30</td><td class="num">10.87</td></tr><tr><td>La Libertad</td><td class="num">1096</td><td class="num">8.13</td><td class="num">6.31</td><td class="num">10.42</td></tr><tr><td>San Martin</td><td class="num">1178</td><td class="num">7.79</td><td class="num">6.17</td><td class="num">9.79</td></tr><tr><td>Cajamarca</td><td class="num">1171</td><td class="num">7.71</td><td class="num">5.93</td><td class="num">9.97</td></tr></tbody></table></div>
+
+<h3>Hasta dónde se puede bajar</h3>
+<figure class="figura">
+  <p class="titulo-hallazgo">Solo 139 de las 196 provincias tienen muestra suficiente para estimar</p>
+  <p class="explicacion">Bajar de departamento a provincia es tentador y casi siempre es un error. La encuesta está diseñada para dar cifras departamentales; al partirla en 196 pedazos, más de la cuarta parte se queda con menos de cincuenta personas. Esas provincias van tramadas, no coloreadas. Un mapa da a cada polígono la misma autoridad visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil sería mentir sin decir una sola cifra falsa.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_02_provincial.png" alt="Mapa del Perú por provincias. Las provincias con muestra suficiente aparecen coloreadas según su prevalencia; las demás llevan una trama diagonal gris que las distingue del extremo bajo de la escala de color." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Umbral mínimo de 50 personas por provincia. 139 provincias estimables; la mediana de las descartadas tiene 28 personas.</figcaption>
+</figure>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Así se reparte la muestra por el territorio</p>
+  <p class="explicacion">Cada punto es un conglomerado: un grupo de viviendas visitadas juntas. Son 3 143, distribuidos por todo el país. El color es la prevalencia del grupo y el tamaño, cuántas personas lo componen. Nunca se dibuja un caso individual: un punto que representara a una sola persona sería identificable al cruzarlo con otras fuentes.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_03_conglomerados.png" alt="Mapa de puntos del Perú con 3 143 conglomerados muestrales distribuidos por todo el territorio, más densos en la costa y la sierra que en la Amazonía." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Coordenadas del centro poblado, con 1 266 registros corregidos por traer la latitud y la longitud intercambiadas en el archivo original.</figcaption>
+</figure>
+
+<h3>La altura</h3>
+<p>El contraste entre Puno y Ucayali —altiplano contra selva baja— sugiere una pregunta que
+la literatura internacional ya se hizo: ¿tiene algo que ver la altitud? Hay estudios sobre
+hipoxia crónica y trastornos del ánimo, y hay un antecedente peruano directo con la ENDES
+de 2019.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Por encima de los 2 000 metros la prevalencia empieza a subir, y no antes</p>
+  <p class="explicacion">La relación existe pero no es una recta. En la yunga, entre 500 y 2 000 metros, la prevalencia es incluso menor que en la costa. El ascenso arranca en la quechua y se acentúa en la puna, donde llega al 11,7 %. Un modelo que asumiera una línea recta se habría perdido esa forma: el ajuste con curvatura le gana por 15,6 puntos de AIC.</p>
+  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>El primer panel dice cuánta gente vive a cada altura: la mayoría de la muestra está cerca del nivel del mar.</li><li>El segundo agrupa por pisos. Las rayitas son el margen de error, y se ensanchan donde hay poca gente: la puna es la más ancha de todas.</li><li>El tercero no agrupa: cada punto es un tramo de 250 metros. Sirve para ver si la subida es continua o si hay tramos donde baja.</li></ul></div>
+  <div class="lienzo"><img src="assets/img/fig_15_altitud.png" alt="Tres paneles: un histograma de la altitud de la muestra, barras de prevalencia por piso altitudinal que crecen desde la costa hasta la puna, y una nube de puntos por tramos de 250 metros con una curva de tendencia ascendente." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Altitud del conglomerado según el marco muestral, de 1 a 4 500 m. Los pisos siguen la clasificación de Pulgar Vidal.</figcaption>
+</figure>
+
+<div class="tabla-scroll"><table><caption>Prevalencia ponderada por piso altitudinal. La Puna lleva asterisco: su coeficiente de variación es 0,222, por encima del 0,20 que se toma como límite para publicar una cifra puntual sin advertencia.</caption><thead><tr><th scope="col">Piso altitudinal</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Prevalencia (%)</th><th scope="col" class="num">IC inferior</th><th scope="col" class="num">IC superior</th></tr></thead><tbody><tr><td>Costa / selva baja (0-499 m)</td><td class="num">14615</td><td class="num">6.67</td><td class="num">6.02</td><td class="num">7.39</td></tr><tr><td>Yunga (500-1 999 m)</td><td class="num">4715</td><td class="num">5.96</td><td class="num">4.96</td><td class="num">7.13</td></tr><tr><td>Quechua (2 000-2 999 m)</td><td class="num">3610</td><td class="num">7.11</td><td class="num">6.09</td><td class="num">8.29</td></tr><tr><td>Suni (3 000-3 999 m)</td><td class="num">6538</td><td class="num">8.90</td><td class="num">7.87</td><td class="num">10.04</td></tr><tr><td>Puna (4 000 m o más)</td><td class="num">748</td><td class="num">11.70</td><td class="num">7.42</td><td class="num">17.98</td></tr></tbody></table></div>
+
+<div class="nota">
+  <strong>Sobre la Puna (4 000 m o más).</strong> Es la prevalencia más alta del país,
+  11,7 %, y también la menos firme: son 748 personas, el efecto de diseño es 4,88 y el
+  intervalo de confianza va del 7,4 % al 18,0 %. Se muestra por completitud, no como una
+  cifra puntual: lo que dice es «probablemente alto», no «11,7».
+  <br><br>
+  El gradiente no depende de ella. Suni, con 6 538 personas y un coeficiente de variación
+  de 0,062, ya marca 8,90 % frente al 6,67 % de la costa. Si se quitara la Puna del
+  análisis, la conclusión sería la misma.
+</div>
+
+<h3>La relación no es una línea recta: tiene forma de J</h3>
+
+<p>Lo que más sorprende de estos datos no es que la prevalencia suba con la altura, sino
+que <strong>primero baje</strong>. El tramo intermedio es el más bajo de los dos cortes
+que se probaron: 5,96 % en la yunga (500-1 999 m) y 5,48 % en el corte de 1 500-2 499 m,
+por debajo del 6,67 % de la costa. Después sube con claridad: 8,90 % en la suni y 8,76 %
+por encima de los 2 500 metros.</p>
+
+<p>Se comparó la forma de la relación ajustando tres modelos —lineal, cuadrático y con
+splines— y contrastándolos por AIC. El lineal queda <strong>15,6 puntos por detrás</strong>
+del mejor. Es una diferencia grande: ajustar una recta a estos datos promedia el descenso
+del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la altitud
+«no importa». La forma es el hallazgo, no un tecnicismo.</p>
+
+<div class="nota atencion">
+  <strong>Una discrepancia que hay que contar, no esconder.</strong> En el tramo intermedio,
+  el estudio sobre la ENDES 2019 reportó un aumento del 38 % (aPR 1,38; IC 1,04-1,84).
+  Aquí sale lo contrario: una reducción del 19 % (aPR 0,81; IC 0,66-0,98). Los intervalos
+  no se solapan, así que no es ruido de muestreo.
+  <br><br>
+  No tenemos explicación, y decirlo es parte del trabajo. Hay tres candidatas razonables:
+  seis años de diferencia entre las olas, distinta composición de la muestra en ese tramo,
+  o una especificación del modelo que no es exactamente la misma. Ninguna se puede
+  comprobar con los datos disponibles. Queda como pregunta abierta bien planteada; en el
+  tramo alto, donde sí coinciden ambos estudios, la evidencia es sólida.
+</div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Los dos mapas se parecen tanto que cuesta no sacar conclusiones</p>
+  <p class="explicacion">Altitud a la izquierda, depresión a la derecha; la correlación entre ambos agregados departamentales es 0,63. Y precisamente por lo evidente que resulta conviene frenar: en el Perú, la altura viene acompañada de ruralidad, de pobreza, de lengua materna originaria y de menos servicios de salud. Cualquiera de esas cosas podría explicar el parecido.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_04_altitud_prevalencia.png" alt="Dos mapas del Perú lado a lado, uno con la altitud media departamental y otro con la prevalencia de depresión. Los patrones oscuros coinciden en la sierra." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Correlación de Pearson entre agregados departamentales: r = 0,63 (p = 0,0008). Una correlación ecológica no dice nada sobre individuos.</figcaption>
+</figure>
+
+<div class="nota atencion">
+  <strong>¿Sobrevive la altura al ajuste? Sí.</strong> Tras controlar por sexo, edad,
+  educación, área de residencia, enfermedades crónicas, tabaco y alcohol, cada 100 metros
+  de altura siguen asociándose con un odds ratio de 1,009
+  (1,003 – 1,014), lo que equivale a alrededor de un 9 %
+  más de probabilidad por cada mil metros. La razón de prevalencia ajustada por encima de
+  los 2 500 metros es 1,37, prácticamente idéntica al 1,41 que reportó el estudio peruano
+  sobre la ENDES 2019. Que dos olas distintas de la encuesta den lo mismo refuerza el
+  hallazgo.
+  <br><br>
+  <strong>Y aun así, esto no prueba que la altura cause depresión.</strong> Ninguna de las
+  variables que pudimos ajustar mide pobreza, lengua materna ni distancia a un servicio de
+  salud. Lo presentamos como una hipótesis que merece estudiarse, no como una conclusión.
+</div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">En Cusco, 96 de cada 100 personas con tamizaje positivo no recibieron atención</p>
+  <p class="explicacion">Este es el mapa que debería ordenar las prioridades. Todo el país está por encima del 80 %, pero los departamentos donde la brecha es peor son, en buena medida, los mismos donde la prevalencia es más alta. La sierra sur acumula las dos cosas: más casos y menos atención.</p>
+  
+  <div class="lienzo"><img src="assets/img/mapa_05_brecha_atencion.png" alt="Mapa del Perú por departamento con la brecha de atención en salud mental. Casi todo el territorio aparece en tonos oscuros, por encima del 80 %." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Calculado solo entre quienes dan positivo al tamizaje. Los departamentos con menos de 30 casos positivos no se estiman.</figcaption>
+</figure>
+</section>
+<h3>Busca tu departamento</h3>
+
+<p>Los mapas de arriba muestran el patrón completo. Si lo que quieres es
+<strong>tu</strong> departamento, elígelo aquí y verás su cifra con su margen de error,
+junto a la del país y la de los departamentos que tiene más cerca en la escala.</p>
+
+<div class="selector-dep">
+  <label for="dep-sel">Departamento
+    <select id="dep-sel"></select>
+  </label>
+  <div class="dep-tarjeta" aria-live="polite">
+    <div class="dep-cifra" id="dep-cifra">&mdash;</div>
+    <p class="dep-nombre" id="dep-nombre"></p>
+    <p class="dep-detalle" id="dep-detalle"></p>
+  </div>
+</div>
+
+<svg id="dep-barras" class="barras-comparativas" role="img"
+     aria-label="Comparación del departamento con el país"></svg>
+<p class="explorador-interpreta" id="dep-interpreta"></p>
+
+<details class="detalle-numerico">
+  <summary>Ver el detalle</summary>
+  <div id="dep-tabla"></div>
+</details>
+
+<script id="datos-departamentos" type="application/json">{"nacional":{"prevalencia":6.98,"ic_inf":6.5,"ic_sup":7.51,"n":30226,"brecha":87.6},"departamentos":[{"codigo":"01","nombre":"Amazonas","prevalencia":3.53,"ic_inf":2.58,"ic_sup":4.8,"n":1278,"brecha":93.8,"altitud_media":1199},{"codigo":"02","nombre":"Ancash","prevalencia":9.08,"ic_inf":7.1,"ic_sup":11.55,"n":1030,"brecha":90.2,"altitud_media":1998},{"codigo":"03","nombre":"Apurimac","prevalencia":8.3,"ic_inf":6.3,"ic_sup":10.87,"n":1147,"brecha":89.5,"altitud_media":3150},{"codigo":"04","nombre":"Arequipa","prevalencia":6.29,"ic_inf":4.84,"ic_sup":8.13,"n":939,"brecha":80.0,"altitud_media":2200},{"codigo":"05","nombre":"Ayacucho","prevalencia":8.79,"ic_inf":7.17,"ic_sup":10.75,"n":1329,"brecha":88.7,"altitud_media":2880},{"codigo":"06","nombre":"Cajamarca","prevalencia":7.71,"ic_inf":5.93,"ic_sup":9.97,"n":1171,"brecha":92.6,"altitud_media":2316},{"codigo":"07","nombre":"Callao","prevalencia":7.71,"ic_inf":5.98,"ic_sup":9.89,"n":924,"brecha":86.8,"altitud_media":102},{"codigo":"08","nombre":"Cusco","prevalencia":7.41,"ic_inf":5.32,"ic_sup":10.24,"n":1059,"brecha":96.2,"altitud_media":3113},{"codigo":"09","nombre":"Huancavelica","prevalencia":10.61,"ic_inf":8.79,"ic_sup":12.76,"n":1222,"brecha":95.5,"altitud_media":3414},{"codigo":"10","nombre":"Huanuco","prevalencia":6.95,"ic_inf":5.52,"ic_sup":8.73,"n":1307,"brecha":87.0,"altitud_media":2126},{"codigo":"11","nombre":"Ica","prevalencia":6.11,"ic_inf":4.76,"ic_sup":7.82,"n":1165,"brecha":84.7,"altitud_media":328},{"codigo":"12","nombre":"Junin","prevalencia":6.13,"ic_inf":4.39,"ic_sup":8.5,"n":1089,"brecha":80.0,"altitud_media":2508},{"codigo":"13","nombre":"La Libertad","prevalencia":8.13,"ic_inf":6.31,"ic_sup":10.42,"n":1096,"brecha":84.7,"altitud_media":1063},{"codigo":"14","nombre":"Lambayeque","prevalencia":5.74,"ic_inf":4.36,"ic_sup":7.53,"n":1117,"brecha":82.9,"altitud_media":155},{"codigo":"15","nombre":"Lima","prevalencia":7.18,"ic_inf":6.15,"ic_sup":8.37,"n":3447,"brecha":82.4,"altitud_media":324},{"codigo":"16","nombre":"Loreto","prevalencia":3.86,"ic_inf":2.82,"ic_sup":5.27,"n":1129,"brecha":85.7,"altitud_media":126},{"codigo":"17","nombre":"Madre de Dios","prevalencia":4.37,"ic_inf":3.19,"ic_sup":5.96,"n":1049,"brecha":83.7,"altitud_media":263},{"codigo":"18","nombre":"Moquegua","prevalencia":3.86,"ic_inf":2.68,"ic_sup":5.53,"n":1035,"brecha":75.0,"altitud_media":1335},{"codigo":"19","nombre":"Pasco","prevalencia":5.78,"ic_inf":4.02,"ic_sup":8.25,"n":1007,"brecha":93.2,"altitud_media":2755},{"codigo":"20","nombre":"Piura","prevalencia":4.73,"ic_inf":3.36,"ic_sup":6.63,"n":1116,"brecha":74.5,"altitud_media":347},{"codigo":"21","nombre":"Puno","prevalencia":12.83,"ic_inf":10.34,"ic_sup":15.81,"n":1116,"brecha":95.3,"altitud_media":3797},{"codigo":"22","nombre":"San Martin","prevalencia":7.79,"ic_inf":6.17,"ic_sup":9.79,"n":1178,"brecha":87.8,"altitud_media":598},{"codigo":"23","nombre":"Tacna","prevalencia":4.25,"ic_inf":2.82,"ic_sup":6.35,"n":972,"brecha":87.5,"altitud_media":962},{"codigo":"24","nombre":"Tumbes","prevalencia":6.42,"ic_inf":4.63,"ic_sup":8.83,"n":1117,"brecha":89.8,"altitud_media":23},{"codigo":"25","nombre":"Ucayali","prevalencia":1.1,"ic_inf":0.59,"ic_sup":2.04,"n":1187,"brecha":null,"altitud_media":203}],"subgrupos":[{"variable":"Sexo","categoria":"Hombre","prevalencia":3.86,"n":12346},{"variable":"Sexo","categoria":"Mujer","prevalencia":9.87,"n":17880},{"variable":"Grupo etario","categoria":"15-19","prevalencia":8.37,"n":2713},{"variable":"Grupo etario","categoria":"20-29","prevalencia":6.68,"n":6243},{"variable":"Grupo etario","categoria":"30-39","prevalencia":4.25,"n":8284},{"variable":"Grupo etario","categoria":"40-49","prevalencia":5.68,"n":4736},{"variable":"Grupo etario","categoria":"50-59","prevalencia":7.84,"n":3257},{"variable":"Grupo etario","categoria":"60+","prevalencia":9.8,"n":4993},{"variable":"Nivel educativo","categoria":"Primaria o menos","prevalencia":8.77,"n":6442},{"variable":"Nivel educativo","categoria":"Secundaria","prevalencia":7.05,"n":13741},{"variable":"Nivel educativo","categoria":"Superior","prevalencia":5.28,"n":8898},{"variable":"Área de residencia","categoria":"Rural","prevalencia":6.84,"n":11277},{"variable":"Área de residencia","categoria":"Urbano","prevalencia":7.01,"n":18949},{"variable":"Región natural","categoria":"Costa","prevalencia":6.9,"n":11359},{"variable":"Región natural","categoria":"Selva","prevalencia":4.97,"n":6744},{"variable":"Región natural","categoria":"Sierra","prevalencia":8.04,"n":12123},{"variable":"Dominio","categoria":"Costa","prevalencia":6.33,"n":8154},{"variable":"Dominio","categoria":"Lima Metropolitana","prevalencia":7.28,"n":3205},{"variable":"Dominio","categoria":"Selva","prevalencia":4.97,"n":6744},{"variable":"Dominio","categoria":"Sierra","prevalencia":8.04,"n":12123}],"fuente":"ENDES 2025 (INEI)"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('datos-departamentos').textContent);
+  var DEPS = D.departamentos.slice().sort(function (a, b) {
+    return a.nombre.localeCompare(b.nombre, 'es'); });
+  var NAC = D.nacional;
+  var sel = document.getElementById('dep-sel');
+
+  DEPS.forEach(function (d) {
+    var o = document.createElement('option');
+    o.value = d.codigo; o.textContent = d.nombre;
+    if (d.nombre === 'Puno') o.selected = true;
+    sel.appendChild(o);
+  });
+
+  /* Ucayali no tiene brecha calculada: sus casos positivos no llegan al mínimo
+     para estimarla. Devolver un guion es más honesto que un cero, que se leería
+     como «aquí todo el mundo recibe atención». */
+  function coma(x, n) {
+    return (x === null || x === undefined) ? '—' : x.toFixed(n).replace('.', ',');
+  }
+
+  /* Los dos departamentos con la prevalencia más parecida, uno por encima y
+     otro por debajo. Comparar con «el vecino en la escala» sitúa mejor que
+     comparar con el máximo y el mínimo, que siempre son los mismos. */
+  function vecinos(d) {
+    var orden = DEPS.slice().sort(function (a, b) {
+      return a.prevalencia - b.prevalencia; });
+    var i = orden.findIndex(function (x) { return x.codigo === d.codigo; });
+    return [orden[i - 1], orden[i + 1]].filter(Boolean);
+  }
+
+  function barras(d, vs) {
+    var filas = [{ etq: d.nombre, d: d, destacada: true },
+                 { etq: 'Todo el Perú', d: NAC }];
+    vs.forEach(function (v) { filas.push({ etq: v.nombre, d: v }); });
+
+    var max = Math.max.apply(null, filas.map(function (f) { return f.d.ic_sup; })) * 1.08;
+    var W = 460, alto = 34, pad = 122, y = 6, svg = '';
+    filas.forEach(function (f) {
+      var x = function (val) { return pad + (val / max) * (W - pad - 46); };
+      var color = f.destacada ? 'var(--verde-700)' : 'var(--salvia-500)';
+      svg += '<text x="' + (pad - 8) + '" y="' + (y + 15) + '" text-anchor="end" '
+        + 'class="bc-etq">' + f.etq + '</text>'
+        + '<rect x="' + pad + '" y="' + (y + 4) + '" width="' + (x(f.d.prevalencia) - pad)
+        + '" height="15" rx="3" fill="' + color + '"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 11.5)
+        + '" y2="' + (y + 11.5) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_inf) + '" x2="' + x(f.d.ic_inf) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<line x1="' + x(f.d.ic_sup) + '" x2="' + x(f.d.ic_sup) + '" y1="' + (y + 7)
+        + '" y2="' + (y + 16) + '" class="bc-ic"/>'
+        + '<text x="' + (x(f.d.ic_sup) + 7) + '" y="' + (y + 15) + '" class="bc-val">'
+        + coma(f.d.prevalencia, 1) + ' %</text>';
+      y += alto;
+    });
+    var g = document.getElementById('dep-barras');
+    g.setAttribute('viewBox', '0 0 ' + W + ' ' + y);
+    g.innerHTML = svg;
+  }
+
+  function pintar() {
+    var d = DEPS.find(function (x) { return x.codigo === sel.value; });
+    if (!d) return;
+    var vs = vecinos(d);
+    var amplitud = d.ic_sup - d.ic_inf;
+    // El coeficiente de variación no viene en este archivo; se aproxima por la
+    // amplitud relativa del intervalo, que es lo que se quiere comunicar.
+    var impreciso = amplitud / d.prevalencia > 0.8;
+
+    document.getElementById('dep-cifra').innerHTML = coma(d.prevalencia, 1)
+      + '<small> de cada 100</small>';
+    document.getElementById('dep-nombre').textContent = d.nombre;
+    document.getElementById('dep-detalle').innerHTML =
+      'Sobre ' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + ' personas entrevistadas. '
+      + 'Intervalo de confianza del 95 %: ' + coma(d.ic_inf, 1) + ' % a '
+      + coma(d.ic_sup, 1) + ' %.'
+      + (impreciso ? ' <strong>El intervalo es ancho:</strong> con esta muestra la cifra '
+        + 'puntual no se sostiene sola.' : '');
+
+    barras(d, vs);
+
+    var partes = [];
+    var r = d.prevalencia / NAC.prevalencia;
+    if (r >= 1.15) {
+      partes.push('<strong>' + d.nombre + '</strong> está por encima del promedio del país: '
+        + coma(r, 1) + ' veces la cifra nacional.');
+    } else if (r <= 0.87) {
+      partes.push('<strong>' + d.nombre + '</strong> está por debajo del promedio del país. '
+        + 'En el conjunto del Perú la proporción es ' + coma(1 / r, 1) + ' veces la de aquí.');
+    } else {
+      partes.push('<strong>' + d.nombre + '</strong> se mueve en torno al promedio del país.');
+    }
+
+    if (vs.length === 2) {
+      partes.push('En la escala nacional queda entre ' + vs[0].nombre + ' ('
+        + coma(vs[0].prevalencia, 1) + ' %) y ' + vs[1].nombre + ' ('
+        + coma(vs[1].prevalencia, 1) + ' %).');
+    }
+
+    // Si los intervalos se solapan, la diferencia entre departamentos no está
+    // asegurada. Decirlo evita el titular fácil de «X duplica a Y».
+    if (d.ic_inf < NAC.ic_sup && NAC.ic_inf < d.ic_sup) {
+      partes.push('Su intervalo se solapa con el nacional, así que la diferencia con el '
+        + 'promedio del país no está asegurada.');
+    }
+
+    if (d.brecha != null) {
+      partes.push('De quienes dieron positivo aquí, el ' + coma(d.brecha, 0)
+        + ' % no recibió atención profesional en todo el año.');
+    }
+    document.getElementById('dep-interpreta').innerHTML = partes.join(' ');
+
+    document.getElementById('dep-tabla').innerHTML = '<table><tbody>'
+      + '<tr><th>Personas entrevistadas</th><td>' + d.n.toLocaleString('es-PE').replace(/,/g, ' ') + '</td></tr>'
+      + '<tr><th>Prevalencia ponderada</th><td>' + coma(d.prevalencia, 2) + ' %</td></tr>'
+      + '<tr><th>Intervalo de confianza 95 %</th><td>' + coma(d.ic_inf, 2) + ' % a '
+      + coma(d.ic_sup, 2) + ' %</td></tr>'
+      + '<tr><th>Amplitud del intervalo</th><td>' + coma(amplitud, 2)
+      + ' puntos porcentuales</td></tr>'
+      + '<tr><th>Brecha de atención</th><td>'
+      + (d.brecha == null ? 'sin casos suficientes para estimarla'
+         : coma(d.brecha, 1) + ' %') + '</td></tr>'
+      + '<tr><th>Altitud media</th><td>' + d.altitud_media.toLocaleString('es-PE').replace(/,/g, ' ')
+      + ' m</td></tr></tbody></table>';
+  }
+
+  sel.addEventListener('change', pintar);
+  pintar();
+})();
+</script>
+
+<div class="paginacion"><a href="06-quienes.html">← Quiénes son</a><a href="08-factores.html">Qué se asocia →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 — salud mental<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="12-cierre.html">Todos los recursos</a>
+  </div>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
+<script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

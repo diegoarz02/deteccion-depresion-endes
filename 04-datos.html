@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los datos · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="stylesheet" href="assets/fuentes.css">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">5 de 13</span></a>
+  <div class="nav-controles">
+    <a class="salto" href="03-deteccion.html" title="Detección" aria-label="Anterior: Detección">‹</a><a class="salto" href="05-medicion.html" title="Cómo medimos" aria-label="Siguiente: Cómo medimos">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html" aria-current="page">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:38%"></div></div>
+</header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/database.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 5 de 13</span>
+</div>
+<h2>¿Qué nos dicen los datos?</h2>
+<p class="entradilla">Hasta aquí hemos hablado de qué es la depresión y por qué importa. A
+partir de esta página hablamos de lo que muestran los datos, y conviene explicar primero de
+dónde salen.</p>
+
+<h3>La encuesta</h3>
+<p>La <strong>Encuesta Demográfica y de Salud Familiar</strong> es el operativo estadístico
+más grande que el INEI dedica a la salud de los hogares peruanos. Se levanta todos los años,
+recorre los 25 departamentos y pregunta por salud reproductiva, nutrición, enfermedades
+crónicas y, en el módulo que usamos aquí, salud mental.</p>
+
+<p>Para este boletín usamos la ola de 2025: el cuestionario de salud aplicado a una persona
+de 15 años a más seleccionada en cada hogar, cruzado con el registro del hogar, que aporta
+la ubicación y las variables del diseño muestral.</p>
+
+<h3>Por qué no es una encuesta cualquiera</h3>
+<p>La ENDES no elige a la gente al azar de una lista nacional. Divide el país en estratos,
+sortea conglomerados dentro de cada estrato y visita viviendas dentro de cada conglomerado.
+Eso abarata el operativo, pero tiene una consecuencia estadística: las personas de un mismo
+conglomerado se parecen entre sí, y tratarlas como independientes daría intervalos de
+confianza demasiado estrechos.</p>
+
+<div class="tabla-scroll"><table><caption>Ficha del diseño muestral tal como se declaró en el análisis.</caption><thead><tr><th scope="col">Elemento del diseño</th><th scope="col">Valor</th></tr></thead><tbody><tr><td>Tamaño de muestra analítica</td><td>30,226</td></tr><tr><td>Conglomerados (UPM)</td><td>3,251</td></tr><tr><td>Estratos</td><td>240</td></tr><tr><td>Estratos con un solo conglomerado</td><td>18 (tratados con centrado)</td></tr><tr><td>Ponderador</td><td>Peso15_AMAS / 1,000,000</td></tr><tr><td>Suma de pesos escalados</td><td>36,172.8</td></tr><tr><td>¿Es factor de expansión?</td><td>No — ponderador relativo</td></tr><tr><td>Efecto de diseño (deff, ref. wr)</td><td>3.093</td></tr><tr><td>Tamaño de muestra efectivo</td><td>9,774</td></tr><tr><td>Método de varianza</td><td>Linealización de Taylor</td></tr></tbody></table></div>
+
+<div class="nota">
+  <strong>Qué significa el efecto de diseño.</strong> Un valor de 3,09 quiere decir que
+  estas 30 226 entrevistas aportan tanta información como unas 9 774 tomadas completamente
+  al azar. Es el precio de recorrer un país entero, no un defecto de la encuesta.
+  Lo que sí sería un error es ignorarlo al calcular los intervalos.
+</div>
+
+<p>El efecto de diseño no es igual para todo. Las características que se agrupan
+geográficamente arrastran más:</p>
+
+<div class="tabla-scroll"><table><caption>Las seis variables con mayor agrupamiento. El área de residencia, en cambio, tiene el efecto más bajo (1,30): al ser constante dentro de cada estrato, la estratificación la estima mejor que un muestreo al azar.</caption><thead><tr><th scope="col">Variable</th><th scope="col" class="num">Efecto de diseño</th><th scope="col" class="num">Muestra efectiva</th></tr></thead><tbody><tr><td>Diabetes diagnosticada</td><td class="num">3.77</td><td class="num">8 012.27</td></tr><tr><td>Altitud de residencia</td><td class="num">3.73</td><td class="num">8 107.05</td></tr><tr><td>Consumo frecuente de alcohol</td><td class="num">3.35</td><td class="num">9 025.33</td></tr><tr><td>Síntomas leves o más (PHQ-9 ≥ 5)</td><td class="num">3.27</td><td class="num">9 246.01</td></tr><tr><td>Puntaje PHQ-9</td><td class="num">3.26</td><td class="num">9 269.70</td></tr><tr><td>Edad</td><td class="num">3.25</td><td class="num">9 292.07</td></tr></tbody></table></div>
+
+<h3>Quiénes quedaron dentro</h3>
+<p>De las 33 569 personas entrevistadas, no todas pudieron entrar al análisis:</p>
+
+<div class="tabla-scroll"><table><caption>Conformación de la muestra analítica, paso a paso.</caption><thead><tr><th scope="col">Etapa</th><th scope="col" class="num">Personas</th><th scope="col" class="num">Salen</th><th scope="col">Motivo</th></tr></thead><tbody><tr><td>Personas de 15 años a más en CSALUD01 2025</td><td class="num">33569</td><td class="num">0</td><td>nan</td></tr><tr><td>Excluidos: PHQ-9 incompleto</td><td class="num">30401</td><td class="num">3168</td><td>Entrevista ausente, rechazada, incompleta o por discapacidad (QSRESULT)</td></tr><tr><td>Excluidos: sin ponderador Peso15_AMAS</td><td class="num">30226</td><td class="num">175</td><td>Sin factor de ponderación asignado; no pueden entrar al análisis con diseño complejo</td></tr><tr><td>Población de análisis (covariables clave completas)</td><td class="num">29081</td><td class="num">1145</td><td>Faltantes en alguna de: edad, es_mujer, educacion_grupo, area, region_natural</td></tr></tbody></table></div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">De 33 569 entrevistas a 30 226 personas analizables</p>
+  <p class="explicacion">Nueve de cada cien entrevistas no completaron el cuestionario de salud mental, casi siempre porque la persona no estaba, rechazó responder o dejó la entrevista a medias. Otras 175 no traían el factor de ponderación necesario para estimar. Cada exclusión está contada, porque una muestra que se encoge sin explicación es una muestra en la que no se puede confiar.</p>
+  
+  <div class="lienzo"><img src="assets/img/flujograma_strobe.png" alt="Diagrama de flujo con cuatro etapas: 33 569 personas entrevistadas, 30 401 con PHQ-9 completo, 30 226 con ponderador y 29 081 con todas las covariables." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Elaboración propia siguiendo la guía STROBE.</figcaption>
+</figure>
+</section>
+<div class="paginacion"><a href="03-deteccion.html">← Detección</a><a href="05-medicion.html">Cómo medimos →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 — salud mental<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="12-cierre.html">Todos los recursos</a>
+  </div>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
+<script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300"
+     width="420" height="300" role="img">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F1F8F6"/><stop offset="100%" stop-color="#FFFDFA"/>
+    </linearGradient>
+    <linearGradient id="calido" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DFA98F"/>
+      <stop offset="100%" stop-color="#C4714E"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="300" fill="url(#cielo)" rx="16"/>
+  <polyline points="80,220 140,180 190,196 250,130 320,96" fill="none" stroke="#236158" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>  <circle cx="80" cy="220" r="7" fill="#12352F"/>  <circle cx="140" cy="180" r="7" fill="#12352F"/>  <circle cx="190" cy="196" r="7" fill="#12352F"/>  <circle cx="250" cy="130" r="7" fill="#12352F"/>  <circle cx="320" cy="96" r="7" fill="#12352F"/>  <circle cx="250" cy="130" r="42" fill="none" stroke="#C4714E" stroke-width="7"/>  <path d="M280 160 l34 34" stroke="#C4714E" stroke-width="9" stroke-linecap="round"/>
+</svg>

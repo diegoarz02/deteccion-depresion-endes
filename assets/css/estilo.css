@@ -1,0 +1,532 @@
+/* Boletín epidemiológico — Depresión en el Perú (ENDES 2025)
+   ============================================================================
+   PALETA. Verde-teal del lazo de la salud mental como voz principal, sobre un
+   fondo de papel cálido. Sustituye al azul marino institucional de la primera
+   versión, que era correcto y anónimo: servía igual para un banco.
+
+   El rojo está retirado del cuerpo del boletín. En salud mental, pintar de rojo
+   una cifra de prevalencia convierte un dato en una alarma, y la alarma no
+   ayuda a nadie a pedir ayuda. La terracota señala «esto merece atención» sin
+   gritar. El ciruela queda reservado al aviso legal, donde su función es
+   normativa y no emocional.
+
+   TIPOGRAFÍA. Fraunces en titulares y cifras grandes, Inter en el texto. Una
+   serif humanista acerca el documento; el todo-sans corporativo distancia.
+
+   CONTRASTE. Todos los pares texto/fondo superan WCAG AA. Comprobado en modo
+   claro y oscuro.
+   ========================================================================= */
+
+@import url("identidad.css");
+
+/* Los nombres antiguos se conservan como alias de los tokens nuevos: así las
+   reglas de componente de más abajo no necesitan tocarse una por una. */
+:root {
+  --azul-900: var(--verde-900);
+  --azul-700: var(--verde-700);
+  --azul-500: var(--verde-600);
+  --azul-300: var(--verde-300);
+  --azul-100: var(--verde-100);
+
+  --teal-700: var(--salvia-700);
+  --teal-500: var(--verde-500);
+  --teal-100: var(--verde-050);
+
+  --ambar-600: var(--arcilla-600);
+  --ambar-500: var(--arcilla-500);
+  --ambar-100: var(--arcilla-100);
+
+  --alerta: var(--ciruela-700);
+  --alerta-fondo: var(--ciruela-100);
+
+  --fondo-alt: var(--superficie-alt);
+  --fondo-card: var(--superficie);
+  --sombra: var(--sombra-2);
+  --fuente: var(--fuente-texto);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.68;
+  font-size: 16.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contenedor { max-width: var(--ancho); margin: 0 auto; padding: 0 24px; }
+
+/* Accesibilidad: salto al contenido y foco visible ─────────────────── */
+.saltar {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--azul-900); color: #fff; padding: 12px 20px; border-radius: 0 0 8px 0;
+}
+.saltar:focus { left: 0; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid var(--ambar-500); outline-offset: 2px; border-radius: 4px;
+}
+
+/* ── Cabecera ligera (páginas 2 a 13) ───────────────────────────────── */
+header.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--fondo) 92%, transparent);
+  border-bottom: 1px solid var(--borde);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+.nav-inner {
+  max-width: var(--ancho); margin: 0 auto; padding: 10px 24px;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.marca {
+  font-weight: 700; color: var(--azul-900); text-decoration: none;
+  font-size: .97rem; letter-spacing: -.01em; white-space: nowrap;
+}
+.marca .num {
+  display: inline-block; background: var(--azul-100); color: var(--azul-700);
+  border-radius: 999px; padding: 1px 9px; font-size: .78rem; margin-left: 8px;
+  font-weight: 600;
+}
+/* ── Índice desplegable ──────────────────────────────────────────────
+   Los trece enlaces en dos filas se comían unos 180 px arriba de cada página:
+   el contenido empezaba por debajo del pliegue. Ahora la barra es una línea y
+   las secciones se abren solo si alguien las pide. */
+.nav-controles { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.salto {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border: 1px solid var(--borde); border-radius: 999px;
+  color: var(--texto-suave); text-decoration: none; font-size: 1.15rem; line-height: 1;
+}
+.salto:hover { border-color: var(--marca); color: var(--marca); background: var(--verde-050); }
+.boton-indice {
+  border: 1px solid var(--borde); background: var(--superficie); color: var(--texto-suave);
+  border-radius: 999px; padding: 6px 15px; cursor: pointer; font: inherit; font-size: .87rem;
+}
+.boton-indice:hover { border-color: var(--marca); color: var(--marca); }
+
+nav.enlaces {
+  display: none; flex-wrap: wrap; gap: 3px; width: 100%;
+  padding: 12px 0 4px; margin-top: 10px; border-top: 1px solid var(--borde-suave);
+}
+header.nav[data-indice="abierto"] nav.enlaces { display: flex; }
+
+/* Barra de progreso: dice dónde estás sin ocupar una fila de texto. */
+.progreso { height: 3px; background: var(--borde-suave); }
+.progreso > div { height: 100%; background: var(--verde-600); transition: width .3s; }
+nav.enlaces a {
+  color: var(--texto-suave); text-decoration: none; padding: 6px 11px;
+  border-radius: 8px; font-size: .88rem; transition: background .16s, color .16s;
+}
+nav.enlaces a:hover { background: var(--fondo-alt); color: var(--azul-900); }
+nav.enlaces a[aria-current="page"] {
+  background: var(--azul-700); color: #fff; font-weight: 600;
+}
+[data-tema="oscuro"] nav.enlaces a[aria-current="page"] { color: #0c1620; }
+
+.boton-tema {
+  border: 1px solid var(--borde); background: var(--fondo-card); color: var(--texto-suave);
+  border-radius: 8px; padding: 5px 10px; cursor: pointer; font-size: 1rem; line-height: 1;
+}
+.boton-tema:hover { border-color: var(--azul-500); color: var(--azul-900); }
+
+/* ── Carátula ───────────────────────────────────────────────────────── */
+.caratula {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  /* Verde profundo hacia salvia, con un punto de miel al final. Los valores
+     van fijos y no como tokens: en modo oscuro la carátula no se invierte —
+     el texto blanco necesita este fondo en ambos temas. */
+  background: linear-gradient(158deg, #12352F 0%, #1A4A42 42%, #2F7D71 78%, #5A6B58 100%);
+  color: #fff; padding: 56px 0; text-align: center;
+}
+.caratula .logo { width: 116px; height: auto; margin: 0 auto 26px; border-radius: 10px; }
+.caratula .institucion {
+  font-size: 1.02rem; line-height: 1.85; opacity: .93; margin-bottom: 34px;
+  letter-spacing: .01em;
+}
+.caratula .institucion strong { font-weight: 650; }
+.caratula h1 {
+  font-size: 2.6rem; line-height: 1.2; margin: 0 auto 18px;
+  /* 16ch en vez de 20: con 20 el título quebraba como «Depresión en la /
+     población peruana de 15 / y más años», partiendo «población peruana» y
+     dejando «y más años» huérfano. */
+  max-width: 16ch; text-wrap: balance;
+  font-weight: 700; letter-spacing: -.025em;
+}
+.caratula .subtitulo {
+  font-size: 1.12rem; opacity: .9; max-width: 58ch; margin: 0 auto 44px;
+}
+.caratula .regla {
+  width: 74px; height: 3px; background: var(--ambar-500); margin: 0 auto 40px;
+  border-radius: 2px;
+}
+.equipo {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 8px 26px; max-width: 760px; margin: 0 auto 34px; font-size: .96rem;
+}
+.equipo span { opacity: .93; }
+.caratula .pie { font-size: .9rem; opacity: .74; line-height: 1.9; }
+.bajar {
+  display: inline-block; margin-top: 40px; color: #fff; text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px;
+  padding: 10px 26px; font-size: .93rem; transition: background .18s;
+}
+.bajar:hover { background: rgba(255, 255, 255, .14); }
+
+/* ── Secciones ──────────────────────────────────────────────────────── */
+main { padding-top: 8px; }
+section { margin-bottom: 60px; scroll-margin-top: 72px; }
+
+.seccion-cabecera { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+.seccion-cabecera img { width: 30px; height: 30px; flex: none; }
+.seccion-num {
+  font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--teal-700);
+}
+
+h2 {
+  font-size: 1.62rem; color: var(--azul-900); margin: 0 0 10px; font-weight: 700;
+  letter-spacing: -.02em; padding-bottom: 12px; border-bottom: 2px solid var(--borde);
+}
+h3 { font-size: 1.16rem; color: var(--azul-900); margin: 34px 0 10px; font-weight: 650; }
+p { margin: 0 0 16px; max-width: 74ch; }
+.entradilla {
+  font-size: 1.09rem; color: var(--texto-suave); max-width: 72ch; margin-bottom: 28px;
+  line-height: 1.7;
+}
+.dos-columnas {
+  display: grid; grid-template-columns: 1.55fr 1fr; gap: 36px; align-items: center;
+}
+.dos-columnas.invertida { grid-template-columns: 1fr 1.55fr; }
+@media (max-width: 840px) { .dos-columnas, .dos-columnas.invertida { grid-template-columns: 1fr; } }
+.ilustracion { width: 100%; height: auto; border-radius: var(--radio); }
+
+.tarjeta {
+  background: var(--fondo-card); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: 24px; box-shadow: var(--sombra); margin-bottom: 26px;
+}
+
+/* ── Bloque de gráfico con su explicación ───────────────────────────── */
+.figura { margin: 30px 0 34px; }
+.figura .titulo-hallazgo {
+  font-size: 1.14rem; font-weight: 650; color: var(--azul-900); margin: 0 0 8px;
+  line-height: 1.42;
+}
+.figura .explicacion {
+  font-size: .97rem; color: var(--texto-suave); max-width: 74ch; margin: 0 0 16px;
+}
+.figura .lienzo {
+  background: var(--fondo-card); border: 1px solid var(--borde);
+  border-radius: var(--radio); padding: 14px; box-shadow: var(--sombra);
+}
+.figura .ficha {
+  font-size: .8rem; color: var(--texto-suave); margin-top: 10px; opacity: .85;
+}
+.figura img { width: 100%; height: auto; border-radius: 8px; display: block; }
+
+.como-leer {
+  background: var(--teal-100); border-left: 4px solid var(--teal-500);
+  border-radius: 0 10px 10px 0; padding: 15px 19px; margin: 16px 0; font-size: .93rem;
+}
+.como-leer strong { color: var(--teal-700); display: block; margin-bottom: 7px; }
+.como-leer ul { margin: 0; padding-left: 20px; }
+.como-leer li { margin-bottom: 5px; }
+
+.nota {
+  background: var(--fondo-alt); border-left: 4px solid var(--azul-500);
+  padding: 16px 20px; border-radius: 0 10px 10px 0; font-size: .95rem; margin: 24px 0;
+}
+.nota.atencion { border-left-color: var(--ambar-500); background: var(--ambar-100); }
+.nota strong { color: var(--azul-900); }
+.nota.atencion strong { color: var(--ambar-600); }
+
+/* ── Indicadores ────────────────────────────────────────────────────── */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(206px, 1fr)); gap: 16px; margin: 26px 0 34px; }
+.kpi {
+  background: var(--fondo-card); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: 21px; box-shadow: var(--sombra); border-top: 4px solid var(--azul-500);
+}
+.kpi .valor { font-size: 2.15rem; font-weight: 700; color: var(--azul-900); line-height: 1.08; letter-spacing: -.025em; }
+.kpi .nombre { font-size: .85rem; color: var(--texto); margin-top: 8px; font-weight: 600; }
+.kpi .detalle { font-size: .78rem; color: var(--texto-suave); margin-top: 5px; }
+.kpi.atencion { border-top-color: var(--ambar-500); }
+.kpi.atencion .valor { color: var(--ambar-600); }
+
+/* ── Tablas ─────────────────────────────────────────────────────────── */
+.tabla-scroll { overflow-x: auto; margin: 18px 0; border-radius: 10px; border: 1px solid var(--borde); }
+table { width: 100%; border-collapse: collapse; font-size: .89rem; }
+caption { text-align: left; padding: 10px 14px; font-size: .87rem; color: var(--texto-suave); }
+thead th {
+  background: var(--azul-700); color: #fff; text-align: left; padding: 11px 14px;
+  font-weight: 600; white-space: nowrap; font-size: .83rem; letter-spacing: .02em;
+}
+[data-tema="oscuro"] thead th { background: var(--azul-300); color: #0c1620; }
+tbody td { padding: 9px 14px; border-top: 1px solid var(--borde); }
+tbody tr:nth-child(even) { background: var(--fondo-alt); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── Recursos de ayuda ──────────────────────────────────────────────── */
+.recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(266px, 1fr)); gap: 16px; margin: 24px 0; }
+.recurso {
+  background: var(--fondo-card); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: 21px; border-left: 5px solid var(--teal-500);
+}
+.recurso .numero {
+  font-size: 1.9rem; font-weight: 700; color: var(--teal-700); line-height: 1;
+  letter-spacing: -.02em;
+}
+.recurso h4 { margin: 8px 0 6px; font-size: 1rem; color: var(--azul-900); }
+.recurso p { font-size: .89rem; margin: 0 0 8px; color: var(--texto-suave); }
+.recurso .meta { font-size: .8rem; color: var(--teal-700); font-weight: 600; }
+
+.aviso-legal {
+  background: var(--alerta-fondo); border: 1px solid color-mix(in srgb, var(--alerta) 35%, transparent);
+  border-radius: 11px; padding: 18px 21px; font-size: .9rem; margin: 26px 0; line-height: 1.65;
+}
+.aviso-legal strong { color: var(--alerta); }
+
+/* ── Pie ────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--fondo-alt); border-top: 1px solid var(--borde);
+  padding: 42px 0 36px; margin-top: 70px; font-size: .87rem; color: var(--texto-suave);
+}
+footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(224px, 1fr)); gap: 30px; }
+footer h4 { color: var(--azul-900); font-size: .92rem; margin: 0 0 9px; }
+footer a { color: var(--azul-500); }
+
+.paginacion { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+.paginacion a {
+  color: var(--azul-700); text-decoration: none; font-size: .93rem; font-weight: 600;
+  border: 1px solid var(--borde); border-radius: 10px; padding: 11px 18px;
+  background: var(--fondo-card); transition: border-color .16s;
+}
+.paginacion a:hover { border-color: var(--azul-500); }
+
+code { background: var(--fondo-alt); padding: 1px 6px; border-radius: 5px;
+  font-size: .87em; font-family: "Cascadia Code", Consolas, monospace; }
+
+.credito-img { font-size: .76rem; color: var(--texto-suave); margin-top: 6px; opacity: .8; }
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .caratula h1 { font-size: 1.85rem; }
+  .caratula .institucion { font-size: .92rem; }
+  h2 { font-size: 1.36rem; }
+  .contenedor { padding: 0 16px; }
+  .kpi .valor { font-size: 1.8rem; }
+}
+
+@media print {
+  header.nav, .bajar, .paginacion, .boton-tema { display: none; }
+  .caratula { min-height: auto; page-break-after: always; }
+  section { page-break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ── Tipografía de titulares ─────────────────────────────────────────
+   Fraunces tiene eje óptico: a tamaño grande gana carácter y a tamaño
+   pequeño se mantiene legible. Los números tabulares evitan que las cifras
+   de una tabla bailen de fila en fila. */
+h1, h2, h3, h4, .cifra-grande, .titulo-hallazgo {
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  letter-spacing: -.014em;
+}
+h1 { letter-spacing: -.026em; }
+table td.num, table th.num, .cifra-grande, .num { font-variant-numeric: tabular-nums; }
+
+/* Fondo de papel: dos gradientes muy tenues de la propia paleta. No se
+   percibe como patrón; solo evita que la página se lea como pantalla. */
+body {
+  background-image:
+    radial-gradient(circle at 10% 0%, var(--verde-050) 0%, transparent 40%),
+    radial-gradient(circle at 90% 6%, var(--miel-100) 0%, transparent 34%);
+  background-attachment: fixed;
+}
+
+/* ── Descargo del pie, presente en las trece secciones ───────────────
+   Tiene que leerse, no esconderse: fondo propio y borde de color, pero sin
+   el rojo de alarma que convertiría una advertencia sensata en un susto. */
+.descargo-pie {
+  margin: 30px 0 0; padding: 18px 22px;
+  background: var(--verde-050);
+  border-left: 4px solid var(--verde-600);
+  border-radius: var(--radio-s);
+  font-size: .89rem; line-height: 1.66; color: var(--texto-suave);
+  max-width: 88ch;
+}
+.descargo-pie strong { color: var(--verde-900); }
+
+/* ── Explorador de tasas observadas ──────────────────────────────────
+   Vive en el boletín estático y no consulta ningún servidor: el catálogo va
+   incrustado en la página. En GitHub Pages no hay backend, y depender del
+   servicio de Render metería un arranque en frío de un minuto justo en el
+   momento en que alguien está interactuando. */
+.explorador {
+  display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: 30px;
+  background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 26px 28px; margin: 22px 0 14px;
+  box-shadow: var(--sombra-2); align-items: start;
+}
+@media (max-width: 820px) { .explorador { grid-template-columns: 1fr; gap: 22px; } }
+
+.explorador-campos { display: grid; gap: 13px; }
+.explorador-campos label {
+  display: grid; gap: 5px; font-size: .84rem; font-weight: 600; color: var(--texto);
+}
+.explorador-campos select {
+  padding: 10px 12px; border: 1px solid var(--borde); border-radius: var(--radio-s);
+  background: var(--superficie); color: var(--texto);
+  font: inherit; font-weight: 400; font-size: .93rem;
+}
+.explorador-campos select:focus {
+  border-color: var(--verde-700); box-shadow: 0 0 0 3px var(--verde-100); outline: none;
+}
+
+.explorador-salida { text-align: center; padding-top: 6px; }
+.explorador-cifra {
+  font-family: var(--fuente-titulo); font-size: clamp(2.6rem, 6vw, 3.5rem);
+  font-weight: 600; line-height: 1; letter-spacing: -.03em;
+  color: var(--verde-900); font-variant-numeric: tabular-nums;
+}
+.explorador-cifra small { font-size: .34em; font-weight: 500; color: var(--texto-suave); }
+.explorador-frase {
+  font-size: .96rem; margin: 12px auto 0; max-width: 46ch; color: var(--texto);
+  line-height: 1.55;
+}
+.explorador-puntos {
+  display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px;
+  max-width: 280px; margin: 18px auto 8px;
+}
+.explorador-puntos i { aspect-ratio: 1; border-radius: 50%; background: var(--borde); }
+.explorador-puntos i.on { background: var(--verde-700); }
+.explorador-puntos i.mid { background: var(--verde-300); }
+.explorador-detalle {
+  font-size: .84rem; color: var(--texto-suave); margin: 6px auto 0; max-width: 52ch;
+}
+.explorador-detalle strong { color: var(--miel-700); }
+
+/* ── Cierre de ánimo ─────────────────────────────────────────────────
+   Alguien puede llegar a este boletín justo en un mal momento. Cerrar con una
+   tabla de teléfonos y nada más deja el documento frío en el punto donde más
+   importa que no lo esté. */
+.cierre-animo {
+  background: linear-gradient(155deg, var(--verde-050), var(--miel-100));
+  border: 1px solid var(--verde-200); border-radius: var(--radio-l);
+  padding: 30px 32px; margin: 8px 0 30px;
+}
+[data-tema="oscuro"] .cierre-animo {
+  background: linear-gradient(155deg, var(--verde-050), var(--tierra-100));
+}
+.cierre-titulo {
+  font-family: var(--fuente-titulo); font-size: 1.22rem; font-weight: 600;
+  color: var(--verde-900); margin: 0 0 14px;
+}
+.cierre-animo p { max-width: 68ch; }
+.frase-animo {
+  margin: 22px 0 0; padding: 20px 24px; background: var(--superficie);
+  border-left: 4px solid var(--verde-600); border-radius: var(--radio-s);
+}
+.frase-animo p {
+  font-family: var(--fuente-titulo); font-size: 1.12rem; line-height: 1.5;
+  color: var(--verde-900); margin: 0 0 10px; font-style: italic;
+}
+.frase-animo cite {
+  font-size: .84rem; color: var(--texto-suave); font-style: normal;
+}
+
+/* ── Barras comparativas del explorador ──────────────────────────────
+   Un número solo no dice nada; el mismo número junto a tres referencias sí.
+   El intervalo se dibuja encima de cada barra porque la barra sola sugiere
+   una precisión que el dato no tiene. */
+.explorador-comparativa {
+  background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 22px 26px; margin: 0 0 16px;
+}
+.comparativa-titulo {
+  font-family: var(--fuente-titulo); font-weight: 600; font-size: 1.02rem;
+  color: var(--verde-900); margin: 0 0 14px;
+}
+.barras-comparativas { width: 100%; height: auto; max-width: 560px; }
+.barras-comparativas .bc-etq {
+  font-family: var(--fuente-texto); font-size: 12.5px; fill: var(--texto-suave);
+}
+.barras-comparativas .bc-val {
+  font-family: var(--fuente-texto); font-size: 12.5px; font-weight: 600;
+  fill: var(--verde-900);
+}
+.barras-comparativas .bc-ic { stroke: var(--tierra-500); stroke-width: 1.6; }
+.comparativa-nota {
+  font-size: .8rem; color: var(--texto-suave); margin: 10px 0 0; max-width: 62ch;
+}
+.explorador-interpreta {
+  margin: 16px 0 0; padding: 15px 17px; background: var(--verde-050);
+  border-left: 4px solid var(--verde-600); border-radius: var(--radio-s);
+  font-size: .93rem; line-height: 1.62;
+}
+.explorador-interpreta strong { color: var(--verde-900); }
+
+/* ── Desplegable con la tabla numérica ───────────────────────────────
+   Quien quiera profundizar lo abre; quien no, sigue leyendo. */
+.detalle-numerico { margin: 0 0 18px; }
+.detalle-numerico > summary {
+  cursor: pointer; font-size: .89rem; color: var(--verde-700); font-weight: 600;
+  padding: 8px 0; list-style: none; display: inline-flex; align-items: center; gap: 7px;
+}
+.detalle-numerico > summary::-webkit-details-marker { display: none; }
+.detalle-numerico > summary::before {
+  content: "▸"; font-size: .82em; transition: transform .18s;
+}
+.detalle-numerico[open] > summary::before { transform: rotate(90deg); }
+.detalle-numerico table { width: auto; margin: 6px 0 0; font-size: .88rem; }
+.detalle-numerico th {
+  text-align: left; font-weight: 600; color: var(--texto-suave); padding: 6px 22px 6px 0;
+  font-size: .85rem;
+}
+.detalle-numerico td { padding: 6px 0; font-variant-numeric: tabular-nums; }
+.marca-imprecisa {
+  background: var(--miel-100); color: var(--miel-700); border-radius: 999px;
+  padding: 1px 9px; font-size: .78rem; font-weight: 600; margin-left: 6px;
+}
+
+/* ── Selector de departamento ────────────────────────────────────────
+   La sección de geografía tenía mapas y nada que tocar, siendo la que más lo
+   pide: un mapa invita a buscarse en él. */
+.selector-dep {
+  display: grid; grid-template-columns: minmax(200px, 260px) 1fr; gap: 26px;
+  align-items: center; background: var(--superficie); border: 1px solid var(--borde);
+  border-radius: var(--radio-l); padding: 22px 26px; margin: 20px 0 16px;
+}
+@media (max-width: 700px) { .selector-dep { grid-template-columns: 1fr; gap: 18px; } }
+.selector-dep label {
+  display: grid; gap: 6px; font-size: .85rem; font-weight: 600; color: var(--texto);
+}
+.selector-dep select {
+  padding: 10px 12px; border: 1px solid var(--borde); border-radius: var(--radio-s);
+  background: var(--superficie); color: var(--texto); font: inherit; font-weight: 400;
+}
+.selector-dep select:focus {
+  border-color: var(--verde-700); box-shadow: 0 0 0 3px var(--verde-100); outline: none;
+}
+.dep-tarjeta { text-align: center; }
+.dep-cifra {
+  font-family: var(--fuente-titulo); font-size: clamp(2.2rem, 5vw, 2.9rem);
+  font-weight: 600; line-height: 1; color: var(--verde-900);
+  font-variant-numeric: tabular-nums;
+}
+.dep-cifra small { font-size: .33em; font-weight: 500; color: var(--texto-suave); }
+.dep-nombre {
+  font-family: var(--fuente-titulo); font-size: 1.06rem; font-weight: 600;
+  color: var(--verde-700); margin: 8px 0 6px;
+}
+.dep-detalle {
+  font-size: .85rem; color: var(--texto-suave); margin: 0 auto; max-width: 52ch;
+}
+.dep-detalle strong { color: var(--miel-700); }

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300"
+     width="420" height="300" role="img">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F1F8F6"/><stop offset="100%" stop-color="#FFFDFA"/>
+    </linearGradient>
+    <linearGradient id="calido" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DFA98F"/>
+      <stop offset="100%" stop-color="#C4714E"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="300" fill="url(#cielo)" rx="16"/>
+  <g transform="translate(165,205) scale(1.0)">
+    <circle cx="0" cy="-46" r="17" fill="#236158"/>
+    <path d="M-20 -26 Q0 -34 20 -26 L24 26 Q0 33 -24 26 Z" fill="#236158"/>
+
+  </g>  <g transform="translate(255,205) scale(1.0)">
+    <circle cx="0" cy="-46" r="17" fill="#12352F"/>
+    <path d="M-20 -26 Q0 -34 20 -26 L24 26 Q0 33 -24 26 Z" fill="#12352F"/>
+    <path d="M-22 -18 Q-56 -26 -74 -18" stroke="#12352F" stroke-width="9" fill="none" stroke-linecap="round"/>
+  </g>  <path d="M210 96 c-14 -18 -40 -8 -40 12 c0 20 40 40 40 40 s40 -20 40 -40 c0 -20 -26 -30 -40 -12 z" fill="url(#calido)" opacity="0.92"/>
+</svg>
