@@ -63,3 +63,11 @@ resultados/logs/
 
 # Capturas de verificación en navegador, no forman parte de la entrega.
 .playwright-mcp/
+
+# ── Empaquetados y temporales de revisión ─────────────────
+# Un tarball de 8,7 MB llegó a versionarse en una corrida anterior. Estas tres
+# reglas impiden que vuelva a pasar sin que nadie lo note.
+_tmp_*
+*.tar.gz
+*.zip
+_to_delete/

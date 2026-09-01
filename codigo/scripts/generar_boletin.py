@@ -58,6 +58,11 @@ PAGINAS = [
 REPO = "https://github.com/diegoarz02/deteccion-depresion-endes"
 WEB = "https://depresion-endes.onrender.com"
 
+# La URL de Pages de un repositorio de proyecto lleva SIEMPRE la ruta del
+# repositorio: sin ella apunta al sitio de usuario, que es otra cosa. Es el
+# error clásico y no se ve hasta que el enlace está publicado.
+PAGES = "https://diegoarz02.github.io/deteccion-depresion-endes/"
+
 
 # ─────────────────────────────────────────────────────────────────────
 # Utilidades
@@ -2027,6 +2032,7 @@ def pagina_cierre() -> str:
 
     enlaces = pd.DataFrame([
         {"q": "Código y datos", "d": f'<a href="{REPO}">{REPO}</a>'},
+        {"q": "Este boletín en línea", "d": f'<a href="{PAGES}">{PAGES}</a>'},
         {"q": "Simulador interactivo", "d": f'<a href="{WEB}">{WEB}</a>'},
         {"q": "Fuente de los microdatos",
          "d": '<a href="http://iinei.inei.gob.pe/microdatos/">Microdatos del INEI</a> · '

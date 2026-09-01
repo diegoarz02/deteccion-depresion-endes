@@ -8,12 +8,18 @@
 # El mismo servicio sirve la API y la aplicación web: un solo arranque en frío,
 # y sin CORS entre el navegador y el backend porque comparten origen.
 #
+# Vive en la RAÍZ del repositorio, no en api/: Render solo detecta un Blueprint
+# automáticamente si el archivo se llama render.yaml y está arriba del todo.
+#
 # Este archivo NO se aplica solo. El despliegue se hace desde el panel de
 # Render conectando el repositorio, o con `render blueprint launch`.
 
 services:
   - type: web
-    name: explorador-depresion-endes
+    # El nombre determina la URL: depresion-endes.onrender.com. Tiene que
+    # coincidir con lo que el boletín publica en 12-cierre.html, o el enlace
+    # sale roto. Se cambió desde «explorador-depresion-endes» por eso.
+    name: depresion-endes
     runtime: python
     plan: free
     region: oregon

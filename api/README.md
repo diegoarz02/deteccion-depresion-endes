@@ -193,8 +193,12 @@ servicio de predicción.
 
 ## Despliegue
 
-Render con **runtime nativo de Python**, sin Docker. La configuración está en
-`render.yaml` y el despliegue es manual (`autoDeploy: false`): un push no debe publicar
+> **`render.yaml` vive en la raíz del repositorio, no aquí.** Render solo detecta un
+> Blueprint de forma automática si el archivo se llama `render.yaml` y está arriba del
+> todo. `rootDir: .` ya apuntaba a la raíz, así que el contenido no cambió al moverlo.
+
+Render con **runtime nativo de Python**, sin Docker. El despliegue es manual
+(`autoDeploy: false`): un push no debe publicar
 sin revisar antes.
 
 El `Dockerfile` se retiró en la tercera corrida. No aportaba nada: la API no necesita

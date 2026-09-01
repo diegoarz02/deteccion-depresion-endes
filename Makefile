@@ -49,8 +49,10 @@ notebooks:
 		--ExecutePreprocessor.timeout=3600 \
 		--output-dir resultados/notebooks_ejecutados codigo/notebooks/*.ipynb
 
+# Sin ruta: pytest toma testpaths de pyproject.toml, que incluye tests/ y
+# api/tests/. Pasar solo `tests/` se saltaba catorce pruebas de la API.
 tests:
-	python -m pytest tests/ -v
+	python -m pytest -q
 
 calidad:
 	python -m ruff check .

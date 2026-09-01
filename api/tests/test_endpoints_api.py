@@ -3,6 +3,18 @@
 Ejecutar desde la raíz del proyecto::
 
     python -m pytest api/tests/ -v
+
+Nota sobre el nombre
+--------------------
+Se llamaba ``test_api.py``, igual que ``tests/test_api.py``. Sin un
+``__init__.py`` que los separe, pytest no puede distinguir dos módulos con el
+mismo nombre y aborta la recolección entera. El fallo estaba oculto porque el
+Makefile solo pasaba ``tests/``; al corregirlo para que respetara los
+``testpaths`` del pyproject, apareció.
+
+Los dos archivos se conservan porque cubren cosas distintas: aquí van los
+endpoints de servicio (``/metrics``, ``/model-info``, lotes, monotonía del
+riesgo) y en ``tests/test_api.py`` el contrato de entrada y el reencuadre.
 """
 
 from __future__ import annotations
