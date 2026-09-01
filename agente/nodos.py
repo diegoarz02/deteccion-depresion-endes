@@ -219,14 +219,30 @@ def recuperar_contexto(estado: EstadoAgente) -> dict:
 
 
 def _hay_llm() -> bool:
-    """Comprueba si hay clave de API y la librería instalada."""
+    """Comprueba si se puede y se debe llamar al modelo de lenguaje.
+
+    Tres condiciones, y basta que falle una para caer al modo degradado: que
+    haya clave, que la librería esté instalada, y que quede presupuesto del día.
+
+    La tercera es la que hace seguro exponer el endpoint en una URL pública. Sin
+    ella, un enlace repartido en clase es una factura abierta a quien quiera
+    pulsarlo en bucle.
+    """
     if not os.getenv("ANTHROPIC_API_KEY"):
         return False
     try:
         import langchain_anthropic  # noqa: F401
-        return True
     except ImportError:
         return False
+    try:
+        import presupuesto
+
+        return presupuesto.hay_saldo()
+    except ImportError:
+        # Sin el módulo de presupuesto se sigue funcionando, pero sin tope. Se
+        # deja constancia en el registro para que no pase inadvertido.
+        log.warning("Sin control de presupuesto: el modelo se llamará sin tope diario")
+        return True
 
 
 def redactar_interpretacion(estado: EstadoAgente) -> dict:
@@ -270,6 +286,13 @@ def redactar_interpretacion(estado: EstadoAgente) -> dict:
                 "para dar un recuento directo. Dilo así y usa solo la estimación."),
         )
         r = llm.invoke([("system", prompts.SISTEMA), ("human", mensaje)])
+        # Se anota después de la llamada, no antes: contar los intentos fallidos
+        # dejaría que un proveedor caído agotase el presupuesto del día sin
+        # haber redactado una sola respuesta.
+        with contextlib.suppress(ImportError):
+            import presupuesto
+
+            presupuesto.registrar_uso()
         return {"borrador": r.content.strip(), "modo": "llm",
                 "trazas": _traza(estado, "redactar_interpretacion", inicio, "redactado con LLM")}
     except Exception as e:

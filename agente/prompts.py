@@ -8,6 +8,8 @@ variación de estilo.
 
 from __future__ import annotations
 
+import hashlib
+
 SISTEMA = """Eres un epidemiólogo que comunica resultados de un estudio a público general.
 El estudio es transversal, sobre la ENDES 2025 del Perú (n = 30 226 personas de 15 años
 a más), y mide sintomatología depresiva con el PHQ-9.
@@ -108,6 +110,130 @@ def _miles(n: int) -> str:
     return f"{n:,}".replace(",", " ")
 
 
+# ─────────────────────────────────────────────────────────────────────
+# Variedad de las plantillas
+# ─────────────────────────────────────────────────────────────────────
+# Dos perfiles muy distintos compartían el 91 % del texto: cambiaba la cifra y
+# el resto era idéntico. Un texto así se nota automático a la segunda lectura.
+#
+# La variedad se elige con una huella del propio perfil, no al azar. Así el
+# mismo perfil produce siempre el mismo texto —hace falta para poder citarlo en
+# un trabajo, y para que dos personas que comparan pantallas vean lo mismo— y
+# perfiles distintos leen distinto.
+
+
+def _huella(*partes) -> str:
+    """Firma estable del perfil, para elegir siempre las mismas variantes.
+
+    Se usa blake2b y no ``hash()``: el hash de las cadenas en Python cambia
+    entre ejecuciones por la aleatorización de semilla, y el mismo perfil
+    produciría un texto distinto en cada arranque del servidor.
+
+    Tampoco vale sumar los códigos de los caracteres, que fue el primer intento:
+    difunde tan mal que dos perfiles muy distintos caían en la misma clase de
+    resto y elegían idénticas variantes en todos los bloques a la vez. Un hash
+    criptográfico reparte de verdad.
+    """
+    return "|".join(str(x) for x in partes)
+
+
+def _elegir(opciones: list[str], huella: str, bloque: str) -> str:
+    """Toma una variante de forma estable y descorrelacionada entre bloques.
+
+    El nombre del bloque entra en el hash, así que la elección de la apertura no
+    dice nada sobre la del cierre. Con un simple desplazamiento —huella, huella+1,
+    huella+2— sí lo decía: coincidir en un bloque implicaba coincidir en todos.
+    """
+    firma = hashlib.blake2b(f"{bloque}:{huella}".encode(), digest_size=8).digest()
+    return opciones[int.from_bytes(firma, "big") % len(opciones)]
+
+
+#: Cómo se enuncia el dato observado. Cambia el orden de la frase, no el
+#: contenido: las cuatro dicen exactamente lo mismo.
+APERTURAS_OBSERVADO = [
+    "De cada cien personas del mismo {definido}, {n_pos} dieron positivo al tamizaje de "
+    "sintomatología depresiva del PHQ-9 en la ENDES 2025",
+    "La encuesta entrevistó a {muestra} personas del mismo {definido}: {n_pos} de cada cien "
+    "dieron positivo al tamizaje de sintomatología depresiva del PHQ-9",
+    "Entre quienes comparten {definido}, el tamizaje del PHQ-9 dio positivo en {n_pos} de "
+    "cada cien personas entrevistadas en la ENDES 2025",
+    "El dato observado es este: de las personas con el mismo {definido}, {n_pos} de cada "
+    "cien dieron positivo al tamizaje del PHQ-9",
+]
+
+#: Cómo se recuerda que es un recuento y no un pronóstico.
+RECUENTOS = [
+    "Es un recuento de lo que se observó, no un pronóstico.",
+    "No es una predicción: son personas contadas una por una en la encuesta.",
+    "Sale de contar, no de estimar.",
+    "Es lo que se midió, no lo que se espera.",
+]
+
+#: Cómo se introduce la estimación del modelo, que va en segundo plano.
+MODELOS = [
+    "El modelo, por su parte, calcula un {p} % para un perfil con estas características",
+    "La estimación del modelo para este perfil es del {p} %",
+    "Un modelo estadístico ajustado sobre las mismas entrevistas da {p} % para este perfil",
+    "Al mismo perfil, el modelo le asigna un {p} %",
+]
+
+#: Cómo se presentan los factores que más pesan.
+FACTORES = [
+    "Los factores que más contribuyen son {lista}.",
+    "Lo que más pesa en esa estimación: {lista}.",
+    "Tres características tiran de la cifra hacia arriba: {lista}.",
+    "El modelo se apoya sobre todo en {lista}.",
+]
+
+#: El recordatorio del diseño transversal.
+DISENOS = [
+    "Conviene leerlo con sus límites: es un estudio transversal, que mide la exposición y el "
+    "resultado a la vez, así que describe asociación y no causa.",
+    "Una advertencia de método: al medirse todo en el mismo momento, estos datos muestran qué "
+    "va junto con qué, no qué causa qué.",
+    "El diseño del estudio marca hasta dónde se puede leer: como exposición y resultado se "
+    "recogen a la vez, hay asociación pero no relación de causa.",
+    "Sobre lo que estas cifras no pueden decir: al ser un corte en el tiempo, señalan "
+    "coincidencias, no causas.",
+]
+
+#: El recordatorio de qué es el PHQ-9.
+INSTRUMENTOS = [
+    "El PHQ-9 es un instrumento de tamizaje respondido por la propia persona, no un "
+    "diagnóstico clínico, y su punto de corte no está validado específicamente para "
+    "población peruana.",
+    "El PHQ-9 lo responde cada persona sobre sí misma: identifica sintomatología, no "
+    "enfermedad, y el umbral que se usa viene de estudios internacionales.",
+    "Conviene recordar qué mide el PHQ-9: síntomas autorreportados en las dos últimas "
+    "semanas. Es un tamizaje, no un diagnóstico, y su corte no se ha validado en el Perú.",
+]
+
+#: El techo del modelo, dicho de cuatro maneras.
+TECHOS = [
+    "Conviene además saber qué tan bien funciona el modelo: de cada cien personas que señala "
+    "como riesgo, cerca de ochenta y cinco no dan positivo, y predecir que nadie tiene "
+    "depresión acierta más veces que él.",
+    "Sobre la precisión: de cada cien a las que el modelo señala, unas ochenta y cinco no dan "
+    "positivo. Responder «nadie» a todo el mundo acierta más veces.",
+    "Un dato que cambia cómo leer todo lo anterior: cuando el modelo marca riesgo, se "
+    "equivoca cinco de cada seis veces. Distingue poblaciones, no personas.",
+    "Y algo que conviene tener presente: el modelo acierta menos que responder «nadie» a todo "
+    "el mundo. Sirve para comparar grupos, no para señalar a alguien.",
+]
+
+#: El cierre que orienta a ayuda profesional.
+CIERRES = [
+    "Si algo de esto te resuena, hablar con un profesional de salud mental es el paso que sí "
+    "puede evaluar tu situación.",
+    "Ninguna de estas cifras sabe cómo estás tú. Esa conversación es con alguien que pueda "
+    "escucharte.",
+    "Si te has reconocido en algo de lo que leíste, un profesional de salud mental sí puede "
+    "mirar tu caso concreto.",
+    "Para saber cómo estás tú hace falta otra cosa: hablarlo con alguien preparado para "
+    "escucharlo.",
+]
+
+
 def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
                            observado: dict | None = None) -> str:
     """Redacta la interpretación sin modelo, con las cifras reales.
@@ -150,14 +276,21 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
     else:
         comparacion = f"por debajo de la prevalencia nacional, en {_n(razon)} veces"
 
+    # La huella sale del propio perfil, así que el mismo perfil produce siempre
+    # el mismo texto y dos perfiles distintos leen distinto.
+    huella = _huella(prediccion.get("categoria_riesgo", ""), round(p, 1),
+                     (observado or {}).get("definido_por", ""),
+                     (observado or {}).get("n", 0))
+
     factores = prediccion.get("factores_contribuyentes", [])
     if factores:
         nombres = [f["factor"].lower() for f in factores[:3]]
+        lista = (nombres[0] if len(nombres) == 1
+                 else ", ".join(nombres[:-1]) + f" y {nombres[-1]}")
         texto_factores = (
-            f"El factor que más contribuye a esta estimación es {nombres[0]}."
-            if len(nombres) == 1 else
-            "Los factores que más contribuyen son "
-            + ", ".join(nombres[:-1]) + f" y {nombres[-1]}.")
+            f"El factor que más contribuye a esta estimación es {lista}."
+            if len(nombres) == 1
+            else _elegir(FACTORES, huella, "factores").format(lista=lista))
     else:
         texto_factores = ("Ningún factor del perfil eleva de forma apreciable la "
                           "estimación respecto de la población general.")
@@ -165,19 +298,26 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
     linea_contexto = " " + " ".join(contexto[:2]) if contexto else ""
 
     if observado:
+        # La brecha entre lo observado y lo estimado se explica solo cuando es
+        # grande. Señalarla cuando ambas cifras casi coinciden distrae con algo
+        # que el lector no había notado.
+        if p > observado["prevalencia"] * 1.6:
+            matiz = (", por encima del recuento porque además tiene en cuenta las conductas "
+                     "y condiciones marcadas, que ese recuento no distingue. ")
+        elif p < observado["prevalencia"] * 0.6:
+            matiz = ", bastante por debajo del recuento anterior. "
+        else:
+            matiz = ". "
+
         apertura = (
-            f"Entre las personas del mismo {observado['definido_por']} entrevistadas en "
-            f"la ENDES 2025, {observado['prevalencia']:.0f} de cada cien dieron positivo "
-            f"al tamizaje de sintomatología depresiva moderada o grave del PHQ-9 "
-            f"(intervalo de confianza del 95 %: {_n(observado['ic_inf'])} % a "
-            f"{_n(observado['ic_sup'])} %, sobre {_miles(observado['n'])} personas). "
-            f"Es un recuento de lo que se observó, no un pronóstico. El modelo, por su "
-            f"parte, estima un {_n(p)} % para un perfil con estas características"
-            + (", bastante por encima porque además tiene en cuenta las conductas y "
-               "condiciones marcadas, que el recuento anterior no distingue. "
-               if p > observado["prevalencia"] * 1.6 else
-               ", bastante por debajo del recuento anterior. "
-               if p < observado["prevalencia"] * 0.6 else ". "))
+            _elegir(APERTURAS_OBSERVADO, huella, "apertura").format(
+                definido=observado["definido_por"],
+                n_pos=f"{observado['prevalencia']:.0f}",
+                muestra=_miles(observado["n"]))
+            + f" (intervalo de confianza del 95 %: {_n(observado['ic_inf'])} % a "
+              f"{_n(observado['ic_sup'])} %, sobre {_miles(observado['n'])} personas). "
+            + _elegir(RECUENTOS, huella, "recuento") + " "
+            + _elegir(MODELOS, huella, "modelo").format(p=_n(p)) + matiz)
     else:
         apertura = (
             f"El modelo estima que, de cada cien personas con este perfil, alrededor de "
@@ -190,15 +330,9 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
         f"La cifra se sitúa {comparacion}, que es del {_n(base)} %. "
         f"{texto_factores}"
         f"{linea_contexto} "
-        f"Conviene leerlo con sus límites: es un estudio transversal, que mide la "
-        f"exposición y el resultado a la vez, así que describe asociación y no causa. "
-        f"El PHQ-9 es un instrumento de tamizaje respondido por la propia persona, no un "
-        f"diagnóstico clínico, y su punto de corte no está validado específicamente para "
-        f"población peruana. "
-        f"Conviene además saber qué tan bien funciona el modelo: de cada cien personas "
-        f"que señala como riesgo, cerca de ochenta y cinco no dan positivo, y predecir "
-        f"que nadie tiene depresión acierta más veces que él. Sirve para comparar grupos "
-        f"y orientar dónde poner recursos, no para saber cómo está una persona. "
+        f"{_elegir(DISENOS, huella, 'diseno')} "
+        f"{_elegir(INSTRUMENTOS, huella, 'instrumento')} "
+        f"{_elegir(TECHOS, huella, 'techo')} "
         f"El grupo descrito es de prevalencia {_CATEGORIA_FEMENINA.get(categoria, categoria)}. Si algo de esto te resuena, "
         f"hablar con un profesional de salud mental es el paso que sí puede evaluar tu "
         f"situación."
