@@ -96,8 +96,8 @@ con un solo conglomerado** se tratan con centrado en la media general, equivalen
    porque la altitud es fuertemente bimodal dentro de Áncash (42 % bajo 500 m y 55 % sobre
    2 300 m), La Libertad y Arequipa.
 
-La auditoría inicial completa está en [`HALLAZGOS_FASE_0.md`](HALLAZGOS_FASE_0.md) y la
-bitácora razonada en [`docs/decisiones_metodologicas.md`](docs/decisiones_metodologicas.md).
+Cada una de estas decisiones, con su justificación y las alternativas descartadas, está en
+[`docs/decisiones_metodologicas.md`](docs/decisiones_metodologicas.md).
 
 ---
 

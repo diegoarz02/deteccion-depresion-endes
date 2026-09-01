@@ -71,3 +71,12 @@ _tmp_*
 *.tar.gz
 *.zip
 _to_delete/
+
+# ── Bitácora interna de trabajo ───────────────────────────────
+# Documentos de proceso: hallazgos, discrepancias con los encargos, errores
+# encontrados y corregidos, informes de cada corrida. Sirven para revisar el
+# trabajo y para preparar la sustentación, pero no son entregables: quien llega
+# al repositorio busca el análisis terminado, no el diario de cómo se llegó.
+# Se mantienen en local y fuera del historial.
+HALLAZGOS_*.md
+INFORME_*.md
