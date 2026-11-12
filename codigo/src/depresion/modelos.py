@@ -216,6 +216,64 @@ def _logistica_diseno(df, desenlace, predictores, referencias, donde) -> dict:
     }
 
 
+def razon_prevalencias_diseno(
+    df: pd.DataFrame,
+    desenlace: str,
+    predictores: list[str],
+    referencias: dict[str, str] | None = None,
+    donde=None,
+) -> pd.DataFrame:
+    """Razón de prevalencias ajustada, con diseño muestral complejo.
+
+    Es el modelo de Poisson con enlace logarítmico y varianza de Taylor del
+    diseño (Zou, 2004, adaptado a encuestas). Se usa en lugar de la logística
+    cuando se quiere una razón de prevalencias y no un OR, que es lo que
+    corresponde en un estudio transversal. La especificación de predictores es
+    la misma que en :func:`logistica`, de modo que los dos modelos son
+    comparables término a término.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Una fila por término: ``rp``, ``ic_inf``, ``ic_sup`` y ``p``.
+    """
+    import svy
+
+    from .encuesta import crear_diseno
+
+    referencias = referencias or {}
+    cols = [desenlace, *predictores]
+    d = df[[*cols, "peso", "conglomerado", "estrato"]].dropna(subset=cols)
+    muestra = crear_diseno(d, cols)
+
+    x_svy, etiquetas = [], {}
+    for v in predictores:
+        s = d[v]
+        binaria = set(s.dropna().unique()) <= {0, 1}
+        if not binaria and es_categorica(s):
+            ref = referencias.get(v)
+            x_svy.append(svy.Cat(v, ref=ref) if ref else svy.Cat(v))
+            for c in sorted({str(c) for c in s.dropna().unique()} - {str(ref)}):
+                etiquetas[f"{v}_{c}"] = f"{v}: {c} (ref. {ref})"
+        else:
+            x_svy.append(v)
+            etiquetas[v] = v
+
+    g = muestra.glm.fit(y=desenlace, x=x_svy, family="poisson", link="log",
+                        where=donde, drop_nulls=True)
+    filas = []
+    for c in g.coefs:
+        if c.term == "_intercept_":
+            continue
+        filas.append({
+            "termino": c.term, "etiqueta": etiquetas.get(c.term, c.term),
+            "coeficiente": float(c.est), "rp": float(np.exp(c.est)),
+            "ic_inf": float(np.exp(c.lci)), "ic_sup": float(np.exp(c.uci)),
+            "p": float(c.wald.p_value),
+        })
+    return pd.DataFrame(filas)
+
+
 def tabla_or(ajuste, etiquetas: dict[str, str]) -> pd.DataFrame:
     """Convierte los coeficientes de un modelo logístico en OR con IC 95 %."""
     ic = ajuste.conf_int()

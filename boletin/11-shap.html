@@ -5,28 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Modelo y realidad · Depresión en el Perú (ENDES 2025)</title>
 <meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/fuentes.css">
 <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="nav"><div class="nav-inner">
-  <a class="marca" href="index.html">Depresión en el Perú<span class="num">11 de 13</span></a>
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">12 de 15</span></a>
   <div class="nav-controles">
-    <a class="salto" href="09-modelo.html" title="El modelo" aria-label="Anterior: El modelo">‹</a><a class="salto" href="11-conclusiones.html" title="Qué significa" aria-label="Siguiente: Qué significa">›</a>
+    <a class="salto" href="10-modelo.html" title="El modelo" aria-label="Anterior: El modelo">‹</a><a class="salto" href="12-validez.html" title="Sesgos y límites" aria-label="Siguiente: Sesgos y límites">›</a>
     <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
             aria-controls="indice-secciones">Secciones</button>
     <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
   </div>
-  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-modelo.html">El modelo</a><a href="10-shap.html" aria-current="page">Modelo y realidad</a><a href="11-conclusiones.html">Qué significa</a><a href="12-cierre.html">Ayuda y cierre</a></nav>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-asociacion.html">Fuerza e impacto</a><a href="10-modelo.html">El modelo</a><a href="11-shap.html" aria-current="page">Modelo y realidad</a><a href="12-validez.html">Sesgos y límites</a><a href="13-conclusiones.html">Qué significa</a><a href="14-cierre.html">Ayuda y cierre</a></nav>
 </div>
-<div class="progreso"><div style="width:85%"></div></div>
+<div class="progreso"><div style="width:80%"></div></div>
 </header>
 <main id="contenido"><div class="contenedor">
 <section>
 <div class="seccion-cabecera">
   <img src="assets/img/iconos/search.svg" alt="" aria-hidden="true">
-  <span class="seccion-num">Sección 11 de 13</span>
+  <span class="seccion-num">Sección 12 de 15</span>
 </div>
 <h2>Modelo y realidad: dos rankings que no coinciden</h2>
 <p class="entradilla">El factor con el efecto más fuerte del estudio apenas ayuda a
@@ -34,7 +35,7 @@ predecir quién dará positivo. Suena a contradicción y no lo es: son dos pregu
 distintas, y cada una tiene su propia respuesta.</p>
 
 <p>Además del modelo epidemiológico entrenamos algoritmos de aprendizaje automático
-—bosques aleatorios, XGBoost, LightGBM— y les preguntamos qué variables usan para decidir.
+(bosques aleatorios, XGBoost, LightGBM) y les preguntamos qué variables usan para decidir.
 La técnica se llama SHAP y reparte la responsabilidad de cada predicción entre las
 características de la persona.</p>
 
@@ -42,8 +43,7 @@ características de la persona.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">El consumo problemático de alcohol es el primero por efecto y el decimoquinto por utilidad predictiva</p>
-  <p class="explicacion">El sexo domina el panel de la izquierda con el 37 % de la importancia; el alcohol problemático apenas aparece. Y sin embargo su odds ratio es 6,07, el más alto del estudio. La explicación está en el denominador: afecta a 304 personas de 28 553. Un efecto enorme sobre muy poca gente casi no mueve la predicción media. El sexo es lo contrario: un efecto moderado sobre media población.</p>
-  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada barra mide <strong>cuánto usa el modelo esa variable</strong>, en promedio, para decidir.</li><li>No mide si la variable es importante para la salud: mide si ayuda a <em>adivinar</em>.</li><li>Una variable puede tener un efecto grande y una barra pequeña, si afecta a poca gente.</li></ul></div>
+  <p class="explicacion">Cada barra mide cuánto usa el modelo esa variable, en promedio, para decidir. No dice si la variable importa para la salud, sino si ayuda a adivinar, y por eso una variable puede tener un efecto grande y una barra pequeña si afecta a poca gente. El sexo domina el panel de la izquierda con el 37 % de la importancia, y el alcohol problemático apenas aparece, aunque su odds ratio es 6,07, el más alto del estudio. La explicación está en el denominador: afecta a 304 personas de 28 553, y un efecto enorme sobre muy poca gente casi no mueve la predicción media. El sexo es lo contrario: un efecto moderado sobre media población.</p>
   <div class="lienzo"><img src="assets/img/fig_14_shap.png" alt="Dos paneles. A la izquierda, barras horizontales con la importancia SHAP de cada variable; el sexo femenino encabeza con diferencia. A la derecha, la dispersión de los valores SHAP para esa variable." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Valores SHAP del mejor modelo de árboles, calculados sobre 2 500 casos y precalculados para este boletín.</figcaption>
 </figure>
@@ -51,35 +51,35 @@ características de la persona.</p>
 <div class="tabla-scroll"><table><caption>Los dos rankings, lado a lado. Cuanto mayor la diferencia, más informativa.</caption><thead><tr><th scope="col">Variable</th><th scope="col" class="num">Puesto por efecto</th><th scope="col" class="num">Puesto por utilidad predictiva</th><th scope="col" class="num">Odds ratio</th></tr></thead><tbody><tr><td>es_mujer</td><td class="num">2</td><td class="num">1</td><td class="num">2.94</td></tr><tr><td>region_natural: Selva (ref. Costa)</td><td class="num">7</td><td class="num">3</td><td class="num">0.67</td></tr><tr><td>educacion_grupo: Primaria o menos (ref. Superior)</td><td class="num">8</td><td class="num">4</td><td class="num">1.48</td></tr><tr><td>hta_dx</td><td class="num">9</td><td class="num">5</td><td class="num">1.45</td></tr><tr><td>grupo_etario: 60+ (ref. 30-39)</td><td class="num">4</td><td class="num">7</td><td class="num">1.67</td></tr><tr><td>es_rural</td><td class="num">15</td><td class="num">8</td><td class="num">0.84</td></tr><tr><td>region_natural: Sierra (ref. Costa)</td><td class="num">16</td><td class="num">9</td><td class="num">1.13</td></tr><tr><td>educacion_grupo: Secundaria (ref. Superior)</td><td class="num">12</td><td class="num">10</td><td class="num">1.29</td></tr><tr><td>grupo_etario: 15-19 (ref. 30-39)</td><td class="num">3</td><td class="num">11</td><td class="num">2.11</td></tr><tr><td>diabetes_dx</td><td class="num">10</td><td class="num">12</td><td class="num">1.41</td></tr></tbody></table></div>
 
 <h3>Por qué esto importa</h3>
-<p>Porque llevan a decisiones opuestas y las dos son legítimas.</p>
+<p>Porque llevan a decisiones distintas, y las dos tienen sentido.</p>
 
 <ul>
-  <li>Si la pregunta es <strong>«¿sobre qué conviene intervenir?»</strong>, manda el efecto.
-  Una intervención sobre el consumo problemático de alcohol tendría un impacto grande en
-  quienes lo padecen.</li>
+  <li>Si la pregunta es <strong>«¿sobre qué conviene intervenir?»</strong>, manda la fuerza de
+  la asociación, con la reserva de que solo habría impacto si fuera causal. La razón de
+  prevalencias ajustada del consumo problemático de alcohol es 4,80; la fracción atribuible
+  poblacional es de 2,2 %, porque lo declara el 1 % de la población (sección 10).</li>
   <li>Si la pregunta es <strong>«¿a quién priorizo con recursos limitados?»</strong>, manda
   la utilidad predictiva. Ahí el sexo, la edad y la región ordenan mejor a la población.</li>
 </ul>
 
-<p>Confundirlas lleva a error en las dos direcciones: descartar una exposición relevante
+<p>Si se confunden, se puede errar en las dos direcciones: descartar una exposición relevante
 porque no predice bien, o priorizar una intervención sobre una variable que solo predice
 bien porque es frecuente.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">Cuatro algoritmos, prácticamente el mismo resultado</p>
-  <p class="explicacion">Se probaron cuatro maneras muy distintas de aprender de los mismos datos: desde una regresión clásica hasta tres algoritmos de los que se usan hoy en competiciones. Las cuatro se quedan entre 0,65 y 0,68. Cuando cambiar de método no mueve la aguja, el límite no está en el método sino en lo que la encuesta preguntó. El panel de la derecha es el exigente cuando el fenómeno es poco frecuente: mide si el modelo acierta al señalar, no solo si acierta al callar.</p>
-  <div class="como-leer"><strong>Cómo leer este gráfico</strong><ul><li>Cada curva es un algoritmo distinto. Cuanto más se despega hacia la esquina superior izquierda, mejor distingue.</li><li>La diagonal es el equivalente a lanzar una moneda. Las cuatro están por encima, pero no muy lejos.</li><li>El panel derecho es el exigente cuando la condición es poco frecuente: penaliza señalar a demasiada gente con tal de no perderse a nadie.</li></ul></div>
+  <p class="explicacion">Cada curva es un algoritmo distinto, y mientras más se despega hacia la esquina superior izquierda, mejor distingue. La diagonal equivale a lanzar una moneda: las cuatro curvas quedan por encima, pero no muy lejos, entre 0,65 y 0,68. Se probaron cuatro maneras muy distintas de aprender de los mismos datos, desde una regresión clásica hasta tres algoritmos de los que se usan en competiciones, y cuando cambiar de método no mueve la aguja, el límite no está en el método sino en lo que la encuesta preguntó. El panel de la derecha es el más exigente cuando el fenómeno es poco frecuente: penaliza señalar a demasiada gente con tal de no perderse a nadie, así que mide si el modelo acierta al señalar y no solo si acierta al callar.</p>
   <div class="lienzo"><img src="assets/img/fig_13_comparacion_modelos_ml.png" alt="Dos paneles con curvas de rendimiento de cuatro modelos. Las curvas ROC de la izquierda están juntas y por encima de la diagonal; las de precisión-exhaustividad de la derecha también se solapan." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Validación cruzada de cinco particiones, estratificada y agrupada por conglomerado muestral para evitar fuga de información.</figcaption>
 </figure>
 
-<div class="tabla-scroll"><table><caption>Comparación de algoritmos. La última fila es la referencia obligada.</caption><thead><tr><th scope="col">Modelo</th><th scope="col" class="num">AUC-ROC</th><th scope="col" class="num">AUC-PR</th><th scope="col" class="num">Sensibilidad</th><th scope="col" class="num">Especificidad</th></tr></thead><tbody><tr><td>Logística regularizada</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Random Forest</td><td class="num">0.68</td><td class="num">0.12</td><td class="num">0.16</td><td class="num">0.94</td></tr><tr><td>XGBoost</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>LightGBM</td><td class="num">0.66</td><td class="num">0.11</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Modelo trivial (predice 'nadie')</td><td class="num">0.50</td><td class="num">0.06</td><td class="num">0.00</td><td class="num">1.00</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Comparación de algoritmos. La última fila es el punto de comparación.</caption><thead><tr><th scope="col">Modelo</th><th scope="col" class="num">AUC-ROC</th><th scope="col" class="num">AUC-PR</th><th scope="col" class="num">Sensibilidad</th><th scope="col" class="num">Especificidad</th></tr></thead><tbody><tr><td>Logística regularizada</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Random Forest</td><td class="num">0.68</td><td class="num">0.12</td><td class="num">0.16</td><td class="num">0.94</td></tr><tr><td>XGBoost</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>LightGBM</td><td class="num">0.66</td><td class="num">0.11</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Modelo de referencia (responde «nadie»)</td><td class="num">0.50</td><td class="num">0.06</td><td class="num">0.00</td><td class="num">1.00</td></tr></tbody></table></div>
 
 <div class="nota atencion">
   <strong>Por qué no aparece la exactitud.</strong> Un modelo que responda «nadie tiene
-  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Cuando
-  el fenómeno afecta al 6 %, ese número no dice gran cosa: es la métrica más citada y la
-  que menos informa en problemas como este.
+  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Como en la muestra del análisis
+  apenas 6 de cada 100 personas dan positivo, ese número dice poco por sí solo: es una de las métricas más
+  citadas, aunque en problemas como este es de las que menos informan.
 </div>
 
 <h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
@@ -110,26 +110,25 @@ bien porque es frecuente.</p>
 </div>
 
 <div class="nota">
-  <strong>Esto no es un modelo fallido: es el resultado correcto.</strong>
+  <strong>Un modelo moderado es coherente con lo que mide la encuesta.</strong>
   La depresión de una persona depende de su historia, sus duelos, su red de apoyo, su
   situación económica inmediata y su biología. Una encuesta de hogares mide sexo, edad,
   educación, dónde vive y unas pocas conductas. Con esas variables se puede describir
-  <em>dónde se concentra</em> el problema en el país —y eso se hace bien, con intervalos
-  estrechos y coherente con la literatura—, pero no se puede saber quién lo tiene.
+  <em>dónde se concentra</em> el problema en el país (y eso se hace bien, con intervalos
+  estrechos y coherente con la literatura), aunque no permite saber quién lo tiene.
   <br><br>
-  Un modelo que con estas variables alcanzara un AUC de 0,90 sería motivo de sospecha, no
-  de celebración: casi siempre significa que se coló una variable que ya contiene el
-  desenlace. En este proyecto ese riesgo era real y concreto —<code>QS702</code> y
-  <code>QS704A-I</code> se preguntan solo a quien ya marcó síntomas— y por eso se
-  excluyeron desde el principio.
+  Un AUC de 0,90 con estas variables llamaría la atención más que alegrar: casi siempre indica
+  que se coló una variable que ya contiene el desenlace. En este proyecto ese riesgo era real y
+  concreto (<code>QS702</code> y <code>QS704A-I</code> se preguntan solo a quien ya marcó
+  síntomas) y por eso se excluyeron desde el principio.
   <br><br>
-  Reportar el techo honestamente vale más que maquillarlo. Un modelo con AUC 0,67 bien
-  explicado orienta política pública sin prometer nada falso; el mismo modelo presentado
-  como «detector» invita a usarlo sobre personas concretas, donde se equivoca cinco de
-  cada seis veces.
+  Preferimos reportar el techo tal como es. Un modelo con AUC 0,67 bien explicado orienta
+  política pública sin prometer nada que no pueda cumplir. Presentado como «detector», en
+  cambio, invitaría a usarlo sobre personas concretas, y ahí su aviso de riesgo no se confirma
+  con frecuencia: cinco de cada seis veces.
 </div>
 </section>
-<div class="paginacion"><a href="09-modelo.html">← El modelo</a><a href="11-conclusiones.html">Qué significa →</a></div>
+<div class="paginacion"><a href="10-modelo.html">← El modelo</a><a href="12-validez.html">Sesgos y límites →</a></div>
 </div></main>
 <footer><div class="contenedor"><div class="cols">
   <div>
@@ -150,9 +149,9 @@ bien porque es frecuente.</p>
   </div>
   <div>
     <h4>¿Necesitas ayuda?</h4>
-    Línea 113, opción 5 — salud mental<br>
+    Línea 113, opción 5 (salud mental)<br>
     Gratuita, 24 horas, MINSA<br>
-    <a href="12-cierre.html">Todos los recursos</a>
+    <a href="14-cierre.html">Todos los recursos</a>
   </div>
 </div>
 <!-- El descargo va en el pie compartido, no solo en la primera página: quien

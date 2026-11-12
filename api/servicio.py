@@ -83,8 +83,23 @@ class Servicio:
         self.metadatos = d
         self.cargado = True
         self._contexto = None
+        self._alinear_prevalencia()
         log.info("Modelo cargado: %s coeficientes, AUC %.3f",
                  len(self.coeficientes), d.get("auc", float("nan")))
+
+    def _alinear_prevalencia(self) -> None:
+        """Fija como prevalencia nacional de referencia la ponderada (6,98 %).
+
+        Es la estimada con el diseño de la encuesta y la misma que cita el boletín.
+        Las probabilidades del modelo salen de una logística con diseño, así que
+        están calibradas con ella, y con ella se compara cada perfil. La media sin
+        ponderar de la muestra de ajuste queda disponible como
+        ``prevalencia_muestra_modelo``.
+        """
+        nacional = self.contexto().get("nacional", {}).get("prevalencia")
+        if nacional:
+            self.metadatos["prevalencia_muestra_modelo"] = self.metadatos.get("prevalencia")
+            self.metadatos["prevalencia"] = float(nacional) / 100
 
     def _terminos(self, p: Perfil) -> dict[str, float]:
         """Traduce un perfil a los términos del modelo, con sus valores 0/1."""

@@ -90,6 +90,8 @@
           <option selected>Secundaria</option>
           <option>Superior</option>
         </select>
+        <p class="pista">El modelo no incluye a quienes nunca asistieron a la escuela, un grupo donde la
+        prevalencia observada es más alta (15,9 %). Para ellas y ellos la estimación puede quedar por debajo.</p>
       </div>
 
       <fieldset class="campo">
@@ -151,7 +153,7 @@
         <li><strong>Qué características pesan más</strong> en la estimación del modelo.</li>
         <li><strong>Una lectura en palabras</strong> de todo lo anterior.</li>
       </ol>
-      <p class="espera-pie">Rellena el perfil de la izquierda y pulsa el botón.</p>
+      <p class="espera-pie">Completa el perfil de la izquierda y pulsa el botón.</p>
     </div>
 
     <!-- ── Al calcular: se revela el resultado ──────────────────── -->
@@ -187,8 +189,12 @@
       <div class="lienzo-mapa"><svg id="mapa" viewBox="0 0 300 420" role="img"
         aria-label="Mapa del Perú por departamentos, con el seleccionado resaltado"></svg></div>
       <p class="leyenda-mapa" id="leyenda-mapa"></p>
+      <p class="pista nota-territorio">El mapa compara departamentos, que son grupos: que uno
+      tenga más prevalencia no dice que cada persona de allí la tenga (leer lo contrario es
+      la falacia ecológica). Los departamentos más altos también son más rurales y tienen
+      menos servicios, así que la altitud no se puede separar de eso con estos datos.</p>
 
-      <h3>6 · Qué pesa en la estimación</h3>
+      <h3>6 · Qué se asocia con la estimación</h3>
       <div id="factores"></div>
 
       <h3>7 · Interpretación</h3>
@@ -211,8 +217,8 @@
     derivación.</p>
     <div class="recursos" id="recursos"></div>
     <div class="aviso-legal">
-      <strong>Esto no es un diagnóstico.</strong> La herramienta estima riesgo
-      epidemiológico poblacional con fines académicos y de salud pública. No reemplaza la
+      <strong>Esto no es un diagnóstico.</strong> La herramienta estima prevalencia y
+      riesgo epidemiológico poblacional con fines académicos y de salud pública. No reemplaza la
       evaluación de un profesional de salud mental. Si algo de lo que ves aquí te
       preocupa, hablar con un profesional es el paso que sí puede evaluar tu situación.
     </div>
@@ -224,40 +230,46 @@
   <section class="panel-limites" id="limites" aria-labelledby="titulo-limites">
     <h2 id="titulo-limites">Hasta dónde llega esto</h2>
     <p>Un dato de encuesta dice mucho de un grupo y poco de una persona. Estas cuatro
-    cifras, sacadas del propio análisis, muestran exactamente dónde está esa frontera.</p>
+    cifras, sacadas del propio análisis, ayudan a ver hasta dónde llega lo que te mostramos.</p>
 
     <div class="limites-rejilla">
       <div class="limite">
         <div class="cifra">2 de cada 3</div>
-        <p>Si le enseñas dos personas al azar, una con síntomas y otra sin ellos, el
-        modelo distingue cuál es cuál dos veces de cada tres. Mejor que lanzar una
-        moneda, lejos de una prueba médica.</p>
+        <p>Si le presentas al modelo dos personas al azar, una con síntomas y otra sin ellos,
+        acierta cuál es cuál dos veces de cada tres. Es mejor que tirar una moneda, aunque
+        queda lejos de una prueba médica.</p>
       </div>
       <div class="limite">
         <div class="cifra">85 de 100</div>
-        <p>De cada cien personas que señala como riesgo, unas ochenta y cinco no dan
-        positivo. Por eso la cifra sirve para mirar un grupo y no para señalar a
-        alguien.</p>
+        <p>De cada cien personas que el modelo marca con riesgo, unas ochenta y cinco no dan
+        positivo. Por eso la cifra ayuda a entender un grupo y no a evaluar a una
+        persona.</p>
       </div>
       <div class="limite">
         <div class="cifra">93,8 %</div>
-        <p>Es lo que acierta responder «nadie» a todo el mundo, y le gana al modelo por
-        cuatro puntos. Con un fenómeno que afecta al 7 %, acertar mucho es fácil y no
-        significa gran cosa.</p>
+        <p>Es lo que acertaría quien respondiera «nadie» a todo el mundo, y queda cuatro
+        puntos por encima del modelo. Cuando solo unas 6 o 7 de cada 100 personas dan positivo, acertar mucho es
+        fácil, así que ese número dice poco por sí solo.</p>
       </div>
       <div class="limite">
         <div class="cifra">4 de 4</div>
-        <p>Probamos cuatro familias de algoritmos distintas y las cuatro se quedan en el
-        mismo sitio. Cuando cambiar de método no cambia nada, el límite está en lo que la
-        encuesta pregunta.</p>
+        <p>Probamos cuatro familias de algoritmos distintas y las cuatro llegan a un
+        resultado parecido. Cuando cambiar de método casi no cambia nada, lo más probable
+        es que el límite esté en lo que la encuesta pregunta.</p>
       </div>
     </div>
 
     <p class="limites-cierre">
-      <strong>Y eso está bien.</strong> Lo que lleva a alguien a una depresión —una
-      pérdida, una racha mala, con quién cuenta, cómo llega a fin de mes— no cabe en un
-      cuestionario de hogares. Que estas variables no alcancen a explicarlo dice más del
-      fenómeno que del modelo. Sirve para lo que se hizo: ver en qué regiones y en qué
+      <strong>Todo se midió a la vez.</strong> La encuesta es una foto: sexo, edad, hábitos,
+      condiciones de salud y síntomas se registraron en el mismo momento. Por eso lo que ves
+      son coincidencias entre grupos, no una secuencia ni una causa.
+    </p>
+
+    <p class="limites-cierre">
+      <strong>Y eso está bien.</strong> Lo que lleva a alguien a una depresión (una
+      pérdida, una racha mala, con quién cuenta, cómo llega a fin de mes) es difícil de
+      recoger en un cuestionario de hogares. Que estas variables no alcancen a explicarlo
+      habla de la complejidad del fenómeno más que de una falla del modelo. Sirve para lo que se hizo: ver en qué regiones y en qué
       grupos se concentra, y decidir dónde hacen falta más psicólogos. Para saber cómo
       estás tú, la conversación es con <a href="#ayuda">alguien que pueda escucharte</a>.
     </p>

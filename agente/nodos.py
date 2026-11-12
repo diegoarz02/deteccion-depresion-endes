@@ -8,6 +8,7 @@ puede auditar entera después.
 from __future__ import annotations
 
 import contextlib
+import hashlib
 import json
 import logging
 import os
@@ -398,7 +399,13 @@ def formatear_salida(estado: EstadoAgente) -> dict:
         import animo
 
         categoria = (estado.get("prediccion") or {}).get("categoria_riesgo", "bajo")
-        frase = animo.elegir(categoria, hay_crisis=bool(estado.get("hay_crisis")))
+        # La semilla sale del propio perfil: el mismo perfil ve siempre la misma frase y
+        # perfiles distintos ven frases distintas, en lugar de la primera del tono para todos.
+        huella = hashlib.blake2b(
+            json.dumps(estado.get("perfil") or {}, sort_keys=True, default=str).encode(),
+            digest_size=4).digest()
+        frase = animo.elegir(categoria, hay_crisis=bool(estado.get("hay_crisis")),
+                             semilla=int.from_bytes(huella, "big"))
         if frase:
             final += "\n\n---\n\n" + animo.formatear(frase)
 

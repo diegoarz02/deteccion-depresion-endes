@@ -83,7 +83,7 @@ def main() -> None:
         (f"Excluidos: {flujo.excluidos[2]:,}".replace(",", " "),
          "Sin Peso15_AMAS\nno pueden entrar al análisis\ncon diseño complejo"),
         (f"Excluidos: {flujo.excluidos[3]:,}".replace(",", " "),
-         "Faltantes en nivel educativo\n3,79 % de la base"),
+         "Nunca asistieron a la escuela\n(sin nivel educativo, QS24 = 2)\n3,79 % de la base"),
     ]
 
     x_c, ancho, alto = 0.9, 4.9, 1.4

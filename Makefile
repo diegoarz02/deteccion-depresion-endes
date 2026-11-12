@@ -5,8 +5,8 @@ RSCRIPT ?= C:/Program Files/R/R-4.4.3/bin/Rscript.exe
 
 ayuda:
 	@echo "make data          - construye datos/final/data.parquet (incluye georreferenciacion)"
-	@echo "make analisis      - ejecuta las diez etapas del analisis epidemiologico"
-	@echo "make boletin       - genera el boletin de 13 secciones en boletin/"
+	@echo "make analisis      - ejecuta las catorce etapas del analisis epidemiologico"
+	@echo "make boletin       - genera el boletin de 15 secciones y docs/referencias.bib"
 	@echo "make notebooks     - genera los nueve notebooks y los ejecuta"
 	@echo "make tests         - pytest de datos, geo, agente y API"
 	@echo "make calidad       - ruff"
@@ -32,6 +32,10 @@ analisis:
 	python codigo/scripts/analisis_08_mediacion.py
 	python codigo/scripts/analisis_09_mapas.py
 	python codigo/scripts/analisis_10_deff.py
+	python codigo/scripts/analisis_11_forma_edad.py
+	python codigo/scripts/analisis_12_asociacion_atribuible.py
+	python codigo/scripts/analisis_13_altitud_confusor.py
+	python codigo/scripts/analisis_14_sensibilidad_sin_educacion.py
 
 boletin:
 	python codigo/scripts/preparar_recursos_boletin.py

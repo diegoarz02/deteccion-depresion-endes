@@ -1,0 +1,10 @@
+﻿exposicion,variable,n,or_crudo,or_solo_altitud,cambio_crudo_solo_altitud_pct,or_sin_altitud,sin_ic_inf,sin_ic_sup,or_con_altitud,con_ic_inf,con_ic_sup,cambio_pct,rp_sin_altitud,rp_con_altitud,cambio_rp_pct,cruza_el_1_sin,cruza_el_1_con,or_sin_altitud_sin_region,or_con_altitud_sin_region,cambio_sin_region_pct,confunde,veredicto
+Sexo femenino,es_mujer,28553,2.709,2.703,-0.234,2.938,2.386,3.617,2.935,2.384,3.614,-0.08,2.702,2.699,-0.107,False,False,2.947,2.939,-0.254,False,No confunde: el OR cambia menos de 10 %
+Área rural,es_rural,28553,0.871,0.806,-7.415,0.836,0.708,0.988,0.824,0.695,0.978,-1.426,0.85,0.839,-1.296,False,False,0.841,0.775,-7.855,False,No confunde: el OR cambia menos de 10 %
+Consumo problemático de alcohol,alcohol_problematico,28553,3.268,3.289,0.643,6.071,3.407,10.819,6.076,3.403,10.847,0.081,4.796,4.798,0.041,False,False,6.079,5.979,-1.658,False,No confunde: el OR cambia menos de 10 %
+Consumo frecuente de alcohol,consumo_frecuente,28553,0.768,0.777,1.11,0.831,0.593,1.164,0.837,0.597,1.173,0.756,0.839,0.844,0.688,True,True,0.831,0.845,1.667,False,No confunde: el OR cambia menos de 10 %
+Fumó en los últimos 12 meses,fuma_12m,28553,0.886,0.89,0.437,1.413,1.066,1.873,1.412,1.065,1.873,-0.078,1.361,1.36,-0.084,False,False,1.405,1.407,0.138,False,No confunde: el OR cambia menos de 10 %
+Hipertensión diagnosticada,hta_dx,28553,1.803,1.815,0.687,1.445,1.133,1.844,1.447,1.134,1.847,0.149,1.388,1.39,0.103,False,False,1.433,1.443,0.686,False,No confunde: el OR cambia menos de 10 %
+Diabetes diagnosticada,diabetes_dx,28553,1.803,1.837,1.902,1.414,1.001,1.997,1.423,1.007,2.01,0.596,1.357,1.364,0.551,False,False,1.402,1.427,1.823,False,No confunde: el OR cambia menos de 10 %
+Obesidad (IMC ≥ 30),obesidad,28553,1.182,1.198,1.363,1.095,0.917,1.308,1.095,0.917,1.308,0.018,1.087,1.087,0.006,True,True,1.093,1.105,1.141,False,No confunde: el OR cambia menos de 10 %
+Violencia física de pareja,violencia_fisica,18845,4.129,4.152,0.56,3.864,2.743,5.443,3.882,2.754,5.472,0.472,3.22,3.228,0.274,False,False,,,,False,No confunde: el OR cambia menos de 10 %

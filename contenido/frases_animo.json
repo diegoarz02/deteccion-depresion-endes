@@ -152,6 +152,77 @@
       "fuente": "Inspirado en Siempre a tu lado, Hachiko (2009)",
       "tono": "compania",
       "verificada": false
+    },
+    {
+      "id": "blackclover_limites",
+      "texto": "Superar tus límites no es poder con todo hoy. Es poder un poco más mañana.",
+      "fuente": "Inspirado en Black Clover (Yūki Tabata)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "blackclover_juntos",
+      "texto": "Nadie llega lejos solo. Siempre hay alguien dispuesto a dar el siguiente paso contigo.",
+      "fuente": "Inspirado en Black Clover (Yūki Tabata)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "blackclover_lugar",
+      "texto": "No tienes que demostrar nada hoy. Tu lugar ya está aquí.",
+      "fuente": "Inspirado en Black Clover (Yūki Tabata)",
+      "tono": "sereno",
+      "verificada": false
+    },
+    {
+      "id": "naruto_ver",
+      "texto": "Que alguien te vea de verdad ya alivia un poco lo que cargas.",
+      "fuente": "Inspirado en Naruto (Masashi Kishimoto)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "naruto_volver",
+      "texto": "Caerse no te quita el camino. Puedes volver a empezar, y no tienes que hacerlo solo.",
+      "fuente": "Inspirado en Naruto (Masashi Kishimoto)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "mha_ayuda",
+      "texto": "Hasta los héroes más fuertes se apoyan en otros. Pedir ayuda no les quita nada.",
+      "fuente": "Inspirado en Boku no Hero Academia (Kōhei Horikoshi)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "onepiece_equipo",
+      "texto": "Un equipo no existe para que cargues solo con todo, sino para que alguien cargue contigo.",
+      "fuente": "Inspirado en One Piece (Eiichirō Oda)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "fairytail_lugar",
+      "texto": "Siempre hay un lugar para ti, incluso en tus peores días.",
+      "fuente": "Inspirado en Fairy Tail (Hiro Mashima)",
+      "tono": "compania",
+      "verificada": false
+    },
+    {
+      "id": "blackclover_yami_limites",
+      "texto": "Supera tus límites, aquí y ahora.",
+      "fuente": "Inspirado en Yami, de Black Clover (Yūki Tabata)",
+      "tono": "aliento",
+      "verificada": false
+    },
+    {
+      "id": "blackclover_asta_magia",
+      "texto": "Tu magia es no rendirte.",
+      "fuente": "Inspirado en Asta, de Black Clover (Yūki Tabata)",
+      "tono": "aliento",
+      "verificada": false
     }
-  ]
+  ],
+  "_adaptaciones": "Las frases de anime añadidas el 2026-11-12 son adaptaciones de la idea de cada obra, no citas literales: no se pudo confirmar el texto exacto ni el episodio, que cambian según la traducción. Por eso están marcadas con verificada: false y su fuente empieza por «Inspirado en». Si se localiza una línea literal, se sustituye y se marca verificada. Las dos de Black Clover parten de frases conocidas de Yami («Supera tus límites, aquí y ahora») y de Asta («Mi magia es no rendirme»), pero la redacción en español varía según la traducción y no se confirmó la del doblaje. Por eso se muestran como «Inspirado en…», con la de Asta dirigida a quien lee, y llevan verificada: false."
 }

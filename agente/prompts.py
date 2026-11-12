@@ -40,14 +40,22 @@ PROHIBICIONES ABSOLUTAS
 6. **Usa solo las cifras que recibes en el contexto.** No calcules, no redondees hacia
    una cifra más redonda, no añadas datos de memoria. Si un número no está en el
    contexto, no aparece en tu texto.
-7. Es un estudio transversal: puedes hablar de asociación, nunca de causa.
+7. Es un estudio transversal, una foto en el tiempo: exposición y resultado se miden a la
+   vez. Puedes hablar de asociación, nunca de causa ni de secuencia.
+8. Las comparaciones entre grupos se dicen como **razón de prevalencias** (el cociente de
+   dos prevalencias), nunca como «riesgo relativo» ni como «X veces más riesgo». La región
+   natural, la altitud y el departamento describen territorios, no personas: la altitud va
+   unida a la ruralidad, la pobreza y el acceso a servicios, así que no la presentes como
+   un factor aislado ni como una causa.
 
 ESTRUCTURA DE LA RESPUESTA
 Seis bloques, en este orden, en prosa continua y sin encabezados:
 1. **El hecho observado primero**: cuántas personas de cada cien con un perfil parecido
    dieron positivo en la encuesta. Es un recuento, no un pronóstico, y así hay que decirlo.
-2. Cómo se compara con la prevalencia nacional y con la de su departamento, si la hay.
-3. Qué factores del perfil contribuyen y con qué magnitud, en lenguaje llano.
+2. Cómo se compara con la prevalencia nacional y con la de su departamento, si la hay,
+   con la razón de prevalencias.
+3. Qué características del perfil se asocian con la estimación y con qué magnitud
+   (odds ratios ajustados), en lenguaje llano.
 4. Qué dice la evidencia del estudio para un perfil así.
 5. Qué NO puede decir este análisis. Aquí va lo importante: el modelo discrimina poco
    (AUC 0,67), señala mal cinco de cada seis veces, y describe grupos, no personas.
@@ -73,9 +81,9 @@ DATO OBSERVADO EN LA ENCUESTA (empieza la respuesta por aquí):
 Estimación del modelo (NO es la probabilidad de quien consulta):
 - Estimación para este perfil: {probabilidad:.1f} %
 - Prevalencia nacional: {prevalencia:.1f} %
-- Es {razon:.1f} veces la prevalencia nacional
-- Categoría de riesgo: {categoria}
-- Factores que más aportan: {factores}
+- Razón de prevalencias frente al total nacional: {razon:.2f}
+- Grupo de prevalencia (alta, media o baja): {categoria}
+- Características que más se asocian con la estimación: {factores}
 
 Contexto epidemiológico del estudio:
 {contexto}
@@ -179,33 +187,45 @@ MODELOS = [
 
 #: Cómo se presentan los factores que más pesan.
 FACTORES = [
-    "Los factores que más contribuyen son {lista}.",
-    "Lo que más pesa en esa estimación: {lista}.",
-    "Tres características tiran de la cifra hacia arriba: {lista}.",
-    "El modelo se apoya sobre todo en {lista}.",
+    "Las características que más se asocian con esa estimación son {lista}.",
+    "Lo que más pesa en esa estimación, como asociación y no como causa: {lista}.",
+    "Tres características se asocian con una cifra más alta: {lista}.",
+    "El modelo se apoya sobre todo en {lista}, que van junto con más sintomatología en los datos.",
 ]
 
 #: El recordatorio del diseño transversal.
 DISENOS = [
-    "Conviene leerlo con sus límites: es un estudio transversal, que mide la exposición y el "
-    "resultado a la vez, así que describe asociación y no causa.",
+    "Conviene leerlo con sus límites: es un estudio transversal, una foto en la que exposición "
+    "y resultado se miden a la vez, así que describe asociación y no causa ni secuencia.",
     "Una advertencia de método: al medirse todo en el mismo momento, estos datos muestran qué "
-    "va junto con qué, no qué causa qué.",
+    "va junto con qué, no qué ocurrió primero ni qué causa qué.",
     "El diseño del estudio marca hasta dónde se puede leer: como exposición y resultado se "
-    "recogen a la vez, hay asociación pero no relación de causa.",
+    "recogen a la vez, hay asociación pero no se sabe cuál precede a cuál.",
     "Sobre lo que estas cifras no pueden decir: al ser un corte en el tiempo, señalan "
-    "coincidencias, no causas.",
+    "coincidencias, no causas ni secuencias.",
+]
+
+#: El territorio describe grupos. Va siempre, en una frase, porque la región, el
+#: departamento y la altitud son justo donde la lectura individual tienta más.
+TERRITORIOS = [
+    "La región y el departamento describen territorios, no a cada persona que vive en ellos, y "
+    "la altitud va unida a la ruralidad y al acceso a servicios: no se lee como causa.",
+    "Las cifras por territorio son de grupo. Que un departamento tenga más prevalencia no dice "
+    "que cada persona de allí la tenga, y la altitud no se separa de lo demás que cambia con ella.",
+    "Un territorio no es una persona: la prevalencia de una región o de un departamento es de "
+    "grupo, y la altitud acompaña a la ruralidad y a la distancia a los servicios.",
 ]
 
 #: El recordatorio de qué es el PHQ-9.
 INSTRUMENTOS = [
     "El PHQ-9 es un instrumento de tamizaje respondido por la propia persona, no un "
-    "diagnóstico clínico, y su punto de corte no está validado específicamente para "
-    "población peruana.",
+    "diagnóstico clínico, y su punto de corte viene de estudios internacionales: no conocemos "
+    "una validación de criterio que lo confirme en el Perú.",
     "El PHQ-9 lo responde cada persona sobre sí misma: identifica sintomatología, no "
     "enfermedad, y el umbral que se usa viene de estudios internacionales.",
     "Conviene recordar qué mide el PHQ-9: síntomas autorreportados en las dos últimas "
-    "semanas. Es un tamizaje, no un diagnóstico, y su corte no se ha validado en el Perú.",
+    "semanas. Es un tamizaje, no un diagnóstico, y su corte no tiene una validación de "
+    "criterio propia en el Perú.",
 ]
 
 #: El techo del modelo, dicho de cuatro maneras.
@@ -215,10 +235,10 @@ TECHOS = [
     "depresión acierta más veces que él.",
     "Sobre la precisión: de cada cien a las que el modelo señala, unas ochenta y cinco no dan "
     "positivo. Responder «nadie» a todo el mundo acierta más veces.",
-    "Un dato que cambia cómo leer todo lo anterior: cuando el modelo marca riesgo, se "
-    "equivoca cinco de cada seis veces. Distingue poblaciones, no personas.",
+    "Un dato que ayuda a leer todo lo anterior: cuando el modelo marca riesgo, cinco de "
+    "cada seis veces la persona no da positivo. Distingue poblaciones, no personas.",
     "Y algo que conviene tener presente: el modelo acierta menos que responder «nadie» a todo "
-    "el mundo. Sirve para comparar grupos, no para señalar a alguien.",
+    "el mundo. Sirve para comparar grupos, no para evaluar a una persona.",
 ]
 
 #: El cierre que orienta a ayuda profesional.
@@ -267,14 +287,16 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
     referencia = observado["prevalencia"] if observado else p
     razon = referencia / base if base else 0.0
 
-    if razon >= 2.5:
-        comparacion = f"en unas {_n(razon)} veces la prevalencia nacional"
-    elif razon >= 1.2:
-        comparacion = f"por encima de la prevalencia nacional, en {_n(razon)} veces"
+    # Se nombra como lo que es: un cociente de dos prevalencias. «Veces más
+    # riesgo» suena a riesgo relativo, que un corte transversal no puede dar.
+    if razon >= 1.2:
+        sentido = "una prevalencia más alta que la nacional"
     elif razon >= 0.85:
-        comparacion = "en torno a la prevalencia nacional"
+        sentido = "una prevalencia en torno a la nacional"
     else:
-        comparacion = f"por debajo de la prevalencia nacional, en {_n(razon)} veces"
+        sentido = "una prevalencia más baja que la nacional"
+    comparacion = (f"La prevalencia nacional es del {_n(base, 2)} %. La razón de prevalencias "
+                   f"de este grupo frente al total es {_n(razon, 2)}, es decir, {sentido}.")
 
     # La huella sale del propio perfil, así que el mismo perfil produce siempre
     # el mismo texto y dos perfiles distintos leen distinto.
@@ -288,7 +310,7 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
         lista = (nombres[0] if len(nombres) == 1
                  else ", ".join(nombres[:-1]) + f" y {nombres[-1]}")
         texto_factores = (
-            f"El factor que más contribuye a esta estimación es {lista}."
+            f"La característica que más se asocia con esta estimación es {lista}."
             if len(nombres) == 1
             else _elegir(FACTORES, huella, "factores").format(lista=lista))
     else:
@@ -327,10 +349,11 @@ def plantilla_determinista(prediccion: dict, perfil: dict, contexto: list[str],
 
     return (
         f"{apertura}"
-        f"La cifra se sitúa {comparacion}, que es del {_n(base)} %. "
+        f"{comparacion} "
         f"{texto_factores}"
         f"{linea_contexto} "
         f"{_elegir(DISENOS, huella, 'diseno')} "
+        f"{_elegir(TERRITORIOS, huella, 'territorio')} "
         f"{_elegir(INSTRUMENTOS, huella, 'instrumento')} "
         f"{_elegir(TECHOS, huella, 'techo')} "
         f"El grupo descrito es de prevalencia {_CATEGORIA_FEMENINA.get(categoria, categoria)}. Si algo de esto te resuena, "
@@ -346,8 +369,8 @@ def cierre(disclaimer: str, linea: str, modo: str, auc: float | None = None) -> 
         incertidumbre = (
             f"\n\nSobre la incertidumbre: el modelo discrimina con un AUC de {_n(auc, 2)}. "
             f"Puestas dos personas al azar, una con síntomas y otra sin ellos, acierta "
-            f"cuál es cuál dos de cada tres veces. Basta para ordenar poblaciones por "
-            f"riesgo; no para clasificar a nadie.")
+            f"cuál es cuál dos de cada tres veces. Alcanza para ordenar poblaciones según su "
+            f"riesgo, aunque no para clasificar a una persona.")
     origen = {
         "degradado": ("Interpretación redactada con plantillas deterministas sobre las "
                       "cifras del modelo."),

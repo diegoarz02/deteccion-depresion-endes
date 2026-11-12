@@ -183,7 +183,12 @@ personas (`en_analisis == 1`).
 | Personas de 15+ en CSALUD01 2025 | 33 569 | — | — |
 | Con PHQ-9 completo | 30 401 | 3 168 | Entrevista ausente, rechazada, incompleta o por discapacidad (`QSRESULT`) |
 | Con ponderador | 30 226 | 175 | Sin `Peso15_AMAS`; no pueden entrar al análisis con diseño complejo |
-| Con covariables clave completas | 29 081 | 1 145 | Faltantes en `educacion_grupo` |
+| Con covariables clave completas | 29 081 | 1 145 | Nunca asistieron a la escuela: el nivel educativo no aplica (`QS24 = 2`) |
+
+**Nota.** Esos 1 145 son quienes nunca asistieron a la escuela: `QS24` («¿asistió a la escuela?»)
+filtra a `QS25N` («nivel que aprobó»), y quien respondió «No» no tiene nivel aprobado. Se comprobó
+contra el archivo original que las 1 145 nulas del análisis coinciden con ellos. Ver la entrada del
+2026-11-11 más abajo.
 
 **Sobre la imputación múltiple.** La única covariable clave con faltantes relevantes es
 `educacion_grupo`, con **3,79 %** dentro de la población de análisis — por debajo del umbral
@@ -193,6 +198,140 @@ principal es de casos completos.
 
 **Ojo con `violencia_fisica`.** Su 34,7 % de "faltantes" **no es no-respuesta**: es el salto
 estructural de quien no tuvo pareja. No se imputa. Se analiza como subpoblación.
+
+---
+
+## Fase 2 — Validación de resultados (noviembre de 2026)
+
+Estas entradas documentan la validación de los resultados: medidas de asociación y riesgo atribuible,
+sesgos, altitud como posible confusor y consistencia entre el boletín, la aplicación y el agente.
+Ninguna cambia el modelo logístico principal ni los coeficientes que sirve la API.
+
+### `2026-11-11` — En un corte transversal se usa la razón de prevalencias, no el riesgo relativo
+
+**Decisión.** Donde antes podía leerse «riesgo relativo» o «veces más riesgo», se nombra la
+**razón de prevalencias** (cociente de dos prevalencias) y el **odds ratio**. No se calcula riesgo
+relativo porque exige incidencia, y la ENDES no sigue a nadie en el tiempo (Mann, 2003).
+
+**Cómo se estima.** Sin ajuste, como cociente de proporciones con el error de Katz. Con ajuste,
+por Poisson con enlace logarítmico (`svy.GLM`, familia Poisson), que con varianza robusta es el
+estimador recomendado para razones de prevalencias (Zou, 2004; Barros y Hirakata, 2003). La función
+es `modelos.razon_prevalencias_diseno`.
+
+**Alternativa descartada.** Log-binomial: suele no converger y no aporta frente a Poisson con
+varianza robusta.
+
+### `2026-11-11` — Riesgo atribuible basado en prevalencia
+
+**Decisión.** Se reportan tres medidas, siempre con la advertencia de que se apoyan en prevalencia
+y no en incidencia, y de que solo equivalen a «casos evitables» si la asociación fuera causal y no
+confundida:
+
+1. diferencia de prevalencias entre expuestos y no expuestos;
+2. fracción atribuible en expuestos, `(RP - 1) / RP`;
+3. fracción atribuible poblacional, por la fórmula de Levin con medidas crudas
+   (`Pe (RP - 1) / (1 + Pe (RP - 1))`) y por la de Miettinen con la RP ajustada
+   (`Pc (RP - 1) / RP`, con `Pc` la proporción de casos expuestos) (Miettinen, 1974; Rockhill et
+   al., 1998).
+
+**Pesos.** Las fracciones poblacionales se calculan con los pesos de la encuesta: la prevalencia de
+una exposición en la muestra no es la de la población (la muestra sobrerrepresenta el área rural).
+La tabla 2×2 con celdas a, b, c, d sí cuenta personas sin ponderar, como corresponde a esa
+presentación, y se acompaña de la prueba de Rao y Scott porque Pearson supone independencia.
+
+**Intervalos.** Las fracciones son funciones no lineales de varias estimaciones, así que sus IC 95 %
+salen de 1 000 réplicas del bootstrap de Rao y Wu (`n_h - 1` conglomerados por estrato con pesos
+reescalados; estratos de un conglomerado sin cambios). La RP ajustada usa la varianza de Taylor de
+`svy`; el control cruzado con el bootstrap da anchos equivalentes (cociente entre 0,8 y 1,25, lo
+verifica una prueba).
+
+**Dónde.** `codigo/scripts/analisis_12_asociacion_atribuible.py`; tablas 57 y 58.
+
+### `2026-11-11` — La lectura de una 2×2 exige que sobreviva al diseño
+
+La tabla 2×2 sin ponderar puede mostrar una señal que el diseño no sostiene, incluso de signo
+contrario: en el área rural, el odds ratio sin ponderar es 1,14 (rural «de riesgo»), con pesos la
+prevalencia rural y urbana es casi igual (6,8 % y 7,0 %) y la prueba de Rao y Scott da p = 0,70. Por
+eso la columna de lectura declara asociación solo si Rao y Scott rechaza al 5 %.
+
+### `2026-11-11` — La altitud se trata como exposición y como posible confusor
+
+**Confusor de los demás factores.** Se compara el OR (y la RP) de cada exposición principal sin y con
+el piso altitudinal en el modelo, con el criterio del cambio del 10 % (Maldonado y Greenland, 1993;
+Mickey y Greenland, 1989). La altitud entra por pisos y no como recta, porque la relación tiene forma
+de J. Resultado: **no confunde** a ninguno; el mayor cambio es 1,4 % con la región natural en el
+modelo y 7,9 % (área rural) sin ella. Dónde: `analisis_13_altitud_confusor.py`, tabla 59.
+
+**Gradiente propio.** Se ajusta por etapas (sociodemográficas, conductas y clínicas, región natural,
+departamento). La cadena reproduce la tabla 38. El ajuste por **departamento** compara solo dentro
+de cada departamento: el OR por 1 000 m pasa de 1,09 a 1,05 (IC 95 % 0,96 a 1,14). La región natural
+se deriva de la altitud, así que adjuntarla es controlar por una versión gruesa de la exposición; se
+reporta con esa advertencia y el departamento se usa como control más fino. Tablas 60 a 62 y 67.
+
+**Falacia ecológica.** La correlación departamental (r = 0,63) se presenta junto con el gradiente
+individual, y el texto la identifica como dato de grupo (Robinson, 1950/2009; Morgenstern, 1995).
+
+### `2026-11-11` — Quienes nunca asistieron a la escuela
+
+**Descripción.** Las 1 145 personas con `educacion_grupo` nula son quienes respondieron «No» a `QS24`.
+Son en su mayoría mujeres de 60 años o más, del área rural y de altitudes mayores, con prevalencia
+ponderada de 15,9 % frente a 6,7 % en el resto.
+
+**Tratamiento.** El modelo principal se mantiene con casos completos: sus coeficientes son los que sirve
+la API. Como análisis de sensibilidad se incluye «sin educación» como categoría
+(`sensibilidad.educacion_cuatro_niveles`): ninguno de los 17 coeficientes comparables cambia un 10 %
+o más (máximo 6,4 %) y la categoría tiene un OR de 2,07 frente a educación superior. El OR crudo de la
+altitud sí depende de incluirlas (1,05 con casos completos frente a 1,09 con ellas). La correspondencia
+con `QS24` se verifica contra el `.sav` original cuando está disponible (`verificar_sin_educacion`).
+Tablas 63 y 64.
+
+### `2026-11-12` — Se mantiene el modelo con casos completos como análisis principal
+
+**Decisión.** El modelo principal sigue siendo el de casos completos (n = 28 553) y la inclusión de «sin
+educación» queda como análisis de sensibilidad, ya presentado en el boletín (sección 12) y en las tablas 63 y 64.
+
+**Razones.** (1) Ninguno de los 17 coeficientes comparables cambia un 10 % o más al incluirlas (máximo 6,4 %), de
+modo que las conclusiones sobre los factores no dependen de esta elección. (2) Los coeficientes del modelo
+principal son los que sirve la API y los que respaldan las cifras del boletín, de la aplicación y del agente;
+cambiarlos al final movería a la vez la muestra, el AUC, el ranking SHAP y las tablas, sin cambiar lo que se
+concluye. (3) El límite queda declarado: ese grupo tiene prevalencia más alta (15,9 % frente a 6,7 %) y no entra en
+las estimaciones del modelo, y la aplicación lo avisa junto al selector de nivel educativo.
+
+**Alternativa disponible.** Tratar «sin educación» como cuarta categoría del modelo principal también es defendible,
+porque no es un dato perdido sino una respuesta válida. Está implementada en
+`sensibilidad.educacion_cuatro_niveles`; adoptarla implicaría volver a correr las etapas de modelado, SHAP y
+atribuibles y revisar las cifras de las tres superficies.
+
+### `2026-11-11` — La no respuesta del PHQ-9 se describe con `QSRESULT`
+
+De las 33 569 personas del cuestionario de salud, 3 168 no tienen el PHQ-9 completo: 777 ausentes,
+899 rechazadas, 1 419 incompletas, 70 por discapacidad y 3 otras. Su sexo y su edad no figuran en
+el archivo; por el registro del hogar se sabe que son más urbanas. No se puede decir hacia dónde
+mueven la prevalencia. Tablas 65 y 66.
+
+### `2026-11-11` — Referencias: una sola fuente
+
+Las citas del boletín, su lista APA 7 y `docs/referencias.bib` salen del mismo módulo
+(`codigo/scripts/referencias_boletin.py`), de modo que no puede haber una cita sin referencia ni una
+referencia sin cita. Cada entrada se verificó abriéndola (metadatos con Crossref y PubMed; contenido
+con el resumen o el texto) y el módulo guarda qué se comprobó de cada una.
+
+### `2026-11-12` — La prevalencia de referencia de la API es la ponderada
+
+Cada perfil se compara con la **prevalencia nacional ponderada** (6,98 %), la estimada con el diseño
+de la encuesta, que es la misma que cita el boletín y que muestra el panel de la aplicación. Con ella
+están calibradas las probabilidades de la logística con diseño. `Servicio` la toma de `contexto.json`
+(`_alinear_prevalencia`); la media sin ponderar de la muestra del modelo queda guardada como
+`prevalencia_muestra_modelo` y no se usa como referencia. De esa referencia salen la razón de
+prevalencias frente al total y la categoría «alta, media o baja».
+
+### `2026-11-11` — Consistencia entre las tres superficies
+
+El encuadre nuevo (razón de prevalencias, asociación y no causa, una foto, el territorio describe
+grupos, la altitud no es un factor aislado) se aplicó a la aplicación web (`api/web/`), a las
+plantillas del modo degradado del agente (`agente/prompts.py`) y al texto de respaldo de
+`/interpretar`. Los coeficientes servidos no cambian y `api/requirements.txt` sigue igual. El nodo
+de crisis y su plantilla fija no se tocaron.
 
 ---
 

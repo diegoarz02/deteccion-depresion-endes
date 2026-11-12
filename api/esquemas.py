@@ -145,7 +145,11 @@ class Perfil(BaseModel):
 
 
 class FactorContribuyente(BaseModel):
-    """Factor que más contribuye al riesgo estimado de un perfil."""
+    """Característica que más se asocia con la estimación de un perfil.
+
+    Describe asociación ajustada (odds ratio), no un efecto causal: el estudio es
+    transversal y mide exposición y resultado a la vez.
+    """
 
     factor: str
     contribucion_log_odds: float
@@ -159,6 +163,8 @@ class Prediccion(BaseModel):
     probabilidad_pct: float
     categoria_riesgo: CategoriaRiesgo
     prevalencia_nacional: float
+    #: Razón de prevalencias: cociente entre la estimación del perfil y la
+    #: prevalencia nacional. No es un riesgo relativo.
     razon_sobre_prevalencia: float
     factores_contribuyentes: list[FactorContribuyente]
     disclaimer: str = DISCLAIMER

@@ -91,7 +91,11 @@ def flujograma_strobe(df: pd.DataFrame) -> pd.DataFrame:
         ("Excluidos: sin ponderador Peso15_AMAS", n2, n1 - n2,
          "Sin factor de ponderación asignado; no pueden entrar al análisis con diseño complejo"),
         ("Población de análisis (covariables clave completas)", n3, n2 - n3,
-         f"Faltantes en alguna de: {', '.join(claves)}"),
+         # Solo falta el nivel educativo, y no por omisión: QS24 filtra a QS25N, y quien
+         # nunca asistió a la escuela (QS24 = 2) no tiene nivel aprobado. Se comprobó
+         # contra el archivo original (sensibilidad.verificar_sin_educacion).
+         "Nunca asistieron a la escuela: el nivel educativo no aplica (QS24 = 2). "
+         f"Variables exigidas: {', '.join(claves)}"),
     ]
     return pd.DataFrame(pasos, columns=["etapa", "n", "excluidos", "motivo"])
 

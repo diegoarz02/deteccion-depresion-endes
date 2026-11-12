@@ -1,0 +1,10 @@
+﻿modelo,n,or_por_1000m,ic_inf,ic_sup,p,or_por_100m,incluye_sin_educacion,lectura
+(1) Sin ajustar,29024,1.052,0.999,1.108,0.052,1.005,False,El IC cruza 1: no se distingue de la ausencia de gradiente
+(2) + sexo y edad,29024,1.055,1.001,1.112,0.044,1.005,False,El IC no cruza 1: el gradiente se mantiene
+(3) + educación y área,29024,1.079,1.021,1.14,0.007,1.008,False,El IC no cruza 1: el gradiente se mantiene
+(4) + conductas y condiciones clínicas,29024,1.092,1.033,1.154,0.002,1.009,False,El IC no cruza 1: el gradiente se mantiene
+(5) + región natural (derivada de la altitud),29024,1.353,1.163,1.574,0.0,1.031,False,El IC no cruza 1: el gradiente se mantiene
+(6) + departamento,29024,1.051,0.965,1.144,0.254,1.005,False,El IC cruza 1: no se distingue de la ausencia de gradiente
+"(1*) Sin ajustar, con quienes no asistieron a la escuela",30160,1.089,1.037,1.143,0.001,1.009,True,El IC no cruza 1: el gradiente se mantiene
+"(4*) Como (4), con quienes no asistieron a la escuela",30160,1.111,1.054,1.17,0.0,1.011,True,El IC no cruza 1: el gradiente se mantiene
+"(6*) Como (6), con quienes no asistieron a la escuela",30160,1.051,0.969,1.141,0.229,1.005,True,El IC cruza 1: no se distingue de la ausencia de gradiente

@@ -1,0 +1,19 @@
+﻿etiqueta,termino,or_principal,ic_inf_principal,ic_sup_principal,or_con_sin_educacion,ic_inf_con_sin_educacion,ic_sup_con_sin_educacion,cambio_pct,supera_10_pct,n_principal,n_con_sin_educacion
+Consumo problemático de alcohol,alcohol_problematico,6.071,3.407,10.819,6.088,3.422,10.83,0.279,False,28553,29666
+Consumo frecuente de alcohol,consumo_frecuente,0.831,0.593,1.164,0.831,0.595,1.161,0.057,False,28553,29666
+Diabetes diagnosticada,diabetes_dx,1.414,1.001,1.997,1.325,0.95,1.849,-6.289,False,28553,29666
+Primaria o menos (ref. Superior),educacion_4_Primaria o menos,1.483,1.142,1.926,1.453,1.122,1.882,-2.037,False,28553,29666
+Secundaria (ref. Superior),educacion_4_Secundaria,1.288,1.038,1.597,1.287,1.038,1.596,-0.07,False,28553,29666
+Sin educación (ref. Superior),educacion_4_Sin educación,,,,2.066,1.461,2.921,,False,28553,29666
+Sexo femenino,es_mujer,2.938,2.386,3.617,2.914,2.376,3.574,-0.791,False,28553,29666
+Área rural,es_rural,0.836,0.708,0.988,0.835,0.712,0.979,-0.145,False,28553,29666
+Fumó en 12 meses,fuma_12m,1.413,1.066,1.873,1.393,1.054,1.841,-1.429,False,28553,29666
+Edad 15-19 (ref. 30-39),grupo_etario_15-19,2.109,1.597,2.786,2.096,1.588,2.767,-0.618,False,28553,29666
+Edad 20-29 (ref. 30-39),grupo_etario_20-29,1.665,1.319,2.101,1.659,1.316,2.093,-0.323,False,28553,29666
+Edad 40-49 (ref. 30-39),grupo_etario_40-49,1.262,0.969,1.643,1.242,0.955,1.616,-1.538,False,28553,29666
+Edad 50-59 (ref. 30-39),grupo_etario_50-59,1.599,1.199,2.132,1.629,1.233,2.152,1.868,False,28553,29666
+Edad 60+ (ref. 30-39),grupo_etario_60+,1.668,1.287,2.161,1.702,1.328,2.182,2.045,False,28553,29666
+Hipertensión diagnosticada,hta_dx,1.445,1.133,1.844,1.466,1.168,1.84,1.411,False,28553,29666
+Obesidad (IMC ≥ 30),obesidad,1.095,0.917,1.308,1.092,0.92,1.296,-0.276,False,28553,29666
+Selva (ref. Costa),region_natural_Selva,0.674,0.554,0.819,0.717,0.588,0.874,6.367,False,28553,29666
+Sierra (ref. Costa),region_natural_Sierra,1.128,0.945,1.346,1.19,1.005,1.41,5.518,False,28553,29666

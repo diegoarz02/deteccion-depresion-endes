@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\caption{Asociación de la altitud con la depresión, cruda y ajustada por pasos}
+\label{tab:tabla_60_altitud_cruda_vs_ajustada}
+\begin{tabular}{lrrrrrrrl}
+\toprule
+modelo & n & or\_por\_1000m & ic\_inf & ic\_sup & p & or\_por\_100m & incluye\_sin\_educacion & lectura \\
+\midrule
+(1) Sin ajustar & 29024 & 1.052000 & 0.999000 & 1.108000 & 0.052000 & 1.005000 & False & El IC cruza 1: no se distingue de la ausencia de gradiente \\
+(2) + sexo y edad & 29024 & 1.055000 & 1.001000 & 1.112000 & 0.044000 & 1.005000 & False & El IC no cruza 1: el gradiente se mantiene \\
+(3) + educación y área & 29024 & 1.079000 & 1.021000 & 1.140000 & 0.007000 & 1.008000 & False & El IC no cruza 1: el gradiente se mantiene \\
+(4) + conductas y condiciones clínicas & 29024 & 1.092000 & 1.033000 & 1.154000 & 0.002000 & 1.009000 & False & El IC no cruza 1: el gradiente se mantiene \\
+(5) + región natural (derivada de la altitud) & 29024 & 1.353000 & 1.163000 & 1.574000 & 0.000000 & 1.031000 & False & El IC no cruza 1: el gradiente se mantiene \\
+(6) + departamento & 29024 & 1.051000 & 0.965000 & 1.144000 & 0.254000 & 1.005000 & False & El IC cruza 1: no se distingue de la ausencia de gradiente \\
+(1*) Sin ajustar, con quienes no asistieron a la escuela & 30160 & 1.089000 & 1.037000 & 1.143000 & 0.001000 & 1.009000 & True & El IC no cruza 1: el gradiente se mantiene \\
+(4*) Como (4), con quienes no asistieron a la escuela & 30160 & 1.111000 & 1.054000 & 1.170000 & 0.000000 & 1.011000 & True & El IC no cruza 1: el gradiente se mantiene \\
+(6*) Como (6), con quienes no asistieron a la escuela & 30160 & 1.051000 & 0.969000 & 1.141000 & 0.229000 & 1.005000 & True & El IC cruza 1: no se distingue de la ausencia de gradiente \\
+\bottomrule
+\end{tabular}
+\end{table}

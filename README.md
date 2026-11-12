@@ -19,8 +19,9 @@ estratificado, por conglomerados), con boletín interactivo, API y agente conver
 | **Explorador «Gente como tú»** | https://depresion-endes.onrender.com |
 | **Código** | https://github.com/diegoarz02/deteccion-depresion-endes |
 
-El boletín son trece secciones que se leen de corrido, con dos bloques interactivos —uno
-para buscarse por perfil y otro por departamento— que funcionan sin servidor.
+El boletín son quince secciones que se leen de corrido, con dos bloques interactivos —uno
+para explorar las tasas observadas por perfil y otro por departamento— que funcionan sin
+servidor.
 
 El explorador responde una pregunta distinta: cuántas personas parecidas a ti dieron
 positivo en el tamizaje. Vive en el plan gratuito de Render, así que **la primera visita
@@ -35,11 +36,12 @@ página lo avisa mientras tanto.
 |---|---|
 | Prevalencia de depresión (PHQ-9 ≥ 10), ponderada | **6,98 %** (IC 95 % 6,49–7,51) |
 | **Brecha de atención** | **87,6 %** no recibió atención profesional |
-| Razón mujer / hombre | 9,87 % frente a 3,86 % |
+| Razón de prevalencias mujer / hombre | 2,6 (9,87 % frente a 3,86 %) |
 | Región con mayor prevalencia | Sierra 8,04 % · Costa 6,90 % · Selva 4,97 % |
 | Departamento extremo | Puno 12,8 % · Ucayali 1,1 % |
 | Gradiente educativo | Primaria o menos 8,77 % → Superior 5,28 % |
-| OR ajustado más alto | Consumo problemático de alcohol **6,07** (3,41–10,82) |
+| OR ajustado más alto | Consumo problemático de alcohol **6,07** (3,41–10,82); razón de prevalencias ajustada 4,80 |
+| Impacto poblacional | Fracción atribuible del alcohol problemático 2,2 %; violencia de pareja 8,6 %; hipertensión 4,5 % |
 | Efecto de diseño | deff 3,09 · muestra efectiva 9 774 |
 
 La prevalencia por edad describe una **curva en U**: 8,37 % en 15-19 años, mínimo 4,25 %
@@ -47,11 +49,20 @@ en 30-39 y máximo 9,80 % en 60 o más.
 
 ### El resultado que más enseña
 
-**El tabaco parecía protector.** OR crudo **0,72**; ajustado por sexo, **1,17**; en el
-modelo multivariable completo, **1,44**. Los hombres fuman mucho más y tienen menos
-depresión, así que el sexo confundía por completo la asociación. Lo mismo ocurre con el
-consumo frecuente de alcohol (0,75 → 1,00). Reportar el OR crudo habría llevado a una
-conclusión invertida.
+**El tabaco parecía protector.** Sin ponderar, el OR crudo es **0,72**; ajustado por sexo
+(Mantel-Haenszel), **1,17**; en el modelo completo con el diseño de la encuesta, **1,41**. Con
+los pesos de la encuesta la comparación cruda ya no se sostiene (OR 0,83, IC 0,66–1,05; Rao y
+Scott p = 0,11). Los hombres fuman mucho más (27 % frente a 6 %) y tienen menos depresión, así
+que el sexo confundía la asociación. Lo mismo ocurre con el consumo frecuente de alcohol (0,75 →
+1,00 por Mantel-Haenszel). Reportar el OR crudo habría llevado a una conclusión invertida.
+
+### La altitud: exposición y posible confusor
+
+La altitud **no confunde** a ningún otro factor (el OR de cada uno cambia menos de 1,5 % al
+añadirla; menos de 8 % sin la región natural). Su propio gradiente se mantiene al ajustar por las
+características de las personas (OR por 1 000 m: 1,09; IC 95 % 1,03–1,15) y se **atenúa al comparar
+dentro de un mismo departamento** (1,05; 0,96–1,14). Es una asociación con gradiente, no una causa:
+el estudio es una foto y la correlación entre departamentos (r = 0,63) es un dato de grupo.
 
 *Todas las cifras provienen de código ejecutado; ninguna se transcribió a mano.*
 
@@ -67,7 +78,7 @@ conclusión invertida.
 Se unen por `HHID` (match verificado: **100,00 %**, 0 duplicados).
 
 **Los microdatos no se versionan en este repositorio.** Descárgalos del INEI en
-<http://iinei.inei.gob.pe/microdatos/> (ENDES 2025, módulos CSALUD01 y RECH0) y colócalos
+<https://proyectos.inei.gob.pe/microdatos/> (ENDES 2025, módulos CSALUD01 y RECH0) y colócalos
 en `datos/crudos/`, o ajusta `FUENTE_SAV` en `codigo/src/depresion/config.py`.
 
 El GeoJSON de departamentos procede de
@@ -166,7 +177,7 @@ máquina de desarrollo.
 ### 3. Comprobar que el entorno funciona
 
 ```bash
-python -m pytest -q            # 132 pruebas, ninguna necesita los .sav salvo las de dataset
+python -m pytest -q            # 154 pruebas; las de verificación contra los .sav se saltan solas
 python -m ruff check .
 ```
 
@@ -179,10 +190,10 @@ así que sirven como comprobación del entorno antes de construir nada.
 cp .env.example .env        # rellenar solo si se usa el agente con LLM
 
 make data          # dataset único desde los .sav, con georreferenciación
-make analisis      # las diez etapas del análisis epidemiológico
-make boletin       # boletín de 13 secciones en boletin/
+make analisis      # las catorce etapas del análisis epidemiológico
+make boletin       # boletín de 15 secciones en boletin/ y docs/referencias.bib
 make notebooks     # genera los nueve notebooks y los ejecuta
-make tests         # 132 pruebas: dataset, geografía, agente y API
+make tests         # 154 pruebas: dataset, geografía, agente, API y medidas de asociación
 make equivalencia  # réplica en R y comparación con Python
 make web           # aplicación interactiva en http://localhost:8000
 make agente        # demostración del agente LangGraph
@@ -220,11 +231,11 @@ sobre los mismos insumos producen el mismo hash.
 │   ├── notebooks/                01…09, narrativos
 │   └── R/analisis_equivalente.R  réplica con survey: coincide hasta el 4.º decimal
 ├── resultados/
-│   ├── tablas/                   64 tablas en csv + xlsx + tex
-│   ├── figuras/                  17 figuras en png (300 dpi) + pdf
-│   ├── mapas/                    6 mapas + coroplético interactivo
+│   ├── tablas/                   79 tablas en csv (con xlsx y tex)
+│   ├── figuras/                  20 figuras en png (300 dpi) + pdf
+│   ├── mapas/                    7 mapas + coroplético interactivo
 │   └── modelos/                  coeficientes, joblib y model_card.md
-├── boletin/                      boletín de 13 secciones
+├── boletin/                      boletín de 15 secciones
 ├── api/                          FastAPI + web/ + render.yaml (sin Docker)
 ├── agente/                       LangGraph con guardrails y modo degradado
 ├── docs/                         decisiones, diccionario, DAG, STROBE, grafo
@@ -237,9 +248,12 @@ sobre los mismos insumos producen el mismo hash.
 
 ### 1. Análisis epidemiológico
 
-Cubre el sílabo completo: medidas de frecuencia con diseño complejo, OR y razón de
-prevalencias, sesgo y confusión por Mantel-Haenszel, ANOVA de un factor con verificación
-de supuestos, regresión lineal y regresión logística.
+Cubre medidas de frecuencia con diseño complejo; tabla 2×2 con OR, razón de prevalencias
+y chi cuadrado (con la versión de Rao y Scott); medidas de impacto basadas en prevalencia
+(diferencia, fracción en expuestos y fracción poblacional); sesgo y confusión por
+Mantel-Haenszel; la altitud como posible confusor; ANOVA de un factor con verificación de
+supuestos; regresión lineal; y regresión logística. En un estudio transversal no hay incidencia,
+así que se reporta razón de prevalencias y no riesgo relativo.
 
 Los supuestos se verifican y **se reportan aunque fallen**. El PHQ-9 tiene asimetría 2,4 y
 la mitad de la muestra en cero, así que la regresión lineal cruda viola normalidad y
@@ -249,9 +263,11 @@ logística.
 
 ### 2. Boletín HTML
 
-Cinco páginas estáticas y autocontenidas, generadas por script desde `resultados/`, con
-gráficos de Plotly, mapa coroplético, modo claro/oscuro y un **simulador de riesgo que
-calcula la probabilidad en JavaScript en el navegador**, sin backend. Se publica en
+Quince páginas estáticas y autocontenidas, generadas por script desde `resultados/`, con
+mapas, modo claro/oscuro y un **explorador de tasas observadas por perfil y un selector por
+departamento que funcionan en el navegador**, sin backend. Incluye una sección de medidas de
+asociación y riesgo atribuible, otra de validez interna y sesgos, y la lista de referencias en
+APA 7 (la misma, en BibTeX, está en [`docs/referencias.bib`](docs/referencias.bib)). Se publica en
 cualquier hosting estático y no depende de que la API esté despierta.
 
 ```bash
@@ -282,14 +298,25 @@ evaluar sin depender de un proveedor externo.
 ## Limitaciones
 
 - **Diseño transversal.** Exposición y desenlace se miden a la vez: no se puede establecer
-  temporalidad ni descartar causalidad reversa. Nada aquí debe leerse como efecto causal.
+  temporalidad ni descartar causalidad reversa. Para varios factores (violencia de pareja,
+  diabetes, obesidad, tabaco) la literatura de seguimiento encuentra la relación en los dos
+  sentidos. Nada aquí debe leerse como efecto causal.
+- **Lo ecológico no es individual.** Los mapas y la correlación entre departamentos describen
+  grupos; leerlos como riesgo individual es la falacia ecológica.
 - **Autorreporte.** El PHQ-9 es tamizaje, no diagnóstico clínico. Las condiciones crónicas
   también son autorreportadas.
-- **Sesgo de selección.** Se excluyó al 9,4 % sin PHQ-9 completo. Si la no respuesta se
-  relaciona con la salud mental, la prevalencia estaría subestimada.
-- **Región natural derivada** por altitud, no la clasificación oficial por distrito. Por eso
-  no se ajusta por ella al estimar el efecto de la altitud: sería ajustar por una versión
-  gruesa de la propia exposición.
+- **Sesgo de selección.** Se excluyó al 9,4 % sin PHQ-9 completo (777 ausentes, 899 rechazos, 1 419
+  entrevistas incompletas, 70 con discapacidad, 3 otras); no se puede decir hacia dónde mueve la
+  prevalencia. El universo son los hogares particulares. Además, el análisis con casos completos deja
+  fuera a 1 145 personas que nunca asistieron a la escuela (prevalencia 15,9 %): incluirlas como
+  categoría no cambia ningún OR del modelo principal en más de 6,4 %, aunque sí influye en la OR sin
+  ajustar de la altitud. Se mantiene el modelo con casos completos como principal y esta comparación como
+  sensibilidad (decisión del 2026-11-12 en `docs/decisiones_metodologicas.md`).
+- **Confusión residual.** No se mide ingreso, lengua materna, seguro de salud ni distancia a un
+  servicio.
+- **Región natural derivada** por altitud, no la clasificación oficial por distrito. Ajustar
+  por ella al estimar la altitud es controlar por una versión gruesa de la propia exposición: se
+  reporta con esa advertencia y se usa el departamento como control más fino.
 - **La numeración de los ítems del PHQ-9 en la ENDES no es la canónica.** El ítem de
   pensamientos de hacerse daño es `QS700H`, no `QS700I`: el cuestionario coloca «se sintió
   mal consigo mismo» al final. Cualquier reanálisis que asuma el orden estándar señalará el
@@ -297,6 +324,8 @@ evaluar sin depender de un proveedor externo.
 - **Discriminación moderada** (AUC 0,67): sirve para priorizar poblaciones, no para decidir
   sobre personas.
 - **Sin totales poblacionales**, por lo dicho sobre el ponderador.
+- **Las fracciones atribuibles** se apoyan en prevalencia y solo equivalen a casos evitables si la
+  asociación fuera causal y no confundida, cosa que este diseño no permite comprobar.
 - Con N ≈ 30 000, las pruebas de bondad de ajuste y de homogeneidad rechazan por
   desviaciones triviales. Por eso todo estadístico va acompañado de su **tamaño de efecto**.
 
@@ -323,18 +352,33 @@ Torres Matías (22140222) · Zegarra William (22140205).
 
 ## Referencias
 
-- Basauri-Delgado, M., Mesía-Guevara, J.-A., & Saintila, J. (2025). *Influence of
-  Sociodemographic, Socioeconomic, and Health Factors on Depression in the Peruvian
-  Population: A Cross-Sectional Study*. **Journal of Primary Care & Community Health**, 16.
-  DOI: [10.1177/21501319251342090](https://doi.org/10.1177/21501319251342090)
-- Kroenke, K., Spitzer, R. L., & Williams, J. B. W. (2001). *The PHQ-9: Validity of a brief
-  depression severity measure*. **Journal of General Internal Medicine**, 16(9), 606-613.
-- Instituto Nacional de Estadística e Informática (2025). *Encuesta Demográfica y de Salud
-  Familiar — ENDES 2025*. Ficha técnica y microdatos.
-- Organización Mundial de la Salud (2023). *Trastornos depresivos (depresión)*.
-- von Elm, E. et al. *STROBE Statement*. <https://www.strobe-statement.org/>
-- Fox, J. & Monette, G. (1992). *Generalized collinearity diagnostics*. **JASA**, 87(417).
-- Lumley, T. (2010). *Complex Surveys: A Guide to Analysis Using R*. Wiley.
+La lista completa, en APA 7, está en la sección 15 del boletín, y en BibTeX en
+[`docs/referencias.bib`](docs/referencias.bib). Ambas salen del mismo módulo
+(`codigo/scripts/referencias_boletin.py`), que guarda además qué se comprobó de cada una al
+abrirla. Las principales:
+
+- Kroenke, K., Spitzer, R. L., & Williams, J. B. W. (2001). The PHQ-9: Validity of a brief
+  depression severity measure. *Journal of General Internal Medicine, 16*(9), 606-613.
+  <https://doi.org/10.1046/j.1525-1497.2001.016009606.x>
+- Basauri-Delgado, M., Mesía-Guevara, J.-A., & Saintila, J. (2025). Influence of
+  sociodemographic, socioeconomic, and health factors on depression in the Peruvian population:
+  A cross-sectional study. *Journal of Primary Care & Community Health, 16*.
+  <https://doi.org/10.1177/21501319251342090>
+- Zegarra-Rodríguez, C. A., Plasencia-Dueñas, N. R., & Failoc-Rojas, V. E. (2022). Disparities in
+  the prevalence of screened depression at different altitudes in Peru: A retrospective analysis
+  of the ENDES 2019. *PLOS ONE, 17*(12), e0278947. <https://doi.org/10.1371/journal.pone.0278947>
+- Hernández-Vásquez, A., Vargas-Fernández, R., Rojas-Roque, C., & Gamboa-Unsihuay, J. E. (2022).
+  Association between altitude and depression in Peru: An 8-year pooled analysis of
+  population-based surveys. *Journal of Affective Disorders, 299*, 536-544.
+  <https://doi.org/10.1016/j.jad.2021.12.059>
+- Instituto Nacional de Estadística e Informática. (2026). *Ficha técnica: Encuesta Demográfica y
+  de Salud Familiar (ENDES) 2025*. <https://proyectos.inei.gob.pe/microdatos/>
+- Organización Mundial de la Salud. (2026, 11 de septiembre). *Trastorno depresivo (depresión)*.
+  <https://www.who.int/es/news-room/fact-sheets/detail/depression>
+- Zou, G. (2004). A modified Poisson regression approach to prospective studies with binary data.
+  *American Journal of Epidemiology, 159*(7), 702-706. <https://doi.org/10.1093/aje/kwh090>
+- Lumley, T. (2010). *Complex surveys: A guide to analysis using R*. Wiley.
+  <https://doi.org/10.1002/9780470580066>
 
 ## Licencia
 

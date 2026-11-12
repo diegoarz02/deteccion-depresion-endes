@@ -77,7 +77,7 @@ async function iniciar() {
     dibujarMapa('');
   } catch (e) {
     document.getElementById('aviso-form').textContent =
-      'No se pudo contactar con el servidor. Revisa tu conexión e inténtalo de nuevo.';
+      'No pudimos conectar con el servidor. Revisa tu conexión e inténtalo de nuevo en un momento.';
   }
   cargarRecursos();
 }
@@ -148,8 +148,8 @@ function dibujarMapa(codigoSeleccionado) {
 
   const d = estado.contexto.departamentos.find((x) => x.codigo === codigoSeleccionado);
   document.getElementById('leyenda-mapa').textContent = d
-    ? `${d.nombre}: ${num(d.prevalencia, 2)} % de prevalencia (IC 95 % ${num(d.ic_inf, 2)} – ${num(d.ic_sup, 2)}), sobre ${d.n} personas entrevistadas.`
-    : 'Selecciona tu departamento para resaltarlo. El tono indica la prevalencia estimada.';
+    ? `${d.nombre}: ${num(d.prevalencia, 2)} % de prevalencia (IC 95 % ${num(d.ic_inf, 2)} – ${num(d.ic_sup, 2)}), sobre ${d.n} personas entrevistadas. Es una cifra del departamento, no de cada persona que vive en él.`
+    : 'Selecciona tu departamento para resaltarlo. El tono indica la prevalencia estimada de cada departamento.';
 }
 
 function recorrer(geom, fn) {
@@ -199,7 +199,7 @@ async function calcular() {
     const err = await r.json().catch(() => ({}));
     const detalle = Array.isArray(err.detail) && err.detail.length
       ? err.detail[0].msg : 'Revisa que la edad corresponda al grupo etario elegido.';
-    aviso.textContent = `No se pudo calcular. ${detalle}`;
+    aviso.textContent = `No pudimos calcular tu estimación. ${detalle}`;
     return;
   }
   aviso.textContent = '';
@@ -267,8 +267,8 @@ function mostrarObservado(t) {
 
   if (!t) {
     cifra.innerHTML = '\u2014';
-    frase.textContent = 'No hay suficientes personas con este perfil en la encuesta para '
-      + 'dar una cifra que se sostenga. Abajo queda la estimación del modelo.';
+    frase.textContent = 'En la encuesta hay pocas personas con este perfil, así que preferimos no dar '
+      + 'una cifra que no se sostenga. Abajo queda la estimación del modelo.';
     document.getElementById('rejilla-cien').hidden = true;
     detalle.textContent = '';
     avisoImp.hidden = true;
@@ -287,9 +287,9 @@ function mostrarObservado(t) {
 
   if (t.impreciso) {
     avisoImp.hidden = false;
-    avisoImp.innerHTML = '<strong>Estimación imprecisa.</strong> La muestra de este grupo es '
-      + 'pequeña: la cifra real puede estar en cualquier punto entre ' + num(t.ic_inf, 1)
-      + ' % y ' + num(t.ic_sup, 1) + ' %. Léela por su intervalo, no por el número puntual.';
+    avisoImp.innerHTML = '<strong>Una cifra para leer con calma.</strong> La muestra de este grupo es '
+      + 'pequeña, así que el valor real puede estar en cualquier punto entre ' + num(t.ic_inf, 1)
+      + ' % y ' + num(t.ic_sup, 1) + ' %. Conviene mirar el intervalo más que el número puntual.';
   } else {
     avisoImp.hidden = true;
   }
@@ -322,9 +322,9 @@ function mostrarResultado(p) {
   barra.className = clase;
 
   document.getElementById('incertidumbre').innerHTML =
-    'Es lo que el modelo calcula para un perfil con estas características. '
-    + '<strong>No es tu probabilidad</strong>: con un AUC de 0,67 ordena poblaciones '
-    + 'por riesgo, pero no distingue a una persona de otra. '
+    'Es lo que el modelo calcula para un perfil con estas características, '
+    + '<strong>no una probabilidad personal</strong>: con un AUC de 0,67 ordena bien a los '
+    + 'grupos, pero no alcanza para distinguir a una persona de otra. '
     + '<a href="#limites">Ver por qué</a>.';
 }
 
@@ -352,13 +352,17 @@ function mostrarComparacion(p, tasa) {
       filas += `<div class="fila-comp"><span>Sin atención profesional en ${dep.nombre}</span>
         <b>${num(dep.brecha, 1)} %</b></div>`;
     }
+    // Un cociente de dos prevalencias es una razón de prevalencias, no un riesgo
+    // relativo: la encuesta es una foto y no hay incidencia que comparar.
     const razonDep = propia / dep.prevalencia;
     const razonNac = propia / nacional;
-    filas += `<p class="pista">Este grupo está ${num(razonDep, 1)} veces por
-      ${razonDep >= 1 ? 'encima' : 'debajo'} de la prevalencia de ${dep.nombre}, y
-      ${num(razonNac, 1)} veces respecto de la nacional.</p>`;
+    filas += `<p class="pista">Razón de prevalencias: ${num(razonDep, 2)} frente a
+      ${dep.nombre} y ${num(razonNac, 2)} frente al total nacional. Un valor de 1 es
+      la misma prevalencia. Compara grupos, no personas.</p>`;
   } else {
-    filas += '<p class="pista">Selecciona tu departamento para comparar también con tu región.</p>';
+    filas += `<p class="pista">Razón de prevalencias frente al total nacional:
+      ${num(propia / nacional, 2)}. Selecciona tu departamento para comparar también
+      con él.</p>`;
   }
   document.getElementById('comparacion').innerHTML = filas;
 }
@@ -368,10 +372,11 @@ function mostrarFactores(p) {
   document.getElementById('factores').innerHTML = f.length
     ? f.map((x) => `<div class="factor"><span>${x.factor}</span>
         <span class="peso">×${num(x.odds_ratio, 2)}</span></div>`).join('') +
-      '<p class="pista">Cada valor es cuánto multiplica ese factor las probabilidades, ' +
-      'manteniendo el resto constante.</p>'
-    : '<p class="pista">Ningún factor de este perfil eleva la estimación de forma apreciable ' +
-      'respecto de la población general.</p>';
+      '<p class="pista">Cada valor es un odds ratio ajustado: compara las odds de dar ' +
+      'positivo entre personas que difieren solo en ese factor. Describe asociación, no ' +
+      'causa: todo se midió a la vez.</p>'
+    : '<p class="pista">Ninguna característica de este perfil se asocia con una estimación ' +
+      'más alta de forma apreciable respecto de la población general.</p>';
 }
 
 async function mostrarInterpretacion(perfil) {
@@ -397,7 +402,7 @@ async function mostrarInterpretacion(perfil) {
       `<div class="interpretacion-texto">${cuerpo.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>`;
     mostrarAnimo(d.frase_animo);
   } catch (e) {
-    caja.innerHTML = '<p class="pista">No se pudo generar la interpretación en este momento. ' +
+    caja.innerHTML = '<p class="pista">Por ahora no pudimos redactar la interpretación. ' +
       'La estimación de arriba sigue siendo válida.</p>';
   }
 }

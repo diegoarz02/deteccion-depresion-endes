@@ -188,10 +188,14 @@ async def interpretar(perfil: Perfil) -> dict:
         log.warning("El agente falló, se responde en modo degradado: %s", e)
         return {
             "texto": (
-                f"Un perfil como el descrito presenta una probabilidad estimada del "
-                f"{prediccion.probabilidad_pct:.1f} % de sintomatología depresiva moderada "
-                f"o grave, frente al {prediccion.prevalencia_nacional * 100:.1f} % de la "
-                f"población peruana de 15 años a más. "
+                f"Para personas con un perfil como el descrito, el modelo estima una "
+                f"prevalencia de {prediccion.probabilidad_pct:.1f}".replace(".", ",") + " % de "
+                "sintomatología depresiva moderada o grave, frente al "
+                + f"{prediccion.prevalencia_nacional * 100:.2f}".replace(".", ",") + " % del "
+                "total de la población peruana de 15 años a más (razón de prevalencias "
+                + f"{prediccion.razon_sobre_prevalencia:.2f}".replace(".", ",") + "). "
+                f"Es una cifra de grupo, medida "
+                f"en una sola foto de la población: describe asociación, no causa. "
                 f"{prediccion.disclaimer} {prediccion.linea_ayuda}"),
             "modo": "degradado",
             "prediccion": prediccion.model_dump(mode="json"),

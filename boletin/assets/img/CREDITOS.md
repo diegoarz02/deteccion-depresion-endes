@@ -1,6 +1,6 @@
 # Créditos de las imágenes del boletín
 
-Última actualización: 2026-08-31
+Última actualización: 2026-11-12
 
 Todos los archivos están **descargados o generados en local**: imágenes, iconos,
 ilustraciones y también las tipografías. El boletín no hace ninguna petición a otro
@@ -54,7 +54,7 @@ que el color de acento coincide exactamente con el del resto del sitio.
 ## Iconos
 
 **Lucide** — <https://lucide.dev> · licencia **ISC** · no exige atribución, pero se
-cita igualmente. Descargados desde `unpkg.com/lucide-static` el 2026-08-31 y teñidos con
+cita igualmente. Descargados desde `unpkg.com/lucide-static` el 2026-11-12 y teñidos con
 el navy del proyecto.
 
 | Archivo | Uso en el boletín | Estado |
