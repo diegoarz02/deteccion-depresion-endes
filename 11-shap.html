@@ -51,7 +51,7 @@ características de la persona.</p>
 <div class="tabla-scroll"><table><caption>Los dos rankings, lado a lado. Cuanto mayor la diferencia, más informativa.</caption><thead><tr><th scope="col">Variable</th><th scope="col" class="num">Puesto por efecto</th><th scope="col" class="num">Puesto por utilidad predictiva</th><th scope="col" class="num">Odds ratio</th></tr></thead><tbody><tr><td>es_mujer</td><td class="num">2</td><td class="num">1</td><td class="num">2.94</td></tr><tr><td>region_natural: Selva (ref. Costa)</td><td class="num">7</td><td class="num">3</td><td class="num">0.67</td></tr><tr><td>educacion_grupo: Primaria o menos (ref. Superior)</td><td class="num">8</td><td class="num">4</td><td class="num">1.48</td></tr><tr><td>hta_dx</td><td class="num">9</td><td class="num">5</td><td class="num">1.45</td></tr><tr><td>grupo_etario: 60+ (ref. 30-39)</td><td class="num">4</td><td class="num">7</td><td class="num">1.67</td></tr><tr><td>es_rural</td><td class="num">15</td><td class="num">8</td><td class="num">0.84</td></tr><tr><td>region_natural: Sierra (ref. Costa)</td><td class="num">16</td><td class="num">9</td><td class="num">1.13</td></tr><tr><td>educacion_grupo: Secundaria (ref. Superior)</td><td class="num">12</td><td class="num">10</td><td class="num">1.29</td></tr><tr><td>grupo_etario: 15-19 (ref. 30-39)</td><td class="num">3</td><td class="num">11</td><td class="num">2.11</td></tr><tr><td>diabetes_dx</td><td class="num">10</td><td class="num">12</td><td class="num">1.41</td></tr></tbody></table></div>
 
 <h3>Por qué esto importa</h3>
-<p>Porque llevan a decisiones opuestas y las dos son legítimas.</p>
+<p>Porque llevan a decisiones distintas, y las dos tienen sentido.</p>
 
 <ul>
   <li>Si la pregunta es <strong>«¿sobre qué conviene intervenir?»</strong>, manda la fuerza de
@@ -62,7 +62,7 @@ características de la persona.</p>
   la utilidad predictiva. Ahí el sexo, la edad y la región ordenan mejor a la población.</li>
 </ul>
 
-<p>Confundirlas lleva a error en las dos direcciones: descartar una exposición relevante
+<p>Si se confunden, se puede errar en las dos direcciones: descartar una exposición relevante
 porque no predice bien, o priorizar una intervención sobre una variable que solo predice
 bien porque es frecuente.</p>
 
@@ -77,9 +77,9 @@ bien porque es frecuente.</p>
 
 <div class="nota atencion">
   <strong>Por qué no aparece la exactitud.</strong> Un modelo que responda «nadie tiene
-  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Cuando
-  el fenómeno afecta al 6 %, ese número no dice gran cosa: es la métrica más citada y la
-  que menos informa en problemas como este.
+  depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Como en la muestra del análisis
+  apenas 6 de cada 100 personas dan positivo, ese número dice poco por sí solo: es la métrica más
+  citada y la que menos informa en problemas como este.
 </div>
 
 <h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
@@ -110,23 +110,22 @@ bien porque es frecuente.</p>
 </div>
 
 <div class="nota">
-  <strong>Esto no es un modelo fallido: es el resultado correcto.</strong>
+  <strong>Un modelo moderado es coherente con lo que mide la encuesta.</strong>
   La depresión de una persona depende de su historia, sus duelos, su red de apoyo, su
   situación económica inmediata y su biología. Una encuesta de hogares mide sexo, edad,
   educación, dónde vive y unas pocas conductas. Con esas variables se puede describir
   <em>dónde se concentra</em> el problema en el país (y eso se hace bien, con intervalos
   estrechos y coherente con la literatura), pero no se puede saber quién lo tiene.
   <br><br>
-  Un modelo que con estas variables alcanzara un AUC de 0,90 sería motivo de sospecha, no
-  de celebración: casi siempre significa que se coló una variable que ya contiene el
-  desenlace. En este proyecto ese riesgo era real y concreto (<code>QS702</code> y
-  <code>QS704A-I</code> se preguntan solo a quien ya marcó síntomas) y por eso se
-  excluyeron desde el principio.
+  Un AUC de 0,90 con estas variables llamaría la atención más que alegrar: casi siempre indica
+  que se coló una variable que ya contiene el desenlace. En este proyecto ese riesgo era real y
+  concreto (<code>QS702</code> y <code>QS704A-I</code> se preguntan solo a quien ya marcó
+  síntomas) y por eso se excluyeron desde el principio.
   <br><br>
-  Reportar el techo honestamente vale más que maquillarlo. Un modelo con AUC 0,67 bien
-  explicado orienta política pública sin prometer nada falso; el mismo modelo presentado
-  como «detector» invita a usarlo sobre personas concretas, donde se equivoca cinco de
-  cada seis veces.
+  Preferimos reportar el techo tal como es. Un modelo con AUC 0,67 bien explicado orienta
+  política pública sin prometer nada que no pueda cumplir. Presentado como «detector», en
+  cambio, invitaría a usarlo sobre personas concretas, y ahí su aviso de riesgo no se confirma
+  con frecuencia: cinco de cada seis veces.
 </div>
 </section>
 <div class="paginacion"><a href="10-modelo.html">← El modelo</a><a href="12-validez.html">Sesgos y límites →</a></div>

@@ -210,7 +210,7 @@ y por eso no debe leerse como un factor aislado.</p>
 <h3>Hasta dónde se puede bajar</h3>
 <figure class="figura">
   <p class="titulo-hallazgo">Solo 139 de las 196 provincias tienen muestra suficiente para estimar</p>
-  <p class="explicacion">Bajar de departamento a provincia es tentador y casi siempre es un error. La encuesta está diseñada para dar cifras departamentales; al partirla en 196 pedazos, más de la cuarta parte se queda con menos de cincuenta personas. Esas provincias van tramadas, no coloreadas. Un mapa da a cada polígono la misma autoridad visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil sería mentir sin decir una sola cifra falsa.</p>
+  <p class="explicacion">Bajar de departamento a provincia es tentador, pero casi nunca conviene. La encuesta está diseñada para dar cifras departamentales; al partirla en 196 pedazos, más de la cuarta parte se queda con menos de cincuenta personas. Esas provincias van tramadas, no coloreadas. Un mapa da a cada polígono la misma autoridad visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil daría una impresión de precisión que los datos no tienen, aunque ninguna cifra sea falsa.</p>
   <div class="lienzo"><img src="assets/img/mapa_02_provincial.png" alt="Mapa del Perú por provincias. Las provincias con muestra suficiente aparecen coloreadas según su prevalencia; las demás llevan una trama diagonal gris que las distingue del extremo bajo de la escala de color." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Umbral mínimo de 50 personas por provincia. 139 provincias estimables; la mediana de las descartadas tiene 28 personas.</figcaption>
 </figure>
@@ -228,7 +228,7 @@ es la otra mitad del problema.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">En Cusco, 96 de cada 100 personas con tamizaje positivo no recibieron atención</p>
-  <p class="explicacion">Este es el mapa que debería ordenar las prioridades. Todo el país está por encima del 80 %, pero los departamentos donde la brecha es peor son, en buena medida, los mismos donde la prevalencia es más alta. La sierra sur acumula las dos cosas: más casos y menos atención.</p>
+  <p class="explicacion">Este es el mapa que debería ordenar las prioridades. Todo el país está por encima del 80 %, pero los departamentos donde la brecha es mayor son, en buena medida, los mismos donde la prevalencia es más alta. La sierra sur acumula las dos cosas: más casos y menos atención.</p>
   <div class="lienzo"><img src="assets/img/mapa_05_brecha_atencion.png" alt="Mapa del Perú por departamento con la brecha de atención en salud mental. Casi todo el territorio aparece en tonos oscuros, por encima del 80 %." loading="lazy"></div>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Calculado solo entre quienes dan positivo al tamizaje. Los departamentos con menos de 30 casos positivos no se estiman.</figcaption>
 </figure>
@@ -289,17 +289,22 @@ del tramo intermedio con el ascenso del alto, y puede acabar concluyendo que la 
 «no importa». La forma es el hallazgo, no un tecnicismo.</p>
 
 <div class="nota atencion">
-  <strong>Una discrepancia que hay que contar, no esconder.</strong> En el tramo intermedio,
-  el estudio sobre la ENDES 2019 reportó un aumento del 38 % (aPR 1,38; IC 1,04-1,84)
-  (Zegarra-Rodríguez et al., 2022).
-  Aquí sale lo contrario: una reducción del 19 % (aPR 0,81; IC 0,66-0,98). Los intervalos
-  no se solapan, así que no es ruido de muestreo.
+  <strong>Una diferencia con el estudio de 2019 que vale la pena explicar.</strong> En el tramo
+  intermedio, el estudio sobre la ENDES 2019 encontró una prevalencia más alta que en el tramo de
+  menos de 1 500 m (razón de prevalencias ajustada de 1,38; IC 1,04 a 1,84)
+  (Zegarra-Rodríguez et al., 2022). Aquí el resultado va en sentido contrario: 0,81 (IC 0,66 a 0,98), es
+  decir, una prevalencia algo menor. Los intervalos no se solapan, así que no parece un simple
+  efecto del muestreo.
   <br><br>
-  No tenemos explicación, y decirlo es parte del trabajo. Hay tres candidatas razonables:
-  seis años de diferencia entre las olas, distinta composición de la muestra en ese tramo,
-  o una especificación del modelo que no es exactamente la misma. Ninguna se puede
-  comprobar con los datos disponibles. Queda como pregunta abierta bien planteada; en el
-  tramo alto, donde sí coinciden ambos estudios, la evidencia es sólida.
+  Es probable que intervenga más de una razón. La primera es el tiempo: entre una ola y otra
+  pasaron seis años, y la composición de la población y sus condiciones de vida pueden haber
+  cambiado. La segunda es el tamaño de este tramo, el menos numeroso de los tres (2 497 personas),
+  cuya estimación depende más de qué conglomerados entraron en cada muestra. La tercera es la
+  especificación: los dos modelos ajustan por variables parecidas pero no idénticas, y un cambio
+  en los ajustes puede mover una estimación que se apoya en pocas personas. Con los datos
+  disponibles no es posible distinguir entre estas explicaciones, y por eso la dejamos como una
+  pregunta abierta. Lo que sí coincide en ambos estudios es el tramo alto, a partir de 2 500 m,
+  donde las dos estimaciones apuntan en la misma dirección y con una magnitud parecida.
 </div>
 
 <h3>Lo que muestra el mapa, y lo que no</h3>
@@ -325,12 +330,12 @@ altitud con la depresión por etapas. La cifra es el odds ratio por cada 1 000 m
 valor de 1,10 quiere decir que, por cada 1 000 m más, las odds de dar positivo son un 10 % más
 altas.</p>
 
-<div class="tabla-scroll"><table><caption>Asociación de la altitud con la depresión, de cruda a ajustada. Diseño muestral complejo. Las filas con asterisco incluyen a quienes nunca asistieron a la escuela.</caption><thead><tr><th scope="col">Ajuste</th><th scope="col" class="num">Personas</th><th scope="col" class="num">OR por 1 000 m (IC 95 %)</th><th scope="col" class="num">p</th></tr></thead><tbody><tr><td>(1) Cruda</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,052</td></tr><tr><td>(2) + sexo y edad</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,044</td></tr><tr><td>(3) + educación y área</td><td class="num">29 024</td><td class="num">1,08 (1,02 a 1,14)</td><td class="num">0,007</td></tr><tr><td>(4) + conductas y condiciones clínicas</td><td class="num">29 024</td><td class="num">1,09 (1,03 a 1,15)</td><td class="num">0,002</td></tr><tr><td>(5) + región natural (se deriva de la altitud)</td><td class="num">29 024</td><td class="num">1,35 (1,16 a 1,57)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6) + departamento</td><td class="num">29 024</td><td class="num">1,05 (0,96 a 1,14)</td><td class="num">0,254</td></tr><tr><td>(1*) Cruda, con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,09 (1,04 a 1,14)</td><td class="num">0,001</td></tr><tr><td>(4*) Como (4), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,11 (1,05 a 1,17)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6*) Como (6), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,05 (0,97 a 1,14)</td><td class="num">0,229</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Asociación de la altitud con la depresión, desde la estimación sin ajustar hasta la ajustada. Diseño muestral complejo. Las filas con asterisco incluyen a quienes nunca asistieron a la escuela.</caption><thead><tr><th scope="col">Ajuste</th><th scope="col" class="num">Personas</th><th scope="col" class="num">OR por 1 000 m (IC 95 %)</th><th scope="col" class="num">p</th></tr></thead><tbody><tr><td>(1) Cruda</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,052</td></tr><tr><td>(2) + sexo y edad</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,044</td></tr><tr><td>(3) + educación y área</td><td class="num">29 024</td><td class="num">1,08 (1,02 a 1,14)</td><td class="num">0,007</td></tr><tr><td>(4) + conductas y condiciones clínicas</td><td class="num">29 024</td><td class="num">1,09 (1,03 a 1,15)</td><td class="num">0,002</td></tr><tr><td>(5) + región natural (se deriva de la altitud)</td><td class="num">29 024</td><td class="num">1,35 (1,16 a 1,57)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6) + departamento</td><td class="num">29 024</td><td class="num">1,05 (0,96 a 1,14)</td><td class="num">0,254</td></tr><tr><td>(1*) Cruda, con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,09 (1,04 a 1,14)</td><td class="num">0,001</td></tr><tr><td>(4*) Como (4), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,11 (1,05 a 1,17)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6*) Como (6), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,05 (0,97 a 1,14)</td><td class="num">0,229</td></tr></tbody></table></div>
 
 <div class="nota atencion">
-  <strong>Qué se mantiene y qué se atenúa.</strong> La asociación es débil en bruto, con un odds
-  ratio de 1,05 (IC 95 % 1,00 a 1,11), y se mantiene al ajustar por las características de las personas: 1,09 (IC 95 % 1,03 a 1,15)
-  con sexo, edad, educación, área, conductas y condiciones clínicas. Al añadir la región natural sube
+  <strong>Qué se mantiene y qué se atenúa.</strong> Sin ajustar, la asociación es pequeña, con un
+  odds ratio de 1,05 (IC 95 % 1,00 a 1,11), y se mantiene al tener en cuenta las características de las personas:
+  1,09 (IC 95 % 1,03 a 1,15) con sexo, edad, educación, área, conductas y condiciones clínicas. Al añadir la región natural sube
   a 1,35 (IC 95 % 1,16 a 1,57), pero esa región se deriva de la propia altitud del conglomerado, así que no es un
   control independiente: es comparar dentro de franjas de altitud.
   <br><br>
@@ -341,7 +346,7 @@ altas.</p>
   decidir entre tres lecturas: que la altitud no importa, que su efecto está mezclado con lo
   que distingue a un departamento de otro, o que dentro de un departamento hay poca variación
   de altitud para detectarlo. Con quienes nunca asistieron a la escuela incluidos, el patrón es
-  el mismo: 1,09 (IC 95 % 1,04 a 1,14) en bruto, 1,11 (IC 95 % 1,05 a 1,17) ajustado y 1,05 (IC 95 % 0,97 a 1,14) con departamento.
+  el mismo: 1,09 (IC 95 % 1,04 a 1,14) sin ajustar, 1,11 (IC 95 % 1,05 a 1,17) ajustado y 1,05 (IC 95 % 0,97 a 1,14) con departamento.
 </div>
 
 <h3>¿Por qué podría asociarse la altitud con la depresión?</h3>
