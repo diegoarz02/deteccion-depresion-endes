@@ -210,9 +210,9 @@ y por eso no debe leerse como un factor aislado.</p>
 <h3>Hasta dónde se puede bajar</h3>
 <figure class="figura">
   <p class="titulo-hallazgo">Solo 139 de las 196 provincias tienen muestra suficiente para estimar</p>
-  <p class="explicacion">Bajar de departamento a provincia es tentador, pero casi nunca conviene. La encuesta está diseñada para dar cifras departamentales; al partirla en 196 pedazos, más de la cuarta parte se queda con menos de cincuenta personas. Esas provincias van tramadas, no coloreadas. Un mapa da a cada polígono la misma autoridad visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil daría una impresión de precisión que los datos no tienen, aunque ninguna cifra sea falsa.</p>
+  <p class="explicacion">Bajar de departamento a provincia puede resultar tentador, aunque rara vez conviene. La encuesta está diseñada para dar cifras departamentales; al repartirla en 196 provincias, más de la cuarta parte queda con menos de cincuenta personas. Esas provincias van tramadas y no coloreadas, porque un mapa da a cada polígono el mismo peso visual, y pintar una provincia estimada con doce casos junto a Lima con cuatro mil daría una impresión de precisión mayor que la que permiten los datos, aunque ninguna cifra esté mal calculada.</p>
   <div class="lienzo"><img src="assets/img/mapa_02_provincial.png" alt="Mapa del Perú por provincias. Las provincias con muestra suficiente aparecen coloreadas según su prevalencia; las demás llevan una trama diagonal gris que las distingue del extremo bajo de la escala de color." loading="lazy"></div>
-  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Umbral mínimo de 50 personas por provincia. 139 provincias estimables; la mediana de las descartadas tiene 28 personas.</figcaption>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Umbral mínimo de 50 personas por provincia. 139 provincias estimables; la mediana de las que no alcanzan el umbral tiene 28 personas.</figcaption>
 </figure>
 
 <figure class="figura">
@@ -314,14 +314,14 @@ se acompañan de 1,25 puntos porcentuales más de prevalencia
 (IC 95 % 0,61 a 1,88). Es un dato de grupo. Leerlo como si dijera algo sobre
 cada persona que vive en esos departamentos es la <strong>falacia ecológica</strong>: una
 asociación entre agregados puede no existir, o ser distinta, dentro de los individuos
-(Robinson, 1950/2009; Morgenstern, 1995). El mapa describe territorios. No dice que
-subir de altitud, para una persona, aumente nada.</p>
+(Robinson, 1950/2009; Morgenstern, 1995). El mapa describe territorios, y no permite
+afirmar que subir de altitud, para una persona, aumente algo.</p>
 
 <figure class="figura">
   <p class="titulo-hallazgo">Los dos mapas se parecen, pero comparan departamentos y no personas</p>
   <p class="explicacion">Altitud media a la izquierda, prevalencia a la derecha. Que coincidan en la sierra sur es un dato del territorio: ahí también hay más ruralidad, menos escolaridad y, según el estudio previo con la ENDES, menos acceso a servicios de salud. Cualquiera de esas diferencias puede producir el parecido.</p>
   <div class="lienzo"><img src="assets/img/mapa_04_altitud_prevalencia.png" alt="Dos mapas del Perú lado a lado, uno con la altitud media departamental y otro con la prevalencia de depresión. Los patrones oscuros coinciden en la sierra." loading="lazy"></div>
-  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Correlación de Pearson entre agregados departamentales: r = 0,63. Una correlación ecológica no dice nada sobre individuos.</figcaption>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Correlación de Pearson entre agregados departamentales: r = 0,63. Una correlación ecológica describe grupos y no permite hablar de individuos.</figcaption>
 </figure>
 
 <h3>La altura frente al ajuste, paso a paso</h3>
@@ -330,7 +330,7 @@ altitud con la depresión por etapas. La cifra es el odds ratio por cada 1 000 m
 valor de 1,10 quiere decir que, por cada 1 000 m más, las odds de dar positivo son un 10 % más
 altas.</p>
 
-<div class="tabla-scroll"><table><caption>Asociación de la altitud con la depresión, desde la estimación sin ajustar hasta la ajustada. Diseño muestral complejo. Las filas con asterisco incluyen a quienes nunca asistieron a la escuela.</caption><thead><tr><th scope="col">Ajuste</th><th scope="col" class="num">Personas</th><th scope="col" class="num">OR por 1 000 m (IC 95 %)</th><th scope="col" class="num">p</th></tr></thead><tbody><tr><td>(1) Cruda</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,052</td></tr><tr><td>(2) + sexo y edad</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,044</td></tr><tr><td>(3) + educación y área</td><td class="num">29 024</td><td class="num">1,08 (1,02 a 1,14)</td><td class="num">0,007</td></tr><tr><td>(4) + conductas y condiciones clínicas</td><td class="num">29 024</td><td class="num">1,09 (1,03 a 1,15)</td><td class="num">0,002</td></tr><tr><td>(5) + región natural (se deriva de la altitud)</td><td class="num">29 024</td><td class="num">1,35 (1,16 a 1,57)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6) + departamento</td><td class="num">29 024</td><td class="num">1,05 (0,96 a 1,14)</td><td class="num">0,254</td></tr><tr><td>(1*) Cruda, con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,09 (1,04 a 1,14)</td><td class="num">0,001</td></tr><tr><td>(4*) Como (4), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,11 (1,05 a 1,17)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6*) Como (6), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,05 (0,97 a 1,14)</td><td class="num">0,229</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Asociación de la altitud con la depresión, desde la estimación sin ajustar hasta la ajustada. Diseño muestral complejo. Las filas con asterisco incluyen a quienes nunca asistieron a la escuela.</caption><thead><tr><th scope="col">Ajuste</th><th scope="col" class="num">Personas</th><th scope="col" class="num">OR por 1 000 m (IC 95 %)</th><th scope="col" class="num">p</th></tr></thead><tbody><tr><td>(1) Sin ajustar</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,052</td></tr><tr><td>(2) + sexo y edad</td><td class="num">29 024</td><td class="num">1,05 (1,00 a 1,11)</td><td class="num">0,044</td></tr><tr><td>(3) + educación y área</td><td class="num">29 024</td><td class="num">1,08 (1,02 a 1,14)</td><td class="num">0,007</td></tr><tr><td>(4) + conductas y condiciones clínicas</td><td class="num">29 024</td><td class="num">1,09 (1,03 a 1,15)</td><td class="num">0,002</td></tr><tr><td>(5) + región natural (se deriva de la altitud)</td><td class="num">29 024</td><td class="num">1,35 (1,16 a 1,57)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6) + departamento</td><td class="num">29 024</td><td class="num">1,05 (0,96 a 1,14)</td><td class="num">0,254</td></tr><tr><td>(1*) Sin ajustar, con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,09 (1,04 a 1,14)</td><td class="num">0,001</td></tr><tr><td>(4*) Como (4), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,11 (1,05 a 1,17)</td><td class="num">&lt; 0,001</td></tr><tr><td>(6*) Como (6), con quienes no asistieron a la escuela</td><td class="num">30 160</td><td class="num">1,05 (0,97 a 1,14)</td><td class="num">0,229</td></tr></tbody></table></div>
 
 <div class="nota atencion">
   <strong>Qué se mantiene y qué se atenúa.</strong> Sin ajustar, la asociación es pequeña, con un
@@ -342,7 +342,7 @@ altas.</p>
   El ajuste más exigente es el departamento, que compara a personas del mismo departamento
   entre sí. Ahí el odds ratio baja a 1,05 (IC 95 % 0,96 a 1,14). El intervalo incluye al 1 y también al valor
   del modelo anterior. Lo que muestran los datos es que el gradiente aparece al comparar
-  departamentos y se atenúa al comparar dentro de cada uno. Con esta muestra no se puede
+  departamentos y se atenúa al comparar dentro de cada uno. Con esta muestra no es posible
   decidir entre tres lecturas: que la altitud no importa, que su efecto está mezclado con lo
   que distingue a un departamento de otro, o que dentro de un departamento hay poca variación
   de altitud para detectarlo. Con quienes nunca asistieron a la escuela incluidos, el patrón es
@@ -373,17 +373,17 @@ gradiente se atenúa al comparar dentro de un departamento.</p>
 Andes, la depresión por entrevista fue poco frecuente pese a la altitud, y los autores sugieren que
 la religiosidad y las redes interpersonales estrechas podrían proteger (Ishikawa et al., 2013).
 Y el tiempo de residencia parece importar: entre médicos en formación, pasar de baja a alta altitud
-se asoció con más síntomas (Kious et al., 2019), mientras que con la ENDES no se puede saber
+se asoció con más síntomas (Kious et al., 2019), mientras que la ENDES no permite saber
 cuánto tiempo lleva viviendo la gente donde vive (Hernández-Vásquez et al., 2022). En conjunto, la
-asociación es biológicamente plausible, probablemente se mezcla con el contexto y no se puede
-separar con una encuesta de hogares.</p>
+asociación es biológicamente plausible y probablemente se mezcla con el contexto, algo que una
+encuesta de hogares no alcanza a separar.</p>
 
 <h3>Lo que dicen los criterios de causalidad</h3>
 <p>Como argumento de dosis-respuesta hay algo: por encima de los 3 000 m la prevalencia sube, y
 la forma en J de la curva es más informativa que una recta. Pero no es un gradiente continuo, el
 tramo intermedio baja en lugar de subir, y el gradiente se pierde al comparar dentro de un mismo
 departamento. En cuanto a la temporalidad, el estudio es una foto: exposición y síntomas se
-miden a la vez, de modo que no se puede fijar que vivir en la altura precede a los síntomas.
+miden a la vez, de modo que no es posible establecer que vivir en la altura precede a los síntomas.
 Además, la altitud es la del lugar donde la persona vive hoy y no la de donde vivió antes
 (Hill, 1965). Por todo ello <strong>no se afirma que la altitud cause depresión</strong>.
 Lo que hay es una asociación con gradiente en parte explicable por el contexto andino, y una

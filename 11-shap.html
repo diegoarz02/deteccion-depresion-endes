@@ -73,13 +73,13 @@ bien porque es frecuente.</p>
   <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Validación cruzada de cinco particiones, estratificada y agrupada por conglomerado muestral para evitar fuga de información.</figcaption>
 </figure>
 
-<div class="tabla-scroll"><table><caption>Comparación de algoritmos. La última fila es la referencia obligada.</caption><thead><tr><th scope="col">Modelo</th><th scope="col" class="num">AUC-ROC</th><th scope="col" class="num">AUC-PR</th><th scope="col" class="num">Sensibilidad</th><th scope="col" class="num">Especificidad</th></tr></thead><tbody><tr><td>Logística regularizada</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Random Forest</td><td class="num">0.68</td><td class="num">0.12</td><td class="num">0.16</td><td class="num">0.94</td></tr><tr><td>XGBoost</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>LightGBM</td><td class="num">0.66</td><td class="num">0.11</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Modelo trivial (predice 'nadie')</td><td class="num">0.50</td><td class="num">0.06</td><td class="num">0.00</td><td class="num">1.00</td></tr></tbody></table></div>
+<div class="tabla-scroll"><table><caption>Comparación de algoritmos. La última fila es el punto de comparación.</caption><thead><tr><th scope="col">Modelo</th><th scope="col" class="num">AUC-ROC</th><th scope="col" class="num">AUC-PR</th><th scope="col" class="num">Sensibilidad</th><th scope="col" class="num">Especificidad</th></tr></thead><tbody><tr><td>Logística regularizada</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Random Forest</td><td class="num">0.68</td><td class="num">0.12</td><td class="num">0.16</td><td class="num">0.94</td></tr><tr><td>XGBoost</td><td class="num">0.67</td><td class="num">0.12</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>LightGBM</td><td class="num">0.66</td><td class="num">0.11</td><td class="num">0.15</td><td class="num">0.94</td></tr><tr><td>Modelo de referencia (responde «nadie»)</td><td class="num">0.50</td><td class="num">0.06</td><td class="num">0.00</td><td class="num">1.00</td></tr></tbody></table></div>
 
 <div class="nota atencion">
   <strong>Por qué no aparece la exactitud.</strong> Un modelo que responda «nadie tiene
   depresión» a todo el mundo acierta el 94 % de las veces sin haber mirado a nadie. Como en la muestra del análisis
-  apenas 6 de cada 100 personas dan positivo, ese número dice poco por sí solo: es la métrica más
-  citada y la que menos informa en problemas como este.
+  apenas 6 de cada 100 personas dan positivo, ese número dice poco por sí solo: es una de las métricas más
+  citadas, aunque en problemas como este es de las que menos informan.
 </div>
 
 <h3>Qué significa un AUC de 0,67, en cifras concretas</h3>
@@ -115,7 +115,7 @@ bien porque es frecuente.</p>
   situación económica inmediata y su biología. Una encuesta de hogares mide sexo, edad,
   educación, dónde vive y unas pocas conductas. Con esas variables se puede describir
   <em>dónde se concentra</em> el problema en el país (y eso se hace bien, con intervalos
-  estrechos y coherente con la literatura), pero no se puede saber quién lo tiene.
+  estrechos y coherente con la literatura), aunque no permite saber quién lo tiene.
   <br><br>
   Un AUC de 0,90 con estas variables llamaría la atención más que alegrar: casi siempre indica
   que se coló una variable que ya contiene el desenlace. En este proyecto ese riesgo era real y
