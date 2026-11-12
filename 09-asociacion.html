@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuerza e impacto · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/fuentes.css">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">10 de 15</span></a>
+  <div class="nav-controles">
+    <a class="salto" href="08-factores.html" title="Qué se asocia" aria-label="Anterior: Qué se asocia">‹</a><a class="salto" href="10-modelo.html" title="El modelo" aria-label="Siguiente: El modelo">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-asociacion.html" aria-current="page">Fuerza e impacto</a><a href="10-modelo.html">El modelo</a><a href="11-shap.html">Modelo y realidad</a><a href="12-validez.html">Sesgos y límites</a><a href="13-conclusiones.html">Qué significa</a><a href="14-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:67%"></div></div>
+</header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/trending-up.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 10 de 15</span>
+</div>
+<h2>Qué tan fuerte es una asociación y a cuánta gente alcanza</h2>
+<p class="entradilla">Una asociación se puede medir de dos maneras: qué tan fuerte es y cuánta gente
+involucra. No son lo mismo, y confundirlas lleva a conclusiones que los datos no sostienen.</p>
+
+<h3>Por qué hablamos de prevalencia y de razón de prevalencias</h3>
+<p>La ENDES entrevistó a cada persona una sola vez. Lo que se puede contar, entonces, es la
+<strong>prevalencia</strong>: cuántas personas tienen síntomas en el momento de la encuesta. La
+<em>incidencia</em>, es decir, cuántas personas desarrollan síntomas con el paso del tiempo, exige
+seguir a la gente, y eso no se hizo. Un estudio transversal sirve para medir prevalencia y no
+permite distinguir qué fue primero (Mann, 2003).</p>
+
+<p>El riesgo relativo clásico se calcula con incidencias, de modo que aquí no lo calculamos. Usamos
+su equivalente para una fotografía, la <strong>razón de prevalencias</strong>: el cociente entre
+la prevalencia de quienes tienen un factor y la de quienes no lo tienen. Para estimarla con un
+ajuste por otras variables se recomienda la regresión de Poisson con varianza robusta
+(Zou, 2004; Barros y Hirakata, 2003). Junto a ella damos el <strong>odds ratio</strong>, que es lo
+que estima la regresión logística del modelo principal.</p>
+
+<h3>Cada factor en una tabla 2×2</h3>
+<p>Para cada factor, las personas se reparten en cuatro casillas: <strong>a</strong>, con el factor
+y con sintomatología; <strong>b</strong>, con el factor y sin ella; <strong>c</strong>, sin el
+factor y con sintomatología; y <strong>d</strong>, sin el factor y sin ella. De ahí salen las
+prevalencias de cada grupo y todas las medidas que siguen. Esta tabla cuenta a las personas
+entrevistadas sin ponderar, como se hace al presentar una 2×2.</p>
+
+<div class="tabla-scroll"><table><caption>Tablas 2×2 de cada factor, con las personas entrevistadas sin ponderar. En la violencia física de pareja solo entran quienes tuvieron pareja.</caption><thead><tr><th scope="col">Factor</th><th scope="col" class="num">a</th><th scope="col" class="num">b</th><th scope="col" class="num">c</th><th scope="col" class="num">d</th><th scope="col" class="num">Prevalencia con el factor</th><th scope="col" class="num">Prevalencia sin el factor</th></tr></thead><tbody><tr><td>Violencia física de pareja</td><td class="num">129</td><td class="num">665</td><td class="num">957</td><td class="num">17 982</td><td class="num">16,2 %</td><td class="num">5,1 %</td></tr><tr><td>Sexo femenino</td><td class="num">1 572</td><td class="num">16 308</td><td class="num">449</td><td class="num">11 897</td><td class="num">8,8 %</td><td class="num">3,6 %</td></tr><tr><td>Hipertensión diagnosticada</td><td class="num">341</td><td class="num">2 282</td><td class="num">1 672</td><td class="num">25 911</td><td class="num">13,0 %</td><td class="num">6,1 %</td></tr><tr><td>Diabetes diagnosticada</td><td class="num">155</td><td class="num">1 004</td><td class="num">1 860</td><td class="num">27 183</td><td class="num">13,4 %</td><td class="num">6,4 %</td></tr><tr><td>Consumo problemático de alcohol</td><td class="num">40</td><td class="num">264</td><td class="num">1 979</td><td class="num">27 925</td><td class="num">13,2 %</td><td class="num">6,6 %</td></tr><tr><td>Área rural</td><td class="num">811</td><td class="num">10 466</td><td class="num">1 210</td><td class="num">17 739</td><td class="num">7,2 %</td><td class="num">6,4 %</td></tr><tr><td>Obesidad (IMC ≥ 30)</td><td class="num">584</td><td class="num">7 642</td><td class="num">1 403</td><td class="num">20 099</td><td class="num">7,1 %</td><td class="num">6,5 %</td></tr><tr><td>Consumo frecuente de alcohol</td><td class="num">166</td><td class="num">3 005</td><td class="num">1 853</td><td class="num">25 184</td><td class="num">5,2 %</td><td class="num">6,9 %</td></tr><tr><td>Fumó en los últimos 12 meses</td><td class="num">231</td><td class="num">4 273</td><td class="num">1 789</td><td class="num">23 926</td><td class="num">5,1 %</td><td class="num">7,0 %</td></tr></tbody></table></div>
+
+<p>La razón de prevalencias (RP) y el odds ratio (OR) se leen así: un valor de 1 quiere decir que
+la prevalencia es la misma con y sin el factor; por encima de 1, que es más alta con el factor, y
+por debajo, que es más baja. Cada una lleva su intervalo de confianza al 95 %. La columna de la
+derecha traduce el resultado en una línea, como factor de riesgo o factor protector, y con qué
+fuerza (débil por debajo de 1,5; moderada hasta 3; fuerte desde 3, una convención práctica y no una
+norma).</p>
+
+<div class="tabla-scroll"><table><caption>Medidas de asociación crudas (sin ponderar) y OR ajustado del modelo con diseño complejo. La lectura exige que la asociación sobreviva al diseño muestral.</caption><thead><tr><th scope="col">Factor</th><th scope="col" class="num">RP (IC 95 %)</th><th scope="col" class="num">OR (IC 95 %)</th><th scope="col" class="num">χ² (p)</th><th scope="col" class="num">p de Rao y Scott</th><th scope="col" class="num">OR ajustado del modelo</th><th scope="col">Lectura</th></tr></thead><tbody><tr><td>Violencia física de pareja</td><td class="num">3,22 (2,71 – 3,81)</td><td class="num">3,64 (2,99 – 4,45)</td><td class="num">183,61 (&lt; 0,001)</td><td class="num">&lt; 0,001</td><td class="num">3,86 (2,74 a 5,44)</td><td>Factor de riesgo, de fuerza fuerte</td></tr><tr><td>Sexo femenino</td><td class="num">2,42 (2,18 – 2,68)</td><td class="num">2,55 (2,29 – 2,84)</td><td class="num">311,07 (&lt; 0,001)</td><td class="num">&lt; 0,001</td><td class="num">2,94 (2,39 a 3,62)</td><td>Factor de riesgo, de fuerza moderada</td></tr><tr><td>Hipertensión diagnosticada</td><td class="num">2,14 (1,92 – 2,39)</td><td class="num">2,32 (2,05 – 2,62)</td><td class="num">185,40 (&lt; 0,001)</td><td class="num">&lt; 0,001</td><td class="num">1,45 (1,13 a 1,84)</td><td>Factor de riesgo, de fuerza moderada</td></tr><tr><td>Diabetes diagnosticada</td><td class="num">2,09 (1,79 – 2,43)</td><td class="num">2,26 (1,89 – 2,69)</td><td class="num">86,94 (&lt; 0,001)</td><td class="num">&lt; 0,001</td><td class="num">1,41 (1,00 a 2,00)</td><td>Factor de riesgo, de fuerza moderada</td></tr><tr><td>Consumo problemático de alcohol</td><td class="num">1,99 (1,48 – 2,66)</td><td class="num">2,14 (1,53 – 2,99)</td><td class="num">20,64 (&lt; 0,001)</td><td class="num">&lt; 0,001</td><td class="num">6,07 (3,41 a 10,82)</td><td>Factor de riesgo, de fuerza moderada</td></tr><tr><td>Área rural</td><td class="num">1,13 (1,03 – 1,23)</td><td class="num">1,14 (1,04 – 1,25)</td><td class="num">7,36 (0,007)</td><td class="num">0,698</td><td class="num">0,84 (0,71 a 0,99)</td><td>Sin asociación distinguible de la nulidad con el diseño muestral</td></tr><tr><td>Obesidad (IMC ≥ 30)</td><td class="num">1,09 (0,99 – 1,19)</td><td class="num">1,09 (0,99 – 1,21)</td><td class="num">3,15 (0,076)</td><td class="num">0,069</td><td class="num">1,09 (0,92 a 1,31)</td><td>Sin asociación distinguible de la nulidad con el diseño muestral</td></tr><tr><td>Consumo frecuente de alcohol</td><td class="num">0,76 (0,65 – 0,89)</td><td class="num">0,75 (0,64 – 0,88)</td><td class="num">11,92 (0,001)</td><td class="num">0,015</td><td class="num">0,83 (0,59 a 1,16)</td><td>Factor protector, de fuerza débil</td></tr><tr><td>Fumó en los últimos 12 meses</td><td class="num">0,74 (0,65 – 0,84)</td><td class="num">0,72 (0,63 – 0,83)</td><td class="num">20,54 (&lt; 0,001)</td><td class="num">0,113</td><td class="num">1,41 (1,07 a 1,87)</td><td>Sin asociación distinguible de la nulidad con el diseño muestral</td></tr></tbody></table></div>
+
+<h3>Qué dice la prueba chi cuadrado</h3>
+<p>Junto a cada 2×2 va la prueba chi cuadrado de Pearson, con un grado de libertad. Su hipótesis
+nula es que el factor y la sintomatología no se asocian, es decir, que la prevalencia es la misma
+con y sin el factor. Un valor p pequeño indica que, si esa hipótesis fuera cierta, los datos
+observados serían poco esperables, y por eso la ponemos en duda.</p>
+
+<p>Esa prueba trata a todas las personas como si fueran independientes, y en una encuesta por
+conglomerados no lo son. La versión de Rao y Scott corrige el estadístico por el efecto del diseño
+(Rao y Scott, 1984), y la diferencia importa. En el área rural, Pearson da una señal débil, y con
+el diseño desaparece (p = 0,698). Algo parecido
+ocurre con el tabaco, cuya asociación cruda ya no se sostiene al respetar el diseño. Por eso la
+columna de la lectura se apoya en la prueba de Rao y Scott y no en la de Pearson.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">El odds ratio exagera, pero aquí exagera poco</p>
+  <p class="explicacion">Cada factor aparece medido de dos maneras, el odds ratio y la razón de prevalencias, y cuanto más se separan los dos puntos de un mismo factor, más difieren esas dos formas de contar lo mismo. El odds ratio siempre se aleja más del 1 que la razón de prevalencias, y la diferencia crece cuando la condición es más frecuente. Con una prevalencia del 7 % la teoría dice que deberían parecerse, y aquí casi coinciden: la distancia media es del 5,3 %. Comprobarlo con los propios datos es más honesto que citarlo de un manual. Cuando la condición es poco frecuente, el odds ratio puede leerse de forma aproximada como una razón de prevalencias (Barros y Hirakata, 2003).</p>
+  <div class="lienzo"><img src="assets/img/fig_06_or_vs_rp.png" alt="Gráfico de puntos que compara el odds ratio con la razón de prevalencias de cada exposición. Los puntos se alinean cerca de la diagonal." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). La razón de prevalencias se estimó con regresión de Poisson y varianza robusta.</figcaption>
+</figure>
+
+<h3>Qué dice la literatura de cada asociación</h3>
+<p>Ninguno de estos resultados está solo. Los hemos puesto junto a lo que se ha publicado, y
+conviene leer la comparación con cuidado: otros estudios usan otras definiciones, otras edades y
+otros diseños, y en muchos casos miden una relación a lo largo del tiempo que aquí no podemos
+observar.</p>
+
+<div class="tabla-scroll"><table><caption>Contraste entre nuestros resultados y la literatura. Los estudios citados difieren en definiciones, edades y diseños.</caption><thead><tr><th scope="col">Factor</th><th scope="col" class="num">Nuestro OR ajustado (IC 95 %)</th><th scope="col">Lo que se ha publicado</th><th scope="col">Cómo lo leemos</th></tr></thead><tbody><tr><td>Sexo femenino</td><td class="num">2,94 (2,39 a 3,62)</td><td>Una revisión de más de 90 países halló un OR global de 1,95, con el máximo en la adolescencia y estable en la adultez (Salk et al., 2017). En el Perú, ser hombre se asoció con una razón de prevalencias de 0,50 (Basauri-Delgado et al., 2025).</td><td>La brecha es más amplia que el promedio internacional. Con estos datos no podemos decir por qué.</td></tr><tr><td>Violencia física de pareja</td><td class="num">3,86 (2,74 a 5,44)</td><td>En mujeres, los estudios de seguimiento muestran una asociación con síntomas depresivos posteriores (OR agrupado de 1,97) y también en sentido contrario, de los síntomas a la violencia posterior (1,93) (Devries et al., 2013).</td><td>Asociación fuerte y plausible, probablemente en los dos sentidos. Nuestra cifra es más alta, y puede deberse a que mide prevalencia en una foto y reúne a hombres y mujeres.</td></tr><tr><td>Consumo problemático de alcohol</td><td class="num">6,07 (3,41 a 10,82)</td><td>Con trastorno por consumo de alcohol, las odds de depresión se duplican (OR agrupado de 2,00 a 2,09), y la relación más verosímil va del alcohol a la depresión (Boden y Fergusson, 2011).</td><td>Nuestra cifra es mayor y su intervalo es amplio, porque lo declaran 304 personas. Dos criterios de abuso no equivalen a un trastorno por consumo.</td></tr><tr><td>Hipertensión diagnosticada</td><td class="num">1,45 (1,13 a 1,84)</td><td>Una razón de prevalencias de 1,45 en otro análisis peruano (Basauri-Delgado et al., 2025). En cohortes, la depresión precede a la hipertensión (riesgo relativo de 1,42) (Meng et al., 2012).</td><td>Misma magnitud que en el estudio peruano. El sentido puede ir de la depresión a la hipertensión.</td></tr><tr><td>Diabetes diagnosticada</td><td class="num">1,41 (1,00 a 2,00)</td><td>Una razón de prevalencias de 1,42 en otro análisis peruano (Basauri-Delgado et al., 2025). La relación es bidireccional: diabetes a depresión, 1,15; depresión a diabetes, 1,60 (Mezuk et al., 2008).</td><td>Coincide con el estudio peruano. Con una foto no se sabe cuál precede.</td></tr><tr><td>Fumó en los últimos 12 meses</td><td class="num">1,41 (1,07 a 1,87)</td><td>Una razón de prevalencias de 1,32 para quien fuma cada mes (Basauri-Delgado et al., 2025). Los estudios longitudinales encuentran asociaciones en ambos sentidos y no coinciden en cuál pesa más (Fluharty et al., 2017).</td><td>Sentido coherente. La paradoja de la sección 9 muestra cuánto depende de ajustar por sexo.</td></tr><tr><td>Obesidad (IMC de 30 o más)</td><td class="num">1,09 (0,92 a 1,31)</td><td>En estudios longitudinales, la obesidad se asocia con depresión posterior (OR de 1,55) y la depresión con obesidad posterior (1,58) (Luppino et al., 2010).</td><td>Nuestra asociación es más débil y su intervalo incluye al 1. No contradice la literatura, pero tampoco la confirma con estos datos.</td></tr><tr><td>Área rural</td><td class="num">0,84 (0,71 a 0,99)</td><td>Una razón de prevalencias de 0,85 en otro análisis peruano (Basauri-Delgado et al., 2025). Los trastornos del ánimo son algo más frecuentes en zonas urbanas (Peen et al., 2010).</td><td>Coincide en el sentido. En bruto las prevalencias rural y urbana casi no difieren (6,8 % y 7,0 %).</td></tr><tr><td>Primaria o menos, frente a educación superior</td><td class="num">1,48 (1,14 a 1,93)</td><td>El nivel socioeconómico bajo se asocia con más depresión (OR de 1,81), con una relación dosis-respuesta para la educación y el ingreso (Lorant et al., 2003).</td><td>Coincide, y la prevalencia baja de forma ordenada con cada nivel (8,8 %, 7,0 % y 5,3 %).</td></tr><tr><td>Altitud (por cada 1 000 m)</td><td class="num">1,09 (1,03 a 1,15)</td><td>Mayor puntaje depresivo con cada 100 m de altitud en la ENDES de 2013 a 2020 (Hernández-Vásquez et al., 2022), y una razón de prevalencias de 1,41 a partir de 2 500 m en la de 2019 (Zegarra-Rodríguez et al., 2022).</td><td>Coincide con el ajuste por las personas, pero se atenúa al comparar dentro de un mismo departamento (sección 8).</td></tr></tbody></table></div>
+
+<h3>Cuánto pesa cada factor en la población</h3>
+<p>Una asociación fuerte no es lo mismo que un gran impacto. Para ver la diferencia se usan tres
+medidas que parten de la prevalencia y no de la incidencia, y que por eso hay que leer con
+cuidado:</p>
+
+<ul>
+  <li>La <strong>diferencia de prevalencias</strong> entre quienes tienen el factor y quienes no, en
+  puntos porcentuales.</li>
+  <li>La <strong>fracción atribuible en los expuestos</strong>: de las personas con el factor que
+  dieron positivo, qué parte correspondería al factor.</li>
+  <li>La <strong>fracción atribuible poblacional</strong>, la más útil en salud pública: qué parte
+  de todos los casos de la población se asocia con el factor. Depende de la fuerza de la
+  asociación y también de cuán frecuente sea el factor (Miettinen, 1974; Rockhill et al., 1998).</li>
+</ul>
+
+<p>Las dos fracciones solo significan «casos que no ocurrirían» si la asociación fuera causal y
+no estuviera confundida, y este diseño no permite comprobarlo. Por eso las llamamos fracciones
+atribuibles y no fracciones evitables. Se calcularon con los pesos de la encuesta y con la razón
+de prevalencias ajustada por las mismas variables del modelo principal, y sus intervalos salen de
+un remuestreo de conglomerados dentro de estratos (Rao y Wu, 1988).</p>
+
+<div class="tabla-scroll"><table><caption>Medidas de impacto basadas en prevalencia. Se omite la fracción cuando, tras ajustar, la asociación no se distingue de la nulidad o resulta protectora. * Entre quienes tuvieron pareja.</caption><thead><tr><th scope="col">Factor</th><th scope="col" class="num">Personas con el factor</th><th scope="col" class="num">RP ajustada (IC 95 %)</th><th scope="col" class="num">Diferencia cruda (puntos)</th><th scope="col" class="num">Fracción en expuestos</th><th scope="col" class="num">Fracción poblacional, % (IC 95 %)</th></tr></thead><tbody><tr><td>Sexo femenino</td><td class="num">51,1 %</td><td class="num">2,70 (2,23 a 3,27)</td><td class="num">5,8</td><td class="num">63,0 %</td><td class="num">45,81 (38,15 a 52,66)</td></tr><tr><td>Violencia física de pareja *</td><td class="num">3,8 %</td><td class="num">3,22 (2,44 a 4,25)</td><td class="num">12,9</td><td class="num">68,9 %</td><td class="num">8,57 (5,45 a 11,89)</td></tr><tr><td>Hipertensión diagnosticada</td><td class="num">10,2 %</td><td class="num">1,39 (1,12 a 1,72)</td><td class="num">4,5</td><td class="num">28,0 %</td><td class="num">4,55 (1,48 a 7,74)</td></tr><tr><td>Fumó en los últimos 12 meses</td><td class="num">16,1 %</td><td class="num">1,36 (1,05 a 1,76)</td><td class="num">-0,7</td><td class="num">26,6 %</td><td class="num">3,90 (0,63 a 7,14)</td></tr><tr><td>Consumo problemático de alcohol</td><td class="num">1,0 %</td><td class="num">4,80 (2,98 a 7,71)</td><td class="num">12,1</td><td class="num">79,1 %</td><td class="num">2,19 (1,12 a 3,39)</td></tr><tr><td>Diabetes diagnosticada</td><td class="num">5,0 %</td><td class="num">1,36 (1,00 a 1,83)</td><td class="num">4,6</td><td class="num">26,3 %</td><td class="num">2,18 (-0,02 a 4,57)</td></tr><tr><td>Obesidad (IMC ≥ 30)</td><td class="num">29,5 %</td><td class="num">1,09 (0,93 a 1,28)</td><td class="num">1,1</td><td class="num">—</td><td class="num">—</td></tr><tr><td>Consumo frecuente de alcohol</td><td class="num">12,5 %</td><td class="num">0,84 (0,61 a 1,15)</td><td class="num">-1,5</td><td class="num">—</td><td class="num">—</td></tr><tr><td>Área rural</td><td class="num">16,7 %</td><td class="num">0,85 (0,73 a 0,99)</td><td class="num">-0,8</td><td class="num">—</td><td class="num">—</td></tr></tbody></table></div>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">La asociación más fuerte no es la que alcanza a más gente</p>
+  <p class="explicacion">El panel de la izquierda mide qué tan fuerte es la asociación y el de la derecha, cuántos casos de la población involucra, con un factor en cada fila. Un factor puede ser fuerte y poco frecuente, y entonces involucra a pocos casos. El consumo problemático de alcohol tiene la razón de prevalencias más alta (4,80) y, sin embargo, una fracción poblacional de solo 2,2 %, porque lo declara apenas el 1,0 % de la población. La hipertensión, con una asociación moderada (1,39), involucra al 4,5 % de los casos porque la tiene alrededor del 10 % de la gente. Las fracciones de distintos factores no se suman, porque una misma persona puede tener varios a la vez.</p>
+  <div class="lienzo"><img src="assets/img/fig_19_fuerza_e_impacto.png" alt="Dos paneles con cinco factores. A la izquierda, las razones de prevalencias ajustadas: la violencia y el consumo problemático de alcohol son las más altas. A la derecha, las fracciones atribuibles: la violencia es la mayor y el alcohol, de las menores." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Pesos de la encuesta; IC 95 % por remuestreo de conglomerados (RP: varianza de Taylor). La violencia se estima entre quienes tuvieron pareja. No implica causalidad.</figcaption>
+</figure>
+
+<div class="nota">
+  <strong>En palabras sencillas.</strong> Si estas asociaciones fueran causales, y solo en ese
+  caso, evitar la violencia física de pareja se asociaría con cerca de 9
+  de cada 100 casos entre quienes tienen o tuvieron pareja; la hipertensión, con unos
+  5 de cada 100; fumar, con unos 4; y el
+  consumo problemático de alcohol y la diabetes, con unos 2 de cada 100 cada
+  uno. El sexo femenino reúne la fracción mayor (46 %), pero no es una
+  exposición que pueda modificarse: señala dónde se concentra la carga, no qué se puede evitar.
+  En la diabetes el intervalo llega a cero, así que su fracción es la menos firme.
+</div>
+
+<p>Esta diferencia entre fuerza y alcance es la misma que aparece en la sección 12, donde el
+alcohol problemático encabeza el ranking por efecto y ocupa un lugar bajo por utilidad predictiva.
+Son dos formas de decir que un efecto grande sobre muy poca gente apenas mueve el panorama general.</p>
+</section>
+<div class="paginacion"><a href="08-factores.html">← Qué se asocia</a><a href="10-modelo.html">El modelo →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 (salud mental)<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="14-cierre.html">Todos los recursos</a>
+  </div>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
+<script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

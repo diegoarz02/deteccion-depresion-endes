@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesgos y límites · Depresión en el Perú (ENDES 2025)</title>
+<meta name="description" content="Boletín epidemiológico sobre la depresión en la población peruana de 15 y más años, a partir de la ENDES 2025 del INEI.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/fuentes.css">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav"><div class="nav-inner">
+  <a class="marca" href="index.html">Depresión en el Perú<span class="num">13 de 15</span></a>
+  <div class="nav-controles">
+    <a class="salto" href="11-shap.html" title="Modelo y realidad" aria-label="Anterior: Modelo y realidad">‹</a><a class="salto" href="13-conclusiones.html" title="Qué significa" aria-label="Siguiente: Qué significa">›</a>
+    <button class="boton-indice" onclick="alternarIndice()" aria-expanded="false"
+            aria-controls="indice-secciones">Secciones</button>
+    <button class="boton-tema" onclick="alternarTema()" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  </div>
+  <nav class="enlaces" id="indice-secciones" aria-label="Secciones del boletín"><a href="index.html">Portada</a><a href="01-que-es.html">Qué es</a><a href="02-problematica.html">En el Perú</a><a href="03-deteccion.html">Detección</a><a href="04-datos.html">Los datos</a><a href="05-medicion.html">Cómo medimos</a><a href="06-quienes.html">Quiénes son</a><a href="07-geografia.html">Dónde</a><a href="08-factores.html">Qué se asocia</a><a href="09-asociacion.html">Fuerza e impacto</a><a href="10-modelo.html">El modelo</a><a href="11-shap.html">Modelo y realidad</a><a href="12-validez.html" aria-current="page">Sesgos y límites</a><a href="13-conclusiones.html">Qué significa</a><a href="14-cierre.html">Ayuda y cierre</a></nav>
+</div>
+<div class="progreso"><div style="width:87%"></div></div>
+</header>
+<main id="contenido"><div class="contenedor">
+<section>
+<div class="seccion-cabecera">
+  <img src="assets/img/iconos/shield-check.svg" alt="" aria-hidden="true">
+  <span class="seccion-num">Sección 13 de 15</span>
+</div>
+<h2>Qué puede mover estas cifras</h2>
+<p class="entradilla">Una cifra vale tanto como el proceso que la produjo: quién entró a la
+encuesta, cómo se midió cada cosa y qué se comparó con qué. Esta sección repasa con calma los tres
+tipos de error que pueden mover nuestros resultados, qué creemos que hacen en este estudio y qué
+hicimos al respecto.</p>
+
+<h3>Quién entra y quién no: el sesgo de selección</h3>
+<p>Hay sesgo de selección cuando las personas que llegan al análisis no representan a las que
+interesan, y la diferencia tiene que ver a la vez con lo que se estudia y con el resultado
+(Hernán et al., 2004). En esta encuesta hay tres puertas por donde puede entrar.</p>
+
+<p>La primera es el universo. La ENDES entrevista a los hogares particulares y a sus miembros, y
+el cuestionario de salud lo responde una persona de 15 años o más elegida en cada hogar
+(INEI, 2026). Quedan fuera quienes no viven en un hogar particular. Si la sintomatología
+depresiva fuera más frecuente entre ellos, la prevalencia que estimamos quedaría algo por debajo
+de la real. Dentro del universo, la cobertura fue alta: se ejecutaron 36 750 de las 36 760
+viviendas programadas, y los ponderadores se ajustan por la no respuesta de las viviendas
+(INEI, 2026).</p>
+
+<p>La segunda es la no respuesta de cada persona, que es la que más nos toca. De las
+33 569 personas que entraron al cuestionario de salud, 3 168
+(9,4 %) no tienen el PHQ-9 completo: 777 no
+estaban, 899 rechazaron,
+1 419 dejaron la entrevista a medias,
+70 tenían una discapacidad que lo impidió y
+3 salieron por otro motivo. De ellas sabemos poco: su sexo y su
+edad no figuran en el archivo. Lo que sí sabemos por el registro del hogar es que son más
+urbanas (84 % frente a 63 %) y viven algo más abajo
+(1 183 m en promedio frente a 1 414 m). Con eso no se puede decir hacia dónde
+mueven la prevalencia: si quienes no estaban o no quisieron responder tuvieran más síntomas, la
+estaríamos subestimando; si tuvieran menos, la estaríamos sobreestimando.</p>
+
+<p>La tercera es nuestro propio recorte. El análisis con casos completos deja fuera a
+1 145 personas con el nivel educativo ausente. No son datos
+perdidos al azar: el cuestionario pregunta primero si la persona asistió a la escuela y solo
+después, a quienes asistieron, por el nivel aprobado, de modo que estas personas son quienes nunca
+asistieron. Son en su mayoría mujeres (86 %), de
+67 años en promedio, que viven en el área rural
+(75 %) y a más altitud (2 443 m
+frente a 1 376 m), y su prevalencia ponderada es de
+16,0 % (IC 95 % 13,1 a
+19,3), más del doble que la del resto
+(6,7 %).</p>
+
+<p>Para medir cuánto importa su ausencia repetimos el modelo principal incluyéndolas como una
+categoría más. Ninguno de los 17 coeficientes comparables cambió un 10 % o más (el mayor
+fue de 6,4 %), y la categoría «sin educación» tiene un odds ratio de
+2,07 frente a la educación superior. Mantenemos el modelo con casos
+completos como análisis principal y presentamos esta comparación como análisis de sensibilidad. La
+conclusión es doble: la exclusión no altera lo que se asocia con la depresión en los factores
+principales, y deja fuera a un grupo especialmente afectado, cuya ausencia sí puede debilitar la
+asociación cruda de la altitud (sección 8).</p>
+
+<h3>Cómo se midió: el sesgo de información</h3>
+<p>Es el que más nos toca. El PHQ-9 es un autorreporte, y todo autorreporte sobre temas sensibles
+puede teñirse de deseabilidad social, esa tendencia a responder lo que parece más aceptable
+(Krumpal, 2013). Además, define un caso por tamizaje y no por diagnóstico clínico. Frente a
+una entrevista diagnóstica, con el corte en 10 el cuestionario tiene una sensibilidad de 0,88 y una
+especificidad de 0,85 (Levis et al., 2019): algunas personas con el trastorno no alcanzan el
+puntaje y otras sin él sí lo hacen. Cuando la condición es poco frecuente, esos falsos positivos
+pesan mucho, y por eso hablamos de tamizaje positivo y no de depresión.</p>
+
+<p>El error de clasificación podría no ser igual entre grupos, por ejemplo entre hombres y mujeres,
+entre el campo y la ciudad o entre quienes viven a distinta altura. En ese caso distorsiona las
+comparaciones en una dirección que no se conoce de antemano. Con datos de la ENDES se encontró que
+el PHQ-9 mide lo mismo según sexo, edad, nivel educativo, nivel socioeconómico, estado civil y área
+de residencia (Villarreal-Zegarra et al., 2019), lo que tranquiliza sobre la estructura del instrumento.
+No resuelve, sin embargo, si el punto de corte clasifica igual en todos los grupos. Un estudio en
+adultos mayores de los Himalayas y los Andes ilustra la diferencia entre tamizar y entrevistar: un
+tamizaje breve dio positivo en entre 5,3 % y 36,9 % según el lugar, mientras que la entrevista
+psiquiátrica encontró entre 1,8 % y 2,9 % de depresión en todos (Ishikawa et al., 2013).</p>
+
+<p>El bloque de alcohol de la encuesta salta la pregunta siguiente cuando la respuesta es «sí», de
+modo que contar ítems en bruto penalizaría a los casos más graves, cuyo dato faltante significa «ya
+cumplió el criterio». Lo resolvimos agrupando por criterio con lógica «o». Es una decisión razonada,
+pero no contrastada con una medida de referencia, y deja un margen de error de medición en el
+consumo problemático, que es justamente el factor de mayor fuerza. Si ese error fuera igual entre
+quienes tienen y no tienen síntomas, lo esperable sería que acercara la asociación al 1, aunque ni
+siquiera eso está garantizado en un estudio concreto (Jurek et al., 2005).</p>
+
+<p>La hipertensión y la diabetes son diagnósticos que informa la persona, y para recibirlos hay que
+haber llegado a un servicio de salud. Quien tiene menos acceso puede estar sin diagnóstico aunque
+tenga la enfermedad. No podemos medir ese efecto, y es una razón más para leer esas asociaciones
+con prudencia. La obesidad, en cambio, se calcula con el peso y la talla medidos por el
+entrevistador.</p>
+
+<h3>Qué se compara con qué: la confusión</h3>
+<p>Un factor confunde una asociación cuando cumple tres condiciones a la vez: es factor de riesgo
+del evento, se asocia con la exposición y no es un eslabón intermedio en la cadena causal entre
+ambos. El sexo, en la paradoja del tabaco de la sección 9, es el ejemplo más claro. Lo controlamos
+de dos maneras: estratificando, es decir, comparando dentro de cada grupo con el método de Mantel y
+Haenszel, y ajustando en el modelo multivariable. Para decidir qué entra al modelo nos apoyamos en un
+diagrama causal (Greenland et al., 1999), y para declarar que hay confusión usamos el criterio del
+cambio de 10 % en la estimación (Maldonado y Greenland, 1993; Mickey y Greenland, 1989). Los factores que podrían
+estar en el camino entre una exposición y la depresión, como la obesidad, no se ajustan como
+confusores sino que se estudian aparte, en la sección 11.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Qué se ajusta y qué no, dicho antes de modelar</p>
+  <p class="explicacion">El diagrama declara los supuestos del estudio antes de ver los resultados. Sexo, edad, educación y área se ajustan porque preceden a las exposiciones y al desenlace; el tratamiento recibido no se ajusta porque es consecuencia de la depresión, y ajustarlo introduciría otro sesgo.</p>
+  <div class="lienzo"><img src="assets/img/fig_08_dag_causal.png" alt="Diagrama con cuatro confusores a la izquierda, cuatro exposiciones en el centro, la depresión a la derecha y el tratamiento recibido como consecuencia de la depresión." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: elaboración propia. Los supuestos causales son una hipótesis de trabajo y no una demostración.</figcaption>
+</figure>
+
+<h3>La altitud como posible confusor</h3>
+<p>La altitud no viaja sola, y por eso nos preguntamos si confunde a los demás factores. La
+respuesta se mide con el mismo criterio: se compara el odds ratio de cada factor sin y con la
+altitud en el modelo. La altitud entra por pisos y no como recta, porque su relación con la depresión
+tiene forma de J.</p>
+
+<div class="tabla-scroll"><table><caption>Odds ratio de cada factor sin y con ajuste por piso altitudinal, con el diseño muestral complejo. El cambio se calcula sobre el odds ratio.</caption><thead><tr><th scope="col">Factor</th><th scope="col" class="num">OR sin altitud (IC 95 %)</th><th scope="col" class="num">OR con altitud (IC 95 %)</th><th scope="col" class="num">Cambio (%)</th><th scope="col" class="num">Cambio sin región natural (%)</th></tr></thead><tbody><tr><td>Sexo femenino</td><td class="num">2,94 (2,39 a 3,62)</td><td class="num">2,94 (2,38 a 3,61)</td><td class="num">-0,1</td><td class="num">-0,3</td></tr><tr><td>Área rural</td><td class="num">0,84 (0,71 a 0,99)</td><td class="num">0,82 (0,69 a 0,98)</td><td class="num">-1,4</td><td class="num">-7,9</td></tr><tr><td>Consumo problemático de alcohol</td><td class="num">6,07 (3,41 a 10,82)</td><td class="num">6,08 (3,40 a 10,85)</td><td class="num">0,1</td><td class="num">-1,7</td></tr><tr><td>Consumo frecuente de alcohol</td><td class="num">0,83 (0,59 a 1,16)</td><td class="num">0,84 (0,60 a 1,17)</td><td class="num">0,8</td><td class="num">1,7</td></tr><tr><td>Fumó en los últimos 12 meses</td><td class="num">1,41 (1,07 a 1,87)</td><td class="num">1,41 (1,06 a 1,87)</td><td class="num">-0,1</td><td class="num">0,1</td></tr><tr><td>Hipertensión diagnosticada</td><td class="num">1,45 (1,13 a 1,84)</td><td class="num">1,45 (1,13 a 1,85)</td><td class="num">0,1</td><td class="num">0,7</td></tr><tr><td>Diabetes diagnosticada</td><td class="num">1,41 (1,00 a 2,00)</td><td class="num">1,42 (1,01 a 2,01)</td><td class="num">0,6</td><td class="num">1,8</td></tr><tr><td>Obesidad (IMC ≥ 30)</td><td class="num">1,09 (0,92 a 1,31)</td><td class="num">1,09 (0,92 a 1,31)</td><td class="num">0,0</td><td class="num">1,1</td></tr><tr><td>Violencia física de pareja</td><td class="num">3,86 (2,74 a 5,44)</td><td class="num">3,88 (2,75 a 5,47)</td><td class="num">0,5</td><td class="num">—</td></tr></tbody></table></div>
+
+<p>La altitud <strong>no confunde</strong> a ninguno de los factores principales. Al añadirla al
+modelo, el odds ratio cambia como máximo un 1,4 %, muy por debajo del 10 %. Como la región
+natural se deriva de la propia altitud y podría estar absorbiendo parte de su efecto, se repitió la
+comparación sin ella: el mayor cambio es de 7,9 % (área rural), también por debajo del
+umbral. La razón de prevalencias se comporta igual. Por eso las asociaciones que presenta el
+boletín se mantienen con o sin la altitud en el modelo.</p>
+
+<figure class="figura">
+  <p class="titulo-hallazgo">Añadir la altitud casi no mueve a los demás factores</p>
+  <p class="explicacion">A la izquierda, cada factor aparece dos veces: sin la altitud en el modelo (punto lleno) y con ella (punto hueco). Mientras más separados estén los dos puntos de un factor, más lo movía la altitud; aquí casi coinciden, y eso es el resultado: la altitud no altera lo que se asocia con la depresión en esos factores. A la derecha, cada fila añade un ajuste al gradiente de la propia altitud, y la última compara solo dentro de cada departamento, donde el intervalo ya cruza el 1. Ese panel se discute en la sección 8.</p>
+  <div class="lienzo"><img src="assets/img/fig_20_altitud_confusor.png" alt="Dos paneles. A la izquierda, pares de puntos casi superpuestos para nueve factores. A la derecha, odds ratios por cada 1 000 metros en seis modelos, con el último intervalo cruzando el 1." loading="lazy"></div>
+  <figcaption class="ficha">Fuente: ENDES 2025 (INEI). Diseño muestral complejo.</figcaption>
+</figure>
+
+<p>Queda un límite que conviene decir con franqueza. Hay confusores que no medimos, como el
+ingreso, la lengua materna, la afiliación a un seguro de salud o la distancia a un servicio. Su
+ausencia deja un margen de confusión residual: la altitud, el área y la región pueden estar
+cargando con parte de ellos, y las asociaciones ajustadas lo son respecto de lo que sí medimos, no
+de todo lo que importa.</p>
+
+<h3>Una foto no tiene secuencia: la temporalidad</h3>
+<p>Como la encuesta es una foto, la exposición y el evento se miden a la vez. Todas las
+asociaciones de este boletín describen coexistencia, no secuencia, y esto vale para la altitud y
+para cada uno de los factores (Mann, 2003). Los estudios de seguimiento muestran por qué
+importa. En la violencia de pareja, la relación se ha observado en los dos sentidos
+(Devries et al., 2013); lo mismo ocurre con la diabetes (Mezuk et al., 2008), la obesidad
+(Luppino et al., 2010) y el tabaco (Fluharty et al., 2017), y en el caso de la hipertensión se ha
+descrito que la depresión antecede a la enfermedad (Meng et al., 2012). Además, la altitud que
+usamos es la del lugar donde la persona vive hoy y no la de donde vivió antes, lo que deja sin
+resolver el tiempo de exposición (Hernández-Vásquez et al., 2022).</p>
+
+<div class="nota">
+  <strong>En una frase.</strong> Estas cifras describen bien a los grupos y a la forma en que se
+  relacionan los factores entre sí en 2025, y tienen límites reales para hablar de causas, de
+  personas concretas y de lo que ocurre fuera de los hogares particulares.
+</div>
+</section>
+<div class="paginacion"><a href="11-shap.html">← Modelo y realidad</a><a href="13-conclusiones.html">Qué significa →</a></div>
+</div></main>
+<footer><div class="contenedor"><div class="cols">
+  <div>
+    <h4>Fuente</h4>
+    Encuesta Demográfica y de Salud Familiar 2025<br>
+    Instituto Nacional de Estadística e Informática<br>
+    Módulos CSALUD01 y RECH0 · n = 30 226
+  </div>
+  <div>
+    <h4>Límites geográficos</h4>
+    INEI 2023, vía geogpsperu / SuyoPomalia<br>
+    25 departamentos · 196 provincias
+  </div>
+  <div>
+    <h4>Reproducibilidad</h4>
+    Todo el análisis se regenera con un comando.<br>
+    <a href="https://github.com/diegoarz02/deteccion-depresion-endes">Código y datos en GitHub</a>
+  </div>
+  <div>
+    <h4>¿Necesitas ayuda?</h4>
+    Línea 113, opción 5 (salud mental)<br>
+    Gratuita, 24 horas, MINSA<br>
+    <a href="14-cierre.html">Todos los recursos</a>
+  </div>
+</div>
+<!-- El descargo va en el pie compartido, no solo en la primera página: quien
+     entra por un enlace directo a la sección del modelo tiene que leerlo
+     igual que quien empieza por el principio. -->
+<p class="descargo-pie">
+  <strong>Esto es un tamizaje poblacional, no un diagnóstico.</strong>
+  El PHQ-9 identifica sintomatología, no enfermedad, y ninguna cifra de este boletín
+  describe a una persona concreta. El modelo estadístico discrimina de forma moderada
+  (AUC 0,67): sirve para comparar grupos y orientar dónde poner recursos, no para decidir
+  sobre nadie. Si algo de lo que lees te resuena, hablar con un profesional de salud mental
+  es el paso que sí puede evaluar tu situación.
+</p>
+</div></footer>
+<script>
+function alternarIndice() {
+  var h = document.querySelector('header.nav');
+  var b = document.querySelector('.boton-indice');
+  var abierto = h.getAttribute('data-indice') === 'abierto';
+  h.setAttribute('data-indice', abierto ? 'cerrado' : 'abierto');
+  b.setAttribute('aria-expanded', String(!abierto));
+}
+
+function alternarTema() {
+  const r = document.documentElement;
+  const nuevo = r.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+  r.setAttribute('data-tema', nuevo);
+  localStorage.setItem('tema', nuevo);
+}
+(function () {
+  const g = localStorage.getItem('tema');
+  if (g) document.documentElement.setAttribute('data-tema', g);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-tema', 'oscuro');
+})();
+</script>
+</body></html>

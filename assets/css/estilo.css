@@ -227,14 +227,6 @@ p { margin: 0 0 16px; max-width: 74ch; }
 }
 .figura img { width: 100%; height: auto; border-radius: 8px; display: block; }
 
-.como-leer {
-  background: var(--teal-100); border-left: 4px solid var(--teal-500);
-  border-radius: 0 10px 10px 0; padding: 15px 19px; margin: 16px 0; font-size: .93rem;
-}
-.como-leer strong { color: var(--teal-700); display: block; margin-bottom: 7px; }
-.como-leer ul { margin: 0; padding-left: 20px; }
-.como-leer li { margin-bottom: 5px; }
-
 .nota {
   background: var(--fondo-alt); border-left: 4px solid var(--azul-500);
   padding: 16px 20px; border-radius: 0 10px 10px 0; font-size: .95rem; margin: 24px 0;
@@ -530,3 +522,11 @@ body {
   font-size: .85rem; color: var(--texto-suave); margin: 0 auto; max-width: 52ch;
 }
 .dep-detalle strong { color: var(--miel-700); }
+
+/* Lista de referencias en APA 7: sangría francesa y cadencia tranquila */
+ol.referencias { list-style: none; padding: 0; margin: 14px 0 0; }
+ol.referencias li {
+  padding-left: 2em; text-indent: -2em; margin: 0 0 10px;
+  font-size: .9rem; line-height: 1.55; overflow-wrap: anywhere;
+}
+ol.referencias a { word-break: break-all; }
